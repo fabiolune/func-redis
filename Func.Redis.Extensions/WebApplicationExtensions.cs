@@ -1,10 +1,11 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Sport.Functional.Extensions;
+﻿using Func.Redis;
+using Microsoft.Extensions.DependencyInjection;
 using StackExchange.Redis;
 using System.Diagnostics.CodeAnalysis;
+using TinyFp.Extensions;
 using WebApp = Microsoft.AspNetCore.Builder.WebApplication;
 
-namespace Sport.Redis.Extensions;
+namespace Func.Redis.Extensions;
 
 [ExcludeFromCodeCoverage(Justification = "static extension methods")]
 public static class WebApplicationExtensions

@@ -10,7 +10,7 @@ public partial class LoggingRedisServiceTests
     [SetUp]
     public void Setup()
     {
-        _loggerFactory = MELTBuilder.CreateLoggerFactory();
+        _loggerFactory = TestLoggerFactory.Create();
 
         _mockLogger = _loggerFactory.CreateLogger<IRedisKeyService>();
         _mockService = Substitute.For<IRedisKeyService>();

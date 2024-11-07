@@ -1,4 +1,4 @@
-﻿namespace Sport.Redis.Extensions;
+﻿namespace Func.Redis.Extensions;
 
 [Flags]
 public enum RedisCapabilities

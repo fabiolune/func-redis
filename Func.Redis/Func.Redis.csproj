@@ -7,10 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SpanJson" Version="4.1.0" />
-    <PackageReference Include="StackExchange.Redis" Version="2.8.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.2" />
+    <PackageReference Include="SpanJson" Version="4.2.1" />
+    <PackageReference Include="StackExchange.Redis" Version="2.8.16" />
     <PackageReference Include="System.Interactive.Async" Version="6.0.1" />
-    <PackageReference Include="tiny-fp" Version="2.0.0" />
+    <PackageReference Include="tiny-fp" Version="2.1.0" />
   </ItemGroup>
 
 </Project>

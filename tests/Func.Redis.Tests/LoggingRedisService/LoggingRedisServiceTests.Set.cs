@@ -14,7 +14,7 @@ public partial class LoggingRedisServiceTests
 
         result.IsRight.Should().BeTrue();
 
-        _loggerFactory.LogEntries.Should().BeEmpty();
+        _loggerFactory.Sink.LogEntries.Should().BeEmpty();
     }
 
     [Test]
@@ -30,7 +30,7 @@ public partial class LoggingRedisServiceTests
 
         result.IsRight.Should().BeTrue();
 
-        _loggerFactory.LogEntries.Should().BeEmpty();
+        _loggerFactory.Sink.LogEntries.Should().BeEmpty();
     }
 
     [Test]
@@ -47,7 +47,7 @@ public partial class LoggingRedisServiceTests
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
 
-        var entries = _loggerFactory.LogEntries;
+        var entries = _loggerFactory.Sink.LogEntries;
         entries.Should().HaveCount(1);
         entries.First().Should().BeOfType<LogEntry>().Which.Tee(e =>
         {
@@ -71,7 +71,7 @@ public partial class LoggingRedisServiceTests
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
 
-        var entries = _loggerFactory.LogEntries;
+        var entries = _loggerFactory.Sink.LogEntries;
         entries.Should().HaveCount(1);
         entries.First().Should().BeOfType<LogEntry>().Which.Tee(e =>
         {
@@ -95,7 +95,7 @@ public partial class LoggingRedisServiceTests
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
 
-        var entries = _loggerFactory.LogEntries;
+        var entries = _loggerFactory.Sink.LogEntries;
         entries.Should().HaveCount(1);
         entries.First().Should().BeOfType<LogEntry>().Which.Tee(e =>
         {
@@ -120,7 +120,7 @@ public partial class LoggingRedisServiceTests
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
 
-        var entries = _loggerFactory.LogEntries;
+        var entries = _loggerFactory.Sink.LogEntries;
         entries.Should().HaveCount(1);
         entries.First().Should().BeOfType<LogEntry>().Which.Tee(e =>
         {

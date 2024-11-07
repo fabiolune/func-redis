@@ -10,7 +10,7 @@ public partial class LoggingRedisHashSetServiceTest
     [SetUp]
     public void Setup()
     {
-        _loggerFactory = MELTBuilder.CreateLoggerFactory();
+        _loggerFactory = TestLoggerFactory.Create();
         _mockLogger = _loggerFactory.CreateLogger<IRedisHashSetService>();
         _mockService = Substitute.For<IRedisHashSetService>();
         _sut = new Redis.LoggingRedisHashSetService(_mockLogger, _mockService);

@@ -10,5 +10,5 @@ public readonly struct Error
     [Pure]
     public static Error New(string message) => new(message);
     [Pure]
-    public static Error New(Exception ex) => new(ex.Message ?? string.Empty);
+    public static Error New(Exception ex) => new(ex.Message);
 }

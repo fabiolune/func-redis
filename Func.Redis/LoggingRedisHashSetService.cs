@@ -8,6 +8,8 @@ namespace Func.Redis;
 public class LoggingRedisHashSetService(ILogger logger,
 IRedisHashSetService redisHashSetService) : IRedisHashSetService
 {
+    private const string NoFieldsWarningTemplate = "{Component}: the key \"{Key}\" contains no fields";
+
     private readonly ILogger _logger = logger;
     private readonly IRedisHashSetService _redisHashSetService = redisHashSetService;
     private const string ComponentName = nameof(IRedisHashSetService);
@@ -67,25 +69,25 @@ IRedisHashSetService redisHashSetService) : IRedisHashSetService
     public Either<Error, Option<T[]>> GetValues<T>(string key) =>
         _redisHashSetService
             .GetValues<T>(key)
-            .Map(o => o.Tee(n => n.OnNone(() => _logger.LogWarning("{Component}: the key \"{Key}\" contains no fields", ComponentName, key))))
+            .Map(o => o.Tee(n => n.OnNone(() => _logger.LogWarning(NoFieldsWarningTemplate, ComponentName, key))))
             .TeeLog(_logger, ComponentName);
 
     public Task<Either<Error, Option<T[]>>> GetValuesAsync<T>(string key) =>
         _redisHashSetService
             .GetValuesAsync<T>(key)
-            .MapAsync(o => o.Tee(n => n.OnNone(() => _logger.LogWarning("{Component}: the key \"{Key}\" contains no fields", ComponentName, key))))
+            .MapAsync(o => o.Tee(n => n.OnNone(() => _logger.LogWarning(NoFieldsWarningTemplate, ComponentName, key))))
             .TeeLog(_logger, ComponentName);
 
     public Either<Error, Option<(string, T)[]>> GetAll<T>(string key)
         => _redisHashSetService
             .GetAll<T>(key)
-            .Map(o => o.Tee(n => n.OnNone(() => _logger.LogWarning("{Component}: the key \"{Key}\" contains no fields", ComponentName, key))))
+            .Map(o => o.Tee(n => n.OnNone(() => _logger.LogWarning(NoFieldsWarningTemplate, ComponentName, key))))
             .TeeLog(_logger, ComponentName);
 
     public Task<Either<Error, Option<(string, T)[]>>> GetAllAsync<T>(string key)
         => _redisHashSetService
             .GetAllAsync<T>(key)
-            .MapAsync(o => o.Tee(n => n.OnNone(() => _logger.LogWarning("{Component}: the key \"{Key}\" contains no fields", ComponentName, key))))
+            .MapAsync(o => o.Tee(n => n.OnNone(() => _logger.LogWarning(NoFieldsWarningTemplate, ComponentName, key))))
             .TeeLog(_logger, ComponentName);
 
     public Either<Error, Unit> Set<T>(string key, string field, T value) =>
@@ -111,12 +113,12 @@ IRedisHashSetService redisHashSetService) : IRedisHashSetService
     public Either<Error, Option<string[]>> GetFieldKeys(string key) =>
         _redisHashSetService
             .GetFieldKeys(key)
-            .Map(o => o.Tee(n => n.OnNone(() => _logger.LogWarning("{Component}: the key \"{Key}\" contains no fields", ComponentName, key))))
+            .Map(o => o.Tee(n => n.OnNone(() => _logger.LogWarning(NoFieldsWarningTemplate, ComponentName, key))))
             .TeeLog(_logger, ComponentName);
 
     public Task<Either<Error, Option<string[]>>> GetFieldKeysAsync(string key) =>
          _redisHashSetService
             .GetFieldKeysAsync(key)
-            .MapAsync(o => o.Tee(n => n.OnNone(() => _logger.LogWarning("{Component}: the key \"{Key}\" contains no fields", ComponentName, key))))
+            .MapAsync(o => o.Tee(n => n.OnNone(() => _logger.LogWarning(NoFieldsWarningTemplate, ComponentName, key))))
             .TeeLog(_logger, ComponentName);
 }

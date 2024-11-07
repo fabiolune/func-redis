@@ -3,13 +3,15 @@
 public class LoggingRedisPublisherServiceTests
 {
     private LoggingRedisPublisherService _sut;
+    private ITestLoggerFactory _loggerFactory;
     private ILogger _mockLogger;
     private IRedisPublisherService _mockService;
 
     [SetUp]
     public void Setup()
     {
-        _mockLogger = Substitute.For<ILogger>();
+        _loggerFactory = TestLoggerFactory.Create();
+        _mockLogger = _loggerFactory.CreateLogger<IRedisPublisherService>();
         _mockService = Substitute.For<IRedisPublisherService>();
         _sut = new LoggingRedisPublisherService(_mockService, _mockLogger);
     }
@@ -27,9 +29,12 @@ public class LoggingRedisPublisherServiceTests
         var result = _sut.Publish("some channel", data);
 
         result.IsRight.Should().BeTrue();
-        _mockLogger
-            .DidNotReceiveWithAnyArgs()
-            .Log(default, default, default, default, default);
+       
+        _loggerFactory
+            .Sink
+            .LogEntries
+            .Should()
+            .BeEmpty();
     }
 
     [Test]
@@ -45,10 +50,12 @@ public class LoggingRedisPublisherServiceTests
 
         result.IsLeft.Should().BeTrue();
         result.OnLeft(r => r.Should().Be(error));
-        //_mockLogger
-        //    .Received(1)
-        //    .Log(LogLevel.Error, 0, "IRedisPublisherService raised an error with some message", null, null);
-        //.LogError("{Component} raised an error with {Message}", "IRedisPublisherService", "some message");
+
+        _loggerFactory
+            .Sink
+            .LogEntries
+            .Should()
+            .ContainSingle(e => e.LogLevel == LogLevel.Error && e.Message == "IRedisPublisherService raised an error with some message");
     }
 
     [Test]
@@ -65,12 +72,12 @@ public class LoggingRedisPublisherServiceTests
 
         result.IsLeft.Should().BeTrue();
         result.OnLeft(r => r.Should().Be(error));
-        //_mockLogger
-        //    .Received(1)
-        //    .LogError("{Component} raised an error with {Message}", "IRedisPublisherService", "some message");
-        //_mockLogger
-        //    .DidNotReceiveWithAnyArgs()
-        //    .LogError(default);
+
+        _loggerFactory
+            .Sink
+            .LogEntries
+            .Should()
+            .ContainSingle(e => e.LogLevel == LogLevel.Error && e.Message == "IRedisPublisherService raised an error with some message");
     }
 
     #endregion
@@ -88,13 +95,12 @@ public class LoggingRedisPublisherServiceTests
         var result = await _sut.PublishAsync("some channel", data);
 
         result.IsRight.Should().BeTrue();
-        _mockLogger
-            .DidNotReceiveWithAnyArgs()
-            .LogError(default);
-        _mockLogger
-            .DidNotReceiveWithAnyArgs()
-            .LogError(default(Exception), default);
 
+        _loggerFactory
+            .Sink
+            .LogEntries
+            .Should()
+            .BeEmpty();
     }
 
     [Test]
@@ -110,12 +116,12 @@ public class LoggingRedisPublisherServiceTests
 
         result.IsLeft.Should().BeTrue();
         result.OnLeft(r => r.Should().Be(error));
-        //_mockLogger
-        //    .Received(1)
-        //    .LogError("{Component} raised an error with {Message}", ["IRedisPublisherService", "some message"]);
-        //_mockLogger
-        //    .DidNotReceiveWithAnyArgs()
-        //    .LogError(default(Exception), default);
+
+        _loggerFactory
+            .Sink
+            .LogEntries
+            .Should()
+            .ContainSingle(e => e.LogLevel == LogLevel.Error && e.Message == "IRedisPublisherService raised an error with some message");
     }
 
     [Test]
@@ -132,12 +138,12 @@ public class LoggingRedisPublisherServiceTests
 
         result.IsLeft.Should().BeTrue();
         result.OnLeft(r => r.Should().Be(error));
-        //_mockLogger
-        //    .Received(1)
-        //    .LogError(exception, "{Component} raised an error with {Message}", ["IRedisPublisherService", "some message"]);
-        //_mockLogger
-        //    .DidNotReceiveWithAnyArgs()
-        //    .LogError(default(Exception), default);
+
+        _loggerFactory
+            .Sink
+            .LogEntries
+            .Should()
+            .ContainSingle(e => e.LogLevel == LogLevel.Error && e.Message == "IRedisPublisherService raised an error with some message");
     }
 
     #endregion

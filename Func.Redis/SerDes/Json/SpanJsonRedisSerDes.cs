@@ -21,13 +21,13 @@ public class SpanJsonRedisSerDes : IRedisSerDes
 
     public Option<T[]> Deserialize<T>(RedisValue[] values) =>
         values
-            .ToOption(vs => vs.Length == 0 || vs.Any(v => v == RedisValue.Null || v == RedisValue.EmptyString || v.ToString() == JsonConstants.NullJson))
+            .ToOption(vs => vs.Length == 0 || Array.Exists(vs, v => v == RedisValue.Null || v == RedisValue.EmptyString || v.ToString() == JsonConstants.NullJson))
             .Map(vs => vs.Select(v => JsonSerializer.Generic.Utf16.Deserialize<T>(v)!))
             .Map(_ => _.ToArray());
 
     public Option<(string, T)[]> Deserialize<T>(HashEntry[] entries) =>
         entries
-            .ToOption(hs => hs.Length == 0 || hs.Any(h => h.Value == RedisValue.Null || h.Value == RedisValue.EmptyString || h.Value.ToString() == JsonConstants.NullJson))
+            .ToOption(hs => hs.Length == 0 || Array.Exists(hs, h => h.Value == RedisValue.Null || h.Value == RedisValue.EmptyString || h.Value.ToString() == JsonConstants.NullJson))
             .Map(hs => hs.Select(h => (h.Name.ToString(), JsonSerializer.Generic.Utf16.Deserialize<T>(h.Value)!)))
             .Map(ts => ts.ToArray());
 

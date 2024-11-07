@@ -1,4 +1,6 @@
-# Redis Data Components
+> This documentation is in line with the active development, hence should be considered work in progress. To check the documentation for the latest stable version please visit [https://fabiolune.github.io/func-redis/](https://fabiolune.github.io/func-redis/)
+
+# Functional Redis
 
 This repo contains components aimed to simplify the adoption of Redis in `dotnet` using a Functional Programming first approach (thanks to Franco Melandri's [tiny-fp](https://github.com/FrancoMelandri/tiny-fp)).
 

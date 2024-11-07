@@ -1,0 +1,161 @@
+name: dotnet
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+  release:
+    types:
+    - created
+
+jobs:
+  dotnet:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: |
+          5.x
+          8.x
+        source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - uses: gittools/actions/gitversion/setup@v0.9.15
+      with:
+        versionSpec: '5.11.1'
+
+    - name: Compute version numbers
+      uses: gittools/actions/gitversion/execute@v0.9.15
+
+    - name: restore dependencies
+      run: dotnet restore
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v3
+      with:
+        languages: 'csharp'
+
+    - name: setup sonarscanner
+      if: ${{github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository}}
+      run: |
+        dotnet tool install --global dotnet-sonarscanner
+
+    - name: start sonarscanner
+      if: ${{github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository}}
+      run: |
+        dotnet sonarscanner begin \
+          /o:fabiolune \
+          /k:fabiolune_func-redis \
+          /d:sonar.cs.opencover.reportsPaths="./**/coverage.opencover.xml" \
+          /d:sonar.host.url=https://sonarcloud.io \
+          /d:sonar.scanner.skipJreProvisioning=true \
+          /d:sonar.scanner.javaExePath=$JAVA_HOME_17_X64/bin/java
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+    - name: build
+      run: |
+        dotnet build \
+          --configuration Release \
+          --no-restore \
+          /p:Version=${{ env.GITVERSION_NUGETVERSIONV2 }} \
+          /p:UseSharedCompilation=false
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
+
+    - name: test
+      run: |
+        dotnet test \
+          --no-restore \
+          --configuration Release \
+          --verbosity normal
+      env:
+        CoverletOutputFormat: lcov,opencover
+        CollectCoverage: true
+
+    - name: retrieve list of coverage info reports
+      run: |
+        echo LCOV_REPORTS=$(find ./[Tt]est*/ -name "coverage.info" | paste -sd ";") >> $GITHUB_ENV
+
+    - name: merge code coverage data
+      uses: danielpalme/ReportGenerator-GitHub-Action@5.3.8
+      with:
+        reports: '${{ env.LCOV_REPORTS }}'
+        reporttypes: 'lcov'
+
+    - name: stop sonarscanner
+      if: ${{github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository}}
+      run: |
+        dotnet sonarscanner end
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+
+    - name: publish code coverage results
+      if: ${{ github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]' }}
+      uses: romeovs/lcov-reporter-action@v0.3.1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        lcov-file: ./coveragereport/lcov.info
+
+    - name: generate mutation report
+      if: ${{ github.event_name == 'release' }}
+      run: |
+        dotnet tool install -g dotnet-stryker
+        export PATH="$PATH:$HOME/.dotnet/tools"
+        dotnet stryker \
+          --reporter "dashboard" \
+          --dashboard-api-key ${{ secrets.STRYKER_API_KEY }} \
+          --version ${{ env.GITVERSION_NUGETVERSIONV2 }} \
+          -f stryker-config.json
+
+    - name: generate mutation report
+      if: ${{ github.event_name != 'release' && github.event_name != 'pull_request' }}
+      run: |
+        dotnet tool install -g dotnet-stryker
+        export PATH="$PATH:$HOME/.dotnet/tools"
+        dotnet stryker \
+          --reporter "dashboard" \
+          --dashboard-api-key ${{ secrets.STRYKER_API_KEY }} \
+          --version ${GITHUB_REF#refs/heads/} \
+          -f stryker-config.json
+
+    - name: Create and push package
+      if: ${{ github.event_name == 'release' }}
+      run: |
+        dotnet pack --configuration Release -p:PackageVersion=${{ env.GITVERSION_NUGETVERSIONV2 }} --output .
+        dotnet nuget push *.nupkg --skip-duplicate
+        dotnet nuget push *.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate
+
+    - name: Produce `index.md` for gh pages
+      if: ${{ github.event_name == 'release' }}
+      run: |
+        mkdir out
+        echo "version ${{ env.GITVERSION_NUGETVERSIONV2 }}" > out/index.md
+        tail -n +4 README.md >> out/index.md
+
+    - name: Push documentation to dedicated branch
+      if: ${{ github.event_name == 'release' }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: crazy-max/ghaction-github-pages@v2.5.0
+      with:
+        target_branch: gh-pages
+        build_dir: ./out

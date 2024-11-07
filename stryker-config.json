@@ -1,0 +1,8 @@
+{
+    "stryker-config": {
+        "project-info": {
+            "name": "github.com/fabiolune/func-redis"
+        },
+        "mutation-level": "advanced"
+    }
+}

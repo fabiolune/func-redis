@@ -1,9 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0</TargetFrameworks>
+    <PackageId>func-redis-extensions</PackageId>
+    <RepositoryUrl>https://github.com/fabiolune/func-redis.git</RepositoryUrl>
+    <PackageTags>fp redis railway</PackageTags>
+    <TargetFramework>net8</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageTags>fp redis railway</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +21,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Func.Redis\Func.Redis.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>$(AssemblyName).Unit.Tests</_Parameter1>
+    </AssemblyAttribute>
+    <None Include="../README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>

@@ -65,7 +65,7 @@ public partial class RedisHashSetServiceTests
 
         var result = _sut.GetFieldKeys("key");
 
-        result.IsRight.Should().BeTrue(); 
+        result.IsRight.Should().BeTrue();
         result
             .OnRight(e => e.OnSome(d => d.Should().BeEquivalentTo(expectedData)));
     }

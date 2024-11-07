@@ -3,7 +3,7 @@
 public partial class RedisKeyServiceTests
 {
     [Test]
-    
+
     public void Delete_WhenDatabaseIsNull_ShouldReturnError()
     {
         _mockSourcesProvider.GetDatabase().Returns(null as IDatabase);

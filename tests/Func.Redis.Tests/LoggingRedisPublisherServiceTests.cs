@@ -42,13 +42,13 @@ public class LoggingRedisPublisherServiceTests
             .Returns(error);
 
         var result = _sut.Publish("some channel", data);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(r => r.Should().Be(error));
         //_mockLogger
         //    .Received(1)
         //    .Log(LogLevel.Error, 0, "IRedisPublisherService raised an error with some message", null, null);
-            //.LogError("{Component} raised an error with {Message}", "IRedisPublisherService", "some message");
+        //.LogError("{Component} raised an error with {Message}", "IRedisPublisherService", "some message");
     }
 
     [Test]

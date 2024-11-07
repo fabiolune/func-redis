@@ -38,7 +38,7 @@ public partial class RedisKeyServiceTests
     public async Task DeleteAsync_WhenDatabaseThrowsException_ShouldReturnError()
     {
         var exception = new Exception("some message");
-        
+
         _mockDb
             .KeyDeleteAsync("key", Arg.Any<CommandFlags>())
             .Returns<bool>(_ => throw exception);
@@ -58,7 +58,7 @@ public partial class RedisKeyServiceTests
     {
         var exception = new Exception("some message");
         var keys = new[] { (RedisKey)"key1", (RedisKey)"key2" };
-        
+
         _mockDb
             .KeyDeleteAsync(Arg.Is<RedisKey[]>(k => k.SequenceEqual(keys)), Arg.Any<CommandFlags>())
             .Returns<long>(_ => throw exception);

@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Func.Redis.Tests", "tests\F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Func.Redis.Extensions", "Func.Redis.Extensions\Func.Redis.Extensions.csproj", "{5334480C-9048-460B-9F54-225A3A8C63B0}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Func.Redis.Extensions.Unit.Tests", "tests\Func.Redis.Extensions.Tests\Func.Redis.Extensions.Unit.Tests.csproj", "{4A5A038C-56A6-4AD5-BE93-043356E294BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,12 +31,17 @@ Global
 		{5334480C-9048-460B-9F54-225A3A8C63B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5334480C-9048-460B-9F54-225A3A8C63B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5334480C-9048-460B-9F54-225A3A8C63B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A5A038C-56A6-4AD5-BE93-043356E294BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A5A038C-56A6-4AD5-BE93-043356E294BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A5A038C-56A6-4AD5-BE93-043356E294BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A5A038C-56A6-4AD5-BE93-043356E294BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{456A4024-55AB-450A-8512-9878D923A8D0} = {50871C65-CB26-434E-8A3F-EE8A140EF6FC}
+		{4A5A038C-56A6-4AD5-BE93-043356E294BD} = {50871C65-CB26-434E-8A3F-EE8A140EF6FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {96D002A8-8D18-456B-B13D-544F97301402}

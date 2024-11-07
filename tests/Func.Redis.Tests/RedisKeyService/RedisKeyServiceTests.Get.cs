@@ -57,7 +57,7 @@ public partial class RedisKeyServiceTests
     public void MultipleGet_WhenDatabaseThrowsException_ShouldReturnError()
     {
         var exception = new Exception("some message");
-        
+
         var keys = new[] { (RedisKey)"key1", (RedisKey)"key2" };
         _mockDb
             .StringGet(Arg.Is<RedisKey[]>(k => k.SequenceEqual(keys)), Arg.Any<CommandFlags>())

@@ -226,7 +226,7 @@ public partial class RedisHashSetServiceTests
         _mockDb
              .HashGetAsync("key", Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>())
              .Returns(contents.AsTask());
-        
+
         var result = await _sut.GetAsync("key", typeFields);
 
         result.IsRight.Should().BeTrue();

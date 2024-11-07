@@ -77,7 +77,7 @@ public partial class RedisHashSetServiceTests
     [TestCase(11)]
     public void MultipleDelete_WhenDatabaseReturnsValidBool_ShouldReturnRightWithSome(long returnValue)
     {
-        var fields = new[] {(RedisValue)"field1", (RedisValue)"field2" };
+        var fields = new[] { (RedisValue)"field1", (RedisValue)"field2" };
         var _params = new[] { "field1", "field2" };
 
         _mockDb

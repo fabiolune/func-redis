@@ -1,24 +1,45 @@
 using FluentAssertions;
+using Func.Redis.Models;
+using Func.Redis.SerDes;
+using Func.Redis.SerDes.Json;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Memory;
 using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
 using NUnit.Framework;
-using Sport.Redis.Models;
-using Sport.Redis.SerDes;
-using Sport.Redis.SerDes.Json;
 using StackExchange.Redis;
 using System.Reflection;
+using TinyFp;
 
-namespace Sport.Redis.Extensions.Unit.Tests;
+namespace Func.Redis.Extensions.Unit.Tests;
 
 public class ServiceCollectionExtensionsTests
 {
+    internal class StubSerdes : IRedisSerDes
+    {
+        public Option<T> Deserialize<T>(RedisValue value) => throw new NotImplementedException();
+        public Option<T[]> Deserialize<T>(RedisValue[] values) => throw new NotImplementedException();
+        public Option<(string, T)[]> Deserialize<T>(HashEntry[] entries) => throw new NotImplementedException();
+        public Option<object> Deserialize(RedisValue value, Type type) => throw new NotImplementedException();
+        public RedisValue Serialize<T>(T value) => throw new NotImplementedException();
+    }
 
+    internal class TestRedisSubscriber : IRedisSubscriber
+    {
+        public (string, Action<RedisChannel, RedisValue>) GetSubscriptionHandler() =>
+            ("my channel", (_, _) => { }
+        );
+    }
+
+    private IConnectionMultiplexerProvider _mockProvider;
     private IServiceCollection _mockServices;
 
     [SetUp]
-    public void SetUp() => _mockServices = Substitute.For<IServiceCollection>();
+    public void SetUp()
+    {
+        _mockProvider = Substitute.For<IConnectionMultiplexerProvider>();
+        _mockServices = Substitute.For<IServiceCollection>();
+    }
 
     [TestCase(RedisCapabilities.Keys)]
     [TestCase(RedisCapabilities.Keys | RedisCapabilities.HashSet)]
@@ -39,18 +60,18 @@ public class ServiceCollectionExtensionsTests
     {
         var config = new MemoryConfigurationSource
         {
-            InitialData = new Dictionary<string, string>()
+            InitialData = []
         };
 
         Action action = () => _mockServices
-            .AddRedis(new ConfigurationBuilder()
+            .AddRedis<StubSerdes>(new ConfigurationBuilder()
             .Add(config)
             .Build(), capabilities);
 
         action
             .Should()
-            .ThrowExactly<Exception>()
-            .WithMessage("RedisConfiguration section not found in Configuration");
+            .ThrowExactly<KeyNotFoundException>()
+            .WithMessage("Missing RedisConfiguration");
     }
 
     [TestCase(null, RedisCapabilities.Keys)]
@@ -109,13 +130,13 @@ public class ServiceCollectionExtensionsTests
         };
 
         Action action = () => _mockServices
-            .AddRedis(new ConfigurationBuilder()
+            .AddRedis<StubSerdes>(new ConfigurationBuilder()
             .Add(config)
             .Build(), capabilities);
 
         action
             .Should()
-            .ThrowExactly<Exception>()
+            .ThrowExactly<KeyNotFoundException>()
             .WithMessage("RedisConfiguration: ConnectionString is invalid");
     }
 
@@ -134,19 +155,18 @@ public class ServiceCollectionExtensionsTests
     [TestCase(RedisCapabilities.Publisher)]
     [TestCase(RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
     [TestCase(RedisCapabilities.Subscriber)]
-    public void AddRedis_WhenAnyCapabilityIsEnabledAndConfigIsValid_ShouldRegisterComponents(RedisCapabilities capabilities)
+    public void AddRedis_WhenAnyCapabilityIsEnabledAndConfigIsValidWithProperConnectionString_ShouldRegisterBasicComponents(RedisCapabilities capabilities)
     {
         var config = new MemoryConfigurationSource
         {
             InitialData = new Dictionary<string, string>
                     {
-                        {"RedisConfiguration:ConnectionString", "whatever"},
-                        {"RedisServiceConfiguration:KeyPrefix", "whatever"}
+                        {"RedisConfiguration:ConnectionString", "redis-connection-string"},
                     },
         };
 
         _mockServices
-            .AddRedis(new ConfigurationBuilder().Add(config).Build(), capabilities);
+            .AddRedis<StubSerdes>(new ConfigurationBuilder().Add(config).Build(), capabilities);
 
         _mockServices
             .Received(1)
@@ -166,13 +186,21 @@ public class ServiceCollectionExtensionsTests
             .Received(1)
             .Add(Arg.Is<ServiceDescriptor>(d =>
                     d.ServiceType == typeof(RedisConfiguration)
-                        && ((RedisConfiguration)d.ImplementationInstance).ConnectionString == "whatever"
+                        && ((RedisConfiguration)d.ImplementationInstance).ConnectionString == "redis-connection-string"
+                    )
+                );
+
+        _mockServices
+            .Received(1)
+            .Add(Arg.Is<ServiceDescriptor>(d =>
+                    d.ServiceType == typeof(IRedisSerDes)
+                        && d.ImplementationType == typeof(StubSerdes)
                     )
                 );
     }
 
     [TestCase(RedisCapabilities.HashSet, typeof(IRedisHashSetService), typeof(RedisHashSetService))]
-    [TestCase(RedisCapabilities.Keys, typeof(IRedisService), typeof(RedisKeyService))]
+    [TestCase(RedisCapabilities.Keys, typeof(IRedisKeyService), typeof(RedisKeyService))]
     public void AddRedis_WhenRedisHashSetIsEnabledAndConfigIsValid_ShouldRegisterComponents(
             RedisCapabilities capabilities,
             Type expectedKeyType,
@@ -181,13 +209,13 @@ public class ServiceCollectionExtensionsTests
         var config = new MemoryConfigurationSource
         {
             InitialData = new Dictionary<string, string>
-                    {
-                        {"RedisConfiguration:ConnectionString", "whatever"}
-                    }
+            {
+                {"RedisConfiguration:ConnectionString", "redis-connection-string"}
+            }
         };
 
         _mockServices
-            .AddRedis(new ConfigurationBuilder().Add(config).Build(), capabilities);
+            .AddRedis<StubSerdes>(new ConfigurationBuilder().Add(config).Build(), capabilities);
 
         _mockServices
             .Received(1)
@@ -207,7 +235,7 @@ public class ServiceCollectionExtensionsTests
             .Received(1)
                 .Add(Arg.Is<ServiceDescriptor>(d =>
                     d.ServiceType == typeof(RedisConfiguration)
-                        && ((RedisConfiguration)d.ImplementationInstance).ConnectionString == "whatever"
+                        && ((RedisConfiguration)d.ImplementationInstance).ConnectionString == "redis-connection-string"
                     )
                 );
 
@@ -215,6 +243,35 @@ public class ServiceCollectionExtensionsTests
             .Received(1)
             .Add(Arg.Is<ServiceDescriptor>(d => d.ServiceType == expectedKeyType && d.ImplementationType == expectedImplementationType));
 
+    }
+
+    [TestCase(RedisCapabilities.HashSet, typeof(IRedisHashSetService), typeof(KeyTransformerRedisHasSetService))]
+    [TestCase(RedisCapabilities.Keys, typeof(IRedisKeyService), typeof(KeyTransformerRedisKeyService))]
+    public void AddRedis_WhenRedisCapabilityIsEnabledAndKeyPrefixIsValidAndConfigIsValid_ShouldRegisterComponents(
+            RedisCapabilities capabilities,
+            Type expectedKeyType,
+            Type expectedImplementationType)
+    {
+        var config = new MemoryConfigurationSource
+        {
+            InitialData = new Dictionary<string, string>
+            {
+                {"RedisConfiguration:ConnectionString", "redis-connection-string"},
+                {"RedisKeyConfiguration:KeyPrefix", "whatever"}
+            }
+        };
+        _mockServices = new ServiceCollection();
+
+        _mockServices
+            .AddRedis<StubSerdes>(new ConfigurationBuilder().Add(config).Build(), capabilities)
+            .AddSingleton(_mockProvider);
+
+        var provider = _mockServices.BuildServiceProvider();
+
+        provider
+            .GetRequiredService(expectedKeyType)
+            .Should()
+            .BeOfType(expectedImplementationType);
     }
 
     [TestCase(RedisCapabilities.Publisher, typeof(IRedisPublisherService), typeof(RedisPublisherService))]
@@ -227,13 +284,13 @@ public class ServiceCollectionExtensionsTests
         var config = new MemoryConfigurationSource
         {
             InitialData = new Dictionary<string, string>
-                    {
-                        {"RedisConfiguration:ConnectionString", "whatever"}
-                    }
+            {
+                {"RedisConfiguration:ConnectionString", "whatever"}
+            }
         };
 
         _mockServices
-            .AddRedis(new ConfigurationBuilder().Add(config).Build(), capabilities, Assembly.GetExecutingAssembly());
+            .AddRedis<StubSerdes>(new ConfigurationBuilder().Add(config).Build(), capabilities, Assembly.GetExecutingAssembly());
 
         _mockServices
             .Received(1)
@@ -260,13 +317,6 @@ public class ServiceCollectionExtensionsTests
         _mockServices
             .Received(1)
             .Add(Arg.Is<ServiceDescriptor>(d => d.ServiceType == expectedKeyType && d.ImplementationType == expectedImplementationType));
-    }
-
-    internal class TestRedisSubscriber : IRedisSubscriber
-    {
-        public (string, Action<RedisChannel, RedisValue>) GetSubscriptionHandler() =>
-            ("my channel", (_, _) => { }
-        );
     }
 
     [Test]

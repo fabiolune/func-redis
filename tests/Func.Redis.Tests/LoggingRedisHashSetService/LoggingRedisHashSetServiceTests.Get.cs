@@ -12,7 +12,7 @@ public partial class LoggingRedisHashSetServiceTest
             .Returns(output);
 
         var result = _sut.Get<object>("some key", "some field");
-        
+
         result.IsRight.Should().BeTrue();
         result.OnRight(r => r.OnSome(d => d.Should().Be(data)));
 
@@ -31,7 +31,7 @@ public partial class LoggingRedisHashSetServiceTest
 
         result.IsRight.Should().BeTrue();
         result.OnRight(r => r.IsNone.Should().BeTrue());
-        
+
         var entries = _loggerFactory.Sink.LogEntries;
         entries.Should().HaveCount(1);
         entries.First().Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -97,7 +97,7 @@ public partial class LoggingRedisHashSetServiceTest
             .Returns(output);
 
         var result = _sut.Get<object>("some key", fields);
-        
+
         result.IsRight.Should().BeTrue();
         result.OnRight(r =>
         {

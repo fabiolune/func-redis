@@ -132,7 +132,7 @@ public class KeyTransformerRedisKeyServiceTests
         var mappedKeys = new[] { "mapped_key1", "mapped_key2" };
         var keys = new[] { "key1", "key2" };
         _mockService.GetKeys("mapped_pattern").Returns(mappedKeys);
-     
+
         var result = _sut.GetKeys(pattern);
 
         result.IsRight.Should().BeTrue();
@@ -207,7 +207,7 @@ public class KeyTransformerRedisKeyServiceTests
         var result = _sut.Set(pairs);
 
         result.Should().Be(internalResult);
-        _mockService.Received(1).Set(Arg.Is<(string, string)[]>(p => 
+        _mockService.Received(1).Set(Arg.Is<(string, string)[]>(p =>
                 p.Length == 2
                 && p[0].Item1 == "mapped_key1"
                 && p[0].Item2 == "value1"

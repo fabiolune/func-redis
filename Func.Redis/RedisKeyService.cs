@@ -44,7 +44,7 @@ public class RedisKeyService(
             .Map(value => value.ToOption(v => !v.HasValue))
             .Bind(value => value
                     .Match(
-                        v => Try(() => _serDes.Deserialize<T>(v)).ToEither().MapLeft(e => Error.New(e)), 
+                        v => Try(() => _serDes.Deserialize<T>(v)).ToEither().MapLeft(e => Error.New(e)),
                         () => Either<Error, Option<T>>.Right(Option<T>.None())));
     public Either<Error, Option<T>[]> Get<T>(params string[] keys) =>
         Try(() => _database.StringGet(ConvertToKeys(keys)))
@@ -70,7 +70,7 @@ public class RedisKeyService(
         TryAsync(() => _database.StringGetAsync(ConvertToKeys(keys)))
             .ToEither()
             .MapLeftAsync(e => Error.New(e))
-            .BindAsync(vs => 
+            .BindAsync(vs =>
                 Try(() => vs.Select(v => v.ToOption(v => !v.HasValue).Bind(v => _serDes.Deserialize<T>(v))))
                     .Map(o => o.ToArray())
                     .ToEither()

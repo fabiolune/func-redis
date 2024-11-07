@@ -35,7 +35,7 @@ public partial class LoggingRedisServiceTests
 
         var result = await _sut.GetKeysAsync("some pattern");
 
-        result.IsLeft.Should().BeTrue(); 
+        result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
 
         var entries = _loggerFactory.Sink.LogEntries;

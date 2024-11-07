@@ -22,7 +22,7 @@ public partial class RedisHashSetServiceTests
     {
         var data1 = new TestData("id1");
         var data2 = new TestData("id2");
-        
+
         var called = false;
         _mockSerDes
             .Serialize(data1)
@@ -31,11 +31,11 @@ public partial class RedisHashSetServiceTests
             .Serialize(data2)
             .Returns((RedisValue)"serialized 2");
         _mockDb
-            .When(m => m.HashSet("key", Arg.Is<HashEntry[]>(h => 
-                h.SequenceEqual(new[] 
-                { 
-                    new HashEntry("field1", "serialized 1"), 
-                    new HashEntry("field2", "serialized 2") 
+            .When(m => m.HashSet("key", Arg.Is<HashEntry[]>(h =>
+                h.SequenceEqual(new[]
+                {
+                    new HashEntry("field1", "serialized 1"),
+                    new HashEntry("field2", "serialized 2")
                 })), CommandFlags.None))
             .Do(m => called = true);
 

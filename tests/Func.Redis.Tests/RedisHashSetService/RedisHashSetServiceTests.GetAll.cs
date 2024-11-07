@@ -23,7 +23,7 @@ public partial class RedisHashSetServiceTests
     public void GetAll_WhenDatabaseThrowsException_ShouldReturnError()
     {
         var exception = new Exception("some message");
-        
+
         _mockDb
             .HashGetAll("key", Arg.Any<CommandFlags>())
             .Returns(_ => throw exception);

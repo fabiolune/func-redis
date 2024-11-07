@@ -23,7 +23,7 @@ public partial class RedisHashSetServiceTests
     public async Task GetAsync_WhenDatabaseThrowsException_ShouldReturnError()
     {
         var exception = new Exception("some message");
-        
+
         _mockDb
             .HashGetAsync("key", "field", Arg.Any<CommandFlags>())
             .Returns<RedisValue>(_ => throw exception);
@@ -162,7 +162,7 @@ public partial class RedisHashSetServiceTests
     {
         var fields = new[] { (RedisValue)"field1", (RedisValue)"field2" };
         var contents = new[] { (RedisValue)content, (RedisValue)content };
-        var stringfields = new[] { "field1", "field2"};
+        var stringfields = new[] { "field1", "field2" };
 
         _mockDb
              .HashGetAsync("key", Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>())

@@ -217,7 +217,7 @@ public partial class RedisHashSetServiceTests
         var fields = new[] { (RedisValue)"field1", (RedisValue)"field2" };
         var contents = new[] { RedisValue.Null, RedisValue.Null };
         var stringfields = new[] { "field1", "field2" };
-        
+
         _mockDb
             .HashGet("key", Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>())
             .Returns(contents);
@@ -263,7 +263,7 @@ public partial class RedisHashSetServiceTests
                 r.Should().HaveCount(2);
                 var somes = r.Filter();
                 somes.Should().HaveCount(2);
-                somes.Should().BeEquivalentTo(new[] { new TestData("id1"), new TestData ("id2") });
+                somes.Should().BeEquivalentTo(new[] { new TestData("id1"), new TestData("id2") });
             });
     }
 }

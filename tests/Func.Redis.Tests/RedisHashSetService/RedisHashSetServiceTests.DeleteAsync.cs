@@ -76,7 +76,7 @@ public partial class RedisHashSetServiceTests
     [TestCase(11)]
     public async Task MultipleDeleteAsync_WhenDatabaseReturnsValidBool_ShouldReturnRightWithSome(long returnValue)
     {
-        var fields = new[] {(RedisValue)"field1", (RedisValue)"field2" };
+        var fields = new[] { (RedisValue)"field1", (RedisValue)"field2" };
         var requestParams = new[] { "field1", "field2" };
 
         _mockDb

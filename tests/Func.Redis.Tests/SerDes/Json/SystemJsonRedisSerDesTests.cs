@@ -19,7 +19,7 @@ public class SystemJsonRedisSerDesTests
     public static readonly RedisValue[] InvalidRedisValues =
     [
         RedisValue.Null,
-        RedisValue.EmptyString, 
+        RedisValue.EmptyString,
         RedisValue.Null
     ];
 

@@ -187,7 +187,7 @@ internal class KeyTransformerRedisHasSetServiceTests
         await _mockService.Received(1).SetAsync("mapped_key", ("field1", new TestData()), ("field2", new TestData()));
     }
 
-    private static readonly Either<Error, Option<(string, TestData)[]>> SomeErrorTuples = Either<Error, Option<(string, TestData)[]>>.Right(new[] {("first", new TestData() { Id = 1 }), ("second", new TestData() { Id = 2 })}.ToOption());
+    private static readonly Either<Error, Option<(string, TestData)[]>> SomeErrorTuples = Either<Error, Option<(string, TestData)[]>>.Right(new[] { ("first", new TestData() { Id = 1 }), ("second", new TestData() { Id = 2 }) }.ToOption());
     private static readonly Either<Error, Option<(string, TestData)[]>> NoneErrorTuples = Either<Error, Option<(string, TestData)[]>>.Right(Option<(string, TestData)[]>.None());
     public static readonly Either<Error, Option<(string, TestData)[]>>[] ErrorTuplesTestData = [SomeErrorTuples, NoneErrorTuples];
 

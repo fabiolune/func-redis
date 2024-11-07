@@ -1,5 +1,4 @@
-﻿using Func.Redis;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using StackExchange.Redis;
 using System.Diagnostics.CodeAnalysis;
 using TinyFp.Extensions;

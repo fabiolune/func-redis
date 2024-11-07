@@ -11,7 +11,8 @@ namespace Func.Redis.Extensions;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddRedis(this IServiceCollection services, IConfiguration config, RedisCapabilities capabilities, params Assembly[] assemblies) => (services, config)
+    public static IServiceCollection AddRedis<T>(this IServiceCollection services, IConfiguration config, RedisCapabilities capabilities, params Assembly[] assemblies) where T : IRedisSerDes =>
+        (services, config)
             .Tee(t =>
                 t.config
                     .GetSection(nameof(RedisConfiguration))
@@ -25,13 +26,14 @@ public static class ServiceCollectionExtensions
                 .AddSingleton<IConnectionMultiplexerProvider, ConnectionMultiplexerProvider>()
                 .AddSingleton<ISourcesProvider, RedisSourcesProvider>())
             .Map(t => (t.services, t.config.GetSection(nameof(RedisKeyConfiguration))))
-            .Map(t => t.Item2.ToOption()
+            .Map(t => t.Item2.Get<RedisKeyConfiguration>().ToOption()
                 .Match(
-                    sec => Either<IServiceCollection, (IServiceCollection, RedisKeyConfiguration)>.Right((t.services, sec.Get<RedisKeyConfiguration>()!)),
+                    sec => Either<IServiceCollection, (IServiceCollection, RedisKeyConfiguration)>.Right((t.services, sec!)),
                     () => Either<IServiceCollection, (IServiceCollection, RedisKeyConfiguration)>.Left(t.services)))
             .Match(
                 t => (t.Item1, t.Item2).Map(t => AddKeyTransformingRedis(t.Item1, t.Item2.GetKeyMapper(), t.Item2.GetInverseKeyMapper(), capabilities, assemblies)),
-                s => s.InternalAddRedis(capabilities, assemblies));
+                s => s.InternalAddRedis(capabilities, assemblies))
+            .AddRedisSerDes<T>();
 
     private static IServiceCollection AddKeyTransformingRedis(
         IServiceCollection services,

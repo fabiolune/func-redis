@@ -3,16 +3,11 @@
 public partial class RedisHashSetServiceTests
 {
 
-    [TestCase("")]
-    [TestCase(null)]
-    [TestCase("something")]
-    public void GetAll_WhenDatabaseIsNull_ShouldReturnError(string prefix)
+    [Test]
+    public void GetAll_WhenDatabaseIsNull_ShouldReturnError()
     {
         _mockProvider.GetDatabase().Returns(null as IDatabase);
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
+        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes);
 
         _mockProvider
             .GetDatabase()
@@ -24,22 +19,13 @@ public partial class RedisHashSetServiceTests
         result.OnLeft(err => err.Should().Be(Error.New(new NullReferenceException())));
     }
 
-    [TestCase("", "key")]
-    [TestCase(":", "key")]
-    [TestCase("  :", "key")]
-    [TestCase("::", "key")]
-    [TestCase("prefix", "prefix:key")]
-    [TestCase("prefix:", "prefix:key")]
-    [TestCase("prefix::", "prefix:key")]
-    public void GetAll_WhenDatabaseThrowsException_ShouldReturnError(string prefix, string key)
+    [Test]
+    public void GetAll_WhenDatabaseThrowsException_ShouldReturnError()
     {
         var exception = new Exception("some message");
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
+        
         _mockDb
-            .HashGetAll(key, Arg.Any<CommandFlags>())
+            .HashGetAll("key", Arg.Any<CommandFlags>())
             .Returns(_ => throw exception);
 
         var result = _sut.GetAll<object>("key");
@@ -49,24 +35,14 @@ public partial class RedisHashSetServiceTests
             .OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
         _mockDb
             .Received(1)
-            .HashGetAll(key, Arg.Any<CommandFlags>());
+            .HashGetAll("key", Arg.Any<CommandFlags>());
     }
 
-    [TestCase("", "key")]
-    [TestCase(":", "key")]
-    [TestCase("  :", "key")]
-    [TestCase("::", "key")]
-    [TestCase("prefix", "prefix:key")]
-    [TestCase("prefix:", "prefix:key")]
-    [TestCase("prefix::", "prefix:key")]
-    public void GetAll_WhenDatabaseReturnsItemWithNoValue_ShouldReturnRightWithNone(string prefix, string key)
+    [Test]
+    public void GetAll_WhenDatabaseReturnsItemWithNoValue_ShouldReturnRightWithNone()
     {
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
         _mockDb
-            .HashGetAll(key, Arg.Any<CommandFlags>())
+            .HashGetAll("key", Arg.Any<CommandFlags>())
             .Returns([]);
 
         var result = _sut.GetAll<object>("key");
@@ -76,25 +52,15 @@ public partial class RedisHashSetServiceTests
             .OnRight(e => e.IsNone.Should().BeTrue());
         _mockDb
             .Received(1)
-            .HashGetAll(key, CommandFlags.None);
+            .HashGetAll("key", CommandFlags.None);
     }
 
-    [TestCase("", "key")]
-    [TestCase(":", "key")]
-    [TestCase("  :", "key")]
-    [TestCase("::", "key")]
-    [TestCase("prefix", "prefix:key")]
-    [TestCase("prefix:", "prefix:key")]
-    [TestCase("prefix::", "prefix:key")]
-    public void GetAll_WhenSerDesThrows_ShouldReturnLeft(string prefix, string key)
+    [Test]
+    public void GetAll_WhenSerDesThrows_ShouldReturnLeft()
     {
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
         var redisReturn = new HashEntry[] { new("field", "serialized") };
         _mockDb
-            .HashGetAll(key, Arg.Any<CommandFlags>())
+            .HashGetAll("key", Arg.Any<CommandFlags>())
             .Returns(redisReturn);
         var exception = new Exception("some message");
         _mockSerDes
@@ -108,25 +74,15 @@ public partial class RedisHashSetServiceTests
             .OnLeft(e => e.Should().Be(Error.New(exception)));
         _mockDb
             .Received(1)
-            .HashGetAll(key, Arg.Any<CommandFlags>());
+            .HashGetAll("key", Arg.Any<CommandFlags>());
     }
 
-    [TestCase("", "key")]
-    [TestCase(":", "key")]
-    [TestCase("  :", "key")]
-    [TestCase("::", "key")]
-    [TestCase("prefix", "prefix:key")]
-    [TestCase("prefix:", "prefix:key")]
-    [TestCase("prefix::", "prefix:key")]
-    public void GetAll_WhenDatabaseReturnsValidJson_ShouldReturnRightWithSome(string prefix, string key)
+    [Test]
+    public void GetAll_WhenDatabaseReturnsValidJson_ShouldReturnRightWithSome()
     {
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
         var redisReturn = new HashEntry[] { new("field", "serialized") };
         _mockDb
-            .HashGetAll(key, Arg.Any<CommandFlags>())
+            .HashGetAll("key", Arg.Any<CommandFlags>())
             .Returns(redisReturn);
         _mockSerDes
             .Deserialize<TestData>(redisReturn)
@@ -143,22 +99,12 @@ public partial class RedisHashSetServiceTests
             });
     }
 
-    [TestCase("", "key")]
-    [TestCase(":", "key")]
-    [TestCase("  :", "key")]
-    [TestCase("::", "key")]
-    [TestCase("prefix", "prefix:key")]
-    [TestCase("prefix:", "prefix:key")]
-    [TestCase("prefix::", "prefix:key")]
-    public void GetAll_WhenDatabaseReturnsMoreValidJsonSerialization_ShouldReturnRightWithSome(string prefix, string key)
+    [Test]
+    public void GetAll_WhenDatabaseReturnsMoreValidJsonSerialization_ShouldReturnRightWithSome()
     {
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
-        var redisReturn = new HashEntry[] { new(key, "serialized 1"), new(key, "serialized 2") };
+        var redisReturn = new HashEntry[] { new("key", "serialized 1"), new("key", "serialized 2") };
         _mockDb
-            .HashGetAll(key, Arg.Any<CommandFlags>())
+            .HashGetAll("key", Arg.Any<CommandFlags>())
             .Returns(redisReturn);
 
         _mockSerDes
@@ -182,6 +128,6 @@ public partial class RedisHashSetServiceTests
 
         _mockDb
             .Received(1)
-            .HashGetAll(key, CommandFlags.None);
+            .HashGetAll("key", CommandFlags.None);
     }
 }

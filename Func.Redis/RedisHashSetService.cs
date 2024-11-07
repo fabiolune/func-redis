@@ -1,6 +1,4 @@
-﻿using Func.Redis.Extensions;
-using Func.Redis.Models;
-using Func.Redis.SerDes;
+﻿using Func.Redis.SerDes;
 using StackExchange.Redis;
 using TinyFp;
 using TinyFp.Extensions;
@@ -9,42 +7,40 @@ namespace Func.Redis;
 
 public class RedisHashSetService(
     ISourcesProvider dbProvider,
-    IRedisSerDes serDes,
-    RedisKeyConfiguration config) : IRedisHashSetService
+    IRedisSerDes serDes) : IRedisHashSetService
 {
-    private readonly Func<string, string> _keyMapper = config.GetKeyMapper();
     private readonly IDatabase _database = dbProvider.GetDatabase();
     private readonly IRedisSerDes _serDes = serDes;
 
     public Either<Error, Unit> Delete(string key, string field) =>
         Try(() =>
-            _database.HashDelete(_keyMapper(key), field))
+            _database.HashDelete(key, field))
             .ToEither()
             .MapLeft(e => Error.New(e))
             .Map(_ => Unit.Default);
 
     public Either<Error, Unit> Delete(string key, params string[] fields)
         => Try(() => _database
-                .HashDelete(_keyMapper(key), fields.Map(field => (RedisValue)field).ToArray()))
+                .HashDelete(key, fields.Map(field => (RedisValue)field).ToArray()))
             .ToEither()
             .MapLeft(e => Error.New(e))
             .Map(_ => Unit.Default);
 
     public Task<Either<Error, Unit>> DeleteAsync(string key, string field) =>
         TryAsync(() =>
-            _database.HashDeleteAsync(_keyMapper(key), field))
+            _database.HashDeleteAsync(key, field))
             .ToEither().MapLeftAsync(e => Error.New(e))
             .MapAsync(_ => Unit.Default);
 
     public Task<Either<Error, Unit>> DeleteAsync(string key, params string[] fields) =>
         TryAsync(() =>
-            _database.HashDeleteAsync(_keyMapper(key), fields.Map(field => (RedisValue)field).ToArray()))
+            _database.HashDeleteAsync(key, fields.Map(field => (RedisValue)field).ToArray()))
             .ToEither().MapLeftAsync(e => Error.New(e))
             .MapAsync(_ => Unit.Default);
 
     public Either<Error, Option<T>> Get<T>(string key, string field) =>
         Try(() =>
-            _database.HashGet(_keyMapper(key), field))
+            _database.HashGet(key, field))
             .ToEither()
             .MapLeft(e => Error.New(e))
             .Map(v => v.ToOption(_ => !_.HasValue))
@@ -56,7 +52,7 @@ public class RedisHashSetService(
 
     public Either<Error, Option<T>[]> Get<T>(string key, params string[] fields) =>
         Try(() =>
-            _database.HashGet(_keyMapper(key), fields.Map(field => (RedisValue)field).ToArray()))
+            _database.HashGet(key, fields.Map(field => (RedisValue)field).ToArray()))
             .ToEither()
             .MapLeft(e => Error.New(e))
             .Map(rv =>
@@ -67,7 +63,7 @@ public class RedisHashSetService(
                     .ToArray());
 
     public Either<Error, Option<object>[]> Get(string key, params (Type, string)[] typeFields) =>
-        Try(() => _database.HashGet(_keyMapper(key), typeFields.Select(tf => (RedisValue)tf.Item2).ToArray()))
+        Try(() => _database.HashGet(key, typeFields.Select(tf => (RedisValue)tf.Item2).ToArray()))
             .Map(rvs => rvs.Zip(typeFields.Select(tf => tf.Item1)))
             .ToEither().MapLeft(e => Error.New(e))
             .Map(rvt => rvt.Select(r => Try(() => _serDes.Deserialize(r.First!, r.Second))
@@ -75,7 +71,7 @@ public class RedisHashSetService(
 
     public Task<Either<Error, Option<T>>> GetAsync<T>(string key, string field) =>
         TryAsync(() =>
-            _database.HashGetAsync(_keyMapper(key), field))
+            _database.HashGetAsync(key, field))
             .ToEither().MapLeftAsync(e => Error.New(e))
             .MapAsync(v => v.ToOption(_ => _.IsNullOrEmpty))
             .BindAsync(v => v.Match(_ =>
@@ -83,7 +79,7 @@ public class RedisHashSetService(
                 () => Option<T>.None()));
 
     public Task<Either<Error, Option<T>[]>> GetAsync<T>(string key, params string[] fields) =>
-        TryAsync(() => _database.HashGetAsync(_keyMapper(key), fields.Select(f => (RedisValue)f).ToArray()))
+        TryAsync(() => _database.HashGetAsync(key, fields.Select(f => (RedisValue)f).ToArray()))
         .ToEither().MapLeftAsync(e => Error.New(e))
         .MapAsync(vs => vs
             .Select(rv => rv.ToOption(_ => _.IsNullOrEmpty)
@@ -93,7 +89,7 @@ public class RedisHashSetService(
             .ToArray());
 
     public Task<Either<Error, Option<object>[]>> GetAsync(string key, params (Type, string)[] typeFields) =>
-        TryAsync(() => _database.HashGetAsync(_keyMapper(key), typeFields.Select(tf => (RedisValue)tf.Item2).ToArray()))
+        TryAsync(() => _database.HashGetAsync(key, typeFields.Select(tf => (RedisValue)tf.Item2).ToArray()))
             .ToEither().MapLeftAsync(e => Error.New(e))
             .MapAsync(rvs => rvs.Zip(typeFields.Select(tf => tf.Item1)))
             .MapAsync(rvt => rvt.Select(r =>
@@ -101,7 +97,7 @@ public class RedisHashSetService(
                     .OnFail(_ => Option<object>.None())).ToArray());
 
     public Either<Error, Unit> Set<T>(string key, string field, T value) =>
-        Try(() => _database.HashSet(_keyMapper(key), field, _serDes.Serialize(value)))
+        Try(() => _database.HashSet(key, field, _serDes.Serialize(value)))
             .ToEither()
             .MapLeft(e => Error.New(e))
             .Map(_ => Unit.Default);
@@ -109,27 +105,27 @@ public class RedisHashSetService(
     public Either<Error, Unit> Set<T>(string key, params (string, T)[] pairs) =>
         Try(() =>
             Unit.Default.Tee(_ =>
-                _database.HashSet(_keyMapper(key), pairs.Select(t => new HashEntry(t.Item1, _serDes.Serialize(t.Item2))).ToArray())))
+                _database.HashSet(key, pairs.Select(t => new HashEntry(t.Item1, _serDes.Serialize(t.Item2))).ToArray())))
             .ToEither()
             .MapLeft(e => Error.New(e));
 
     public Task<Either<Error, Unit>> SetAsync<T>(string key, string field, T value) =>
         TryAsync(() =>
             _database
-                .HashSetAsync(_keyMapper(key), field, _serDes.Serialize(value)))
+                .HashSetAsync(key, field, _serDes.Serialize(value)))
             .ToEither().MapLeftAsync(e => Error.New(e))
             .MapAsync(_ => Unit.Default);
 
     public Task<Either<Error, Unit>> SetAsync<T>(string key, params (string, T)[] pairs) =>
         TryAsync(async () =>
             {
-                await _database.HashSetAsync(_keyMapper(key), pairs.Select(t => new HashEntry(t.Item1, _serDes.Serialize(t.Item2))).ToArray());
+                await _database.HashSetAsync(key, pairs.Select(t => new HashEntry(t.Item1, _serDes.Serialize(t.Item2))).ToArray());
                 return Unit.Default;
             })
             .ToEither().MapLeftAsync(e => Error.New(e));
 
     public Either<Error, Option<T[]>> GetValues<T>(string key) =>
-        Try(() => _database.HashValues(_keyMapper(key)))
+        Try(() => _database.HashValues(key))
             .ToEither()
             .MapLeft(e => Error.New(e))
             .Bind(vs => Try(() => _serDes.Deserialize<T>(vs))
@@ -137,13 +133,13 @@ public class RedisHashSetService(
                     .MapLeft(e => Error.New(e)));
 
     public Task<Either<Error, Option<T[]>>> GetValuesAsync<T>(string key) =>
-        TryAsync(() => _database.HashValuesAsync(_keyMapper(key)))
+        TryAsync(() => _database.HashValuesAsync(key))
             .ToEither().MapLeftAsync(e => Error.New(e))
             .BindAsync(vs =>
                 Try(() => _serDes.Deserialize<T>(vs)).ToEither().MapLeft(e => Error.New(e)));
 
     public Either<Error, Option<(string, T)[]>> GetAll<T>(string key) =>
-        Try(() => _database.HashGetAll(_keyMapper(key)))
+        Try(() => _database.HashGetAll(key))
             .ToEither().MapLeft(e => Error.New(e))
             .Bind(entries =>
                 Try(() => _serDes.Deserialize<T>(entries))
@@ -151,13 +147,13 @@ public class RedisHashSetService(
                     .MapLeft(e => Error.New(e)));
 
     public Task<Either<Error, Option<(string, T)[]>>> GetAllAsync<T>(string key) =>
-        TryAsync(() => _database.HashGetAllAsync(_keyMapper(key)))
+        TryAsync(() => _database.HashGetAllAsync(key))
             .ToEither().MapLeftAsync(e => Error.New(e))
             .BindAsync(entries =>
                 Try(() => _serDes.Deserialize<T>(entries)).ToEither().MapLeft(e => Error.New(e)));
 
     public Either<Error, Option<string[]>> GetFieldKeys(string key) =>
-        Try(() => _database.HashKeys(_keyMapper(key)))
+        Try(() => _database.HashKeys(key))
             .ToEither().MapLeft(e => Error.New(e))
             .Map(v => v.ToOption(vv => vv.Length == 0))
             .Bind(v =>
@@ -170,7 +166,7 @@ public class RedisHashSetService(
             );
 
     public Task<Either<Error, Option<string[]>>> GetFieldKeysAsync(string key) =>
-        TryAsync(() => _database.HashKeysAsync(_keyMapper(key)))
+        TryAsync(() => _database.HashKeysAsync(key))
             .ToEither().MapLeftAsync(e => Error.New(e))
             .MapAsync(v => v.ToOption(vv => vv.Length == 0))
             .BindAsync(v =>

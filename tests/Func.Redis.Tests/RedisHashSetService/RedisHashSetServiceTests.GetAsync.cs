@@ -3,16 +3,11 @@
 public partial class RedisHashSetServiceTests
 {
 
-    [TestCase("")]
-    [TestCase(null)]
-    [TestCase("something")]
-    public async Task GetAsync_WhenDatabaseIsNull_ShouldReturnError(string prefix)
+    [Test]
+    public async Task GetAsync_WhenDatabaseIsNull_ShouldReturnError()
     {
         _mockProvider.GetDatabase().Returns(null as IDatabase);
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
+        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes);
 
         _mockProvider
             .GetDatabase()
@@ -24,22 +19,13 @@ public partial class RedisHashSetServiceTests
         result.OnLeft(err => err.Should().Be(Error.New(new NullReferenceException())));
     }
 
-    [TestCase("", "key", "field")]
-    [TestCase(":", "key", "field")]
-    [TestCase("  :", "key", "field")]
-    [TestCase("::", "key", "field")]
-    [TestCase("prefix", "prefix:key", "field")]
-    [TestCase("prefix:", "prefix:key", "field")]
-    [TestCase("prefix::", "prefix:key", "field")]
-    public async Task GetAsync_WhenDatabaseThrowsException_ShouldReturnError(string prefix, string key, string field)
+    [Test]
+    public async Task GetAsync_WhenDatabaseThrowsException_ShouldReturnError()
     {
         var exception = new Exception("some message");
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
+        
         _mockDb
-            .HashGetAsync(key, field, Arg.Any<CommandFlags>())
+            .HashGetAsync("key", "field", Arg.Any<CommandFlags>())
             .Returns<RedisValue>(_ => throw exception);
 
         var result = await _sut.GetAsync<object>("key", "field");
@@ -49,32 +35,15 @@ public partial class RedisHashSetServiceTests
             .OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
         await _mockDb
             .Received(1)
-            .HashGetAsync(key, field, Arg.Any<CommandFlags>());
+            .HashGetAsync("key", "field", Arg.Any<CommandFlags>());
     }
 
-    [TestCase("", "key", "field", "")]
-    [TestCase(":", "key", "field", "")]
-    [TestCase("  :", "key", "field", "")]
-    [TestCase("::", "key", "field", "")]
-    [TestCase("prefix", "prefix:key", "field", "")]
-    [TestCase("prefix:", "prefix:key", "field", "")]
-    [TestCase("prefix::", "prefix:key", "field", "")]
-    [TestCase("", "key", "field", null)]
-    [TestCase(":", "key", "field", null)]
-    [TestCase("  :", "key", "field", null)]
-    [TestCase("::", "key", "field", null)]
-    [TestCase("prefix", "prefix:key", "field", null)]
-    [TestCase("prefix:", "prefix:key", "field", null)]
-    [TestCase("prefix::", "prefix:key", "field", null)]
-    public async Task GetAsync_WhenDatabaseReturnsItemWithNoValue_ShouldReturnRightWithNone(string prefix, string key, string field, string content)
+    [TestCase("")]
+    [TestCase(null)]
+    public async Task GetAsync_WhenDatabaseReturnsItemWithNoValue_ShouldReturnRightWithNone(string content)
     {
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
-
         _mockDb
-            .HashGetAsync(key, field, Arg.Any<CommandFlags>())
+            .HashGetAsync("key", "field", Arg.Any<CommandFlags>())
             .Returns(new RedisValue(content));
 
         var result = await _sut.GetAsync<object>("key", "field");
@@ -84,25 +53,15 @@ public partial class RedisHashSetServiceTests
             .OnRight(e => e.IsNone.Should().BeTrue());
         await _mockDb
             .Received(1)
-            .HashGetAsync(key, field, Arg.Any<CommandFlags>());
+            .HashGetAsync("key", "field", Arg.Any<CommandFlags>());
     }
 
-    [TestCase("", "key")]
-    [TestCase(":", "key")]
-    [TestCase("  :", "key")]
-    [TestCase("::", "key")]
-    [TestCase("prefix", "prefix:key")]
-    [TestCase("prefix:", "prefix:key")]
-    [TestCase("prefix::", "prefix:key")]
-    public async Task GetAsync_WhenSerDesThrows_ShouldReturnLeft(string prefix, string key)
+    [Test]
+    public async Task GetAsync_WhenSerDesThrows_ShouldReturnLeft()
     {
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
         var redisReturn = new RedisValue("serialized");
         _mockDb
-            .HashGetAsync(key, "field", Arg.Any<CommandFlags>())
+            .HashGetAsync("key", "field", Arg.Any<CommandFlags>())
             .Returns(redisReturn);
         var exception = new Exception("some message");
         _mockSerDes
@@ -116,25 +75,14 @@ public partial class RedisHashSetServiceTests
             .OnLeft(e => e.Should().Be(Error.New(exception)));
         await _mockDb
             .Received(1)
-            .HashGetAsync(key, "field", Arg.Any<CommandFlags>());
+            .HashGetAsync("key", "field", Arg.Any<CommandFlags>());
     }
 
-    [TestCase("", "key", "field")]
-    [TestCase(":", "key", "field")]
-    [TestCase("::", "key", "field")]
-    [TestCase(" :", "key", "field")]
-    [TestCase("  :", "key", "field")]
-    [TestCase("prefix", "prefix:key", "field")]
-    [TestCase("prefix:", "prefix:key", "field")]
-    [TestCase("prefix::", "prefix:key", "field")]
-    public async Task GetAsync_WhenDatabaseReturnsNullJsonValue_ShouldReturnRightWithNone(string prefix, string key, string field)
+    [Test]
+    public async Task GetAsync_WhenDatabaseReturnsNullJsonValue_ShouldReturnRightWithNone()
     {
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
         _mockDb
-            .HashGetAsync(key, field, Arg.Any<CommandFlags>())
+            .HashGetAsync("key", "field", Arg.Any<CommandFlags>())
             .Returns(RedisValue.Null);
 
         var result = await _sut.GetAsync<object>("key", "field");
@@ -144,25 +92,15 @@ public partial class RedisHashSetServiceTests
             .OnRight(e => e.IsNone.Should().BeTrue());
         await _mockDb
             .Received(1)
-            .HashGetAsync(key, field, Arg.Any<CommandFlags>());
+            .HashGetAsync("key", "field", Arg.Any<CommandFlags>());
     }
 
-    [TestCase("", "key")]
-    [TestCase(":", "key")]
-    [TestCase(" :", "key")]
-    [TestCase("::", "key")]
-    [TestCase("prefix", "prefix:key")]
-    [TestCase("prefix:", "prefix:key")]
-    [TestCase("prefix::", "prefix:key")]
-    public async Task GetAsync_WhenDatabaseReturnsValidJson_ShouldReturnRightWithSome(string prefix, string key)
+    [Test]
+    public async Task GetAsync_WhenDatabaseReturnsValidJson_ShouldReturnRightWithSome()
     {
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
         var redisReturn = new RedisValue("serialized");
         _mockDb
-            .HashGetAsync(key, "field", Arg.Any<CommandFlags>())
+            .HashGetAsync("key", "field", Arg.Any<CommandFlags>())
             .Returns(redisReturn);
         _mockSerDes
             .Deserialize<TestData>(redisReturn)
@@ -179,23 +117,12 @@ public partial class RedisHashSetServiceTests
             });
     }
 
-    [TestCase("")]
-    [TestCase(null)]
-    [TestCase("something")]
-    public async Task MultiGetAsync_WhenDatabaseIsNull_ShouldReturnError(string prefix)
+    [Test]
+    public async Task MultiGetAsync_WhenDatabaseIsNull_ShouldReturnError()
     {
-
         var fields = new[] { "field1", "field2" };
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
-
         _mockProvider.GetDatabase().Returns(null as IDatabase);
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
+        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes);
 
         _mockProvider
             .GetDatabase()
@@ -207,62 +134,38 @@ public partial class RedisHashSetServiceTests
         result.OnLeft(err => err.Should().Be(Error.New(new NullReferenceException())));
     }
 
-    [TestCase("", "key", "field1", "field2")]
-    [TestCase(":", "key", "field1", "field2")]
-    [TestCase("  :", "key", "field1", "field2")]
-    [TestCase("::", "key", "field1", "field2")]
-    [TestCase("prefix", "prefix:key", "field1", "field2")]
-    [TestCase("prefix:", "prefix:key", "field1", "field2")]
-    [TestCase("prefix::", "prefix:key", "field1", "field2")]
-    public async Task MultiGetAsync_WhenDatabaseThrowsException_ShouldReturnError(string prefix, string key, string field1, string field2)
+    [Test]
+    public async Task MultiGetAsync_WhenDatabaseThrowsException_ShouldReturnError()
     {
-        var fields = new[] { (RedisValue)field1, (RedisValue)field2 };
-        var stringfields = new[] { field1, field2 };
+        var fields = new[] { (RedisValue)"field1", (RedisValue)"field2" };
+        var stringfields = new[] { "field1", "field2" };
 
         var exception = new Exception("some message");
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
+
         _mockDb
-            .HashGetAsync(key, Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>())
+            .HashGetAsync("key", Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>())
             .Returns<RedisValue[]>(_ => throw exception);
 
         var result = await _sut.GetAsync<object>("key", stringfields);
 
+        result.IsLeft.Should().BeTrue();
         result
             .OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
         await _mockDb
             .Received(1)
-            .HashGetAsync(key, Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>());
+            .HashGetAsync("key", Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>());
     }
 
-    [TestCase("", "key", "field1", "field2", "")]
-    [TestCase(":", "key", "field1", "field2", "")]
-    [TestCase("  :", "key", "field1", "field2", "")]
-    [TestCase("::", "key", "field1", "field2", "")]
-    [TestCase("prefix", "prefix:key", "field1", "field2", "")]
-    [TestCase("prefix:", "prefix:key", "field1", "field2", "")]
-    [TestCase("prefix::", "prefix:key", "field1", "field2", "")]
-    [TestCase("", "key", "field1", "field2", null)]
-    [TestCase(":", "key", "field1", "field2", null)]
-    [TestCase("  :", "key", "field1", "field2", null)]
-    [TestCase("::", "key", "field1", "field2", null)]
-    [TestCase("prefix", "prefix:key", "field1", "field2", null)]
-    [TestCase("prefix:", "prefix:key", "field1", "field2", null)]
-    [TestCase("prefix::", "prefix:key", "field1", "field2", null)]
-    public async Task MultiGetAsync_WhenDatabaseReturnsItemWithNoValue_ShouldReturnRightWithNone(string prefix, string key, string field1, string field2, string content)
+    [TestCase("")]
+    [TestCase(null)]
+    public async Task MultiGetAsync_WhenDatabaseReturnsItemWithNoValue_ShouldReturnRightWithNone(string content)
     {
-        var fields = new[] { (RedisValue)field1, (RedisValue)field2 };
+        var fields = new[] { (RedisValue)"field1", (RedisValue)"field2" };
         var contents = new[] { (RedisValue)content, (RedisValue)content };
-        var stringfields = new[] { field1, field2 };
+        var stringfields = new[] { "field1", "field2"};
 
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
         _mockDb
-             .HashGetAsync(key, Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>())
+             .HashGetAsync("key", Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>())
              .Returns(contents);
 
         var result = await _sut.GetAsync<object>("key", stringfields);
@@ -277,27 +180,18 @@ public partial class RedisHashSetServiceTests
 
         await _mockDb
             .Received(1)
-            .HashGetAsync(key, Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>());
+            .HashGetAsync("key", Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>());
     }
 
-    [TestCase("", "key", "field11", "field2")]
-    [TestCase(":", "key", "field1", "field2")]
-    [TestCase("  :", "key", "field1", "field2")]
-    [TestCase("::", "key", "field1", "field2")]
-    [TestCase("prefix", "prefix:key", "field1", "field2")]
-    [TestCase("prefix:", "prefix:key", "field1", "field2")]
-    [TestCase("prefix::", "prefix:key", "field1", "field2")]
-    public async Task MultiGetAsync_WhenDatabaseReturnsNonJsonValue_ShouldReturnLeft(string prefix, string key, string field1, string field2)
+    [Test]
+    public async Task MultiGetAsync_WhenDatabaseReturnsNonJsonValue_ShouldReturnLeft()
     {
-        var fields = new[] { (RedisValue)field1, (RedisValue)field2 };
+        var fields = new[] { (RedisValue)"field1", (RedisValue)"field2" };
         var contents = new[] { new RedisValue(@"{""wrong"": ""json"), new RedisValue(@"{""wrong"": ""json") };
-        var stringfields = new[] { field1, field2 };
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
+        var stringfields = new[] { "field1", "field2" };
+
         _mockDb
-             .HashGetAsync(key, Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>())
+             .HashGetAsync("key", Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>())
              .Returns(contents.AsTask());
         var result = await _sut.GetAsync<object>("key", stringfields);
 
@@ -311,28 +205,18 @@ public partial class RedisHashSetServiceTests
 
         await _mockDb
             .Received(1)
-            .HashGetAsync(key, Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>());
+            .HashGetAsync("key", Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>());
     }
 
-    [TestCase("", "key", "field11", "field2")]
-    [TestCase(":", "key", "field11", "field2")]
-    [TestCase("::", "key", "field11", "field2")]
-    [TestCase(" :", "key", "field11", "field2")]
-    [TestCase("  :", "key", "field11", "field2")]
-    [TestCase("prefix", "prefix:key", "field11", "field2")]
-    [TestCase("prefix:", "prefix:key", "field11", "field2")]
-    [TestCase("prefix::", "prefix:key", "field11", "field2")]
-    public async Task MultiGetAsync_WhenDatabaseReturnsNullJsonValue_ShouldReturnRightWithNone(string prefix, string key, string field1, string field2)
+    [Test]
+    public async Task MultiGetAsync_WhenDatabaseReturnsNullJsonValue_ShouldReturnRightWithNone()
     {
-        var fields = new[] { (RedisValue)field1, (RedisValue)field2 };
+        var fields = new[] { (RedisValue)"field1", (RedisValue)"field2" };
         var contents = new[] { RedisValue.Null, RedisValue.Null };
-        var stringfields = new[] { field1, field2 };
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
+        var stringfields = new[] { "field1", "field2" };
+
         _mockDb
-            .HashGetAsync(key, Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>())
+            .HashGetAsync("key", Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>())
             .Returns(contents.AsTask());
 
         var result = await _sut.GetAsync<object>("key", stringfields);
@@ -346,27 +230,18 @@ public partial class RedisHashSetServiceTests
             });
         await _mockDb
             .Received(1)
-            .HashGetAsync(key, Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>());
+            .HashGetAsync("key", Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>());
     }
 
-    [TestCase("", "key")]
-    [TestCase(":", "key")]
-    [TestCase(" :", "key")]
-    [TestCase("::", "key")]
-    [TestCase("prefix", "prefix:key")]
-    [TestCase("prefix:", "prefix:key")]
-    [TestCase("prefix::", "prefix:key")]
-    public async Task MultiGetAsync_WhenDatabaseReturnsValidData_ShouldReturnRightWithSome(string prefix, string key)
+    [Test]
+    public async Task MultiGetAsync_WhenDatabaseReturnsValidData_ShouldReturnRightWithSome()
     {
         var fields = new[] { (RedisValue)"field1", (RedisValue)"field2" };
         var contents = new[] { (RedisValue)"serialized 1", (RedisValue)"serialized 2" };
         var stringfields = new[] { "field1", "field2" };
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
+
         _mockDb
-            .HashGetAsync(key, Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>())
+            .HashGetAsync("key", Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>())
             .Returns(contents.AsTask());
         _mockSerDes
             .Deserialize<TestData>("serialized 1")
@@ -386,24 +261,15 @@ public partial class RedisHashSetServiceTests
             });
     }
 
-    [TestCase("", "key")]
-    [TestCase(":", "key")]
-    [TestCase(" :", "key")]
-    [TestCase("::", "key")]
-    [TestCase("prefix", "prefix:key")]
-    [TestCase("prefix:", "prefix:key")]
-    [TestCase("prefix::", "prefix:key")]
-    public async Task MultiGetAsync_WhenDatabaseReturnsValidJson_ShouldReturnRightWithNoneWhereMissingField(string prefix, string key)
+    [Test]
+    public async Task MultiGetAsync_WhenDatabaseReturnsValidJson_ShouldReturnRightWithNoneWhereMissingField()
     {
         var fields = new[] { (RedisValue)"field1", (RedisValue)"field2" };
         var contents = new[] { (RedisValue)"serialized" };
         var stringfields = new[] { "field1", "field2" };
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
+
         _mockDb
-            .HashGetAsync(key, Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>())
+            .HashGetAsync("key", Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>())
             .Returns(contents.AsTask());
         _mockSerDes
            .Deserialize<TestData>("serialized")

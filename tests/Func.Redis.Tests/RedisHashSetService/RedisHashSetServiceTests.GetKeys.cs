@@ -3,16 +3,11 @@
 public partial class RedisHashSetServiceTests
 {
 
-    [TestCase("")]
-    [TestCase(null)]
-    [TestCase("something")]
-    public void GetKeys_WhenDatabaseIsNull_ShouldReturnError(string prefix)
+    [Test]
+    public void GetKeys_WhenDatabaseIsNull_ShouldReturnError()
     {
         _mockProvider.GetDatabase().Returns(null as IDatabase);
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
+        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes);
 
         _mockProvider
             .GetDatabase()
@@ -24,22 +19,13 @@ public partial class RedisHashSetServiceTests
         result.OnLeft(err => err.Should().Be(Error.New(new NullReferenceException())));
     }
 
-    [TestCase("", "key")]
-    [TestCase(":", "key")]
-    [TestCase("  :", "key")]
-    [TestCase("::", "key")]
-    [TestCase("prefix", "prefix:key")]
-    [TestCase("prefix:", "prefix:key")]
-    [TestCase("prefix::", "prefix:key")]
-    public void GetKeys_WhenDatabaseThrowsException_ShouldReturnError(string prefix, string key)
+    [Test]
+    public void GetKeys_WhenDatabaseThrowsException_ShouldReturnError()
     {
         var exception = new Exception("some message");
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
+
         _mockDb
-            .HashKeys(key, Arg.Any<CommandFlags>())
+            .HashKeys("key", Arg.Any<CommandFlags>())
             .Returns(_ => throw exception);
 
         var result = _sut.GetFieldKeys("key");
@@ -49,31 +35,14 @@ public partial class RedisHashSetServiceTests
             .OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
         _mockDb
             .Received(1)
-            .HashKeys(key, Arg.Any<CommandFlags>());
+            .HashKeys("key", Arg.Any<CommandFlags>());
     }
 
-    [TestCase("", "key")]
-    [TestCase(":", "key")]
-    [TestCase("  :", "key")]
-    [TestCase("::", "key")]
-    [TestCase("prefix", "prefix:key")]
-    [TestCase("prefix:", "prefix:key")]
-    [TestCase("prefix::", "prefix:key")]
-    [TestCase("", "key")]
-    [TestCase(":", "key")]
-    [TestCase("  :", "key")]
-    [TestCase("::", "key")]
-    [TestCase("prefix", "prefix:key")]
-    [TestCase("prefix:", "prefix:key")]
-    [TestCase("prefix::", "prefix:key")]
-    public void GetKeys_WhenDatabaseReturnsItemWithNoValue_ShouldReturnRightWithNone(string prefix, string key)
+    [Test]
+    public void GetKeys_WhenDatabaseReturnsItemWithNoValue_ShouldReturnRightWithNone()
     {
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
         _mockDb
-            .HashKeys(key, Arg.Any<CommandFlags>())
+            .HashKeys("key", Arg.Any<CommandFlags>())
             .Returns([]);
 
         var result = _sut.GetFieldKeys("key");
@@ -83,19 +52,15 @@ public partial class RedisHashSetServiceTests
             .OnRight(e => e.IsNone.Should().BeTrue());
         _mockDb
             .Received(1)
-            .HashKeys(key, Arg.Any<CommandFlags>());
+            .HashKeys("key", Arg.Any<CommandFlags>());
     }
 
-    [TestCase("some-id", "some-id2", "", "key")]
-    public void GetKeys_WhenDatabaseReturnsMoreString_ShouldReturnRightWithSome(string serializedData, string serializedData2, string prefix, string key)
+    [TestCase("some-id", "some-id2")]
+    public void GetKeys_WhenDatabaseReturnsMoreString_ShouldReturnRightWithSome(string serializedData, string serializedData2)
     {
         var expectedData = new string[] { "some-id", "some-id2" };
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes, new RedisKeyConfiguration
-        {
-            KeyPrefix = prefix
-        });
         _mockDb
-            .HashKeys(key, Arg.Any<CommandFlags>())
+            .HashKeys("key", Arg.Any<CommandFlags>())
             .Returns([serializedData, serializedData2]);
 
         var result = _sut.GetFieldKeys("key");

@@ -13,7 +13,7 @@ public interface IRedisHashSetService
     Either<Error, Option<object>[]> Get(string key, params (Type, string)[] typeFields);
     Task<Either<Error, Option<T>>> GetAsync<T>(string key, string field);
     Task<Either<Error, Option<T>[]>> GetAsync<T>(string key, params string[] fields);
-    Task<Either<Error, Option<object>[]>> GetAsync(string key, (Type, string)[] typeFields);
+    Task<Either<Error, Option<object>[]>> GetAsync(string key, params (Type, string)[] typeFields);
     Either<Error, Unit> Set<T>(string key, string field, T value);
     Either<Error, Unit> Set<T>(string key, params (string, T)[] pairs);
     Task<Either<Error, Unit>> SetAsync<T>(string key, string field, T value);

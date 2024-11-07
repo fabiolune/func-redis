@@ -6,7 +6,7 @@ public readonly struct Error
 {
     public string Message { get; }
 
-    private Error(string message) => Message = message;
+    private Error(string message) => Message = message ?? string.Empty;
     [Pure]
     public static Error New(string message) => new(message);
     [Pure]

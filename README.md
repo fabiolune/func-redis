@@ -1,6 +1,6 @@
 # Redis Data Components
 
-This repo contains components aimed to simplify the adoption of Redis in `dotnet` using a Functional Programming first approach (thanks to Franco MElandri's [tiny-fp](https://github.com/FrancoMelandri/tiny-fp)).
+This repo contains components aimed to simplify the adoption of Redis in `dotnet` using a Functional Programming first approach (thanks to Franco Melandri's [tiny-fp](https://github.com/FrancoMelandri/tiny-fp)).
 
 The library includes functionalities to work with:
 

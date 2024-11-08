@@ -18,4 +18,10 @@
     <PackageReference Include="tiny-fp" Version="2.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="README.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -9,15 +9,15 @@
 [![NuGet](https://img.shields.io/nuget/dt/func-redis)](https://www.nuget.org/packages/func-redis/)
 [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Ffabiolune%2Ffunc-redis%2Fmain)](https://dashboard.stryker-mutator.io/reports/github.com/fabiolune/func-redis/main)
 
-This repo contains components aimed to simplify the adoption of Redis in `dotnet` using a Functional Programming first approach (thanks to Franco Melandri's [tiny-fp](https://github.com/FrancoMelandri/tiny-fp)).
+This repo contains components aimed to simplify the adoption of Redis in `dotnet` using a Functional Programming-first approach (thanks to Franco Melandri's [tiny-fp](https://github.com/FrancoMelandri/tiny-fp)).
 
-The library includes functionalities to work with:
+The library includes functionalities for:
 
 - keys management (get, set, del) using `IRedisKeyService`
 - hash sets using `IRedisHashSetService`
 - pub/sub using `IRedisPublisherService` and `IRedisSubscriber`
 
-To register the required components use:
+To register the required components, use:
 
 ``` C#
 ...
@@ -31,4 +31,4 @@ where `capabilities` is a bitwise combination of RedisCapabilities:
 - `RedisCapabilities.Keys` enables keys management
 - `RedisCapabilities.HashSet` enables hash sets management
 - `RedisCapabilities.Publisher` enables publish management
-- `RedisCapabilities.Subscriber` enables subscribe management (the `AddRedis` service collection extensions requires an array of assemblies to enable scanning of `IRedisSubscriber` implementations).
+- `RedisCapabilities.Subscriber` enables subscribe management (the `AddRedis` service collection extension requires an array of assemblies to enable scanning of `IRedisSubscriber` implementations).

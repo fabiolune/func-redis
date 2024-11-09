@@ -2,7 +2,7 @@
 
 public partial class LoggingRedisHashSetServiceTest
 {
-    private Redis.LoggingRedisHashSetService _sut;
+    private Logging.LoggingRedisHashSetService _sut;
     private ITestLoggerFactory _loggerFactory;
     private ILogger _mockLogger;
     private IRedisHashSetService _mockService;

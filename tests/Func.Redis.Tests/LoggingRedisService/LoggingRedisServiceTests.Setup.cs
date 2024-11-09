@@ -1,4 +1,6 @@
-﻿namespace Func.Redis.Tests.LoggingRedisService;
+﻿using Func.Redis.Logging;
+
+namespace Func.Redis.Tests.LoggingRedisService;
 
 public partial class LoggingRedisServiceTests
 {

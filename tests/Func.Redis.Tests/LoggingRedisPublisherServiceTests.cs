@@ -1,4 +1,6 @@
-﻿namespace Func.Redis.Tests;
+﻿using Func.Redis.Logging;
+
+namespace Func.Redis.Tests;
 
 public class LoggingRedisPublisherServiceTests
 {

@@ -1,7 +1,5 @@
-using FluentAssertions;
 using Func.Redis.HashSet;
 using Func.Redis.Key;
-using Func.Redis.Models;
 using Func.Redis.Publisher;
 using Func.Redis.SerDes;
 using Func.Redis.SerDes.Json;
@@ -10,11 +8,7 @@ using Func.Redis.Subscriber;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Memory;
 using Microsoft.Extensions.DependencyInjection;
-using NSubstitute;
-using NUnit.Framework;
-using StackExchange.Redis;
 using System.Reflection;
-using TinyFp;
 
 namespace Func.Redis.Extensions.Unit.Tests;
 

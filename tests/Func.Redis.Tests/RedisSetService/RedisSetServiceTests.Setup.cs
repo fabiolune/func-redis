@@ -17,6 +17,6 @@ internal partial class RedisSetServiceTests
         _mockSourcesProvider = Substitute.For<ISourcesProvider>();
         _mockDb = Substitute.For<IDatabase>();
         _mockSourcesProvider.GetDatabase().Returns(_mockDb);
-        _sut = new Redis.RedisSetService(_mockSourcesProvider, _mockSerDes);
+        _sut = new Set.RedisSetService(_mockSourcesProvider, _mockSerDes);
     }
 }

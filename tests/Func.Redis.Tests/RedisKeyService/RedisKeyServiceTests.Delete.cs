@@ -7,7 +7,7 @@ public partial class RedisKeyServiceTests
     public void Delete_WhenDatabaseIsNull_ShouldReturnError()
     {
         _mockSourcesProvider.GetDatabase().Returns(null as IDatabase);
-        _sut = new Redis.RedisKeyService(_mockSourcesProvider, _mockSerDes);
+        _sut = new Key.RedisKeyService(_mockSourcesProvider, _mockSerDes);
 
         _mockSourcesProvider
             .GetDatabase()
@@ -23,7 +23,7 @@ public partial class RedisKeyServiceTests
     public void MultipleDelete_WhenDatabaseIsNull_ShouldReturnError()
     {
         _mockSourcesProvider.GetDatabase().Returns(null as IDatabase);
-        _sut = new Redis.RedisKeyService(_mockSourcesProvider, _mockSerDes);
+        _sut = new Key.RedisKeyService(_mockSourcesProvider, _mockSerDes);
 
         _mockSourcesProvider
             .GetDatabase()
@@ -39,7 +39,7 @@ public partial class RedisKeyServiceTests
     public void Delete_WhenDatabaseThrowsException_ShouldReturnError()
     {
         var exception = new Exception("some message");
-        _sut = new Redis.RedisKeyService(_mockSourcesProvider, _mockSerDes);
+        _sut = new Key.RedisKeyService(_mockSourcesProvider, _mockSerDes);
         _mockDb
             .KeyDelete("key", Arg.Any<CommandFlags>())
             .Returns(_ => throw exception);
@@ -59,7 +59,7 @@ public partial class RedisKeyServiceTests
     {
         var exception = new Exception("some message");
         var keys = new[] { (RedisKey)"key1", (RedisKey)"key2" };
-        _sut = new Redis.RedisKeyService(_mockSourcesProvider, _mockSerDes);
+        _sut = new Key.RedisKeyService(_mockSourcesProvider, _mockSerDes);
         _mockDb
             .KeyDelete(Arg.Is<RedisKey[]>(k => k.SequenceEqual(keys)), Arg.Any<CommandFlags>())
             .Returns(_ => throw exception);
@@ -78,7 +78,7 @@ public partial class RedisKeyServiceTests
     [TestCase(false)]
     public void Delete_WhenDatabaseReturnsValidBool_ShouldReturnRightWithSome(bool returnValue)
     {
-        _sut = new Redis.RedisKeyService(_mockSourcesProvider, _mockSerDes);
+        _sut = new Key.RedisKeyService(_mockSourcesProvider, _mockSerDes);
         _mockDb
             .KeyDelete("key", Arg.Any<CommandFlags>())
             .Returns(returnValue);
@@ -94,7 +94,7 @@ public partial class RedisKeyServiceTests
     [TestCase(11)]
     public void MultipleDelete_WhenDatabaseReturnsValidBool_ShouldReturnRightWithSome(long returnValue)
     {
-        _sut = new Redis.RedisKeyService(_mockSourcesProvider, _mockSerDes);
+        _sut = new Key.RedisKeyService(_mockSourcesProvider, _mockSerDes);
         _mockDb
             .KeyDelete(Arg.Is<RedisKey[]>(a =>
                 a.SequenceEqual(new[] { (RedisKey)"key1", (RedisKey)"key2" })), Arg.Any<CommandFlags>())

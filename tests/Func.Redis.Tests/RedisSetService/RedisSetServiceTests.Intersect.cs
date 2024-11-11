@@ -5,7 +5,7 @@ internal partial class RedisSetServiceTests
     public void Intersect_WhenDatabaseIsNull_ShouldReturnError()
     {
         _mockSourcesProvider.GetDatabase().Returns(null as IDatabase);
-        _sut = new Redis.RedisSetService(_mockSourcesProvider, _mockSerDes);
+        _sut = new Set.RedisSetService(_mockSourcesProvider, _mockSerDes);
 
         _mockSourcesProvider
             .GetDatabase()

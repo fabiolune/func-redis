@@ -6,7 +6,7 @@ public partial class RedisKeyServiceTests
     public async Task GetAsync_WhenDatabaseIsNull_ShouldReturnError()
     {
         _mockSourcesProvider.GetDatabase().Returns(null as IDatabase);
-        _sut = new Redis.RedisKeyService(_mockSourcesProvider, _mockSerDes);
+        _sut = new Key.RedisKeyService(_mockSourcesProvider, _mockSerDes);
 
         var result = await _sut.GetAsync<object>("key");
 
@@ -18,7 +18,7 @@ public partial class RedisKeyServiceTests
     public async Task MultipleGetAsync_WhenDatabaseIsNull_ShouldReturnError()
     {
         _mockSourcesProvider.GetDatabase().Returns(null as IDatabase);
-        _sut = new Redis.RedisKeyService(_mockSourcesProvider, _mockSerDes);
+        _sut = new Key.RedisKeyService(_mockSourcesProvider, _mockSerDes);
 
         var result = await _sut.GetAsync<object>("key1", "key2");
 

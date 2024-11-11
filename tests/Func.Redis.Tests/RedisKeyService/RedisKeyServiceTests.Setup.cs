@@ -23,6 +23,6 @@ public partial class RedisKeyServiceTests
         _mockServer1 = Substitute.For<IServer>();
         _mockServer2 = Substitute.For<IServer>();
         _mockSourcesProvider.GetServers().Returns([_mockServer1, _mockServer2]);
-        _sut = new Redis.RedisKeyService(_mockSourcesProvider, _mockSerDes);
+        _sut = new Key.RedisKeyService(_mockSourcesProvider, _mockSerDes);
     }
 }

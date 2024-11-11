@@ -7,7 +7,7 @@ public partial class RedisHashSetServiceTests
     public async Task GetAsync_WhenDatabaseIsNull_ShouldReturnError()
     {
         _mockProvider.GetDatabase().Returns(null as IDatabase);
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes);
+        _sut = new HashSet.RedisHashSetService(_mockProvider, _mockSerDes);
 
         _mockProvider
             .GetDatabase()
@@ -122,7 +122,7 @@ public partial class RedisHashSetServiceTests
     {
         var fields = new[] { "field1", "field2" };
         _mockProvider.GetDatabase().Returns(null as IDatabase);
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes);
+        _sut = new HashSet.RedisHashSetService(_mockProvider, _mockSerDes);
 
         _mockProvider
             .GetDatabase()

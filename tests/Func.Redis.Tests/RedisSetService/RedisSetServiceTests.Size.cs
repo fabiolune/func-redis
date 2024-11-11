@@ -5,7 +5,7 @@ internal partial class RedisSetServiceTests
     public void Size_WhenDatabaseIsNull_ShouldReturnError()
     {
         _mockSourcesProvider.GetDatabase().Returns(null as IDatabase);
-        _sut = new Redis.RedisSetService(_mockSourcesProvider, _mockSerDes);
+        _sut = new Set.RedisSetService(_mockSourcesProvider, _mockSerDes);
 
         _mockSourcesProvider
             .GetDatabase()
@@ -21,7 +21,7 @@ internal partial class RedisSetServiceTests
     public void Size_WhenDatabaseThrowsException_ShouldReturnError()
     {
         var exception = new Exception("some message");
-        _sut = new Redis.RedisSetService(_mockSourcesProvider, _mockSerDes);
+        _sut = new Set.RedisSetService(_mockSourcesProvider, _mockSerDes);
         _mockDb
             .SetLength("key", CommandFlags.None)
             .Returns(_ => throw exception);
@@ -37,7 +37,7 @@ internal partial class RedisSetServiceTests
     [TestCase(12)]
     public void Size_WhenDatabaseReturnsZero_ShouldReturnZero(long returnValue)
     {
-        _sut = new Redis.RedisSetService(_mockSourcesProvider, _mockSerDes);
+        _sut = new Set.RedisSetService(_mockSourcesProvider, _mockSerDes);
         _mockDb
             .SetLength("key", CommandFlags.None)
             .Returns(returnValue);
@@ -52,7 +52,7 @@ internal partial class RedisSetServiceTests
     [TestCase(12)]
     public async Task SizeAsync_WhenDatabaseReturnsZero_ShouldReturnZero(long returnValue)
     {
-        _sut = new Redis.RedisSetService(_mockSourcesProvider, _mockSerDes);
+        _sut = new Set.RedisSetService(_mockSourcesProvider, _mockSerDes);
         _mockDb
             .SetLengthAsync("key", CommandFlags.None)
             .Returns(returnValue);

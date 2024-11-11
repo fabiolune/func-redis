@@ -6,7 +6,7 @@ public partial class RedisKeyServiceTests
     public async Task DeleteAsync_WhenDatabaseIsNull_ShouldReturnError()
     {
         _mockSourcesProvider.GetDatabase().Returns(null as IDatabase);
-        _sut = new Redis.RedisKeyService(_mockSourcesProvider, _mockSerDes);
+        _sut = new Key.RedisKeyService(_mockSourcesProvider, _mockSerDes);
 
         _mockSourcesProvider
             .GetDatabase()
@@ -22,7 +22,7 @@ public partial class RedisKeyServiceTests
     public async Task MultipleDeleteAsync_WhenDatabaseIsNull_ShouldReturnError()
     {
         _mockSourcesProvider.GetDatabase().Returns(null as IDatabase);
-        _sut = new Redis.RedisKeyService(_mockSourcesProvider, _mockSerDes);
+        _sut = new Key.RedisKeyService(_mockSourcesProvider, _mockSerDes);
 
         _mockSourcesProvider
             .GetDatabase()

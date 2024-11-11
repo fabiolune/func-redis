@@ -15,7 +15,7 @@ public partial class LoggingRedisHashSetServiceTest
         _loggerFactory = TestLoggerFactory.Create();
         _mockLogger = _loggerFactory.CreateLogger<IRedisHashSetService>();
         _mockService = Substitute.For<IRedisHashSetService>();
-        _sut = new Logging.LoggingRedisHashSetService(_mockLogger, _mockService);
+        _sut = new HashSet.LoggingRedisHashSetService(_mockLogger, _mockService);
     }
 
     private record TestData

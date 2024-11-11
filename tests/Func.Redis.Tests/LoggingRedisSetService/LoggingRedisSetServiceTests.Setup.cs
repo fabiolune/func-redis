@@ -15,6 +15,6 @@ internal partial class LoggingRedisSetServiceTests
 
         _mockLogger = _loggerFactory.CreateLogger<IRedisSetService>();
         _mockService = Substitute.For<IRedisSetService>();
-        _sut = new Logging.LoggingRedisSetService(_mockLogger, _mockService);
+        _sut = new Set.LoggingRedisSetService(_mockLogger, _mockService);
     }
 }

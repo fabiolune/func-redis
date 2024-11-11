@@ -38,9 +38,9 @@ internal static class TestDataElements
     private static readonly Either<Error, Option<object>[]> SomeErrorOptionObjects = Either<Error, Option<object>[]>.Right([Option<object>.Some(new TestData()), Option<object>.None()]);
     private static readonly Either<Error, Option<object>[]> LeftErrorOptionObjects = Either<Error, Option<object>[]>.Left(Error.New("error"));
 
-    public static readonly Either<Error, Option<object>[]>[] ErrorObjectsTestData = 
+    public static readonly Either<Error, Option<object>[]>[] ErrorObjectsTestData =
         [
-            SomeErrorOptionObjects, 
+            SomeErrorOptionObjects,
             LeftErrorOptionObjects
         ];
 

@@ -16,7 +16,7 @@ public partial class RedisHashSetServiceTests
         _mockDb = Substitute.For<IDatabase>();
         _mockProvider = Substitute.For<ISourcesProvider>();
         _mockProvider.GetDatabase().Returns(_mockDb);
-        _sut = new Redis.RedisHashSetService(_mockProvider, _mockSerDes);
+        _sut = new HashSet.RedisHashSetService(_mockProvider, _mockSerDes);
     }
 
     private record TestData(string Id);

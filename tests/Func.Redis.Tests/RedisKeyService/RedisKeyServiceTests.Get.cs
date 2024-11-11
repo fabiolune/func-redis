@@ -10,7 +10,7 @@ public partial class RedisKeyServiceTests
         _mockSourcesProvider
             .GetDatabase()
             .Returns(null as IDatabase);
-        _sut = new Redis.RedisKeyService(_mockSourcesProvider, _mockSerDes);
+        _sut = new Key.RedisKeyService(_mockSourcesProvider, _mockSerDes);
 
         var result = _sut.Get<object>("key");
 
@@ -22,7 +22,7 @@ public partial class RedisKeyServiceTests
     public void MultipleGet_WhenDatabaseIsNull_ShouldReturnError()
     {
         _mockSourcesProvider.GetDatabase().Returns(null as IDatabase);
-        _sut = new Redis.RedisKeyService(_mockSourcesProvider, _mockSerDes);
+        _sut = new Key.RedisKeyService(_mockSourcesProvider, _mockSerDes);
 
         _mockSourcesProvider
             .GetDatabase()

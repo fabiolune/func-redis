@@ -4,7 +4,7 @@ using TinyFp;
 
 using static TinyFp.Prelude;
 
-namespace Func.Redis;
+namespace Func.Redis.Publisher;
 
 public class RedisPublisherService(ISourcesProvider dbProvider, IRedisSerDes serDes) : IRedisPublisherService
 {

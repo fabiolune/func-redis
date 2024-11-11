@@ -1,4 +1,4 @@
-﻿using Func.Redis.Logging;
+﻿using Func.Redis.Key;
 
 namespace Func.Redis.Tests.LoggingRedisService;
 

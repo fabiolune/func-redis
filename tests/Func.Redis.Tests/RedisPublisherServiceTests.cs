@@ -1,3 +1,4 @@
+using Func.Redis.Publisher;
 using Func.Redis.SerDes;
 
 namespace Func.Redis.Tests;

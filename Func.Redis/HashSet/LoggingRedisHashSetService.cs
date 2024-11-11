@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 using TinyFp;
 using TinyFp.Extensions;
 
-namespace Func.Redis.Logging;
+namespace Func.Redis.HashSet;
 
 public class LoggingRedisHashSetService(ILogger logger,
 IRedisHashSetService redisHashSetService) : IRedisHashSetService

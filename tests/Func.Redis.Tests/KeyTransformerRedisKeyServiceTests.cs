@@ -1,3 +1,6 @@
+using Func.Redis.Key;
+using static Func.Redis.Tests.TestDataElements;
+
 namespace Func.Redis.Tests;
 
 [TestFixture]
@@ -6,10 +9,6 @@ public class KeyTransformerRedisKeyServiceTests
     private IRedisKeyService _mockService;
     private KeyTransformerRedisKeyService _sut;
 
-    private static readonly Either<Error, Unit> RightErrorUnit = Either<Error, Unit>.Right(Unit.Default);
-    private static readonly Either<Error, Unit> LeftErrorUnit = Either<Error, Unit>.Left(Error.New("error"));
-    public static readonly Either<Error, Unit>[] ErrorUnitTestData = [RightErrorUnit, LeftErrorUnit];
-
     [SetUp]
     public void SetUp()
     {
@@ -17,7 +16,7 @@ public class KeyTransformerRedisKeyServiceTests
         _sut = new KeyTransformerRedisKeyService(_mockService, k => $"mapped_{k}", k => k.Replace("mapped_", ""));
     }
 
-    [TestCaseSource(nameof(ErrorUnitTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorUnitTestData))]
     public void Delete_ShouldCallServiceWithMappedKey(Either<Error, Unit> internalResult)
     {
         var key = "key";
@@ -29,7 +28,7 @@ public class KeyTransformerRedisKeyServiceTests
         _mockService.Received(1).Delete("mapped_key");
     }
 
-    [TestCaseSource(nameof(ErrorUnitTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorUnitTestData))]
     public void DeleteMultiple_ShouldCallServiceWithMappedKeys(Either<Error, Unit> internalResult)
     {
         var mappedKeys = new[] { "mapped_key1", "mapped_key2" };
@@ -41,7 +40,7 @@ public class KeyTransformerRedisKeyServiceTests
         _mockService.Received(1).Delete(Arg.Is<string[]>(k => k.SequenceEqual(mappedKeys)));
     }
 
-    [TestCaseSource(nameof(ErrorUnitTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorUnitTestData))]
     public async Task DeleteAsync_ShouldCallServiceWithMappedKey(Either<Error, Unit> internalResult)
     {
         var key = "key";
@@ -53,7 +52,7 @@ public class KeyTransformerRedisKeyServiceTests
         await _mockService.Received(1).DeleteAsync("mapped_key");
     }
 
-    [TestCaseSource(nameof(ErrorUnitTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorUnitTestData))]
     public async Task DeleteMultipleAsync_ShouldCallServiceWithMappedKeys(Either<Error, Unit> internalResult)
     {
         var keys = new[] { "key1", "key2" };
@@ -66,12 +65,7 @@ public class KeyTransformerRedisKeyServiceTests
         await _mockService.Received(1).DeleteAsync(Arg.Is<string[]>(k => k.SequenceEqual(mappedKeys)));
     }
 
-    private static readonly Either<Error, Option<string>> SomeErrorOptionString = Either<Error, Option<string>>.Right(Option<string>.Some("success"));
-    private static readonly Either<Error, Option<string>> NoneErrorOptionString = Either<Error, Option<string>>.Right(Option<string>.None());
-    private static readonly Either<Error, Option<string>> LeftErrorOptionString = Either<Error, Option<string>>.Left(Error.New("error"));
-    public static readonly Either<Error, Option<string>>[] ErrorStringTestData = [SomeErrorOptionString, NoneErrorOptionString, LeftErrorOptionString];
-
-    [TestCaseSource(nameof(ErrorStringTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorStringTestData))]
     public void Get_ShouldCallServiceWithMappedKey(Either<Error, Option<string>> internalResult)
     {
         var key = "key";
@@ -83,7 +77,7 @@ public class KeyTransformerRedisKeyServiceTests
         _mockService.Received(1).Get<string>("mapped_key");
     }
 
-    [TestCaseSource(nameof(ErrorStringTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorStringTestData))]
     public async Task GetAsync_ShouldCallServiceWithMappedKey(Either<Error, Option<string>> internalResult)
     {
         var key = "key";
@@ -95,11 +89,7 @@ public class KeyTransformerRedisKeyServiceTests
         await _mockService.Received(1).GetAsync<string>("mapped_key");
     }
 
-    private static readonly Either<Error, Option<string>[]> SomeErrorOptionStrings = Either<Error, Option<string>[]>.Right([Option<string>.Some("success1"), Option<string>.None()]);
-    private static readonly Either<Error, Option<string>[]> LeftErrorOptionStrings = Either<Error, Option<string>[]>.Left(Error.New("error"));
-    public static readonly Either<Error, Option<string>[]>[] ErrorStringsTestData = [SomeErrorOptionStrings, LeftErrorOptionStrings];
-
-    [TestCaseSource(nameof(ErrorStringsTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorOptionStringsTestData))]
     public void GetMultiple_ShouldCallServiceWithMappedKeys(Either<Error, Option<string>[]> internalResult)
     {
         var keys = new[] { "key1", "key2" };
@@ -112,7 +102,7 @@ public class KeyTransformerRedisKeyServiceTests
         _mockService.Received(1).Get<string>(mappedKeys);
     }
 
-    [TestCaseSource(nameof(ErrorStringsTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorOptionStringsTestData))]
     public async Task GetMultipleAsync_ShouldCallServiceWithMappedKeys(Either<Error, Option<string>[]> internalResult)
     {
         var keys = new[] { "key1", "key2" };
@@ -153,7 +143,7 @@ public class KeyTransformerRedisKeyServiceTests
         result.OnRight(r => r.Should().BeEquivalentTo(keys));
     }
 
-    [TestCaseSource(nameof(ErrorUnitTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorUnitTestData))]
     public void RenameKey_ShouldCallServiceWithMappedKey(Either<Error, Unit> internalResult)
     {
         var key = "key";
@@ -166,7 +156,7 @@ public class KeyTransformerRedisKeyServiceTests
         _mockService.Received(1).RenameKey("mapped_key", "mapped_newKey");
     }
 
-    [TestCaseSource(nameof(ErrorUnitTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorUnitTestData))]
     public async Task RenameKeyAsync_ShouldCallServiceWithMappedKey(Either<Error, Unit> internalResult)
     {
         var key = "key";
@@ -179,7 +169,7 @@ public class KeyTransformerRedisKeyServiceTests
         await _mockService.Received(1).RenameKeyAsync("mapped_key", "mapped_newKey");
     }
 
-    [TestCaseSource(nameof(ErrorUnitTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorUnitTestData))]
     public void Set_ShouldCallServiceWithMappedKey(Either<Error, Unit> internalResult)
     {
         var key = "key";
@@ -192,7 +182,7 @@ public class KeyTransformerRedisKeyServiceTests
         _mockService.Received(1).Set("mapped_key", value);
     }
 
-    [TestCaseSource(nameof(ErrorUnitTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorUnitTestData))]
     public void SetMultiple_ShouldCallServiceWithMappedKeys(Either<Error, Unit> internalResult)
     {
         var pairs = new[] { ("key1", "value1"), ("key2", "value2") };
@@ -215,7 +205,7 @@ public class KeyTransformerRedisKeyServiceTests
                 && p[1].Item2 == "value2"));
     }
 
-    [TestCaseSource(nameof(ErrorUnitTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorUnitTestData))]
     public async Task SetAsync_ShouldCallServiceWithMappedKey(Either<Error, Unit> internalResult)
     {
         var key = "key";
@@ -228,7 +218,7 @@ public class KeyTransformerRedisKeyServiceTests
         await _mockService.Received(1).SetAsync("mapped_key", value);
     }
 
-    [TestCaseSource(nameof(ErrorUnitTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorUnitTestData))]
     public async Task SetMultipleAsync_ShouldCallServiceWithMappedKeys(Either<Error, Unit> internalResult)
     {
         var pairs = new[] { ("key1", "value1"), ("key2", "value2") };

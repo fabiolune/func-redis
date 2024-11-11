@@ -1,7 +1,12 @@
 using FluentAssertions;
+using Func.Redis.HashSet;
+using Func.Redis.Key;
 using Func.Redis.Models;
+using Func.Redis.Publisher;
 using Func.Redis.SerDes;
 using Func.Redis.SerDes.Json;
+using Func.Redis.Set;
+using Func.Redis.Subscriber;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Memory;
 using Microsoft.Extensions.DependencyInjection;
@@ -144,17 +149,29 @@ public class ServiceCollectionExtensionsTests
     [TestCase(RedisCapabilities.Keys | RedisCapabilities.HashSet)]
     [TestCase(RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Publisher)]
     [TestCase(RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
+    [TestCase(RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Set)]
+    [TestCase(RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Publisher | RedisCapabilities.Subscriber | RedisCapabilities.Set)]
     [TestCase(RedisCapabilities.Keys | RedisCapabilities.Publisher)]
     [TestCase(RedisCapabilities.Keys | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
+    [TestCase(RedisCapabilities.Keys | RedisCapabilities.Publisher | RedisCapabilities.Set)]
     [TestCase(RedisCapabilities.Keys | RedisCapabilities.Subscriber)]
+    [TestCase(RedisCapabilities.Keys | RedisCapabilities.Subscriber | RedisCapabilities.Set)]
+    [TestCase(RedisCapabilities.Keys | RedisCapabilities.Set)]
     [TestCase(RedisCapabilities.HashSet)]
     [TestCase(RedisCapabilities.HashSet | RedisCapabilities.Publisher)]
     [TestCase(RedisCapabilities.HashSet | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
+    [TestCase(RedisCapabilities.HashSet | RedisCapabilities.Publisher | RedisCapabilities.Set)]
+    [TestCase(RedisCapabilities.HashSet | RedisCapabilities.Publisher | RedisCapabilities.Subscriber | RedisCapabilities.Set)]
     [TestCase(RedisCapabilities.HashSet | RedisCapabilities.Subscriber)]
+    [TestCase(RedisCapabilities.HashSet | RedisCapabilities.Set)]
+    [TestCase(RedisCapabilities.HashSet | RedisCapabilities.Subscriber | RedisCapabilities.Set)]
     [TestCase(RedisCapabilities.Publisher)]
     [TestCase(RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
+    [TestCase(RedisCapabilities.Publisher | RedisCapabilities.Set)]
+    [TestCase(RedisCapabilities.Publisher | RedisCapabilities.Subscriber | RedisCapabilities.Set)]
     [TestCase(RedisCapabilities.Subscriber)]
+    [TestCase(RedisCapabilities.Subscriber | RedisCapabilities.Set)]
+    [TestCase(RedisCapabilities.Set)]
     public void AddRedis_WhenAnyCapabilityIsEnabledAndConfigIsValidWithProperConnectionString_ShouldRegisterBasicComponents(RedisCapabilities capabilities)
     {
         var config = new MemoryConfigurationSource
@@ -201,6 +218,7 @@ public class ServiceCollectionExtensionsTests
 
     [TestCase(RedisCapabilities.HashSet, typeof(IRedisHashSetService), typeof(RedisHashSetService))]
     [TestCase(RedisCapabilities.Keys, typeof(IRedisKeyService), typeof(RedisKeyService))]
+    [TestCase(RedisCapabilities.Set, typeof(IRedisSetService), typeof(RedisSetService))]
     public void AddRedis_WhenRedisHashSetIsEnabledAndConfigIsValid_ShouldRegisterComponents(
             RedisCapabilities capabilities,
             Type expectedKeyType,
@@ -245,8 +263,9 @@ public class ServiceCollectionExtensionsTests
 
     }
 
-    [TestCase(RedisCapabilities.HashSet, typeof(IRedisHashSetService), typeof(KeyTransformerRedisHasSetService))]
+    [TestCase(RedisCapabilities.HashSet, typeof(IRedisHashSetService), typeof(KeyTransformerRedisHashSetService))]
     [TestCase(RedisCapabilities.Keys, typeof(IRedisKeyService), typeof(KeyTransformerRedisKeyService))]
+    [TestCase(RedisCapabilities.Set, typeof(IRedisSetService), typeof(KeyTransformerRedisSetService))]
     public void AddRedis_WhenRedisCapabilityIsEnabledAndKeyPrefixIsValidAndConfigIsValid_ShouldRegisterComponents(
             RedisCapabilities capabilities,
             Type expectedKeyType,

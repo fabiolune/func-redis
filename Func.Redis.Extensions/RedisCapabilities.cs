@@ -5,6 +5,7 @@ public enum RedisCapabilities
 {
     Keys = 1,
     HashSet = 2,
-    Publisher = 4,
-    Subscriber = 8
+    Set = 4,
+    Publisher = 8,
+    Subscriber = 16
 }

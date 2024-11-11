@@ -1,26 +1,20 @@
-﻿namespace Func.Redis.Tests;
+﻿using Func.Redis.HashSet;
+using static Func.Redis.Tests.TestDataElements;
+
+namespace Func.Redis.Tests;
 internal class KeyTransformerRedisHasSetServiceTests
 {
     private IRedisHashSetService _mockService;
-    private KeyTransformerRedisHasSetService _sut;
-
-    internal record TestData
-    {
-        public int Id { get; init; }
-    }
+    private KeyTransformerRedisHashSetService _sut;
 
     [SetUp]
     public void SetUp()
     {
         _mockService = Substitute.For<IRedisHashSetService>();
-        _sut = new KeyTransformerRedisHasSetService(_mockService, k => $"mapped_{k}");
+        _sut = new KeyTransformerRedisHashSetService(_mockService, k => $"mapped_{k}");
     }
 
-    private static readonly Either<Error, Unit> RightErrorUnit = Either<Error, Unit>.Right(Unit.Default);
-    private static readonly Either<Error, Unit> LeftErrorUnit = Either<Error, Unit>.Left(Error.New("error"));
-    public static readonly Either<Error, Unit>[] ErrorUnitTestData = [RightErrorUnit, LeftErrorUnit];
-
-    [TestCaseSource(nameof(ErrorUnitTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorUnitTestData))]
     public void Delete_ShouldCallServiceWithMappedKey(Either<Error, Unit> result)
     {
         _mockService.Delete("mapped_key", "field").Returns(result);
@@ -31,7 +25,7 @@ internal class KeyTransformerRedisHasSetServiceTests
         _mockService.Received(1).Delete("mapped_key", "field");
     }
 
-    [TestCaseSource(nameof(ErrorUnitTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorUnitTestData))]
     public async Task DeleteAsync_ShouldCallServiceWithMappedKey(Either<Error, Unit> result)
     {
         _mockService.DeleteAsync("mapped_key", "field").Returns(result);
@@ -42,7 +36,7 @@ internal class KeyTransformerRedisHasSetServiceTests
         await _mockService.Received(1).DeleteAsync("mapped_key", "field");
     }
 
-    [TestCaseSource(nameof(ErrorUnitTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorUnitTestData))]
     public void DeleteMultiple_ShouldCallServiceWithMappedKey(Either<Error, Unit> result)
     {
         _mockService.Delete("mapped_key", "field1", "field2").Returns(result);
@@ -53,7 +47,7 @@ internal class KeyTransformerRedisHasSetServiceTests
         _mockService.Received(1).Delete("mapped_key", "field1", "field2");
     }
 
-    [TestCaseSource(nameof(ErrorUnitTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorUnitTestData))]
     public async Task DeleteMultipleAsync_ShouldCallServiceWithMappedKey(Either<Error, Unit> result)
     {
         _mockService.DeleteAsync("mapped_key", "field1", "field2").Returns(result);
@@ -64,12 +58,7 @@ internal class KeyTransformerRedisHasSetServiceTests
         await _mockService.Received(1).DeleteAsync("mapped_key", "field1", "field2");
     }
 
-    private static readonly Either<Error, Option<string>> SomeErrorOptionString = Either<Error, Option<string>>.Right(Option<string>.Some("success"));
-    private static readonly Either<Error, Option<string>> NoneErrorOptionString = Either<Error, Option<string>>.Right(Option<string>.None());
-    private static readonly Either<Error, Option<string>> LeftErrorOptionString = Either<Error, Option<string>>.Left(Error.New("error"));
-    public static readonly Either<Error, Option<string>>[] ErrorStringTestData = [SomeErrorOptionString, NoneErrorOptionString, LeftErrorOptionString];
-
-    [TestCaseSource(nameof(ErrorStringTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorStringTestData))]
     public void Get_ShouldCallServiceWithMappedKey(Either<Error, Option<string>> result)
     {
         _mockService.Get<string>("mapped_key", "field").Returns(result);
@@ -80,7 +69,7 @@ internal class KeyTransformerRedisHasSetServiceTests
         _mockService.Received(1).Get<string>("mapped_key", "field");
     }
 
-    [TestCaseSource(nameof(ErrorStringTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorStringTestData))]
     public async Task GetAsync_ShouldCallServiceWithMappedKey(Either<Error, Option<string>> result)
     {
         _mockService.GetAsync<string>("mapped_key", "field").Returns(result);
@@ -91,11 +80,7 @@ internal class KeyTransformerRedisHasSetServiceTests
         await _mockService.Received(1).GetAsync<string>("mapped_key", "field");
     }
 
-    private static readonly Either<Error, Option<string>[]> SomeErrorOptionStrings = Either<Error, Option<string>[]>.Right([Option<string>.Some("success1"), Option<string>.None()]);
-    private static readonly Either<Error, Option<string>[]> LeftErrorOptionStrings = Either<Error, Option<string>[]>.Left(Error.New("error"));
-    public static readonly Either<Error, Option<string>[]>[] ErrorStringsTestData = [SomeErrorOptionStrings, LeftErrorOptionStrings];
-
-    [TestCaseSource(nameof(ErrorStringsTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorOptionStringsTestData))]
     public void GetMultiple_ShouldCallServiceWithMappedKey(Either<Error, Option<string>[]> result)
     {
         _mockService.Get<string>("mapped_key", "field1", "field2").Returns(result);
@@ -106,7 +91,7 @@ internal class KeyTransformerRedisHasSetServiceTests
         _mockService.Received(1).Get<string>("mapped_key", "field1", "field2");
     }
 
-    [TestCaseSource(nameof(ErrorStringsTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorOptionStringsTestData))]
     public async Task GetMultipleAsync_ShouldCallServiceWithMappedKey(Either<Error, Option<string>[]> result)
     {
         _mockService.GetAsync<string>("mapped_key", "field1", "field2").Returns(result);
@@ -117,11 +102,7 @@ internal class KeyTransformerRedisHasSetServiceTests
         await _mockService.Received(1).GetAsync<string>("mapped_key", "field1", "field2");
     }
 
-    private static readonly Either<Error, Option<object>[]> SomeErrorOptionObjects = Either<Error, Option<object>[]>.Right([Option<object>.Some(new TestData()), Option<object>.None()]);
-    private static readonly Either<Error, Option<object>[]> LeftErrorOptionObjects = Either<Error, Option<object>[]>.Left(Error.New("error"));
-    public static readonly Either<Error, Option<object>[]>[] ErrorObjectsTestData = [SomeErrorOptionObjects, LeftErrorOptionObjects];
-
-    [TestCaseSource(nameof(ErrorObjectsTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorObjectsTestData))]
     public void GetWithType_ShouldCallServiceWithMappedKey(Either<Error, Option<object>[]> result)
     {
         _mockService.Get("mapped_key", (typeof(TestData), "field1"), (typeof(TestData), "field2")).Returns(result);
@@ -132,7 +113,7 @@ internal class KeyTransformerRedisHasSetServiceTests
         _mockService.Received(1).Get("mapped_key", (typeof(TestData), "field1"), (typeof(TestData), "field2"));
     }
 
-    [TestCaseSource(nameof(ErrorObjectsTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorObjectsTestData))]
     public async Task GetWithTypeAsync_ShouldCallServiceWithMappedKey(Either<Error, Option<object>[]> result)
     {
         _mockService.GetAsync("mapped_key", (typeof(TestData), "field1"), (typeof(TestData), "field2")).Returns(result);
@@ -143,7 +124,7 @@ internal class KeyTransformerRedisHasSetServiceTests
         await _mockService.Received(1).GetAsync("mapped_key", (typeof(TestData), "field1"), (typeof(TestData), "field2"));
     }
 
-    [TestCaseSource(nameof(ErrorUnitTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorUnitTestData))]
     public void Set_ShouldCallServiceWithMappedKey(Either<Error, Unit> result)
     {
         _mockService.Set("mapped_key", "field", Arg.Any<TestData>()).Returns(result);
@@ -154,7 +135,7 @@ internal class KeyTransformerRedisHasSetServiceTests
         _mockService.Received(1).Set("mapped_key", "field", Arg.Any<TestData>());
     }
 
-    [TestCaseSource(nameof(ErrorUnitTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorUnitTestData))]
     public async Task SetAsync_ShouldCallServiceWithMappedKey(Either<Error, Unit> result)
     {
         _mockService.SetAsync("mapped_key", "field", Arg.Any<TestData>()).Returns(result);
@@ -165,7 +146,7 @@ internal class KeyTransformerRedisHasSetServiceTests
         await _mockService.Received(1).SetAsync("mapped_key", "field", Arg.Any<TestData>());
     }
 
-    [TestCaseSource(nameof(ErrorUnitTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorUnitTestData))]
     public void SetMultiple_ShouldCallServiceWithMappedKey(Either<Error, Unit> result)
     {
         _mockService.Set("mapped_key", ("field1", new TestData()), ("field2", new TestData())).Returns(result);
@@ -176,7 +157,7 @@ internal class KeyTransformerRedisHasSetServiceTests
         _mockService.Received(1).Set("mapped_key", ("field1", new TestData()), ("field2", new TestData()));
     }
 
-    [TestCaseSource(nameof(ErrorUnitTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorUnitTestData))]
     public async Task SetMultipleAsync_ShouldCallServiceWithMappedKey(Either<Error, Unit> result)
     {
         _mockService.SetAsync("mapped_key", ("field1", new TestData()), ("field2", new TestData())).Returns(result);
@@ -187,11 +168,7 @@ internal class KeyTransformerRedisHasSetServiceTests
         await _mockService.Received(1).SetAsync("mapped_key", ("field1", new TestData()), ("field2", new TestData()));
     }
 
-    private static readonly Either<Error, Option<(string, TestData)[]>> SomeErrorTuples = Either<Error, Option<(string, TestData)[]>>.Right(new[] { ("first", new TestData() { Id = 1 }), ("second", new TestData() { Id = 2 }) }.ToOption());
-    private static readonly Either<Error, Option<(string, TestData)[]>> NoneErrorTuples = Either<Error, Option<(string, TestData)[]>>.Right(Option<(string, TestData)[]>.None());
-    public static readonly Either<Error, Option<(string, TestData)[]>>[] ErrorTuplesTestData = [SomeErrorTuples, NoneErrorTuples];
-
-    [TestCaseSource(nameof(ErrorTuplesTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorTuplesTestData))]
     public void GetAll_ShouldCallServiceWithMappedKey(Either<Error, Option<(string, TestData)[]>> result)
     {
         _mockService.GetAll<TestData>("mapped_key").Returns(result);
@@ -202,7 +179,7 @@ internal class KeyTransformerRedisHasSetServiceTests
         _mockService.Received(1).GetAll<TestData>("mapped_key");
     }
 
-    [TestCaseSource(nameof(ErrorTuplesTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorTuplesTestData))]
     public async Task GetAllAsync_ShouldCallServiceWithMappedKey(Either<Error, Option<(string, TestData)[]>> result)
     {
         _mockService.GetAllAsync<TestData>("mapped_key").Returns(result);
@@ -213,11 +190,7 @@ internal class KeyTransformerRedisHasSetServiceTests
         await _mockService.Received(1).GetAllAsync<TestData>("mapped_key");
     }
 
-    private static readonly Either<Error, Option<TestData[]>> SomeErrorOptionTestData = Either<Error, Option<TestData[]>>.Right(new[] { new TestData() { Id = 1 }, new TestData() { Id = 2 } }.ToOption());
-    private static readonly Either<Error, Option<TestData[]>> NoneErrorOptionTestData = Either<Error, Option<TestData[]>>.Right(Option<TestData[]>.None());
-    public static readonly Either<Error, Option<TestData[]>>[] ErrorTestDataTestData = [SomeErrorOptionTestData, NoneErrorOptionTestData];
-
-    [TestCaseSource(nameof(ErrorTestDataTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorTestDataTestData))]
     public void GetValues_ShouldCallServiceWithMappedKey(Either<Error, Option<TestData[]>> result)
     {
         _mockService.GetValues<TestData>("mapped_key").Returns(result);
@@ -228,7 +201,7 @@ internal class KeyTransformerRedisHasSetServiceTests
         _mockService.Received(1).GetValues<TestData>("mapped_key");
     }
 
-    [TestCaseSource(nameof(ErrorTestDataTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorTestDataTestData))]
     public async Task GetValuesAsync_ShouldCallServiceWithMappedKey(Either<Error, Option<TestData[]>> result)
     {
         _mockService.GetValuesAsync<TestData>("mapped_key").Returns(result);
@@ -239,11 +212,7 @@ internal class KeyTransformerRedisHasSetServiceTests
         await _mockService.Received(1).GetValuesAsync<TestData>("mapped_key");
     }
 
-    private static readonly Either<Error, Option<string[]>> SomeErrorOptionStringArray = Either<Error, Option<string[]>>.Right(new[] { "first", "second" }.ToOption());
-    private static readonly Either<Error, Option<string[]>> NoneErrorOptionStringArray = Either<Error, Option<string[]>>.Right(Option<string[]>.None());
-    public static readonly Either<Error, Option<string[]>>[] ErrorStringArrayTestData = [SomeErrorOptionStringArray, NoneErrorOptionStringArray];
-
-    [TestCaseSource(nameof(ErrorStringArrayTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorStringArrayTestData))]
     public void GetFieldKeys_ShouldCallServiceWithMappedKey(Either<Error, Option<string[]>> result)
     {
         _mockService.GetFieldKeys("mapped_key").Returns(result);
@@ -254,7 +223,7 @@ internal class KeyTransformerRedisHasSetServiceTests
         _mockService.Received(1).GetFieldKeys("mapped_key");
     }
 
-    [TestCaseSource(nameof(ErrorStringArrayTestData))]
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorStringArrayTestData))]
     public async Task GetFieldKeysAsync_ShouldCallServiceWithMappedKey(Either<Error, Option<string[]>> result)
     {
         _mockService.GetFieldKeysAsync("mapped_key").Returns(result);

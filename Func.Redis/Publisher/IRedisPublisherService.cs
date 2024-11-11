@@ -1,6 +1,6 @@
 ﻿using TinyFp;
 
-namespace Func.Redis;
+namespace Func.Redis.Publisher;
 
 public interface IRedisPublisherService
 {

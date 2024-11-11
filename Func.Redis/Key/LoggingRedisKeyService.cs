@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 using TinyFp;
 using TinyFp.Extensions;
 
-namespace Func.Redis.Logging;
+namespace Func.Redis.Key;
 
 public class LoggingRedisKeyService(ILogger logger,
     IRedisKeyService redisService) : IRedisKeyService

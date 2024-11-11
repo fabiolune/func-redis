@@ -4,7 +4,7 @@ namespace Func.Redis.Tests.RedisHashSetService;
 
 public partial class RedisHashSetServiceTests
 {
-    private Redis.RedisHashSetService _sut;
+    private HashSet.RedisHashSetService _sut;
     private ISourcesProvider _mockProvider;
     private IDatabase _mockDb;
     private IRedisSerDes _mockSerDes;

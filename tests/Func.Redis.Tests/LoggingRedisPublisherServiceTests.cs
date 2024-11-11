@@ -1,4 +1,4 @@
-﻿using Func.Redis.Logging;
+﻿using Func.Redis.Publisher;
 
 namespace Func.Redis.Tests;
 
@@ -31,7 +31,7 @@ public class LoggingRedisPublisherServiceTests
         var result = _sut.Publish("some channel", data);
 
         result.IsRight.Should().BeTrue();
-       
+
         _loggerFactory
             .Sink
             .LogEntries

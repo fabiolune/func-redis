@@ -1,6 +1,6 @@
 ﻿using StackExchange.Redis;
 
-namespace Func.Redis;
+namespace Func.Redis.Subscriber;
 
 public interface IRedisSubscriber
 {

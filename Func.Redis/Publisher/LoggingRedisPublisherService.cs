@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using TinyFp;
 
-namespace Func.Redis.Logging;
+namespace Func.Redis.Publisher;
 
 public class LoggingRedisPublisherService(IRedisPublisherService redisPublisherService, ILogger logger) : IRedisPublisherService
 {

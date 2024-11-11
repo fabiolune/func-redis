@@ -4,7 +4,7 @@ namespace Func.Redis.Tests.RedisKeyService;
 
 public partial class RedisKeyServiceTests
 {
-    private Redis.RedisKeyService _sut;
+    private Key.RedisKeyService _sut;
     private ISourcesProvider _mockSourcesProvider;
     private IDatabase _mockDb;
     private IRedisSerDes _mockSerDes;

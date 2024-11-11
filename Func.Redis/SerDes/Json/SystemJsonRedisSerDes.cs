@@ -41,4 +41,5 @@ public class SystemJsonRedisSerDes : IRedisSerDes
     public RedisValue Serialize<T>(T value) =>
         JsonSerializer
             .Serialize(value, CaseInsensitiveOptions);
+
 }

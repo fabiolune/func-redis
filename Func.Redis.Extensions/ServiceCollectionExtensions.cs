@@ -1,6 +1,11 @@
-﻿using Func.Redis.Models;
+﻿using Func.Redis.HashSet;
+using Func.Redis.Key;
+using Func.Redis.Models;
+using Func.Redis.Publisher;
 using Func.Redis.SerDes;
 using Func.Redis.SerDes.Json;
+using Func.Redis.Set;
+using Func.Redis.Subscriber;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
@@ -48,8 +53,12 @@ public static class ServiceCollectionExtensions
                 () => capabilities.HasFlag(RedisCapabilities.Keys)
             )
             .TeeWhen(
-                s => s.Decorate<IRedisHashSetService>(hs => new KeyTransformerRedisHasSetService(hs, keyMapper)),
+                s => s.Decorate<IRedisHashSetService>(hs => new KeyTransformerRedisHashSetService(hs, keyMapper)),
                 () => capabilities.HasFlag(RedisCapabilities.HashSet)
+            )
+            .TeeWhen(
+                s => s.Decorate<IRedisSetService>(hs => new KeyTransformerRedisSetService(hs, keyMapper)),
+                () => capabilities.HasFlag(RedisCapabilities.Set)
             );
 
     private static IServiceCollection InternalAddRedis(
@@ -66,6 +75,9 @@ public static class ServiceCollectionExtensions
             .TeeWhen(
                 s => s.AddSingleton<IRedisPublisherService, RedisPublisherService>(),
                 () => capabilities.HasFlag(RedisCapabilities.Publisher))
+            .TeeWhen(
+                s => s.AddSingleton<IRedisSetService, RedisSetService>(),
+                () => capabilities.HasFlag(RedisCapabilities.Set))
             .TeeWhen(
                 s => s.Scan(selector => selector
                     .FromAssemblies(assemblies)

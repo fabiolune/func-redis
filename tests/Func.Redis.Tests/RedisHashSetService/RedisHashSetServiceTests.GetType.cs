@@ -153,6 +153,7 @@ public partial class RedisHashSetServiceTests
     public async Task MultiGetAsyncType_WhenDatabaseIsNull_ShouldReturnError()
     {
         _mockProvider.GetDatabase().Returns(null as IDatabase);
+        _sut = new HashSet.RedisHashSetService(_mockProvider, _mockSerDes);
 
         var typeFields = new[] { (typeof(TestData), "field1"), (typeof(TestData), "field2") };
 

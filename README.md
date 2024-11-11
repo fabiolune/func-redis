@@ -28,6 +28,7 @@ where `capabilities` is a bitwise combination of RedisCapabilities:
 
 - `RedisCapabilities.Keys` enables keys management
 - `RedisCapabilities.HashSet` enables hash sets management
+- `RedisCapabilities.Set` enables sets management
 - `RedisCapabilities.Publisher` enables publish management
 - `RedisCapabilities.Subscriber` enables subscribe management (the `AddRedis` service collection extension requires an array of assemblies to enable scanning of `IRedisSubscriber` implementations).
 

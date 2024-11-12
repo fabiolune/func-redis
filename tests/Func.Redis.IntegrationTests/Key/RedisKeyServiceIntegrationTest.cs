@@ -27,16 +27,18 @@ internal abstract class RedisKeyServiceIntegrationTest(string redisImage) : Redi
     [Test]
     public async Task WhenDataAreSuccessfullyAdded_TheyShouldBeSuccessfullyRetrieved()
     {
+        var key = nameof(WhenDataAreSuccessfullyAdded_TheyShouldBeSuccessfullyRetrieved);
+
         var input = new TestModel
         {
             Id = Guid.NewGuid()
         };
 
-        var insertResult = await _sut.SetAsync("key", input);
+        var insertResult = await _sut.SetAsync(key, input);
 
         insertResult.IsRight.Should().BeTrue();
 
-        var getResult = await _sut.GetAsync<TestModel>("key");
+        var getResult = await _sut.GetAsync<TestModel>(key);
 
         getResult.IsRight.Should().BeTrue();
         getResult.OnRight(o =>
@@ -45,11 +47,11 @@ internal abstract class RedisKeyServiceIntegrationTest(string redisImage) : Redi
             o.OnSome(v => v.Should().BeEquivalentTo(input));
         });
 
-        var deleteResult = await _sut.DeleteAsync("key");
+        var deleteResult = await _sut.DeleteAsync(key);
 
         deleteResult.IsRight.Should().BeTrue();
 
-        var getResultAfterDelete = await _sut.GetAsync<TestModel>("key");
+        var getResultAfterDelete = await _sut.GetAsync<TestModel>(key);
 
         getResultAfterDelete.IsRight.Should().BeTrue();
         getResultAfterDelete.OnRight(o => o.IsNone.Should().BeTrue());

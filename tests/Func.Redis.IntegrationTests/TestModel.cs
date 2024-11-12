@@ -1,6 +1,6 @@
 ﻿namespace Func.Redis.IntegrationTests;
 
-public record TestModel
+internal record TestModel
 {
     public Guid Id { get; init; }
 }

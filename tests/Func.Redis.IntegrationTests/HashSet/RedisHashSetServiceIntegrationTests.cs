@@ -27,6 +27,8 @@ internal abstract class RedisHashSetServiceIntegrationTest(string redisImage) : 
     [Test]
     public async Task WhenDataAreSuccessfullyAdded_TheyShouldBeSuccessfullyRetrieved()
     {
+        var key = nameof(WhenDataAreSuccessfullyAdded_TheyShouldBeSuccessfullyRetrieved);
+
         var input1 = new TestModel
         {
             Id = Guid.NewGuid()
@@ -37,13 +39,13 @@ internal abstract class RedisHashSetServiceIntegrationTest(string redisImage) : 
             Id = Guid.NewGuid()
         };
 
-        var insertResult1 = await _sut.SetAsync("key", "field1", input1);
+        var insertResult1 = await _sut.SetAsync(key, "field1", input1);
         insertResult1.IsRight.Should().BeTrue();
 
-        var insertResult2 = await _sut.SetAsync("key", "field2", input2);
+        var insertResult2 = await _sut.SetAsync(key, "field2", input2);
         insertResult2.IsRight.Should().BeTrue();
 
-        var getResult1 = await _sut.GetAsync<TestModel>("key", "field1");
+        var getResult1 = await _sut.GetAsync<TestModel>(key, "field1");
         getResult1.IsRight.Should().BeTrue();
         getResult1.OnRight(o =>
         {
@@ -51,7 +53,7 @@ internal abstract class RedisHashSetServiceIntegrationTest(string redisImage) : 
             o.OnSome(v => v.Should().BeEquivalentTo(input1));
         });
 
-        var getResult2 = await _sut.GetAsync<TestModel>("key", "field2");
+        var getResult2 = await _sut.GetAsync<TestModel>(key, "field2");
         getResult2.IsRight.Should().BeTrue();
         getResult2.OnRight(o =>
         {
@@ -59,14 +61,14 @@ internal abstract class RedisHashSetServiceIntegrationTest(string redisImage) : 
             o.OnSome(v => v.Should().BeEquivalentTo(input2));
         });
 
-        var getResult = await _sut.GetAsync<TestModel>("key", "field1", "field2");
+        var getResult = await _sut.GetAsync<TestModel>(key, "field1", "field2");
         getResult.IsRight.Should().BeTrue();
         getResult.OnRight(o => o.Should().BeEquivalentTo([
             Option<TestModel>.Some(input1),
             Option<TestModel>.Some(input2)
         ]));
 
-        var getResultWithMisingField = await _sut.GetAsync<TestModel>("key", "field1", "field3");
+        var getResultWithMisingField = await _sut.GetAsync<TestModel>(key, "field1", "field3");
         getResultWithMisingField.IsRight.Should().BeTrue();
         getResultWithMisingField.OnRight(o => o.Should().BeEquivalentTo([
             Option<TestModel>.Some(input1),

@@ -1,5 +1,4 @@
 ﻿using Func.Redis.HashSet;
-using Func.Redis.SerDes.Json;
 
 namespace Func.Redis.IntegrationTests.HashSet;
 internal abstract class RedisHashSetServiceIntegrationTest(string redisImage) : RedisIntegrationTestBase(redisImage)

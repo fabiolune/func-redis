@@ -1,5 +1,4 @@
 ﻿using Func.Redis.Key;
-using Func.Redis.SerDes.Json;
 
 namespace Func.Redis.IntegrationTests.Key;
 

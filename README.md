@@ -13,6 +13,7 @@ The library includes functionalities for:
 
 - keys management (get, set, del) using `IRedisKeyService`
 - hash sets using `IRedisHashSetService`
+- sets using `IRedisSetService`
 - pub/sub using `IRedisPublisherService` and `IRedisSubscriber`
 
 To register the required components, use:
@@ -20,7 +21,7 @@ To register the required components, use:
 ``` C#
 ...
     services
-        .AddRedis<TypeOfRedisSerDes>(capabilities)
+        .AddRedis<TypeOfRedisSerDes>(RedisCapabilities.Keys | ...) // capabilities as flags
         ...
 ```
 

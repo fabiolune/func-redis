@@ -1,6 +1,4 @@
-﻿using TinyFp;
-
-namespace Func.Redis.Set;
+﻿namespace Func.Redis.Set;
 public class KeyTransformerRedisSetService(IRedisSetService service, Func<string, string> keyMapper) : IRedisSetService
 {
     private readonly Func<string, string> _keyMapper = keyMapper;

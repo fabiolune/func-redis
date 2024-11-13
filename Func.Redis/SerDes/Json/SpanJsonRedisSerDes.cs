@@ -1,6 +1,4 @@
 ﻿using SpanJson;
-using StackExchange.Redis;
-using TinyFp;
 using TinyFp.Extensions;
 
 namespace Func.Redis.SerDes.Json;

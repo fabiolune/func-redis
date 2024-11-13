@@ -1,6 +1,4 @@
-﻿using TinyFp;
-
-namespace Func.Redis.HashSet;
+﻿namespace Func.Redis.HashSet;
 
 public class KeyTransformerRedisHashSetService(IRedisHashSetService service, Func<string, string> keyMapper) : IRedisHashSetService
 {

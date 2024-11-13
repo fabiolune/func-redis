@@ -1,5 +1,4 @@
 ﻿using Func.Redis.Models;
-using StackExchange.Redis;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Func.Redis;

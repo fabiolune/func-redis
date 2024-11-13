@@ -1,8 +1,5 @@
 ﻿using Func.Redis.SerDes;
-using StackExchange.Redis;
-using TinyFp;
 using TinyFp.Extensions;
-using static TinyFp.Prelude;
 namespace Func.Redis.HashSet;
 
 public class RedisHashSetService(

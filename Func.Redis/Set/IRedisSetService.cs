@@ -1,6 +1,4 @@
-﻿using TinyFp;
-
-namespace Func.Redis.Set;
+﻿namespace Func.Redis.Set;
 public interface IRedisSetService
 {
     Either<Error, Unit> Add<T>(string key, T value);

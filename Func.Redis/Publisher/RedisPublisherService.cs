@@ -1,8 +1,4 @@
 ﻿using Func.Redis.SerDes;
-using StackExchange.Redis;
-using TinyFp;
-
-using static TinyFp.Prelude;
 
 namespace Func.Redis.Publisher;
 

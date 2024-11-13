@@ -1,6 +1,4 @@
-﻿using TinyFp;
-
-namespace Func.Redis.Key;
+﻿namespace Func.Redis.Key;
 
 public class KeyTransformerRedisKeyService(IRedisKeyService service, Func<string, string> keyMapper, Func<string, string> inverseKeyMapper) : IRedisKeyService
 {

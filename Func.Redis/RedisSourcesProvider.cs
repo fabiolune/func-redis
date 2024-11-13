@@ -1,6 +1,4 @@
-﻿using StackExchange.Redis;
-
-namespace Func.Redis;
+﻿namespace Func.Redis;
 
 public class RedisSourcesProvider(IConnectionMultiplexerProvider provider) : ISourcesProvider
 {

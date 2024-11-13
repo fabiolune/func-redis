@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Logging;
-using TinyFp;
 using TinyFp.Extensions;
 
 namespace Func.Redis.Extensions;

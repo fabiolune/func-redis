@@ -1,5 +1,4 @@
 ﻿using Func.Redis.Models;
-using TinyFp;
 using TinyFp.Extensions;
 
 namespace Func.Redis.Extensions;

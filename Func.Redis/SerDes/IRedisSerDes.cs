@@ -1,7 +1,4 @@
-﻿using StackExchange.Redis;
-using TinyFp;
-
-namespace Func.Redis.SerDes;
+﻿namespace Func.Redis.SerDes;
 
 public interface IRedisSerDes
 {

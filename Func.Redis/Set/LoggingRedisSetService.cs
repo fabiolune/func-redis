@@ -1,6 +1,5 @@
 ﻿using Func.Redis.Extensions;
 using Microsoft.Extensions.Logging;
-using TinyFp;
 
 namespace Func.Redis.Set;
 public class LoggingRedisSetService(

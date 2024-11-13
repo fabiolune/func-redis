@@ -1,6 +1,5 @@
 ﻿using Func.Redis.Extensions;
 using Microsoft.Extensions.Logging;
-using TinyFp;
 using TinyFp.Extensions;
 
 namespace Func.Redis.HashSet;

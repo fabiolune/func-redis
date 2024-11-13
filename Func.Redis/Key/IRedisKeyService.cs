@@ -1,6 +1,4 @@
-﻿using TinyFp;
-
-namespace Func.Redis.Key;
+﻿namespace Func.Redis.Key;
 
 public interface IRedisKeyService
 {

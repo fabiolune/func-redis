@@ -2,7 +2,5 @@
 
 internal class RedisSetServiceIntegrationTest_Valkey_8 : RedisSetServiceIntegrationTest
 {
-    public RedisSetServiceIntegrationTest_Valkey_8() : base("valkey/valkey:8")
-    {
-    }
+    public RedisSetServiceIntegrationTest_Valkey_8() : base("valkey/valkey:8") { }
 }

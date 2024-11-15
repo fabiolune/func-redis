@@ -2,7 +2,5 @@
 
 internal class RedisKeyServiceIntegrationTest_Redis_7 : RedisKeyServiceIntegrationTest
 {
-    public RedisKeyServiceIntegrationTest_Redis_7() : base("redis:7")
-    {
-    }
+    public RedisKeyServiceIntegrationTest_Redis_7() : base("redis:7") { }
 }

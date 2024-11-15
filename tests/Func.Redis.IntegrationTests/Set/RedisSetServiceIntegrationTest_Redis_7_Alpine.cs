@@ -2,7 +2,5 @@
 
 internal class RedisSetServiceIntegrationTest_Redis_7_Alpine : RedisSetServiceIntegrationTest
 {
-    public RedisSetServiceIntegrationTest_Redis_7_Alpine() : base("redis:7-alpine")
-    {
-    }
+    public RedisSetServiceIntegrationTest_Redis_7_Alpine() : base("redis:7-alpine") { }
 }

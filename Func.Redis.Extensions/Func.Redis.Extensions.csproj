@@ -4,7 +4,7 @@
     <PackageId>func-redis-extensions</PackageId>
     <RepositoryUrl>https://github.com/fabiolune/func-redis.git</RepositoryUrl>
     <PackageTags>fp redis railway</PackageTags>
-    <TargetFramework>net8</TargetFramework>
+    <TargetFrameworks>net8;net9</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <PackageReference Include="Scrutor" Version="5.0.2" />
-    <PackageReference Include="System.Text.Json" Version="8.0.5" />
   </ItemGroup>
 
   <ItemGroup>

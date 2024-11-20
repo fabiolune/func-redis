@@ -16,6 +16,9 @@ namespace Func.Redis.Extensions;
 
 public static class ServiceCollectionExtensions
 {
+    private static readonly Error MissingConfiguration = Error.New($"Missing {nameof(RedisConfiguration)}");
+    private static readonly Error InvalidConnectionString = Error.New($"{nameof(RedisConfiguration)}: {nameof(RedisConfiguration.ConnectionString)} is invalid");
+
     public static IServiceCollection AddRedis<T>(this IServiceCollection services, IConfiguration config, RedisCapabilities capabilities, params Assembly[] assemblies) where T : IRedisSerDes =>
         (services, config)
             .Tee(t =>
@@ -24,8 +27,8 @@ public static class ServiceCollectionExtensions
                     .Get<RedisConfiguration>()
                     .ToOption()
                     .Map(r => r!)
-                    .ToEither(Error.New($"Missing {nameof(RedisConfiguration)}"))
-                    .Bind(rc => rc.ToOption(r => string.IsNullOrWhiteSpace(r.ConnectionString)).ToEither(Error.New($"{nameof(RedisConfiguration)}: {nameof(RedisConfiguration.ConnectionString)} is invalid")))
+                    .ToEither(MissingConfiguration)
+                    .Bind(rc => rc.ToOption(r => string.IsNullOrWhiteSpace(r.ConnectionString)).ToEither(InvalidConnectionString))
                     .Match(rc => t.services.AddSingleton(rc), e => throw new KeyNotFoundException(e.Message)))
             .Tee(t => t.services
                 .AddSingleton<IConnectionMultiplexerProvider, ConnectionMultiplexerProvider>()

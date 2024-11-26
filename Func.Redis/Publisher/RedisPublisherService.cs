@@ -12,7 +12,7 @@ public class RedisPublisherService(ISourcesProvider dbProvider, IRedisSerDes ser
             _database
                 .Publish(RedisChannel.Literal(channel), _serDes.Serialize(message)))
         .ToEither()
-        .MapLeft(e => Error.New(e))
+        .MapLeft(e => Error.New(e.Message))
         .Map(_ => Unit.Default);
 
     public Task<Either<Error, Unit>> PublishAsync(string channel, object message) =>
@@ -20,6 +20,6 @@ public class RedisPublisherService(ISourcesProvider dbProvider, IRedisSerDes ser
             _database
                 .PublishAsync(RedisChannel.Literal(channel), _serDes.Serialize(message)))
         .ToEither()
-        .MapLeftAsync(e => Error.New(e))
+        .MapLeftAsync(e => Error.New(e.Message))
         .MapAsync(_ => Unit.Default);
 }

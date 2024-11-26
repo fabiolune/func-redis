@@ -1,5 +1,6 @@
 ﻿using Func.Redis.SerDes;
 using TinyFp.Extensions;
+using static Func.Redis.Utils.FunctionUtilities;
 
 namespace Func.Redis.Key;
 
@@ -15,93 +16,57 @@ public class RedisKeyService(
     private readonly IRedisSerDes _serDes = serDes;
 
     public Either<Error, Unit> Delete(string key) =>
-        Try(() => _database.KeyDelete(key).Map(_ => Unit.Default))
-            .ToEither()
-            .MapLeft(e => Error.New(e.Message));
+        Wrap(() => _database.KeyDelete(key), _ => Unit.Default);
 
     public Either<Error, Unit> Delete(params string[] keys) =>
-        Try(() => _database.KeyDelete(ConvertToKeys(keys)).Map(_ => Unit.Default))
-            .ToEither()
-            .MapLeft(e => Error.New(e.Message));
+        Wrap(() => _database.KeyDelete(ConvertToKeys(keys)), _ => Unit.Default);
 
     public Task<Either<Error, Unit>> DeleteAsync(string key) =>
-        TryAsync(() => _database.KeyDeleteAsync(key))
-            .ToEither()
-            .MapLeftAsync(e => Error.New(e.Message))
-            .MapAsync(_ => Unit.Default);
+        WrapAsync(() => _database.KeyDeleteAsync(key), _ => Unit.Default);
 
     public Task<Either<Error, Unit>> DeleteAsync(params string[] keys) =>
-        TryAsync(() => _database.KeyDeleteAsync(ConvertToKeys(keys)))
-            .ToEither()
-            .MapLeftAsync(e => Error.New(e.Message))
-            .MapAsync(_ => Unit.Default);
+        WrapAsync(() => _database.KeyDeleteAsync(ConvertToKeys(keys)), _ => Unit.Default);
 
     public Either<Error, Option<T>> Get<T>(string key) =>
-        Try(() => _database.StringGet(key).ToOption(r => r.IsNullOrEmpty).Bind(_serDes.Deserialize<T>))
-            .ToEither()
-            .MapLeft(e => Error.New(e.Message));
+        Wrap(() => _database.StringGet(key).Map(_serDes.Deserialize<T>));
 
     public Either<Error, Option<T>[]> Get<T>(params string[] keys) =>
-        Try(() => _database.StringGet(ConvertToKeys(keys)).Select(_serDes.Deserialize<T>).ToArray())
-            .ToEither()
-            .MapLeft(e => Error.New(e.Message));
+        WrapUnsafe(() => _database.StringGet(ConvertToKeys(keys)), res => res.Select(_serDes.Deserialize<T>).ToArray());
 
     public Task<Either<Error, Option<T>>> GetAsync<T>(string key) =>
-        TryAsync(() => _database.StringGetAsync(key))
-            .ToEither()
-            .MapLeftAsync(e => Error.New(e.Message))
-            .BindAsync(res => Try(() => _serDes.Deserialize<T>(res)).ToEither().MapLeft(e => Error.New(e.Message)));
+        WrapUnsafeAsync(() => _database.StringGetAsync(key), _serDes.Deserialize<T>);
 
     public Task<Either<Error, Option<T>[]>> GetAsync<T>(params string[] keys) =>
-        TryAsync(() => _database.StringGetAsync(ConvertToKeys(keys)))
-            .ToEither()
-            .MapLeftAsync(e => Error.New(e.Message))
-            .BindAsync(res => Try(() => res.Select(_serDes.Deserialize<T>).ToArray()).ToEither().MapLeft(e => Error.New(e.Message)));
+        WrapUnsafeAsync(() => _database.StringGetAsync(ConvertToKeys(keys)), res => res.Select(_serDes.Deserialize<T>).ToArray());
 
     public Either<Error, string[]> GetKeys(string pattern) =>
-        Try(() => _sourcesProvider
-                .GetServers()
-                .Select(s => s.Keys(pattern: pattern))
-                .SelectMany(k => k)
-                .Select(k => k.ToString())
-                .ToArray())
-            .ToEither()
-            .MapLeft(e => Error.New(e.Message));
+        Wrap(() => _sourcesProvider
+            .GetServers()
+            .Select(s => s.Keys(pattern: pattern))
+            .SelectMany(k => k)
+            .Select(k => k.ToString())
+            .ToArray());
 
     public Task<Either<Error, string[]>> GetKeysAsync(string pattern) =>
-        TryAsync(() => _sourcesProvider
-                .GetServers()
-                .Select(s => s.KeysAsync(pattern: pattern))
-                .Merge()
-                .Select(k => k.ToString())
-                .ToArrayAsync()
-                .AsTask())
-        .ToEither()
-        .MapLeftAsync(e => Error.New(e.Message));
+        WrapAsync(() => _sourcesProvider
+            .GetServers()
+            .Select(s => s.KeysAsync(pattern: pattern))
+            .Merge()
+            .Select(k => k.ToString())
+            .ToArrayAsync()
+            .AsTask());
 
     public Either<Error, Unit> RenameKey(string key, string newKey) =>
-        Try(() => _database.KeyRename(key, newKey))
-            .ToEither()
-            .MapLeft(e => Error.New(e.Message))
-            .Bind(res => res.ToEither(_ => Unit.Default, b => !b, RenameError));
+        Wrap(() => _database.KeyRename(key, newKey), RenameError);
 
     public Task<Either<Error, Unit>> RenameKeyAsync(string key, string newKey) =>
-        TryAsync(() => _database.KeyRenameAsync(key, newKey))
-            .ToEither()
-            .MapLeftAsync(e => Error.New(e.Message))
-            .BindAsync(res => res.ToEither(_ => Unit.Default, b => !b, RenameError));
+        WrapAsync(() => _database.KeyRenameAsync(key, newKey), RenameError);
 
     public Either<Error, Unit> Set<T>(string key, T value) =>
-        Try(() => _database.StringSet(key, _serDes.Serialize(value)))
-            .ToEither()
-            .MapLeft(e => Error.New(e.Message))
-            .Bind(res => res.ToEither(_ => Unit.Default, b => !b, SetError));
+        Wrap(() => _database.StringSet(key, _serDes.Serialize(value)), SetError);
 
     public Either<Error, Unit> Set<T>(params (string, T)[] pairs) =>
-        Try(() => _database.StringSet(ConvertToKeyValues(pairs)))
-            .ToEither()
-            .MapLeft(e => Error.New(e.Message))
-            .Bind(res => res.ToEither(_ => Unit.Default, b => !b, SetError));
+        Wrap(() => _database.StringSet(ConvertToKeyValues(pairs)), SetError);
 
     public Task<Either<Error, Unit>> SetAsync<T>(string key, T value) =>
         TryAsync(() => _database.StringSetAsync(key, _serDes.Serialize(value)))
@@ -110,10 +75,7 @@ public class RedisKeyService(
             .BindAsync(res => res.ToEither(_ => Unit.Default, b => !b, SetError));
 
     public Task<Either<Error, Unit>> SetAsync<T>(params (string, T)[] pairs) =>
-        TryAsync(() => _database.StringSetAsync(ConvertToKeyValues(pairs)))
-            .ToEither()
-            .MapLeftAsync(e => Error.New(e.Message))
-            .BindAsync(res => res.ToEither(_ => Unit.Default, b => !b, SetError));
+        WrapAsync(() => _database.StringSetAsync(ConvertToKeyValues(pairs)), SetError);
 
     private static RedisKey[] ConvertToKeys(string[] keys) =>
         keys

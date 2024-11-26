@@ -1,5 +1,4 @@
-﻿using StackExchange.Redis;
-using TinyFp.Extensions;
+﻿using TinyFp.Extensions;
 
 namespace Func.Redis.Utils;
 
@@ -23,9 +22,7 @@ internal static class FunctionUtilities
             .MapLeft(e => Error.New(e.Message));
 
     internal static Either<Error, TOut> WrapUnsafe<TIn, TOut>(Func<TIn> func, Func<TIn, TOut> map) =>
-        Try(() => func().Map(map))
-            .ToEither()
-            .MapLeft(e => Error.New(e.Message));
+        Wrap(() => func().Map(map));
 
     internal static Task<Either<Error, Unit>> WrapAsync(Func<Task<bool>> func, Error error) =>
         TryAsync(() => func())

@@ -49,7 +49,7 @@ internal abstract class PubSubIntegrationTest(string redisImage) : RedisIntegrat
 
         await subscriber1
             .GetSubscriptionHandler()
-            .Map(t => 
+            .Map(t =>
                 _connectionMultiplexerProvider
                 .GetMultiplexer()
                 .GetSubscriber()

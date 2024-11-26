@@ -20,13 +20,13 @@ internal abstract class RedisListServiceIntegrationTests(string redisImage) : Re
         var value = new TestModel();
 
         var getResult = await _sut.GetAsync<TestModel>(key, 0);
-        
+
         getResult.IsRight.Should().BeTrue();
         getResult.OnRight(v => v.IsNone.Should().BeTrue());
 
         await _sut.AppendAsync(key, value);
 
-        getResult = await _sut.GetAsync<TestModel> (key, 0);
+        getResult = await _sut.GetAsync<TestModel>(key, 0);
 
         getResult.IsRight.Should().BeTrue();
         getResult.OnRight(v =>
@@ -55,7 +55,7 @@ internal abstract class RedisListServiceIntegrationTests(string redisImage) : Re
         await _sut.AppendAsync(key, value3);
 
         var valuesResult = await _sut.GetAsync<TestModel>(key, 0, 2);
-        
+
         valuesResult.IsRight.Should().BeTrue();
         valuesResult.OnRight(v => v.Filter().Should().BeEquivalentTo(new[] { value2, value, value3 }));
 
@@ -65,7 +65,7 @@ internal abstract class RedisListServiceIntegrationTests(string redisImage) : Re
         sizeResult.OnRight(s => s.Should().Be(3));
 
         var popResult = await _sut.PopAsync<TestModel>(key);
-        
+
         popResult.IsRight.Should().BeTrue();
         popResult.OnRight(v =>
         {

@@ -37,13 +37,13 @@ internal class ServiceCollectionExtensionsTests
 
     internal static readonly RedisCapabilities[] AllCapabilities =
         Enumerable
-            .Range(1, Enum.GetValues<RedisCapabilities>().Select(c => (int)c).Max() << 1 -1)
+            .Range(1, Enum.GetValues<RedisCapabilities>().Select(c => (int)c).Max() << 1 - 1)
             .Select(i => (RedisCapabilities)i)
             .ToArray();
 
     internal static readonly object[][] InvalidConfigAndAllCapabilities =
         new[] { "", null }
-            .Map(inv => AllCapabilities.SelectMany(c => inv.Select(i => new object[] {i, c})))
+            .Map(inv => AllCapabilities.SelectMany(c => inv.Select(i => new object[] { i, c })))
             .ToArray();
 
     [SetUp]

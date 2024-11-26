@@ -56,7 +56,7 @@ internal static class TestDataElements
             NoneErrorTuples
         ];
 
-    private static readonly Either<Error, Option<TestData[]>> SomeErrorOptionTestData = Either<Error, Option<TestData[]>>.Right(new[] { new TestData(1), new TestData(2)}.ToOption());
+    private static readonly Either<Error, Option<TestData[]>> SomeErrorOptionTestData = Either<Error, Option<TestData[]>>.Right(new[] { new TestData(1), new TestData(2) }.ToOption());
     private static readonly Either<Error, Option<TestData[]>> NoneErrorOptionTestData = Either<Error, Option<TestData[]>>.Right(Option<TestData[]>.None());
 
     public static readonly Either<Error, Option<TestData[]>>[] ErrorTestDataTestData =

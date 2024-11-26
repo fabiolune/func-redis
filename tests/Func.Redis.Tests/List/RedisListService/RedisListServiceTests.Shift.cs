@@ -1,5 +1,4 @@
-﻿using NSubstitute;
-using static Func.Redis.Tests.TestDataElements;
+﻿using static Func.Redis.Tests.TestDataElements;
 
 namespace Func.Redis.Tests.RedisListService;
 internal partial class RedisListServiceTests

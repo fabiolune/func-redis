@@ -1,4 +1,6 @@
 ﻿using Func.Redis.SerDes;
+using static Func.Redis.Utils.FunctionUtilities;
+using static Func.Redis.Utils.FunctionUtilities<long>;
 
 namespace Func.Redis.Publisher;
 
@@ -8,18 +10,8 @@ public class RedisPublisherService(ISourcesProvider dbProvider, IRedisSerDes ser
     private readonly IRedisSerDes _serDes = serDes;
 
     public Either<Error, Unit> Publish(string channel, object message) =>
-        Try(() =>
-            _database
-                .Publish(RedisChannel.Literal(channel), _serDes.Serialize(message)))
-        .ToEither()
-        .MapLeft(e => Error.New(e.Message))
-        .Map(_ => Unit.Default);
+        Wrap(() => _database.Publish(RedisChannel.Literal(channel), _serDes.Serialize(message)), ToUnit);
 
     public Task<Either<Error, Unit>> PublishAsync(string channel, object message) =>
-        TryAsync(() =>
-            _database
-                .PublishAsync(RedisChannel.Literal(channel), _serDes.Serialize(message)))
-        .ToEither()
-        .MapLeftAsync(e => Error.New(e.Message))
-        .MapAsync(_ => Unit.Default);
+        WrapAsync(() => _database.PublishAsync(RedisChannel.Literal(channel), _serDes.Serialize(message)), ToUnit);
 }

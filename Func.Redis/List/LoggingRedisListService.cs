@@ -10,7 +10,7 @@ internal class LoggingRedisListService(ILogger logger, IRedisListService service
 
     public Either<Error, Unit> Append<T>(string key, T value) =>
         _service.Append(key, value).TeeLog(_logger, ComponentName);
-    
+
     public Either<Error, Unit> Append<T>(string key, params T[] values) =>
         _service.Append(key, values).TeeLog(_logger, ComponentName);
 

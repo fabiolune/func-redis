@@ -16,6 +16,6 @@ internal partial class RedisListServiceTests
         _mockProvider = Substitute.For<ISourcesProvider>();
         _mockProvider.GetDatabase().Returns(_mockDb);
 
-        _sut = new  Redis.List.RedisListService(_mockProvider, _mockSerDes);
+        _sut = new Redis.List.RedisListService(_mockProvider, _mockSerDes);
     }
 }

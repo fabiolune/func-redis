@@ -1,4 +1,5 @@
 ﻿using Func.Redis.SerDes;
+using Func.Redis.Utils;
 using TinyFp.Extensions;
 using static Func.Redis.Utils.FunctionUtilities;
 
@@ -16,16 +17,16 @@ public class RedisKeyService(
     private readonly IRedisSerDes _serDes = serDes;
 
     public Either<Error, Unit> Delete(string key) =>
-        Wrap(() => _database.KeyDelete(key), _ => Unit.Default);
+        Wrap(() => _database.KeyDelete(key), FunctionUtilities<bool>.ToUnit);
 
     public Either<Error, Unit> Delete(params string[] keys) =>
-        Wrap(() => _database.KeyDelete(ConvertToKeys(keys)), _ => Unit.Default);
+        Wrap(() => _database.KeyDelete(ConvertToKeys(keys)), FunctionUtilities<long>.ToUnit);
 
     public Task<Either<Error, Unit>> DeleteAsync(string key) =>
-        WrapAsync(() => _database.KeyDeleteAsync(key), _ => Unit.Default);
+        WrapAsync(() => _database.KeyDeleteAsync(key), FunctionUtilities<bool>.ToUnit);
 
     public Task<Either<Error, Unit>> DeleteAsync(params string[] keys) =>
-        WrapAsync(() => _database.KeyDeleteAsync(ConvertToKeys(keys)), _ => Unit.Default);
+        WrapAsync(() => _database.KeyDeleteAsync(ConvertToKeys(keys)), FunctionUtilities<long>.ToUnit);
 
     public Either<Error, Option<T>> Get<T>(string key) =>
         Wrap(() => _database.StringGet(key).Map(_serDes.Deserialize<T>));
@@ -69,10 +70,7 @@ public class RedisKeyService(
         Wrap(() => _database.StringSet(ConvertToKeyValues(pairs)), SetError);
 
     public Task<Either<Error, Unit>> SetAsync<T>(string key, T value) =>
-        TryAsync(() => _database.StringSetAsync(key, _serDes.Serialize(value)))
-            .ToEither()
-            .MapLeftAsync(e => Error.New(e.Message))
-            .BindAsync(res => res.ToEither(_ => Unit.Default, b => !b, SetError));
+        WrapAsync(() => _database.StringSetAsync(key, _serDes.Serialize(value)), SetError);
 
     public Task<Either<Error, Unit>> SetAsync<T>(params (string, T)[] pairs) =>
         WrapAsync(() => _database.StringSetAsync(ConvertToKeyValues(pairs)), SetError);

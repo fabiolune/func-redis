@@ -1,5 +1,5 @@
 ﻿using Func.Redis.SerDes;
-using TinyFp.Extensions;
+using Func.Redis.Utils;
 using static Func.Redis.Utils.FunctionUtilities;
 
 namespace Func.Redis.List;
@@ -11,28 +11,28 @@ public class RedisListService(
     private readonly IRedisSerDes _serDes = serDes;
 
     public Either<Error, Unit> Prepend<T>(string key, T value) =>
-        Wrap(() => _database.ListLeftPush(key, _serDes.Serialize(value)), _ => Unit.Default);
+        Wrap(() => _database.ListLeftPush(key, _serDes.Serialize(value)), FunctionUtilities<long>.ToUnit);
 
     public Either<Error, Unit> Prepend<T>(string key, params T[] values) =>
-        Wrap(() => _database.ListLeftPush(key, values.Select(_serDes.Serialize).ToArray()), _ => Unit.Default);
+        Wrap(() => _database.ListLeftPush(key, values.Select(_serDes.Serialize).ToArray()), FunctionUtilities<long>.ToUnit);
 
     public Task<Either<Error, Unit>> PrependAsync<T>(string key, T value) =>
-        WrapAsync(() => _database.ListLeftPushAsync(key, _serDes.Serialize(value)), _ => Unit.Default);
+        WrapAsync(() => _database.ListLeftPushAsync(key, _serDes.Serialize(value)), FunctionUtilities<long>.ToUnit);
 
     public Task<Either<Error, Unit>> PrependAsync<T>(string key, params T[] values) =>
-        WrapAsync(() => _database.ListLeftPushAsync(key, values.Select(_serDes.Serialize).ToArray()), _ => Unit.Default);
+        WrapAsync(() => _database.ListLeftPushAsync(key, values.Select(_serDes.Serialize).ToArray()), FunctionUtilities<long>.ToUnit);
 
     public Either<Error, Unit> Append<T>(string key, T value) =>
-        Wrap(() => _database.ListRightPush(key, _serDes.Serialize(value)), _ => Unit.Default);
+        Wrap(() => _database.ListRightPush(key, _serDes.Serialize(value)), FunctionUtilities<long>.ToUnit);
 
     public Either<Error, Unit> Append<T>(string key, params T[] values) =>
-        Wrap(() => _database.ListRightPush(key, values.Select(_serDes.Serialize).ToArray()), _ => Unit.Default);
+        Wrap(() => _database.ListRightPush(key, values.Select(_serDes.Serialize).ToArray()), FunctionUtilities<long>.ToUnit);
 
     public Task<Either<Error, Unit>> AppendAsync<T>(string key, T value) =>
-        WrapAsync(() => _database.ListRightPushAsync(key, _serDes.Serialize(value)), _ => Unit.Default);
+        WrapAsync(() => _database.ListRightPushAsync(key, _serDes.Serialize(value)), FunctionUtilities<long>.ToUnit);
 
     public Task<Either<Error, Unit>> AppendAsync<T>(string key, params T[] values) =>
-        WrapAsync(() => _database.ListRightPushAsync(key, values.Select(_serDes.Serialize).ToArray()), _ => Unit.Default);
+        WrapAsync(() => _database.ListRightPushAsync(key, values.Select(_serDes.Serialize).ToArray()), FunctionUtilities<long>.ToUnit);
 
     public Either<Error, Option<T>> Get<T>(string key, long index) =>
         WrapUnsafe(() => _database.ListGetByIndex(key, index), _serDes.Deserialize<T>);

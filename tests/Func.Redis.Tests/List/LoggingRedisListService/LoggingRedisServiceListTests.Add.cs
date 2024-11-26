@@ -1,5 +1,4 @@
 ﻿using static Func.Redis.Tests.TestDataElements;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Func.Redis.Tests.LoggingRedisListService;
 internal partial class LoggingRedisServiceListTests

@@ -40,7 +40,7 @@ public class RedisHashSetService(
             _database.HashGet(key, field))
             .ToEither()
             .MapLeft(e => Error.New(e))
-            .Map(v => v.ToOption(_ => !_.HasValue))
+            .Map(v => v.ToOption(v => v.IsNullOrEmpty))
             .Bind(v => v.Match(_ =>
                 Try(() => _serDes.Deserialize<T>(_))
                 .ToEither()

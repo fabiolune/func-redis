@@ -1,6 +1,6 @@
 ﻿namespace Func.Redis.HashSet;
 
-public class KeyTransformerRedisHashSetService(IRedisHashSetService service, Func<string, string> keyMapper) : IRedisHashSetService
+internal class KeyTransformerRedisHashSetService(IRedisHashSetService service, Func<string, string> keyMapper) : IRedisHashSetService
 {
     private readonly Func<string, string> _keyMapper = keyMapper;
     private readonly IRedisHashSetService _service = service;

@@ -1,17 +1,12 @@
 ﻿using Func.Redis.SerDes.Json;
 using System.Text.Json;
+using static Func.Redis.Tests.TestDataElements;
 
 namespace Func.Redis.Tests.SerDes.Json;
 
 public class SystemJsonRedisSerDesTests
 {
     private SystemJsonRedisSerDes _sut;
-
-    public class TestData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
 
     [SetUp]
     public void SetUp() => _sut = new SystemJsonRedisSerDes();
@@ -23,8 +18,8 @@ public class SystemJsonRedisSerDesTests
         RedisValue.Null
     ];
 
-    [TestCase(@"{""Id"": 12}")]
-    [TestCase(@"{""id"": 12}")]
+    [TestCase(@"{""Id"": 1}")]
+    [TestCase(@"{""id"": 1}")]
     public void Deserialize_WhenInputIsValidJson_ShouldReturnSome(string serialized)
     {
         var result = _sut.Deserialize<TestData>(serialized);
@@ -34,7 +29,7 @@ public class SystemJsonRedisSerDesTests
             .OnSome(data =>
                 data
                     .Should()
-                    .BeEquivalentTo(new TestData { Id = 12 }));
+                    .BeEquivalentTo(new TestData(1)));
     }
 
     [TestCaseSource(nameof(InvalidRedisValues))]
@@ -61,8 +56,8 @@ public class SystemJsonRedisSerDesTests
         act.Should().ThrowExactly<JsonException>();
     }
 
-    [TestCase(@"{""Id"": 12}")]
-    [TestCase(@"{""id"": 12}")]
+    [TestCase(@"{""Id"": 1}")]
+    [TestCase(@"{""id"": 1}")]
     public void DeserializeWithType_WhenInputIsValidJson_ShouldReturnSome(string serialized)
     {
         var result = _sut.Deserialize(serialized, typeof(TestData));
@@ -72,7 +67,7 @@ public class SystemJsonRedisSerDesTests
             .OnSome(data =>
                 data
                     .Should()
-                    .BeEquivalentTo(new TestData { Id = 12 }));
+                    .BeEquivalentTo(new TestData(1)));
     }
 
     [TestCaseSource(nameof(InvalidRedisValues))]
@@ -146,14 +141,14 @@ public class SystemJsonRedisSerDesTests
     [Test]
     public void Deserialize_WhenValuesAreValidJson_ShouldReturnSome()
     {
-        var result = _sut.Deserialize<TestData>([@"{""Id"": 12}", @"{""id"": 27}"]);
+        var result = _sut.Deserialize<TestData>([@"{""Id"": 1}", @"{""id"": 2}"]);
 
         result.IsSome.Should().BeTrue();
         result
             .OnSome(v => v.Should().BeEquivalentTo(new[]
             {
-            new TestData { Id = 12 },
-            new TestData { Id = 27 }
+            new TestData(1),
+            new TestData(2)
             }));
     }
 
@@ -228,14 +223,14 @@ public class SystemJsonRedisSerDesTests
     [Test]
     public void DeserializeEntries_WhenEntriesContainValidJson_ShouldReturnSome()
     {
-        var result = _sut.Deserialize<TestData>([new HashEntry("key1", @"{""Id"": 12}"), new HashEntry("key2", @"{""id"": 27}")]);
+        var result = _sut.Deserialize<TestData>([new HashEntry("key1", @"{""Id"": 1}"), new HashEntry("key2", @"{""id"": 2}")]);
 
         result.IsSome.Should().BeTrue();
         result
             .OnSome(v => v.Should().BeEquivalentTo(new (string, TestData)[]
             {
-                ("key1", new TestData { Id = 12 }),
-                ("key2", new TestData { Id = 27 })
+                ("key1", new TestData(1)),
+                ("key2", new TestData(2))
             }));
     }
 
@@ -265,8 +260,8 @@ public class SystemJsonRedisSerDesTests
 
     public static readonly object[][] SerializationCombinations =
     [
-        [new TestData { Id = 17 }, @"{""Id"":17}"],
-        [new TestData { Id = 17, Name = "some name" }, @"{""Id"":17,""Name"":""some name""}"],
+        [new TestData(1), @"{""Id"":1}"],
+        [new TestData(1) { Name = "some name" }, @"{""Id"":1,""Name"":""some name""}"],
         [null, "null"],
         ["message", @"""message"""]
     ];

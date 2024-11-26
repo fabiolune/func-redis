@@ -15,16 +15,14 @@ public class RedisKeyService(
     private readonly IRedisSerDes _serDes = serDes;
 
     public Either<Error, Unit> Delete(string key) =>
-        Try(() => _database.KeyDelete(key))
+        Try(() => _database.KeyDelete(key).Map(_ => Unit.Default))
             .ToEither()
-            .MapLeft(e => Error.New(e))
-            .Map(_ => Unit.Default);
+            .MapLeft(e => Error.New(e));
 
     public Either<Error, Unit> Delete(params string[] keys) =>
-        Try(() => _database.KeyDelete(ConvertToKeys(keys)))
+        Try(() => _database.KeyDelete(ConvertToKeys(keys)).Map(_ => Unit.Default))
             .ToEither()
-            .MapLeft(e => Error.New(e))
-            .Map(_ => Unit.Default);
+            .MapLeft(e => Error.New(e));
 
     public Task<Either<Error, Unit>> DeleteAsync(string key) =>
         TryAsync(() => _database.KeyDeleteAsync(key))
@@ -39,45 +37,26 @@ public class RedisKeyService(
             .MapAsync(_ => Unit.Default);
 
     public Either<Error, Option<T>> Get<T>(string key) =>
-        Try(() => _database.StringGet(key))
+        Try(() => _database.StringGet(key).ToOption(r => r.IsNullOrEmpty).Bind(_serDes.Deserialize<T>))
             .ToEither()
-            .MapLeft(e => Error.New(e))
-            .Map(value => value.ToOption(v => !v.HasValue))
-            .Bind(value => value
-                    .Match(
-                        v => Try(() => _serDes.Deserialize<T>(v)).ToEither().MapLeft(e => Error.New(e)),
-                        () => Either<Error, Option<T>>.Right(Option<T>.None())));
+            .MapLeft(e => Error.New(e));
 
     public Either<Error, Option<T>[]> Get<T>(params string[] keys) =>
-        Try(() => _database.StringGet(ConvertToKeys(keys)))
+        Try(() => _database.StringGet(ConvertToKeys(keys)).Select(_serDes.Deserialize<T>).ToArray())
             .ToEither()
-            .MapLeft(e => Error.New(e))
-            .Bind(vs => Try(() => vs.Select(value =>
-                               value.ToOption(v => !v.HasValue)
-                                   .Bind(v => _serDes.Deserialize<T>(v))))
-                           .Map(o => o.ToArray())
-                           .ToEither()
-                           .MapLeft(ex => Error.New(ex.Message)));
+            .MapLeft(e => Error.New(e));
 
     public Task<Either<Error, Option<T>>> GetAsync<T>(string key) =>
         TryAsync(() => _database.StringGetAsync(key))
             .ToEither()
             .MapLeftAsync(e => Error.New(e))
-            .MapAsync(value => value.ToOption(v => !v.HasValue))
-            .BindAsync(value => value
-                    .Match(
-                        v => Try(() => _serDes.Deserialize<T>(v)).ToEither().MapLeft(e => Error.New(e)),
-                        () => Either<Error, Option<T>>.Right(Option<T>.None())));
+            .BindAsync(res => Try(() => _serDes.Deserialize<T>(res)).ToEither().MapLeft(e => Error.New(e)));
 
     public Task<Either<Error, Option<T>[]>> GetAsync<T>(params string[] keys) =>
         TryAsync(() => _database.StringGetAsync(ConvertToKeys(keys)))
             .ToEither()
             .MapLeftAsync(e => Error.New(e))
-            .BindAsync(vs =>
-                Try(() => vs.Select(v => v.ToOption(v => !v.HasValue).Bind(v => _serDes.Deserialize<T>(v))))
-                    .Map(o => o.ToArray())
-                    .ToEither()
-                    .MapLeft(ex => Error.New(ex.Message)));
+            .BindAsync(res => Try(() => res.Select(_serDes.Deserialize<T>).ToArray()).ToEither().MapLeft(e => Error.New(e)));
 
     public Either<Error, string[]> GetKeys(string pattern) =>
         Try(() => _sourcesProvider

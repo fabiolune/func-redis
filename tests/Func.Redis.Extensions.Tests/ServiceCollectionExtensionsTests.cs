@@ -1,5 +1,6 @@
 using Func.Redis.HashSet;
 using Func.Redis.Key;
+using Func.Redis.List;
 using Func.Redis.Publisher;
 using Func.Redis.SerDes;
 using Func.Redis.SerDes.Json;
@@ -9,10 +10,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Memory;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
+using TinyFp.Extensions;
 
 namespace Func.Redis.Extensions.Unit.Tests;
 
-public class ServiceCollectionExtensionsTests
+internal class ServiceCollectionExtensionsTests
 {
     internal class StubSerdes : IRedisSerDes
     {
@@ -33,6 +35,17 @@ public class ServiceCollectionExtensionsTests
     private IConnectionMultiplexerProvider _mockProvider;
     private IServiceCollection _mockServices;
 
+    internal static readonly RedisCapabilities[] AllCapabilities =
+        Enumerable
+            .Range(1, Enum.GetValues<RedisCapabilities>().Select(c => (int)c).Max() << 1 -1)
+            .Select(i => (RedisCapabilities)i)
+            .ToArray();
+
+    internal static readonly object[][] InvalidConfigAndAllCapabilities =
+        new[] { "", null }
+            .Map(inv => AllCapabilities.SelectMany(c => inv.Select(i => new object[] {i, c})))
+            .ToArray();
+
     [SetUp]
     public void SetUp()
     {
@@ -40,37 +53,7 @@ public class ServiceCollectionExtensionsTests
         _mockServices = Substitute.For<IServiceCollection>();
     }
 
-    [TestCase(RedisCapabilities.Keys)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.HashSet)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Set)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Publisher)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Publisher)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.Set)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.Set | RedisCapabilities.Publisher)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.Set | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.Set | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.Publisher)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.HashSet)]
-    [TestCase(RedisCapabilities.HashSet | RedisCapabilities.Set)]
-    [TestCase(RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Publisher)]
-    [TestCase(RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.HashSet | RedisCapabilities.Publisher)]
-    [TestCase(RedisCapabilities.HashSet | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.HashSet | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.Set)]
-    [TestCase(RedisCapabilities.Set | RedisCapabilities.Publisher)]
-    [TestCase(RedisCapabilities.Set | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.Set | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.Publisher)]
-    [TestCase(RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.Subscriber)]
+    [TestCaseSource(nameof(AllCapabilities))]
     public void AddRedis_WhenAnyCapabilityIsEnabledAndRedisConfigurationIsMissing_ShouldThrow(RedisCapabilities capabilities)
     {
         var config = new MemoryConfigurationSource
@@ -89,68 +72,7 @@ public class ServiceCollectionExtensionsTests
             .WithMessage("Missing RedisConfiguration");
     }
 
-    [TestCase(null, RedisCapabilities.Keys)]
-    [TestCase(null, RedisCapabilities.Keys | RedisCapabilities.HashSet)]
-    [TestCase(null, RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Set)]
-    [TestCase(null, RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Publisher)]
-    [TestCase(null, RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(null, RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Subscriber)]
-    [TestCase(null, RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Publisher)]
-    [TestCase(null, RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(null, RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Subscriber)]
-    [TestCase(null, RedisCapabilities.Keys | RedisCapabilities.Set)]
-    [TestCase(null, RedisCapabilities.Keys | RedisCapabilities.Set | RedisCapabilities.Publisher)]
-    [TestCase(null, RedisCapabilities.Keys | RedisCapabilities.Set | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(null, RedisCapabilities.Keys | RedisCapabilities.Set | RedisCapabilities.Subscriber)]
-    [TestCase(null, RedisCapabilities.Keys | RedisCapabilities.Publisher)]
-    [TestCase(null, RedisCapabilities.Keys | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(null, RedisCapabilities.Keys | RedisCapabilities.Subscriber)]
-    [TestCase(null, RedisCapabilities.HashSet)]
-    [TestCase(null, RedisCapabilities.HashSet | RedisCapabilities.Set)]
-    [TestCase(null, RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Publisher)]
-    [TestCase(null, RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(null, RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Subscriber)]
-    [TestCase(null, RedisCapabilities.HashSet | RedisCapabilities.Publisher)]
-    [TestCase(null, RedisCapabilities.HashSet | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(null, RedisCapabilities.HashSet | RedisCapabilities.Subscriber)]
-    [TestCase(null, RedisCapabilities.Set)]
-    [TestCase(null, RedisCapabilities.Set | RedisCapabilities.Publisher)]
-    [TestCase(null, RedisCapabilities.Set | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(null, RedisCapabilities.Set | RedisCapabilities.Subscriber)]
-    [TestCase(null, RedisCapabilities.Publisher)]
-    [TestCase(null, RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(null, RedisCapabilities.Subscriber)]
-    [TestCase("", RedisCapabilities.Keys)]
-    [TestCase("", RedisCapabilities.Keys | RedisCapabilities.HashSet)]
-    [TestCase("", RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Set)]
-    [TestCase("", RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Publisher)]
-    [TestCase("", RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase("", RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Subscriber)]
-    [TestCase("", RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Publisher)]
-    [TestCase("", RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase("", RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Subscriber)]
-    [TestCase("", RedisCapabilities.Keys | RedisCapabilities.Set)]
-    [TestCase("", RedisCapabilities.Keys | RedisCapabilities.Set | RedisCapabilities.Publisher)]
-    [TestCase("", RedisCapabilities.Keys | RedisCapabilities.Set | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase("", RedisCapabilities.Keys | RedisCapabilities.Set | RedisCapabilities.Subscriber)]
-    [TestCase("", RedisCapabilities.Keys | RedisCapabilities.Publisher)]
-    [TestCase("", RedisCapabilities.Keys | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase("", RedisCapabilities.Keys | RedisCapabilities.Subscriber)]
-    [TestCase("", RedisCapabilities.HashSet)]
-    [TestCase("", RedisCapabilities.HashSet | RedisCapabilities.Set)]
-    [TestCase("", RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Publisher)]
-    [TestCase("", RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase("", RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Subscriber)]
-    [TestCase("", RedisCapabilities.HashSet | RedisCapabilities.Publisher)]
-    [TestCase("", RedisCapabilities.HashSet | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase("", RedisCapabilities.HashSet | RedisCapabilities.Subscriber)]
-    [TestCase("", RedisCapabilities.Set)]
-    [TestCase("", RedisCapabilities.Set | RedisCapabilities.Publisher)]
-    [TestCase("", RedisCapabilities.Set | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase("", RedisCapabilities.Set | RedisCapabilities.Subscriber)]
-    [TestCase("", RedisCapabilities.Publisher)]
-    [TestCase("", RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase("", RedisCapabilities.Subscriber)]
+    [TestCaseSource(nameof(InvalidConfigAndAllCapabilities))]
     public void AddRedis_WhenAnyCapabilityIsEnabledAndRedisConfigurationIsNotValid_ShouldThrow(string configValue, RedisCapabilities capabilities)
     {
         var config = new MemoryConfigurationSource
@@ -172,37 +94,7 @@ public class ServiceCollectionExtensionsTests
             .WithMessage("RedisConfiguration: ConnectionString is invalid");
     }
 
-    [TestCase(RedisCapabilities.Keys)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.HashSet)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Set)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Publisher)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Publisher)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.HashSet | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.Set)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.Set | RedisCapabilities.Publisher)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.Set | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.Set | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.Publisher)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.Keys | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.HashSet)]
-    [TestCase(RedisCapabilities.HashSet | RedisCapabilities.Set)]
-    [TestCase(RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Publisher)]
-    [TestCase(RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.HashSet | RedisCapabilities.Set | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.HashSet | RedisCapabilities.Publisher)]
-    [TestCase(RedisCapabilities.HashSet | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.HashSet | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.Set)]
-    [TestCase(RedisCapabilities.Set | RedisCapabilities.Publisher)]
-    [TestCase(RedisCapabilities.Set | RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.Set | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.Publisher)]
-    [TestCase(RedisCapabilities.Publisher | RedisCapabilities.Subscriber)]
-    [TestCase(RedisCapabilities.Subscriber)]
+    [TestCaseSource(nameof(AllCapabilities))]
     public void AddRedis_WhenAnyCapabilityIsEnabledAndConfigIsValidWithProperConnectionString_ShouldRegisterBasicComponents(RedisCapabilities capabilities)
     {
         var config = new MemoryConfigurationSource
@@ -250,6 +142,7 @@ public class ServiceCollectionExtensionsTests
     [TestCase(RedisCapabilities.HashSet, typeof(IRedisHashSetService), typeof(RedisHashSetService))]
     [TestCase(RedisCapabilities.Keys, typeof(IRedisKeyService), typeof(RedisKeyService))]
     [TestCase(RedisCapabilities.Set, typeof(IRedisSetService), typeof(RedisSetService))]
+    [TestCase(RedisCapabilities.List, typeof(IRedisListService), typeof(RedisListService))]
     public void AddRedis_WhenRedisHashSetIsEnabledAndConfigIsValid_ShouldRegisterComponents(
             RedisCapabilities capabilities,
             Type expectedKeyType,
@@ -297,6 +190,7 @@ public class ServiceCollectionExtensionsTests
     [TestCase(RedisCapabilities.HashSet, typeof(IRedisHashSetService), typeof(KeyTransformerRedisHashSetService))]
     [TestCase(RedisCapabilities.Keys, typeof(IRedisKeyService), typeof(KeyTransformerRedisKeyService))]
     [TestCase(RedisCapabilities.Set, typeof(IRedisSetService), typeof(KeyTransformerRedisSetService))]
+    [TestCase(RedisCapabilities.List, typeof(IRedisListService), typeof(KeyTransformerRedisListService))]
     public void AddRedis_WhenRedisCapabilityIsEnabledAndKeyPrefixIsValidAndConfigIsValid_ShouldRegisterComponents(
             RedisCapabilities capabilities,
             Type expectedKeyType,

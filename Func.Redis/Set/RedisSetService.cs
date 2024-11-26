@@ -99,8 +99,7 @@ public class RedisSetService(
             .ToEither()
             .MapLeft(e => Error.New(e))
             .Bind(vs => Try(() => vs.Select(value =>
-                               value.ToOption(v => !v.HasValue)
-                                   .Bind(v => _serDes.Deserialize<T>(v))))
+                               value.ToOption(v => v.IsNullOrEmpty).Bind(v => _serDes.Deserialize<T>(v))))
                            .Map(o => o.ToArray())
                            .ToEither()
                            .MapLeft(ex => Error.New(ex.Message)));
@@ -110,8 +109,7 @@ public class RedisSetService(
             .ToEither()
             .MapLeftAsync(e => Error.New(e))
             .BindAsync(vs => Try(() => vs.Select(v =>
-                                    v.ToOption(v => !v.HasValue)
-                                        .Bind(v => _serDes.Deserialize<T>(v))))
+                                    v.ToOption(v => v.IsNullOrEmpty).Bind(v => _serDes.Deserialize<T>(v))))
                                 .Map(o => o.ToArray())
                                 .ToEither()
                                 .MapLeft(ex => Error.New(ex.Message)));

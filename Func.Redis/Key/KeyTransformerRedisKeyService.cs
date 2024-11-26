@@ -1,6 +1,6 @@
 ﻿namespace Func.Redis.Key;
 
-public class KeyTransformerRedisKeyService(IRedisKeyService service, Func<string, string> keyMapper, Func<string, string> inverseKeyMapper) : IRedisKeyService
+internal class KeyTransformerRedisKeyService(IRedisKeyService service, Func<string, string> keyMapper, Func<string, string> inverseKeyMapper) : IRedisKeyService
 {
     private readonly Func<string, string> _keyMapper = keyMapper;
     private readonly Func<string, string> _inverseKeyMapper = inverseKeyMapper;

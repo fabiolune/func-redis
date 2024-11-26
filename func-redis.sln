@@ -15,11 +15,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Func.Redis.Extensions.Unit.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7364D133-8E40-4A1B-B565-EF87159FD941}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		.github\workflows\main.yaml = .github\workflows\main.yaml
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Func.Redis.IntegrationTests", "tests\Func.Redis.IntegrationTests\Func.Redis.IntegrationTests.csproj", "{9A4575D9-5A0B-45ED-A9E8-0BBA7C74F556}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Func.Redis.IntegrationTests", "tests\Func.Redis.IntegrationTests\Func.Redis.IntegrationTests.csproj", "{9A4575D9-5A0B-45ED-A9E8-0BBA7C74F556}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

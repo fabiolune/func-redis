@@ -1,5 +1,5 @@
 ﻿namespace Func.Redis.Set;
-public class KeyTransformerRedisSetService(IRedisSetService service, Func<string, string> keyMapper) : IRedisSetService
+internal class KeyTransformerRedisSetService(IRedisSetService service, Func<string, string> keyMapper) : IRedisSetService
 {
     private readonly Func<string, string> _keyMapper = keyMapper;
     private readonly IRedisSetService _service = service;

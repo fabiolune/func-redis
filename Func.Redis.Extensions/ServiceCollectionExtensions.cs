@@ -1,5 +1,6 @@
 ﻿using Func.Redis.HashSet;
 using Func.Redis.Key;
+using Func.Redis.List;
 using Func.Redis.Models;
 using Func.Redis.Publisher;
 using Func.Redis.SerDes;
@@ -62,6 +63,10 @@ public static class ServiceCollectionExtensions
             .TeeWhen(
                 s => s.Decorate<IRedisSetService>(hs => new KeyTransformerRedisSetService(hs, keyMapper)),
                 () => capabilities.HasFlag(RedisCapabilities.Set)
+            )
+            .TeeWhen(
+                s => s.Decorate<IRedisListService>(hs => new KeyTransformerRedisListService(hs, keyMapper)),
+                () => capabilities.HasFlag(RedisCapabilities.List)
             );
 
     private static IServiceCollection InternalAddRedis(
@@ -81,6 +86,9 @@ public static class ServiceCollectionExtensions
             .TeeWhen(
                 s => s.AddSingleton<IRedisSetService, RedisSetService>(),
                 () => capabilities.HasFlag(RedisCapabilities.Set))
+            .TeeWhen(
+                s => s.AddSingleton<IRedisListService, RedisListService>(),
+                () => capabilities.HasFlag(RedisCapabilities.List))
             .TeeWhen(
                 s => s.Scan(selector => selector
                     .FromAssemblies(assemblies)

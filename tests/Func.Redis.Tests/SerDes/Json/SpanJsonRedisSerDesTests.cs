@@ -1,27 +1,22 @@
 ﻿using Func.Redis.SerDes.Json;
 using SpanJson;
+using static Func.Redis.Tests.TestDataElements;
 
 namespace Func.Redis.Tests.SerDes.Json;
 
-public class SpanJsonRedisSerDesTests
+internal class SpanJsonRedisSerDesTests
 {
     private SpanJsonRedisSerDes _sut;
 
-    public class TestData
-    {
-        public int Id { get; init; }
-        public string Name { get; init; }
-    }
-
-    public enum TestEnum
+    public enum TestEnumeration
     {
         First,
         Second
     }
 
-    public class TestDataWithEnum : TestData
+    public record TestDataWithEnum : TestData
     {
-        public TestEnum Attribute { get; init; }
+        public TestEnumeration Attribute { get; init; }
     }
 
     [SetUp]
@@ -36,12 +31,12 @@ public class SpanJsonRedisSerDesTests
     public static readonly object[][] ExpectedDeserializations =
     [
         [
-            """{"Id": 12}""",
-            new TestData { Id = 12 }
+            """{"Id": 1}""",
+            new TestData(1)
         ],
         [
             """{"Id": 12, "Name": "some name"}""",
-            new TestData { Id = 12, Name = "some name" }
+            new TestData(12) { Name = "some name" }
         ],
         [
             """{"Name": "some name"}""",
@@ -49,11 +44,11 @@ public class SpanJsonRedisSerDesTests
         ],
         [
             """{"Name": "some name", "Attribute": "First"}""",
-            new TestDataWithEnum { Name = "some name", Attribute = TestEnum.First }
+            new TestDataWithEnum { Name = "some name", Attribute = TestEnumeration.First }
         ],
         [
             """{"Name": "some name", "Attribute": "Second"}""",
-            new TestDataWithEnum { Name = "some name", Attribute = TestEnum.Second }
+            new TestDataWithEnum { Name = "some name", Attribute = TestEnumeration.Second }
         ]
     ];
 
@@ -164,13 +159,13 @@ public class SpanJsonRedisSerDesTests
     [Test]
     public void Deserialize_WhenValuesAreValidJson_ShouldReturnSome()
     {
-        var result = _sut.Deserialize<TestData>(["""{"Id": 12}""", """{"Id": 27}"""]);
+        var result = _sut.Deserialize<TestData>(["""{"Id": 1}""", """{"Id": 2}"""]);
 
         result.IsSome.Should().BeTrue();
         result.OnSome(v => v.Should().BeEquivalentTo(new[]
             {
-            new TestData { Id = 12 },
-            new TestData { Id = 27 }
+            new TestData(1),
+            new TestData(2)
             }));
     }
 
@@ -249,8 +244,8 @@ public class SpanJsonRedisSerDesTests
         result.IsSome.Should().BeTrue();
         result.OnSome(v => v.Should().BeEquivalentTo(
             [
-            ("key1", new TestData { Id = 12 }),
-            ("key2", new TestData { Id = 27 })
+            ("key1", new TestData(12)),
+            ("key2", new TestData(27))
             ]));
     }
 

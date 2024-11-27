@@ -57,16 +57,16 @@ public class RedisSetService(
         CombineAsync<T>(key1, key2, SetOperation.Difference);
 
     private Either<Error, T[]> Combine<T>(string key1, string key2, SetOperation operation) =>
-        WrapUnsafe(() => _database.SetCombine(operation, key1, key2), res => res.Select(_serDes.Deserialize<T>).Filter().ToArray());
+        Wrap(() => _database.SetCombine(operation, key1, key2), res => res.Select(_serDes.Deserialize<T>).Filter().ToArray());
 
     public Either<Error, Option<T>> Pop<T>(string key) =>
-        WrapUnsafe(() => _database.SetPop(key), _serDes.Deserialize<T>);
+        Wrap(() => _database.SetPop(key), _serDes.Deserialize<T>);
 
     public Task<Either<Error, Option<T>>> PopAsync<T>(string key) =>
         WrapUnsafeAsync(() => _database.SetPopAsync(key), _serDes.Deserialize<T>);
 
     public Either<Error, Option<T>[]> GetAll<T>(string key) =>
-        WrapUnsafe(() => _database.SetMembers(key), res => res.Select(_serDes.Deserialize<T>).ToArray());
+        Wrap(() => _database.SetMembers(key), res => res.Select(_serDes.Deserialize<T>).ToArray());
 
     public Task<Either<Error, Option<T>[]>> GetAllAsync<T>(string key) =>
         WrapUnsafeAsync(() => _database.SetMembersAsync(key), vs => vs.Select(_serDes.Deserialize<T>).ToArray());

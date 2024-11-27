@@ -143,7 +143,8 @@ internal class ServiceCollectionExtensionsTests
     [TestCase(RedisCapabilities.Keys, typeof(IRedisKeyService), typeof(RedisKeyService))]
     [TestCase(RedisCapabilities.Set, typeof(IRedisSetService), typeof(RedisSetService))]
     [TestCase(RedisCapabilities.List, typeof(IRedisListService), typeof(RedisListService))]
-    public void AddRedis_WhenRedisHashSetIsEnabledAndConfigIsValid_ShouldRegisterComponents(
+    [TestCase(RedisCapabilities.Generic, typeof(IRedisService), typeof(RailwayRedisService))]
+    public void AddRedis_WhenCapabilityIsEnabledAndConfigIsValid_ShouldRegisterComponents(
             RedisCapabilities capabilities,
             Type expectedKeyType,
             Type expectedImplementationType)

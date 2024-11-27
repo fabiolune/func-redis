@@ -35,10 +35,10 @@ public class RedisListService(
         WrapAsync(() => _database.ListRightPushAsync(key, values.Select(_serDes.Serialize).ToArray()), FunctionUtilities<long>.ToUnit);
 
     public Either<Error, Option<T>> Get<T>(string key, long index) =>
-        WrapUnsafe(() => _database.ListGetByIndex(key, index), _serDes.Deserialize<T>);
+        Wrap(() => _database.ListGetByIndex(key, index), _serDes.Deserialize<T>);
 
     public Either<Error, Option<T>[]> Get<T>(string key, long start, long stop) =>
-        WrapUnsafe(() => _database.ListRange(key, start, stop), res => res.Select(_serDes.Deserialize<T>).ToArray());
+        Wrap(() => _database.ListRange(key, start, stop), res => res.Select(_serDes.Deserialize<T>).ToArray());
 
     public Task<Either<Error, Option<T>>> GetAsync<T>(string key, long index) =>
         WrapUnsafeAsync(() => _database.ListGetByIndexAsync(key, index), _serDes.Deserialize<T>);
@@ -47,10 +47,10 @@ public class RedisListService(
         WrapUnsafeAsync(() => _database.ListRangeAsync(key, start, stop), res => res.Select(_serDes.Deserialize<T>).ToArray());
 
     public Either<Error, Option<T>> Shift<T>(string key) =>
-        WrapUnsafe(() => _database.ListLeftPop(key), _serDes.Deserialize<T>);
+        Wrap(() => _database.ListLeftPop(key), _serDes.Deserialize<T>);
 
     public Either<Error, Option<T>[]> Shift<T>(string key, long count) =>
-        WrapUnsafe(() => _database.ListLeftPop(key, count), res => res.Select(_serDes.Deserialize<T>).ToArray());
+        Wrap(() => _database.ListLeftPop(key, count), res => res.Select(_serDes.Deserialize<T>).ToArray());
 
     public Task<Either<Error, Option<T>>> ShiftAsync<T>(string key) =>
         WrapUnsafeAsync(() => _database.ListLeftPopAsync(key), _serDes.Deserialize<T>);
@@ -59,10 +59,10 @@ public class RedisListService(
         WrapUnsafeAsync(() => _database.ListLeftPopAsync(key, count), r => r.Select(_serDes.Deserialize<T>).ToArray());
 
     public Either<Error, Option<T>> Pop<T>(string key) =>
-        WrapUnsafe(() => _database.ListRightPop(key), _serDes.Deserialize<T>);
+        Wrap(() => _database.ListRightPop(key), _serDes.Deserialize<T>);
 
     public Either<Error, Option<T>[]> Pop<T>(string key, long count) =>
-        WrapUnsafe(() => _database.ListRightPop(key, count), res => res.Select(_serDes.Deserialize<T>).ToArray());
+        Wrap(() => _database.ListRightPop(key, count), res => res.Select(_serDes.Deserialize<T>).ToArray());
 
     public Task<Either<Error, Option<T>>> PopAsync<T>(string key) =>
         WrapUnsafeAsync(() => _database.ListRightPopAsync(key), _serDes.Deserialize<T>);

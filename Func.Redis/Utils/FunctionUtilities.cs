@@ -26,9 +26,6 @@ internal static class FunctionUtilities
             .ToEither()
             .MapLeft(e => Error.New(e.Message));
 
-    internal static Either<Error, TOut> WrapUnsafe<TIn, TOut>(Func<TIn> func, Func<TIn, TOut> map) =>
-        Wrap(() => func().Map(map));
-
     internal static Task<Either<Error, Unit>> WrapAsync(Func<Task<bool>> func, Error error) =>
         TryAsync(() => func())
             .ToEither()

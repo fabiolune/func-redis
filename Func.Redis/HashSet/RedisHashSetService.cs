@@ -25,13 +25,13 @@ public class RedisHashSetService(
         WrapAsync(() => _database.HashDeleteAsync(key, fields.Map(field => (RedisValue)field).ToArray()), FunctionUtilities<long>.ToUnit);
 
     public Either<Error, Option<T>> Get<T>(string key, string field) =>
-        WrapUnsafe(() => _database.HashGet(key, field), _serDes.Deserialize<T>);
+        Wrap(() => _database.HashGet(key, field), _serDes.Deserialize<T>);
 
     public Either<Error, Option<T>[]> Get<T>(string key, params string[] fields) =>
-        WrapUnsafe(() => _database.HashGet(key, fields.Map(field => (RedisValue)field).ToArray()), res => res.Select(_serDes.Deserialize<T>).ToArray());
+        Wrap(() => _database.HashGet(key, fields.Map(field => (RedisValue)field).ToArray()), res => res.Select(_serDes.Deserialize<T>).ToArray());
 
     public Either<Error, Option<object>[]> Get(string key, params (Type, string)[] typeFields) =>
-        WrapUnsafe(() => _database.HashGet(key, typeFields.Select(tf => (RedisValue)tf.Item2).ToArray()),
+        Wrap(() => _database.HashGet(key, typeFields.Select(tf => (RedisValue)tf.Item2).ToArray()),
             rvt => rvt.Zip(typeFields.Select(tf => tf.Item1)).Select(t => _serDes.Deserialize(t.First!, t.Second)).ToArray());
 
     public Task<Either<Error, Option<T>>> GetAsync<T>(string key, string field) =>
@@ -57,19 +57,19 @@ public class RedisHashSetService(
         WrapAsync(() => _database.HashSetAsync(key, pairs.Select(t => new HashEntry(t.Item1, _serDes.Serialize(t.Item2))).ToArray()).ToTaskUnit<object>());
 
     public Either<Error, Option<T[]>> GetValues<T>(string key) =>
-        WrapUnsafe(() => _database.HashValues(key), _serDes.Deserialize<T>);
+        Wrap(() => _database.HashValues(key), _serDes.Deserialize<T>);
 
     public Task<Either<Error, Option<T[]>>> GetValuesAsync<T>(string key) =>
         WrapUnsafeAsync(() => _database.HashValuesAsync(key), _serDes.Deserialize<T>);
 
     public Either<Error, Option<(string, T)[]>> GetAll<T>(string key) =>
-        WrapUnsafe(() => _database.HashGetAll(key), _serDes.Deserialize<T>);
+        Wrap(() => _database.HashGetAll(key), _serDes.Deserialize<T>);
 
     public Task<Either<Error, Option<(string, T)[]>>> GetAllAsync<T>(string key) =>
         WrapUnsafeAsync(() => _database.HashGetAllAsync(key), _serDes.Deserialize<T>);
 
     public Either<Error, Option<string[]>> GetFieldKeys(string key) =>
-        WrapUnsafe(() => _database.HashKeys(key), vv => vv.ToOption(v => v.Length == 0).Map(v => v.Select(x => x.ToString()!).ToArray()));
+        Wrap(() => _database.HashKeys(key), vv => vv.ToOption(v => v.Length == 0).Map(v => v.Select(x => x.ToString()!).ToArray()));
 
     public Task<Either<Error, Option<string[]>>> GetFieldKeysAsync(string key) =>
         WrapUnsafeAsync(() => _database.HashKeysAsync(key), res => res.ToOption(v => v.Length == 0).Map(v => v.Select(x => x.ToString()!).ToArray()));

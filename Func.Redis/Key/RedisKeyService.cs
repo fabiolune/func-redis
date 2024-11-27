@@ -32,7 +32,7 @@ public class RedisKeyService(
         Wrap(() => _database.StringGet(key).Map(_serDes.Deserialize<T>));
 
     public Either<Error, Option<T>[]> Get<T>(params string[] keys) =>
-        WrapUnsafe(() => _database.StringGet(ConvertToKeys(keys)), res => res.Select(_serDes.Deserialize<T>).ToArray());
+        Wrap(() => _database.StringGet(ConvertToKeys(keys)), res => res.Select(_serDes.Deserialize<T>).ToArray());
 
     public Task<Either<Error, Option<T>>> GetAsync<T>(string key) =>
         WrapUnsafeAsync(() => _database.StringGetAsync(key), _serDes.Deserialize<T>);

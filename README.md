@@ -14,7 +14,9 @@ The library includes functionalities for:
 - keys management (get, set, del) using `IRedisKeyService`
 - hash sets using `IRedisHashSetService`
 - sets using `IRedisSetService`
+- lists using `IRedisListService`
 - pub/sub using `IRedisPublisherService` and `IRedisSubscriber`
+- generic interaction with Redis for all the use cases not covered by the aboive implementations using `IRedisService`
 
 To register the required components, use:
 
@@ -27,9 +29,11 @@ To register the required components, use:
 
 where `capabilities` is a bitwise combination of RedisCapabilities:
 
+- `RedisCapabilities.Generic` enables general purpose interactions with Redis
 - `RedisCapabilities.Keys` enables keys management
 - `RedisCapabilities.HashSet` enables hash sets management
 - `RedisCapabilities.Set` enables sets management
+- `RedisCapabilities.List` enables lists management
 - `RedisCapabilities.Publisher` enables publish management
 - `RedisCapabilities.Subscriber` enables subscribe management (the `AddRedis` service collection extension requires an array of assemblies to enable scanning of `IRedisSubscriber` implementations).
 

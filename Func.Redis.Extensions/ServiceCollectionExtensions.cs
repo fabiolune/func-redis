@@ -75,6 +75,9 @@ public static class ServiceCollectionExtensions
         params Assembly[] assemblies) =>
         services
             .TeeWhen(
+                s => s.AddSingleton<IRedisService, RailwayRedisService>(),
+                () => capabilities.HasFlag(RedisCapabilities.Generic))
+            .TeeWhen(
                 s => s.AddSingleton<IRedisKeyService, RedisKeyService>(),
                 () => capabilities.HasFlag(RedisCapabilities.Keys))
             .TeeWhen(

@@ -1,5 +1,4 @@
 ﻿namespace Func.Redis;
-
 public interface ISourcesProvider
 {
     IDatabase GetDatabase();

@@ -14,7 +14,13 @@ public partial class LoggingRedisKeyServiceTests
 
         result.IsRight.Should().BeTrue();
 
-        _loggerFactory.Sink.LogEntries.Should().BeEmpty();
+        var entries = _loggerFactory.Sink.LogEntries.ToArray();
+        entries.Should().HaveCount(1);
+        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisKeyService: setting key \"some key\"");
+            e.LogLevel.Should().Be(LogLevel.Information);
+        });
     }
 
     [Test]
@@ -30,7 +36,13 @@ public partial class LoggingRedisKeyServiceTests
 
         result.IsRight.Should().BeTrue();
 
-        _loggerFactory.Sink.LogEntries.Should().BeEmpty();
+        var entries = _loggerFactory.Sink.LogEntries.ToArray();
+        entries.Should().HaveCount(1);
+        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisKeyService: setting keys \"key1, key2\"");
+            e.LogLevel.Should().Be(LogLevel.Information);
+        });
     }
 
     [Test]
@@ -47,9 +59,14 @@ public partial class LoggingRedisKeyServiceTests
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
 
-        var entries = _loggerFactory.Sink.LogEntries;
-        entries.Should().HaveCount(1);
-        entries.First().Should().BeOfType<LogEntry>().Which.Tee(e =>
+        var entries = _loggerFactory.Sink.LogEntries.ToArray();
+        entries.Should().HaveCount(2);
+        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisKeyService: setting key \"some key\"");
+            e.LogLevel.Should().Be(LogLevel.Information);
+        });
+        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
         {
             e.Message.Should().Be("IRedisKeyService raised an error with some message");
             e.LogLevel.Should().Be(LogLevel.Error);
@@ -71,9 +88,14 @@ public partial class LoggingRedisKeyServiceTests
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
 
-        var entries = _loggerFactory.Sink.LogEntries;
-        entries.Should().HaveCount(1);
-        entries.First().Should().BeOfType<LogEntry>().Which.Tee(e =>
+        var entries = _loggerFactory.Sink.LogEntries.ToArray();
+        entries.Should().HaveCount(2);
+        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisKeyService: setting keys \"key1, key2\"");
+            e.LogLevel.Should().Be(LogLevel.Information);
+        });
+        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
         {
             e.Message.Should().Be("IRedisKeyService raised an error with some message");
             e.LogLevel.Should().Be(LogLevel.Error);
@@ -95,9 +117,14 @@ public partial class LoggingRedisKeyServiceTests
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
 
-        var entries = _loggerFactory.Sink.LogEntries;
-        entries.Should().HaveCount(1);
-        entries.First().Should().BeOfType<LogEntry>().Which.Tee(e =>
+        var entries = _loggerFactory.Sink.LogEntries.ToArray();
+        entries.Should().HaveCount(2);
+        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisKeyService: setting key \"some key\"");
+            e.LogLevel.Should().Be(LogLevel.Information);
+        });
+        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
         {
             e.Message.Should().Be("IRedisKeyService raised an error with some message");
             e.LogLevel.Should().Be(LogLevel.Error);
@@ -120,9 +147,14 @@ public partial class LoggingRedisKeyServiceTests
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
 
-        var entries = _loggerFactory.Sink.LogEntries;
-        entries.Should().HaveCount(1);
-        entries.First().Should().BeOfType<LogEntry>().Which.Tee(e =>
+        var entries = _loggerFactory.Sink.LogEntries.ToArray();
+        entries.Should().HaveCount(2);
+        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisKeyService: setting keys \"key1, key2\"");
+            e.LogLevel.Should().Be(LogLevel.Information);
+        });
+        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
         {
             e.Message.Should().Be("IRedisKeyService raised an error with some message");
             e.LogLevel.Should().Be(LogLevel.Error);

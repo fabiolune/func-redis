@@ -6,7 +6,7 @@ public partial class LoggingRedisKeyServiceTests
 {
     private Redis.Key.LoggingRedisKeyService _sut;
     private ITestLoggerFactory _loggerFactory;
-    private ILogger _mockLogger;
+    private ILogger<IRedisKeyService> _mockLogger;
     private IRedisKeyService _mockService;
 
     [SetUp]

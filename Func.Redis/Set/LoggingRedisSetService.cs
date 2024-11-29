@@ -4,7 +4,7 @@ using TinyFp.Extensions;
 
 namespace Func.Redis.Set;
 public class LoggingRedisSetService(
-    ILogger logger,
+    ILogger<IRedisSetService> logger,
     IRedisSetService service) : IRedisSetService
 {
     private readonly IRedisSetService _service = service;

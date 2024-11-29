@@ -5,7 +5,7 @@ internal partial class LoggingRedisServiceListTests
 {
     private Redis.List.LoggingRedisListService _sut;
     private ITestLoggerFactory _loggerFactory;
-    private ILogger _mockLogger;
+    private ILogger<IRedisListService> _mockLogger;
     private IRedisListService _mockService;
 
     [SetUp]

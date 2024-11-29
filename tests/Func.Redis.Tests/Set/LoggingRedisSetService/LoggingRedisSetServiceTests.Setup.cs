@@ -5,7 +5,7 @@ internal partial class LoggingRedisSetServiceTests
 {
     private Redis.Set.LoggingRedisSetService _sut;
     private ITestLoggerFactory _loggerFactory;
-    private ILogger _mockLogger;
+    private ILogger<IRedisSetService> _mockLogger;
     private IRedisSetService _mockService;
 
     [SetUp]

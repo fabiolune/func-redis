@@ -4,7 +4,7 @@ using TinyFp.Extensions;
 
 namespace Func.Redis.HashSet;
 
-public class LoggingRedisHashSetService(ILogger logger,
+public class LoggingRedisHashSetService(ILogger<IRedisHashSetService> logger,
 IRedisHashSetService redisHashSetService) : IRedisHashSetService
 {
     private const string NoFieldsWarningTemplate = "{Component}: the key \"{Key}\" contains no fields";

@@ -6,7 +6,7 @@ public partial class LoggingRedisHashSetServiceTest
 {
     private Redis.HashSet.LoggingRedisHashSetService _sut;
     private ITestLoggerFactory _loggerFactory;
-    private ILogger _mockLogger;
+    private ILogger<IRedisHashSetService> _mockLogger;
     private IRedisHashSetService _mockService;
 
     [SetUp]

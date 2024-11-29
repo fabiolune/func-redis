@@ -6,7 +6,7 @@ public class LoggingRedisPublisherServiceTests
 {
     private LoggingRedisPublisherService _sut;
     private ITestLoggerFactory _loggerFactory;
-    private ILogger _mockLogger;
+    private ILogger<IRedisPublisherService> _mockLogger;
     private IRedisPublisherService _mockService;
 
     [SetUp]

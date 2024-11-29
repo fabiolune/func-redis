@@ -6,15 +6,21 @@ internal partial class LoggingRedisSetServiceTests
     {
         var data = 42;
         _mockService
-            .Size("some key")
+            .Size("key")
             .Returns(data);
 
-        var result = _sut.Size("some key");
+        var result = _sut.Size("key");
 
         result.IsRight.Should().BeTrue();
         result.OnRight(e => e.Should().Be(data));
 
-        _loggerFactory.Sink.LogEntries.Should().BeEmpty();
+        var entries = _loggerFactory.Sink.LogEntries.ToArray();
+        entries.Should().HaveCount(1);
+        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisSetService: getting size for \"key\"");
+            e.LogLevel.Should().Be(LogLevel.Information);
+        });
     }
 
     [Test]
@@ -22,17 +28,22 @@ internal partial class LoggingRedisSetServiceTests
     {
         var error = Error.New("some message");
         _mockService
-            .Size("some key")
+            .Size("key")
             .Returns(error);
 
-        var result = _sut.Size("some key");
+        var result = _sut.Size("key");
 
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
 
-        var entries = _loggerFactory.Sink.LogEntries;
-        entries.Should().HaveCount(1);
-        entries.First().Should().BeOfType<LogEntry>().Which.Tee(e =>
+        var entries = _loggerFactory.Sink.LogEntries.ToArray();
+        entries.Should().HaveCount(2);
+        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisSetService: getting size for \"key\"");
+            e.LogLevel.Should().Be(LogLevel.Information);
+        });
+        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
         {
             e.Message.Should().Be("IRedisSetService raised an error with some message");
             e.LogLevel.Should().Be(LogLevel.Error);
@@ -44,15 +55,21 @@ internal partial class LoggingRedisSetServiceTests
     {
         var data = 42;
         _mockService
-            .SizeAsync("some key")
+            .SizeAsync("key")
             .Returns(data);
 
-        var result = await _sut.SizeAsync("some key");
+        var result = await _sut.SizeAsync("key");
 
         result.IsRight.Should().BeTrue();
         result.OnRight(e => e.Should().Be(data));
 
-        _loggerFactory.Sink.LogEntries.Should().BeEmpty();
+        var entries = _loggerFactory.Sink.LogEntries.ToArray();
+        entries.Should().HaveCount(1);
+        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisSetService: async getting size for \"key\"");
+            e.LogLevel.Should().Be(LogLevel.Information);
+        });
     }
 
     [Test]
@@ -60,17 +77,22 @@ internal partial class LoggingRedisSetServiceTests
     {
         var error = Error.New("some message");
         _mockService
-            .SizeAsync("some key")
+            .SizeAsync("key")
             .Returns(error);
 
-        var result = await _sut.SizeAsync("some key");
+        var result = await _sut.SizeAsync("key");
 
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
 
-        var entries = _loggerFactory.Sink.LogEntries;
-        entries.Should().HaveCount(1);
-        entries.First().Should().BeOfType<LogEntry>().Which.Tee(e =>
+        var entries = _loggerFactory.Sink.LogEntries.ToArray();
+        entries.Should().HaveCount(2);
+        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisSetService: async getting size for \"key\"");
+            e.LogLevel.Should().Be(LogLevel.Information);
+        });
+        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
         {
             e.Message.Should().Be("IRedisSetService raised an error with some message");
             e.LogLevel.Should().Be(LogLevel.Error);

@@ -162,11 +162,11 @@ internal class SpanJsonRedisSerDesTests
         var result = _sut.Deserialize<TestData>(["""{"Id": 1}""", """{"Id": 2}"""]);
 
         result.IsSome.Should().BeTrue();
-        result.OnSome(v => v.Should().BeEquivalentTo(new[]
-            {
+        result.OnSome(v => v.Should().BeEquivalentTo(
+            [
             new TestData(1),
             new TestData(2)
-            }));
+            ]));
     }
 
     public static readonly RedisValue[][] InvalidJsonValues =

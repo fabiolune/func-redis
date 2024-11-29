@@ -17,9 +17,4 @@ public partial class LoggingRedisHashSetServiceTest
         _mockService = Substitute.For<IRedisHashSetService>();
         _sut = new Redis.HashSet.LoggingRedisHashSetService(_mockLogger, _mockService);
     }
-
-    private record TestData
-    {
-        public string Id { get; init; }
-    }
 }

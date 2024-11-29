@@ -1,4 +1,6 @@
-﻿namespace Func.Redis.Tests.LoggingRedisHashSetService;
+﻿using static Func.Redis.Tests.TestDataElements;
+
+namespace Func.Redis.Tests.LoggingRedisHashSetService;
 
 public partial class LoggingRedisHashSetServiceTest
 {

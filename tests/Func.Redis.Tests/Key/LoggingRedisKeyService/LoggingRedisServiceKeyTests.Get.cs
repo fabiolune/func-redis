@@ -38,7 +38,7 @@ public partial class LoggingRedisKeyServiceTests
         var result = _sut.Get<object>("key1", "key2");
 
         result.IsRight.Should().BeTrue();
-        result.OnRight(r => r.Filter().Should().BeEquivalentTo(new[] { data1, data2 }));
+        result.OnRight(r => r.Filter().Should().BeEquivalentTo([data1, data2]));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(1);

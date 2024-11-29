@@ -1,5 +1,6 @@
 ﻿using Func.Redis.Extensions;
 using Microsoft.Extensions.Logging;
+using TinyFp.Extensions;
 
 namespace Func.Redis.Publisher;
 
@@ -11,12 +12,14 @@ public class LoggingRedisPublisherService(IRedisPublisherService redisPublisherS
     private const string ComponentName = nameof(IRedisPublisherService);
 
     public Either<Error, Unit> Publish(string channel, object message) =>
-        _redisPublisherService
-            .Publish(channel, message)
+        (channel, message)
+            .Tee(t => _logger.LogInformation("{Component}: publishing message to \"{Channel}\"", ComponentName, t.channel))
+            .Map(t => _redisPublisherService.Publish(t.channel, t.message))
             .TeeLog(_logger, ComponentName);
 
     public Task<Either<Error, Unit>> PublishAsync(string channel, object message) =>
-        _redisPublisherService
-            .PublishAsync(channel, message)
+        (channel, message)
+            .Tee(t => _logger.LogInformation("{Component}: async publishing message to \"{Channel}\"", ComponentName, t.channel))
+            .Map(t => _redisPublisherService.PublishAsync(t.channel, t.message))
             .TeeLog(_logger, ComponentName);
 }

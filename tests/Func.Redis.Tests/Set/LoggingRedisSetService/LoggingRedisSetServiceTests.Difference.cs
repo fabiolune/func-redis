@@ -14,7 +14,13 @@ internal partial class LoggingRedisSetServiceTests
         result.IsRight.Should().BeTrue();
         result.OnRight(e => e.Should().BeEquivalentTo(data));
 
-        _loggerFactory.Sink.LogEntries.Should().BeEmpty();
+        var entries = _loggerFactory.Sink.LogEntries.ToArray();
+        entries.Should().HaveCount(1);
+        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisSetService: getting difference between \"key1\" and \"key2\"");
+            e.LogLevel.Should().Be(LogLevel.Information);
+        });
     }
 
     [Test]
@@ -30,9 +36,14 @@ internal partial class LoggingRedisSetServiceTests
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
 
-        var entries = _loggerFactory.Sink.LogEntries;
-        entries.Should().HaveCount(1);
-        entries.First().Should().BeOfType<LogEntry>().Which.Tee(e =>
+        var entries = _loggerFactory.Sink.LogEntries.ToArray();
+        entries.Should().HaveCount(2);
+        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisSetService: getting difference between \"key1\" and \"key2\"");
+            e.LogLevel.Should().Be(LogLevel.Information);
+        });
+        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
         {
             e.Message.Should().Be("IRedisSetService raised an error with some message");
             e.LogLevel.Should().Be(LogLevel.Error);
@@ -52,7 +63,13 @@ internal partial class LoggingRedisSetServiceTests
         result.IsRight.Should().BeTrue();
         result.OnRight(e => e.Should().BeEquivalentTo(data));
 
-        _loggerFactory.Sink.LogEntries.Should().BeEmpty();
+        var entries = _loggerFactory.Sink.LogEntries.ToArray();
+        entries.Should().HaveCount(1);
+        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisSetService: async getting difference between \"key1\" and \"key2\"");
+            e.LogLevel.Should().Be(LogLevel.Information);
+        });
     }
 
     [Test]
@@ -68,9 +85,14 @@ internal partial class LoggingRedisSetServiceTests
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
 
-        var entries = _loggerFactory.Sink.LogEntries;
-        entries.Should().HaveCount(1);
-        entries.First().Should().BeOfType<LogEntry>().Which.Tee(e =>
+        var entries = _loggerFactory.Sink.LogEntries.ToArray();
+        entries.Should().HaveCount(2);
+        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisSetService: async getting difference between \"key1\" and \"key2\"");
+            e.LogLevel.Should().Be(LogLevel.Information);
+        });
+        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
         {
             e.Message.Should().Be("IRedisSetService raised an error with some message");
             e.LogLevel.Should().Be(LogLevel.Error);

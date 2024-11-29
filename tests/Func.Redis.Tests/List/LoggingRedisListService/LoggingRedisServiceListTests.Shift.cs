@@ -19,7 +19,13 @@ internal partial class LoggingRedisServiceListTests
             e.OnSome(d => d.Should().Be(data));
         });
 
-        _loggerFactory.Sink.LogEntries.Should().BeEmpty();
+        var entries = _loggerFactory.Sink.LogEntries.ToArray();
+        entries.Should().HaveCount(1);
+        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisListService: shifting item from \"some key\"");
+            e.LogLevel.Should().Be(LogLevel.Information);
+        });
     }
 
     [Test]
@@ -36,9 +42,14 @@ internal partial class LoggingRedisServiceListTests
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
 
-        var entries = _loggerFactory.Sink.LogEntries;
-        entries.Should().HaveCount(1);
-        entries.First().Should().BeOfType<LogEntry>().Which.Tee(e =>
+        var entries = _loggerFactory.Sink.LogEntries.ToArray();
+        entries.Should().HaveCount(2);
+        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisListService: shifting item from \"some key\"");
+            e.LogLevel.Should().Be(LogLevel.Information);
+        });
+        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
         {
             e.Message.Should().Be("IRedisListService raised an error with some message");
             e.LogLevel.Should().Be(LogLevel.Error);
@@ -63,7 +74,13 @@ internal partial class LoggingRedisServiceListTests
             e.OnSome(d => d.Should().Be(data));
         });
 
-        _loggerFactory.Sink.LogEntries.Should().BeEmpty();
+        var entries = _loggerFactory.Sink.LogEntries.ToArray();
+        entries.Should().HaveCount(1);
+        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisListService: async shifting item from \"some key\"");
+            e.LogLevel.Should().Be(LogLevel.Information);
+        });
     }
 
     [Test]
@@ -80,9 +97,14 @@ internal partial class LoggingRedisServiceListTests
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
 
-        var entries = _loggerFactory.Sink.LogEntries;
-        entries.Should().HaveCount(1);
-        entries.First().Should().BeOfType<LogEntry>().Which.Tee(e =>
+        var entries = _loggerFactory.Sink.LogEntries.ToArray();
+        entries.Should().HaveCount(2);
+        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisListService: async shifting item from \"some key\"");
+            e.LogLevel.Should().Be(LogLevel.Information);
+        });
+        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
         {
             e.Message.Should().Be("IRedisListService raised an error with some message");
             e.LogLevel.Should().Be(LogLevel.Error);
@@ -102,6 +124,14 @@ internal partial class LoggingRedisServiceListTests
 
         result.IsRight.Should().BeTrue();
         result.OnRight(e => e.Should().BeEquivalentTo(data));
+
+        var entries = _loggerFactory.Sink.LogEntries.ToArray();
+        entries.Should().HaveCount(1);
+        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisListService: shifting \"3\" items from \"key\"");
+            e.LogLevel.Should().Be(LogLevel.Information);
+        });
     }
 
     [Test]
@@ -117,6 +147,19 @@ internal partial class LoggingRedisServiceListTests
 
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
+
+        var entries = _loggerFactory.Sink.LogEntries.ToArray();
+        entries.Should().HaveCount(2);
+        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisListService: shifting \"3\" items from \"key\"");
+            e.LogLevel.Should().Be(LogLevel.Information);
+        });
+        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisListService raised an error with some message");
+            e.LogLevel.Should().Be(LogLevel.Error);
+        });
     }
 
     [Test]
@@ -132,6 +175,14 @@ internal partial class LoggingRedisServiceListTests
 
         result.IsRight.Should().BeTrue();
         result.OnRight(e => e.Should().BeEquivalentTo(data));
+
+        var entries = _loggerFactory.Sink.LogEntries.ToArray();
+        entries.Should().HaveCount(1);
+        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisListService: async shifting \"3\" items from \"key\"");
+            e.LogLevel.Should().Be(LogLevel.Information);
+        });
     }
 
     [Test]
@@ -147,5 +198,18 @@ internal partial class LoggingRedisServiceListTests
 
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
+
+        var entries = _loggerFactory.Sink.LogEntries.ToArray();
+        entries.Should().HaveCount(2);
+        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisListService: async shifting \"3\" items from \"key\"");
+            e.LogLevel.Should().Be(LogLevel.Information);
+        });
+        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        {
+            e.Message.Should().Be("IRedisListService raised an error with some message");
+            e.LogLevel.Should().Be(LogLevel.Error);
+        });
     }
 }

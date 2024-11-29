@@ -12,84 +12,100 @@ public class LoggingRedisKeyService(ILogger logger,
     private const string ComponentName = nameof(IRedisKeyService);
 
     public Either<Error, Unit> Delete(string key) =>
-        _redisService
-            .Delete(key)
+        key
+            .Tee(k => _logger.LogInformation("{Component}: deleting key \"{Key}\"", ComponentName, k))
+            .Map(_redisService.Delete)
             .TeeLog(_logger, ComponentName);
 
     public Either<Error, Unit> Delete(params string[] keys) =>
-        _redisService
-            .Delete(keys)
+        keys
+            .Tee(k => _logger.LogInformation("{Component}: deleting keys \"{Keys}\"", ComponentName, k))
+            .Map(_redisService.Delete)
             .TeeLog(_logger, ComponentName);
 
     public Task<Either<Error, Unit>> DeleteAsync(string key) =>
-        _redisService
-            .DeleteAsync(key)
+        key
+            .Tee(k => _logger.LogInformation("{Component}: async deleting key \"{Key}\"", ComponentName, k))
+            .Map(_redisService.DeleteAsync)
             .TeeLog(_logger, ComponentName);
 
     public Task<Either<Error, Unit>> DeleteAsync(params string[] keys) =>
-        _redisService
-            .DeleteAsync(keys)
+        keys
+            .Tee(k => _logger.LogInformation("{Component}: async deleting keys \"{Keys}\"", ComponentName, k))
+            .Map(_redisService.DeleteAsync)
             .TeeLog(_logger, ComponentName);
 
     public Either<Error, Option<T>> Get<T>(string key) =>
-        _redisService
-            .Get<T>(key)
+        key
+            .Tee(k => _logger.LogInformation("{Component}: getting key \"{Key}\"", ComponentName, k))
+            .Map(_redisService.Get<T>)
             .Map(opt => opt.Tee(o => o.OnNone(() => _logger.LogWarning("{Component}: key \"{Key}\" not found", ComponentName, key))))
             .TeeLog(_logger, ComponentName);
 
     public Either<Error, Option<T>[]> Get<T>(params string[] keys) =>
-        _redisService
-            .Get<T>(keys)
+        keys
+            .Tee(k => _logger.LogInformation("{Component}: getting keys \"{Keys}\"", ComponentName, k))
+            .Map(_redisService.Get<T>)
             .TeeLog(_logger, ComponentName);
 
     public Task<Either<Error, Option<T>>> GetAsync<T>(string key) =>
-        _redisService
-            .GetAsync<T>(key)
+        key
+            .Tee(k => _logger.LogInformation("{Component}: async getting key \"{Key}\"", ComponentName, k))
+            .Map(_redisService.GetAsync<T>)
             .MapAsync(opt => opt.Tee(o => o.OnNone(() => _logger.LogWarning("{Component}: key \"{Key}\" not found", ComponentName, key))))
             .TeeLog(_logger, ComponentName);
 
     public Task<Either<Error, Option<T>[]>> GetAsync<T>(params string[] keys) =>
-        _redisService
-            .GetAsync<T>(keys)
+        keys
+            .Tee(k => _logger.LogInformation("{Component}: async getting keys \"{Keys}\"", ComponentName, k))
+            .Map(_redisService.GetAsync<T>)
             .TeeLog(_logger, ComponentName);
 
     public Either<Error, Unit> Set<T>(string key, T value) =>
-        _redisService
-            .Set(key, value)
+        (key, value)
+            .Tee(t => _logger.LogInformation("{Component}: setting key \"{Key}\"", ComponentName, t.key))
+            .Map(t => _redisService.Set(t.key, t.value))
             .TeeLog(_logger, ComponentName);
 
     public Either<Error, Unit> Set<T>(params (string, T)[] pairs) =>
-        _redisService
-            .Set(pairs)
+        pairs
+            .Tee(ps => _logger.LogInformation("{Component}: setting keys \"{Keys}\"", ComponentName, ps.Select(p => p.Item1).ToArray()))
+            .Map(_redisService.Set)
             .TeeLog(_logger, ComponentName);
 
     public Task<Either<Error, Unit>> SetAsync<T>(string key, T value) =>
-        _redisService
-            .SetAsync(key, value)
+        (key, value)
+            .Tee(t => _logger.LogInformation("{Component}: async setting key \"{Key}\"", ComponentName, t.key))
+            .Map(t => _redisService.SetAsync(t.key, t.value))
             .TeeLog(_logger, ComponentName);
 
     public Task<Either<Error, Unit>> SetAsync<T>(params (string, T)[] pairs) =>
-        _redisService
-            .SetAsync(pairs)
+        pairs
+            .Tee(ps => _logger.LogInformation("{Component}: async setting keys \"{Keys}\"", ComponentName, ps.Select(p => p.Item1).ToArray()))
+            .Map(_redisService.SetAsync)
             .TeeLog(_logger, ComponentName);
 
     public Either<Error, Unit> RenameKey(string key, string newKey) =>
-        _redisService
-            .RenameKey(key, newKey)
+        (key, newKey)
+            .Tee(t => _logger.LogInformation("{Component}: renaming key \"{Key}\" to \"{NewKey}\"", ComponentName, t.key, t.newKey))
+            .Map(t => _redisService.RenameKey(t.key, t.newKey))
             .TeeLog(_logger, ComponentName);
 
     public Task<Either<Error, Unit>> RenameKeyAsync(string key, string newKey) =>
-        _redisService
-            .RenameKeyAsync(key, newKey)
+        (key, newKey)
+            .Tee(t => _logger.LogInformation("{Component}: async renaming key \"{Key}\" to \"{NewKey}\"", ComponentName, t.key, t.newKey))
+            .Map(t => _redisService.RenameKeyAsync(t.key, t.newKey))
             .TeeLog(_logger, ComponentName);
 
     public Either<Error, string[]> GetKeys(string pattern) =>
-        _redisService
-            .GetKeys(pattern)
+        pattern
+            .Tee(p => _logger.LogInformation("{Component}: getting keys with pattern \"{Pattern}\"", ComponentName, p))
+            .Map(_redisService.GetKeys)
             .TeeLog(_logger, ComponentName);
 
     public Task<Either<Error, string[]>> GetKeysAsync(string pattern) =>
-        _redisService
-            .GetKeysAsync(pattern)
+        pattern
+            .Tee(p => _logger.LogInformation("{Component}: async getting keys with pattern \"{Pattern}\"", ComponentName, p))
+            .Map(_redisService.GetKeysAsync)
             .TeeLog(_logger, ComponentName);
 }

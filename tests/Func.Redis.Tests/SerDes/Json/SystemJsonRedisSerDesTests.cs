@@ -145,11 +145,11 @@ public class SystemJsonRedisSerDesTests
 
         result.IsSome.Should().BeTrue();
         result
-            .OnSome(v => v.Should().BeEquivalentTo(new[]
-            {
+            .OnSome(v => v.Should().BeEquivalentTo(
+            [
             new TestData(1),
             new TestData(2)
-            }));
+            ]));
     }
 
     public static readonly RedisValue[][] InvalidJsonValues =
@@ -227,11 +227,11 @@ public class SystemJsonRedisSerDesTests
 
         result.IsSome.Should().BeTrue();
         result
-            .OnSome(v => v.Should().BeEquivalentTo(new (string, TestData)[]
-            {
+            .OnSome(v => v.Should().BeEquivalentTo(
+            [
                 ("key1", new TestData(1)),
                 ("key2", new TestData(2))
-            }));
+            ]));
     }
 
     public static readonly HashEntry[][] InvalidJsonEntries =

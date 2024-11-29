@@ -54,7 +54,7 @@ public partial class LoggingRedisKeyServiceTests
     {
         var exception = new Exception("some message");
         var error = Error.New(exception);
-
+        
         _mockService
             .RenameKey("key", "key2")
             .Returns(error);

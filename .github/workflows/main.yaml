@@ -142,6 +142,7 @@ jobs:
       if: ${{ github.event_name == 'release' }}
       run: |
         dotnet pack --configuration Release -p:PackageVersion=${{ env.GITVERSION_NUGETVERSIONV2 }} --output . --include-symbols
+        ls *.nupkg | awk '! /symbols/' | xargs rm
         dotnet nuget push *.nupkg --skip-duplicate
         dotnet nuget push *.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate
 

@@ -54,7 +54,7 @@ public static class ServiceCollectionExtensions
             .InternalAddRedis(capabilities, assemblies)
             .TeeWhen(
                 s => s.Decorate<IRedisKeyService>(ks => new KeyTransformerRedisKeyService(ks, keyMapper, inverseKeyMapper)),
-                () => capabilities.HasFlag(RedisCapabilities.Keys)
+                () => capabilities.HasFlag(RedisCapabilities.Key)
             )
             .TeeWhen(
                 s => s.Decorate<IRedisHashSetService>(hs => new KeyTransformerRedisHashSetService(hs, keyMapper)),
@@ -79,13 +79,13 @@ public static class ServiceCollectionExtensions
                 () => capabilities.HasFlag(RedisCapabilities.Generic))
             .TeeWhen(
                 s => s.AddSingleton<IRedisKeyService, RedisKeyService>(),
-                () => capabilities.HasFlag(RedisCapabilities.Keys))
+                () => capabilities.HasFlag(RedisCapabilities.Key))
             .TeeWhen(
                 s => s.AddSingleton<IRedisHashSetService, RedisHashSetService>(),
                 () => capabilities.HasFlag(RedisCapabilities.HashSet))
             .TeeWhen(
                 s => s.AddSingleton<IRedisPublisherService, RedisPublisherService>(),
-                () => capabilities.HasFlag(RedisCapabilities.Publisher))
+                () => capabilities.HasFlag(RedisCapabilities.Publish))
             .TeeWhen(
                 s => s.AddSingleton<IRedisSetService, RedisSetService>(),
                 () => capabilities.HasFlag(RedisCapabilities.Set))
@@ -98,7 +98,7 @@ public static class ServiceCollectionExtensions
                     .AddClasses(c => c.AssignableTo<IRedisSubscriber>())
                     .AsImplementedInterfaces()
                     .WithSingletonLifetime()),
-                () => capabilities.HasFlag(RedisCapabilities.Subscriber));
+                () => capabilities.HasFlag(RedisCapabilities.Subscribe));
 
     public static IServiceCollection AddSystemJsonRedisSerDes(this IServiceCollection services) =>
         services
@@ -107,4 +107,28 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddRedisSerDes<T>(this IServiceCollection services) where T : IRedisSerDes =>
         services
             .AddSingleton(typeof(IRedisSerDes), typeof(T));
+
+    public static IServiceCollection AddLogginRedis(this IServiceCollection services, RedisCapabilities capabilities) =>
+        services
+            .TeeWhen(
+                s => s.Decorate<IRedisKeyService, LoggingRedisKeyService>(),
+                () => capabilities.HasFlag(RedisCapabilities.Key)
+            )
+            .TeeWhen(
+                s => s.Decorate<IRedisHashSetService, LoggingRedisHashSetService>(),
+                () => capabilities.HasFlag(RedisCapabilities.HashSet)
+            )
+            .TeeWhen(
+                s => s.Decorate<IRedisSetService, LoggingRedisSetService>(),
+                () => capabilities.HasFlag(RedisCapabilities.Set)
+            )
+            .TeeWhen(
+                s => s.Decorate<IRedisListService, LoggingRedisListService>(),
+                () => capabilities.HasFlag(RedisCapabilities.List)
+            )
+            .TeeWhen(
+                s => s.Decorate<IRedisPublisherService, LoggingRedisPublisherService>(),
+                () => capabilities.HasFlag(RedisCapabilities.Publish)
+            );
+
 }

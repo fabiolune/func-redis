@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 using TinyFp.Extensions;
 
 namespace Func.Redis.Set;
-public class LoggingRedisSetService(
+internal class LoggingRedisSetService(
     ILogger<IRedisSetService> logger,
     IRedisSetService service) : IRedisSetService
 {

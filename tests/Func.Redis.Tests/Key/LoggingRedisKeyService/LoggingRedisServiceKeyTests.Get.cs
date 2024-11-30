@@ -88,7 +88,7 @@ public partial class LoggingRedisKeyServiceTests
 
         result.IsRight.Should().BeTrue();
         result.OnRight(r => r.Filter().Should().BeEmpty());
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(1);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>

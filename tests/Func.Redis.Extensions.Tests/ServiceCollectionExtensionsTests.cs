@@ -240,7 +240,7 @@ internal class ServiceCollectionExtensionsTests
 
         _mockServices
             .AddRedis<StubSerdes>(new ConfigurationBuilder().Add(config).Build(), capabilities)
-            .AddLogginRedis(capabilities)
+            .AddLoggingRedis(capabilities)
             .AddLogging()
             .AddSingleton(_mockProvider);
 

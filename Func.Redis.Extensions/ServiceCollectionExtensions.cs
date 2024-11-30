@@ -108,7 +108,7 @@ public static class ServiceCollectionExtensions
         services
             .AddSingleton(typeof(IRedisSerDes), typeof(T));
 
-    public static IServiceCollection AddLogginRedis(this IServiceCollection services, RedisCapabilities capabilities) =>
+    public static IServiceCollection AddLoggingRedis(this IServiceCollection services, RedisCapabilities capabilities) =>
         services
             .TeeWhen(
                 s => s.Decorate<IRedisKeyService, LoggingRedisKeyService>(),

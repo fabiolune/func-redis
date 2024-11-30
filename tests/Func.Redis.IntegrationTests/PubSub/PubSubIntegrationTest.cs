@@ -26,7 +26,7 @@ internal abstract class PubSubIntegrationTest(string redisImage) : RedisIntegrat
     }
 
     [Test]
-    public async Task WhenDataArePublished_TehyShouldBeSuccessfullyReceivedByProperSubscribers()
+    public async Task WhenDataArePublished_TheyShouldBeSuccessfullyReceivedByProperSubscribers()
     {
         const string channel = "some channel";
         var called1 = false;

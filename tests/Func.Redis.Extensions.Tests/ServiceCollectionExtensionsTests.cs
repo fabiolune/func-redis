@@ -223,6 +223,7 @@ internal class ServiceCollectionExtensionsTests
     [TestCase(RedisCapabilities.Key, typeof(IRedisKeyService), typeof(LoggingRedisKeyService))]
     [TestCase(RedisCapabilities.Set, typeof(IRedisSetService), typeof(LoggingRedisSetService))]
     [TestCase(RedisCapabilities.List, typeof(IRedisListService), typeof(LoggingRedisListService))]
+    [TestCase(RedisCapabilities.Publish, typeof(IRedisPublisherService), typeof(LoggingRedisPublisherService))]
     public void AddLoggingRedis_WhenRedisCapabilityIsEnabledAndKeyPrefixIsValidAndConfigIsValid_ShouldRegisterComponents(
            RedisCapabilities capabilities,
            Type expectedKeyType,

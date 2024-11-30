@@ -19,9 +19,9 @@ internal class RailwayRedisServiceTests
     public void Execute_WhenExecuted_ShouldReturnRight()
     {
         static RedisValue exec(IDatabase db) => "test";
-        
+
         var result = _sut.Execute(exec);
-        
+
         result.IsRight.Should().BeTrue();
     }
 
@@ -29,9 +29,9 @@ internal class RailwayRedisServiceTests
     public void Execute_WhenFuncThrows_ShouldReturnLeft()
     {
         static RedisValue exec(IDatabase db) => throw new Exception("test");
-        
+
         var result = _sut.Execute(exec);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(Error.New("test")));
     }
@@ -41,9 +41,9 @@ internal class RailwayRedisServiceTests
     {
         static TestData exec(IDatabase db) => new(27);
         static int map(TestData value) => value.Id;
-        
+
         var result = _sut.Execute(exec, map);
-        
+
         result.IsRight.Should().BeTrue();
         result.OnRight(r => r.Should().Be(27));
     }
@@ -53,9 +53,9 @@ internal class RailwayRedisServiceTests
     {
         static TestData exec(IDatabase db) => throw new Exception("test");
         static int map(TestData value) => value.Id;
-        
+
         var result = _sut.Execute(exec, map);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(Error.New("test")));
     }
@@ -65,7 +65,7 @@ internal class RailwayRedisServiceTests
     {
         static TestData exec(IDatabase db) => new(27);
         static int map(TestData value) => throw new Exception("test");
-        
+
         var result = _sut.Execute(exec, map);
 
         result.IsLeft.Should().BeTrue();
@@ -76,9 +76,9 @@ internal class RailwayRedisServiceTests
     public async Task ExecuteAsync_WhenExecuted_ShouldReturnRight()
     {
         static Task<RedisValue> exec(IDatabase db) => Task.FromResult((RedisValue)"test");
-        
+
         var result = await _sut.ExecuteAsync(exec);
-        
+
         result.IsRight.Should().BeTrue();
     }
 

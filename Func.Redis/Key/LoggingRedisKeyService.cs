@@ -4,7 +4,8 @@ using TinyFp.Extensions;
 
 namespace Func.Redis.Key;
 
-public class LoggingRedisKeyService(ILogger<IRedisKeyService> logger,
+internal class LoggingRedisKeyService(
+    ILogger<IRedisKeyService> logger,
     IRedisKeyService redisService) : IRedisKeyService
 {
     private readonly ILogger _logger = logger;

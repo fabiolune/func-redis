@@ -140,7 +140,7 @@ internal class ServiceCollectionExtensionsTests
     }
 
     [TestCase(RedisCapabilities.HashSet, typeof(IRedisHashSetService), typeof(RedisHashSetService))]
-    [TestCase(RedisCapabilities.Keys, typeof(IRedisKeyService), typeof(RedisKeyService))]
+    [TestCase(RedisCapabilities.Key, typeof(IRedisKeyService), typeof(RedisKeyService))]
     [TestCase(RedisCapabilities.Set, typeof(IRedisSetService), typeof(RedisSetService))]
     [TestCase(RedisCapabilities.List, typeof(IRedisListService), typeof(RedisListService))]
     [TestCase(RedisCapabilities.Generic, typeof(IRedisService), typeof(RailwayRedisService))]
@@ -189,7 +189,7 @@ internal class ServiceCollectionExtensionsTests
     }
 
     [TestCase(RedisCapabilities.HashSet, typeof(IRedisHashSetService), typeof(KeyTransformerRedisHashSetService))]
-    [TestCase(RedisCapabilities.Keys, typeof(IRedisKeyService), typeof(KeyTransformerRedisKeyService))]
+    [TestCase(RedisCapabilities.Key, typeof(IRedisKeyService), typeof(KeyTransformerRedisKeyService))]
     [TestCase(RedisCapabilities.Set, typeof(IRedisSetService), typeof(KeyTransformerRedisSetService))]
     [TestCase(RedisCapabilities.List, typeof(IRedisListService), typeof(KeyTransformerRedisListService))]
     public void AddRedis_WhenRedisCapabilityIsEnabledAndKeyPrefixIsValidAndConfigIsValid_ShouldRegisterComponents(
@@ -219,8 +219,40 @@ internal class ServiceCollectionExtensionsTests
             .BeOfType(expectedImplementationType);
     }
 
-    [TestCase(RedisCapabilities.Publisher, typeof(IRedisPublisherService), typeof(RedisPublisherService))]
-    [TestCase(RedisCapabilities.Subscriber, typeof(IRedisSubscriber), typeof(TestRedisSubscriber))]
+    [TestCase(RedisCapabilities.HashSet, typeof(IRedisHashSetService), typeof(LoggingRedisHashSetService))]
+    [TestCase(RedisCapabilities.Key, typeof(IRedisKeyService), typeof(LoggingRedisKeyService))]
+    [TestCase(RedisCapabilities.Set, typeof(IRedisSetService), typeof(LoggingRedisSetService))]
+    [TestCase(RedisCapabilities.List, typeof(IRedisListService), typeof(LoggingRedisListService))]
+    public void AddLoggingRedis_WhenRedisCapabilityIsEnabledAndKeyPrefixIsValidAndConfigIsValid_ShouldRegisterComponents(
+           RedisCapabilities capabilities,
+           Type expectedKeyType,
+           Type expectedImplementationType)
+    {
+        var config = new MemoryConfigurationSource
+        {
+            InitialData = new Dictionary<string, string>
+            {
+                {"RedisConfiguration:ConnectionString", "redis-connection-string"}
+            }
+        };
+        _mockServices = new ServiceCollection();
+
+        _mockServices
+            .AddRedis<StubSerdes>(new ConfigurationBuilder().Add(config).Build(), capabilities)
+            .AddLogginRedis(capabilities)
+            .AddLogging()
+            .AddSingleton(_mockProvider);
+
+        var provider = _mockServices.BuildServiceProvider();
+
+        provider
+            .GetRequiredService(expectedKeyType)
+            .Should()
+            .BeOfType(expectedImplementationType);
+    }
+
+    [TestCase(RedisCapabilities.Publish, typeof(IRedisPublisherService), typeof(RedisPublisherService))]
+    [TestCase(RedisCapabilities.Subscribe, typeof(IRedisSubscriber), typeof(TestRedisSubscriber))]
     public void AddRedis_WhenPublisherIsEnabledAndConfigIsValid_ShouldRegistercomponents(
             RedisCapabilities capabilities,
             Type expectedKeyType,

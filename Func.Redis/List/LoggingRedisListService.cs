@@ -1,10 +1,11 @@
 ﻿using Func.Redis.Extensions;
 using Microsoft.Extensions.Logging;
-using System;
 using TinyFp.Extensions;
 
 namespace Func.Redis.List;
-internal class LoggingRedisListService(ILogger<IRedisListService> logger, IRedisListService service) : IRedisListService
+internal class LoggingRedisListService(
+    ILogger<IRedisListService> logger,
+    IRedisListService service) : IRedisListService
 {
     private readonly IRedisListService _service = service;
     private readonly ILogger _logger = logger;

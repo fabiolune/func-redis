@@ -18,7 +18,7 @@ The design of `Func.Redis` emphasizes a robust and flexible functional programmi
 
 ## Usage
 
-## Installation
+### Installation
 
 ```shell
 dotnet add package func-redis

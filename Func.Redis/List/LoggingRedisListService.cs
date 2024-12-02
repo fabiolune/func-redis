@@ -3,6 +3,8 @@ using Microsoft.Extensions.Logging;
 using TinyFp.Extensions;
 
 namespace Func.Redis.List;
+
+/// <exclude />
 internal class LoggingRedisListService(
     ILogger<IRedisListService> logger,
     IRedisListService service) : IRedisListService

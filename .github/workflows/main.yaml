@@ -146,16 +146,18 @@ jobs:
         dotnet nuget push *.nupkg --skip-duplicate
         dotnet nuget push *.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate
 
-    - name: Produce `index.md` for gh pages
+    - name: Produce full documentation
       if: ${{ github.event_name == 'release' }}
       run: |
-        mkdir out
-        mkdir out/Func.Redis
-        mkdir out/Func.Redis.Extensions
-        echo "version ${{ env.GITVERSION_NUGETVERSIONV2 }}" > out/index.md
-        tail -n +4 README.md >> out/index.md
-        cp Func.Redis/README.md out/Func.Redis/README.md
-        cp Func.Redis.Extensions/README.md out/Func.Redis.Extensions/README.md
+        dotnet tool update -g docfx
+        mkdir docs/images
+        cp logo.png docs/images/logo.png
+        echo "" >> docs/index.md
+        echo "version ${{ env.GITVERSION_NUGETVERSIONV2 }}" >> docs/index.md
+        tail -n +4 README.md >> docs/index.md
+        cp Func.Redis/README.md docs/docs/func-redis.md
+        cp Func.Redis.Extensions/README.md docs/docs/func-redis-extensions.md
+        docfx docs/docfx.json
 
     - name: Push documentation to dedicated branch
       if: ${{ github.event_name == 'release' }}

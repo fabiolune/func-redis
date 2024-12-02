@@ -3,6 +3,8 @@ using Func.Redis.Utils;
 using static Func.Redis.Utils.FunctionUtilities;
 
 namespace Func.Redis.List;
+
+/// <exclude />
 public class RedisListService(
     ISourcesProvider sourcesProvider,
     IRedisSerDes serDes) : IRedisListService

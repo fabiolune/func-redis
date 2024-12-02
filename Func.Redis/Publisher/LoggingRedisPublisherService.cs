@@ -4,6 +4,7 @@ using TinyFp.Extensions;
 
 namespace Func.Redis.Publisher;
 
+/// <exclude />
 internal class LoggingRedisPublisherService(
     IRedisPublisherService redisPublisherService,
     ILogger<IRedisPublisherService> logger) : IRedisPublisherService

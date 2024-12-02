@@ -4,6 +4,8 @@ using TinyFp.Extensions;
 using static Func.Redis.Utils.FunctionUtilities;
 
 namespace Func.Redis.Set;
+
+/// <exclude />
 public class RedisSetService(
     ISourcesProvider sourcesProvider,
     IRedisSerDes serDes) : IRedisSetService

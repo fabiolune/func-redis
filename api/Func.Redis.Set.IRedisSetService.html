@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IRedisSetService | Functional Redis Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IRedisSetService | Functional Redis Documentation ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/fabiolune/func-redis/new/v0.1.0-rc11/apiSpec/new?filename=Func_Redis_Set_IRedisSetService.md&amp;value=---%0Auid%3A%20Func.Redis.Set.IRedisSetService%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Func.Redis.Set.IRedisSetService">
+
+
+
+  <h1 id="Func_Redis_Set_IRedisSetService" data-uid="Func.Redis.Set.IRedisSetService" class="text-break">
+Interface IRedisSetService  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0-rc11/Func.Redis/Set/IRedisSetService.cs/#L2"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Func.html">Func</a>.<a class="xref" href="Func.Redis.html">Redis</a>.<a class="xref" href="Func.Redis.Set.html">Set</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Func.Redis.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IRedisSetService</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Func_Redis_Set_IRedisSetService_AddAsync_" data-uid="Func.Redis.Set.IRedisSetService.AddAsync*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_AddAsync__1_System_String___0_" data-uid="Func.Redis.Set.IRedisSetService.AddAsync``1(System.String,``0)">
+  AddAsync&lt;T&gt;(string, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0-rc11/Func.Redis/Set/IRedisSetService.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Add a value to a set key</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, Unit&gt;&gt; AddAsync&lt;T&gt;(string key, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_Add_" data-uid="Func.Redis.Set.IRedisSetService.Add*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_Add__1_System_String___0_" data-uid="Func.Redis.Set.IRedisSetService.Add``1(System.String,``0)">
+  Add&lt;T&gt;(string, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0-rc11/Func.Redis/Set/IRedisSetService.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Add a value to a set key</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, Unit&gt; Add&lt;T&gt;(string key, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_DeleteAsync_" data-uid="Func.Redis.Set.IRedisSetService.DeleteAsync*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_DeleteAsync__1_System_String___0_" data-uid="Func.Redis.Set.IRedisSetService.DeleteAsync``1(System.String,``0)">
+  DeleteAsync&lt;T&gt;(string, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0-rc11/Func.Redis/Set/IRedisSetService.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Delete a value from a set key</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, Unit&gt;&gt; DeleteAsync&lt;T&gt;(string key, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_DeleteAsync_" data-uid="Func.Redis.Set.IRedisSetService.DeleteAsync*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_DeleteAsync__1_System_String___0___" data-uid="Func.Redis.Set.IRedisSetService.DeleteAsync``1(System.String,``0[])">
+  DeleteAsync&lt;T&gt;(string, params T[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0-rc11/Func.Redis/Set/IRedisSetService.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Delete multiple values from a set key</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, Unit&gt;&gt; DeleteAsync&lt;T&gt;(string key, params T[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>values</code> T[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_Delete_" data-uid="Func.Redis.Set.IRedisSetService.Delete*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_Delete__1_System_String___0_" data-uid="Func.Redis.Set.IRedisSetService.Delete``1(System.String,``0)">
+  Delete&lt;T&gt;(string, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0-rc11/Func.Redis/Set/IRedisSetService.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Delete a value from a set key</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, Unit&gt; Delete&lt;T&gt;(string key, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_Delete_" data-uid="Func.Redis.Set.IRedisSetService.Delete*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_Delete__1_System_String___0___" data-uid="Func.Redis.Set.IRedisSetService.Delete``1(System.String,``0[])">
+  Delete&lt;T&gt;(string, params T[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0-rc11/Func.Redis/Set/IRedisSetService.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Delete multiple values from a set key</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, Unit&gt; Delete&lt;T&gt;(string key, params T[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>values</code> T[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_DifferenceAsync_" data-uid="Func.Redis.Set.IRedisSetService.DifferenceAsync*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_DifferenceAsync__1_System_String_System_String_" data-uid="Func.Redis.Set.IRedisSetService.DifferenceAsync``1(System.String,System.String)">
+  DifferenceAsync&lt;T&gt;(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0-rc11/Func.Redis/Set/IRedisSetService.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the difference between two set keys</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, T[]&gt;&gt; DifferenceAsync&lt;T&gt;(string key1, string key2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>key2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, T[]&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_Difference_" data-uid="Func.Redis.Set.IRedisSetService.Difference*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_Difference__1_System_String_System_String_" data-uid="Func.Redis.Set.IRedisSetService.Difference``1(System.String,System.String)">
+  Difference&lt;T&gt;(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0-rc11/Func.Redis/Set/IRedisSetService.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the difference between two set keys</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, T[]&gt; Difference&lt;T&gt;(string key1, string key2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>key2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, T[]&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_GetAllAsync_" data-uid="Func.Redis.Set.IRedisSetService.GetAllAsync*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_GetAllAsync__1_System_String_" data-uid="Func.Redis.Set.IRedisSetService.GetAllAsync``1(System.String)">
+  GetAllAsync&lt;T&gt;(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0-rc11/Func.Redis/Set/IRedisSetService.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get all values from a set key</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, Option&lt;T&gt;[]&gt;&gt; GetAllAsync&lt;T&gt;(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;T&gt;[]&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_GetAll_" data-uid="Func.Redis.Set.IRedisSetService.GetAll*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_GetAll__1_System_String_" data-uid="Func.Redis.Set.IRedisSetService.GetAll``1(System.String)">
+  GetAll&lt;T&gt;(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0-rc11/Func.Redis/Set/IRedisSetService.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get all values from a set key</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, Option&lt;T&gt;[]&gt; GetAll&lt;T&gt;(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;T&gt;[]&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_IntersectAsync_" data-uid="Func.Redis.Set.IRedisSetService.IntersectAsync*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_IntersectAsync__1_System_String_System_String_" data-uid="Func.Redis.Set.IRedisSetService.IntersectAsync``1(System.String,System.String)">
+  IntersectAsync&lt;T&gt;(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0-rc11/Func.Redis/Set/IRedisSetService.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the intersection between two set keys</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, T[]&gt;&gt; IntersectAsync&lt;T&gt;(string key1, string key2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>key2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, T[]&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_Intersect_" data-uid="Func.Redis.Set.IRedisSetService.Intersect*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_Intersect__1_System_String_System_String_" data-uid="Func.Redis.Set.IRedisSetService.Intersect``1(System.String,System.String)">
+  Intersect&lt;T&gt;(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0-rc11/Func.Redis/Set/IRedisSetService.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the intersection between two set keys</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, T[]&gt; Intersect&lt;T&gt;(string key1, string key2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>key2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, T[]&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_PopAsync_" data-uid="Func.Redis.Set.IRedisSetService.PopAsync*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_PopAsync__1_System_String_" data-uid="Func.Redis.Set.IRedisSetService.PopAsync``1(System.String)">
+  PopAsync&lt;T&gt;(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0-rc11/Func.Redis/Set/IRedisSetService.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes and returns an item from a set key. When the key does not exist, return none</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, Option&lt;T&gt;&gt;&gt; PopAsync&lt;T&gt;(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;T&gt;&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_Pop_" data-uid="Func.Redis.Set.IRedisSetService.Pop*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_Pop__1_System_String_" data-uid="Func.Redis.Set.IRedisSetService.Pop``1(System.String)">
+  Pop&lt;T&gt;(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0-rc11/Func.Redis/Set/IRedisSetService.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes and returns an item from a set key. When the key does not exist, return none</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, Option&lt;T&gt;&gt; Pop&lt;T&gt;(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;T&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_Size_" data-uid="Func.Redis.Set.IRedisSetService.Size*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_Size_System_String_" data-uid="Func.Redis.Set.IRedisSetService.Size(System.String)">
+  Size(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0-rc11/Func.Redis/Set/IRedisSetService.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the size of a set key</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, long&gt; Size(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_SizeAsync_" data-uid="Func.Redis.Set.IRedisSetService.SizeAsync*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_SizeAsync_System_String_" data-uid="Func.Redis.Set.IRedisSetService.SizeAsync(System.String)">
+  SizeAsync(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0-rc11/Func.Redis/Set/IRedisSetService.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the size of a set key</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, long&gt;&gt; SizeAsync(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_UnionAsync_" data-uid="Func.Redis.Set.IRedisSetService.UnionAsync*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_UnionAsync__1_System_String_System_String_" data-uid="Func.Redis.Set.IRedisSetService.UnionAsync``1(System.String,System.String)">
+  UnionAsync&lt;T&gt;(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0-rc11/Func.Redis/Set/IRedisSetService.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the union between two set keys</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, T[]&gt;&gt; UnionAsync&lt;T&gt;(string key1, string key2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>key2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, T[]&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_Union_" data-uid="Func.Redis.Set.IRedisSetService.Union*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_Union__1_System_String_System_String_" data-uid="Func.Redis.Set.IRedisSetService.Union``1(System.String,System.String)">
+  Union&lt;T&gt;(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0-rc11/Func.Redis/Set/IRedisSetService.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the union between two set keys</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, T[]&gt; Union&lt;T&gt;(string key1, string key2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>key2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, T[]&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/fabiolune/func-redis/blob/v0.1.0-rc11/Func.Redis/Set/IRedisSetService.cs/#L2" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

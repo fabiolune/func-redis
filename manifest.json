@@ -1,0 +1,418 @@
+{
+  "source_base_path": "/home/runner/work/func-redis/func-redis/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.ConnectionMultiplexerProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.ConnectionMultiplexerProvider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.Error.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.Error.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.Extensions.EitherLoggingExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.Extensions.EitherLoggingExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.Extensions.RedisCapabilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.Extensions.RedisCapabilities.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.Extensions.ServiceCollectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.Extensions.ServiceCollectionExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.Extensions.WebApplicationExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.Extensions.WebApplicationExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.Extensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.HashSet.IRedisHashSetService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.HashSet.IRedisHashSetService.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.HashSet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.HashSet.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.IConnectionMultiplexerProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.IConnectionMultiplexerProvider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.IRedisService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.IRedisService.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.ISourcesProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.ISourcesProvider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.Key.IRedisKeyService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.Key.IRedisKeyService.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.Key.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.Key.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.List.IRedisListService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.List.IRedisListService.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.List.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.List.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.Models.RedisConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.Models.RedisConfiguration.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.Models.RedisKeyConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.Models.RedisKeyConfiguration.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.Models.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.Publisher.IRedisPublisherService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.Publisher.IRedisPublisherService.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.Publisher.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.Publisher.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.RedisSourcesProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.RedisSourcesProvider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.SerDes.IRedisSerDes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.SerDes.IRedisSerDes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.SerDes.Json.SpanJsonRedisSerDes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.SerDes.Json.SpanJsonRedisSerDes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.SerDes.Json.SystemJsonRedisSerDes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.SerDes.Json.SystemJsonRedisSerDes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.SerDes.Json.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.SerDes.Json.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.SerDes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.SerDes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.Set.IRedisSetService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.Set.IRedisSetService.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.Set.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.Set.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.Subscriber.IRedisSubscriber.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.Subscriber.IRedisSubscriber.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.Subscriber.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.Subscriber.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Func.Redis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Func.Redis.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "api/toc.json"
+        },
+        ".html": {
+          "relative_path": "api/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/func-redis-extensions.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/func-redis-extensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/func-redis.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/func-redis.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "docs/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/logo.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/logo.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

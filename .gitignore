@@ -240,3 +240,4 @@ Dockerfile
 
 #live unit tests
 *.lutconfig 
+*local*

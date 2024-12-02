@@ -5,6 +5,7 @@ using static Func.Redis.Utils.FunctionUtilities;
 
 namespace Func.Redis.HashSet;
 
+/// <exclude />
 public class RedisHashSetService(
     ISourcesProvider dbProvider,
     IRedisSerDes serDes) : IRedisHashSetService

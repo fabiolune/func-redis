@@ -1,0 +1,4 @@
+- name: Functional Redis
+  href: func-redis.md
+- name: Functional Redis Extensions
+  href: func-redis-extensions.md

@@ -5,6 +5,7 @@ using static Func.Redis.Utils.FunctionUtilities;
 
 namespace Func.Redis.Key;
 
+/// <exclude />
 public class RedisKeyService(
     ISourcesProvider sourcesProvider,
     IRedisSerDes serDes) : IRedisKeyService

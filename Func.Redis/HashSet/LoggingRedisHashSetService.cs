@@ -4,6 +4,7 @@ using TinyFp.Extensions;
 
 namespace Func.Redis.HashSet;
 
+/// <exclude />
 internal class LoggingRedisHashSetService(
     ILogger<IRedisHashSetService> logger,
     IRedisHashSetService redisHashSetService) : IRedisHashSetService

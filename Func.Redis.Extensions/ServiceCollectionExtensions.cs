@@ -25,10 +25,10 @@ public static class ServiceCollectionExtensions
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="services"></param>
-    /// <param name="config"></param>
-    /// <param name="capabilities"></param>
-    /// <param name="addLogging"></param>
-    /// <param name="assemblies"></param>
+    /// <param name="config">Configuration provider to retrieve configuration parametes for <see cref="RedisConfiguration"/> and <see cref="RedisKeyConfiguration"/></param>
+    /// <param name="capabilities">Specify capabilities to be enabled</param>
+    /// <param name="addLogging">Enable/disable loggind</param>
+    /// <param name="assemblies">Specifiy assemblies to be scanned for <see cref="IRedisSubscriber"/> implementations</param>
     /// <returns></returns>
     /// <exception cref="KeyNotFoundException"></exception>
     public static IServiceCollection AddRedis<T>(
@@ -118,7 +118,7 @@ public static class ServiceCollectionExtensions
                 () => capabilities.HasFlag(RedisCapabilities.Subscribe));
 
     /// <summary>
-    /// Add SystemJsonRedisSerDes Redis serializer/deserializer
+    /// Add <see cref="SystemJsonRedisSerDes"/> Redis serializer/deserializer
     /// </summary>
     /// <param name="services"></param>
     /// <returns></returns>

@@ -4,6 +4,7 @@ using static Func.Redis.Utils.FunctionUtilities<long>;
 
 namespace Func.Redis.Publisher;
 
+/// <exclude />
 public class RedisPublisherService(ISourcesProvider dbProvider, IRedisSerDes serDes) : IRedisPublisherService
 {
     private readonly IDatabase _database = dbProvider.GetDatabase();

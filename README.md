@@ -7,34 +7,65 @@
 [![codecov](https://codecov.io/gh/fabiolune/func-redis/graph/badge.svg?token=EBG533UNGE)](https://codecov.io/gh/fabiolune/func-redis)
 [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Ffabiolune%2Ffunc-redis%2Fmain)](https://dashboard.stryker-mutator.io/reports/github.com/fabiolune/func-redis/main)
 
-This repo contains components aimed to simplify the adoption of Redis in `dotnet` using a Functional Programming-first approach (thanks to Franco Melandri's [tiny-fp](https://github.com/FrancoMelandri/tiny-fp)).
+__func-redis__ contains components aimed to simplify the adoption of [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) using a Functional Programming-first approach (thanks to Franco Melandri's [tiny-fp](https://github.com/FrancoMelandri/tiny-fp)).
 
-The library includes functionalities for:
+The design of `Func.Redis` emphasizes a robust and flexible functional programming approach. Below are the key aspects that highlight the purpose and benefits of using Func.Redis in your .NET applications:
 
-- keys management (get, set, del) using `IRedisKeyService`
-- hash sets using `IRedisHashSetService`
-- sets using `IRedisSetService`
-- lists using `IRedisListService`
-- pub/sub using `IRedisPublisherService` and `IRedisSubscriber`
-- generic interaction with Redis for all the use cases not covered by the aboive implementations using `IRedisService`
+- __Abstraction__: These classes and interfaces abstract the complexity of interacting with Redis, providing a clean and consistent API for the rest of the application.
+- __Key Transformation__: The key transformation functions allow for flexible key management, enabling the modification of keys before they are used in Redis operations.
+- __Error Handling__: The use of `Either<Error, Unit>` and `Option<T>` types from the `TinyFp` library helps in handling errors and optional values in a functional programming style.
+- __Asynchronous Operations__: The inclusion of asynchronous methods ensures that the application can perform Redis operations without blocking the main thread, improving performance and scalability.
 
-To register the required components, use:
+## Usage
 
-``` C#
-...
-    services
-        .AddRedis<TypeOfRedisSerDes>(RedisCapabilities.Keys | ...) // capabilities as flags
-        ...
+## Installation
+
+```shell
+dotnet add package func-redis
 ```
 
-where `capabilities` is a bitwise combination of RedisCapabilities:
+To include the functionalities to setup the native dependency injection container you will need to install the associated extensions:
 
-- `RedisCapabilities.Generic` enables general purpose interactions with Redis
-- `RedisCapabilities.Keys` enables keys management
-- `RedisCapabilities.HashSet` enables hash sets management
-- `RedisCapabilities.Set` enables sets management
-- `RedisCapabilities.List` enables lists management
-- `RedisCapabilities.Publisher` enables publish management
-- `RedisCapabilities.Subscriber` enables subscribe management (the `AddRedis` service collection extension requires an array of assemblies to enable scanning of `IRedisSubscriber` implementations).
+```shell
+dotnet add package func-redis-extensions
+```
 
-See [here](Func.Redis/README.md) for some details on the usage of the library.
+### Example
+
+```csharp
+using TinyFp;
+using Func.Redis.Extensions;
+using Func.Redis;
+using Microsoft.Extensions.DependencyInjection;
+using Func.Redis.SerDes.Json;
+using Microsoft.Extensions.Configuration;
+using System.Text.Json;
+
+// Configure services 
+var config = new ConfigurationBuilder()
+    .AddJsonFile("AppSettings.json", optional: false)
+    .Build();
+
+var services = new ServiceCollection();
+// Use func-redis-extensions
+services
+  .AddRedis<SystemJsonRedisSerDes>(config, RedisCapabilities.Keys);
+
+var serviceProvider = services.BuildServiceProvider();
+
+// Resolve the Redis service 
+var redisService = serviceProvider.GetRequiredService<IRedisKeyService>();
+
+// Save and retrieve data
+var result = await redisService
+  .SetAsync("key", new TestData(42))
+  .BindAsync(_ => redisService.GetAsync<TestData>("key"));
+
+result
+    .OnRight(o => o
+        .OnSome(td => Console.WriteLine($"data found: {JsonSerializer.Serialize(td)}"))
+        .OnNone(() => Console.WriteLine("data not found")))
+    .OnLeft(e => Console.WriteLine($"Returned error {e.Message}"));
+
+internal record TestData(int Id);
+```

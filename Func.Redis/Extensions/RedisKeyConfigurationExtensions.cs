@@ -3,7 +3,7 @@ using TinyFp.Extensions;
 
 namespace Func.Redis.Extensions;
 
-public static class RedisKeyConfigurationExtensions
+internal static class RedisKeyConfigurationExtensions
 {
     private const char Colon = ':';
 
@@ -15,12 +15,12 @@ public static class RedisKeyConfigurationExtensions
             .Map(p => p.Trim(Colon))
             .Bind(p => p.ToOption(string.IsNullOrWhiteSpace));
 
-    public static Func<string, string> GetKeyMapper(this RedisKeyConfiguration config) =>
+    internal static Func<string, string> GetKeyMapper(this RedisKeyConfiguration config) =>
         config
             .GetPrefix()
             .Match(p => new Func<string, string>(key => $"{p}{Colon}{key}"), () => key => key);
 
-    public static Func<string, string> GetInverseKeyMapper(this RedisKeyConfiguration config) =>
+    internal static Func<string, string> GetInverseKeyMapper(this RedisKeyConfiguration config) =>
         config
             .GetPrefix()
             .Match(p => new Func<string, string>(key =>

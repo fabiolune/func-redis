@@ -239,8 +239,7 @@ internal class ServiceCollectionExtensionsTests
         _mockServices = new ServiceCollection();
 
         _mockServices
-            .AddRedis<StubSerdes>(new ConfigurationBuilder().Add(config).Build(), capabilities)
-            .AddLoggingRedis(capabilities)
+            .AddRedis<StubSerdes>(new ConfigurationBuilder().Add(config).Build(), capabilities, true)
             .AddLogging()
             .AddSingleton(_mockProvider);
 
@@ -268,7 +267,7 @@ internal class ServiceCollectionExtensionsTests
         };
 
         _mockServices
-            .AddRedis<StubSerdes>(new ConfigurationBuilder().Add(config).Build(), capabilities, Assembly.GetExecutingAssembly());
+            .AddRedis<StubSerdes>(new ConfigurationBuilder().Add(config).Build(), capabilities, false, Assembly.GetExecutingAssembly());
 
         _mockServices
             .Received(1)

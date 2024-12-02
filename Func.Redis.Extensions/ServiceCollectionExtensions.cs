@@ -20,7 +20,23 @@ public static class ServiceCollectionExtensions
     private static readonly Error MissingConfiguration = Error.New($"Missing {nameof(RedisConfiguration)}");
     private static readonly Error InvalidConnectionString = Error.New($"{nameof(RedisConfiguration)}: {nameof(RedisConfiguration.ConnectionString)} is invalid");
 
-    public static IServiceCollection AddRedis<T>(this IServiceCollection services, IConfiguration config, RedisCapabilities capabilities, params Assembly[] assemblies) where T : IRedisSerDes =>
+    /// <summary>
+    /// Add Redis services to the service collection
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="services"></param>
+    /// <param name="config"></param>
+    /// <param name="capabilities"></param>
+    /// <param name="addLogging"></param>
+    /// <param name="assemblies"></param>
+    /// <returns></returns>
+    /// <exception cref="KeyNotFoundException"></exception>
+    public static IServiceCollection AddRedis<T>(
+        this IServiceCollection services,
+        IConfiguration config,
+        RedisCapabilities capabilities,
+        bool addLogging = false,
+        params Assembly[] assemblies) where T : IRedisSerDes =>
         (services, config)
             .Tee(t =>
                 t.config
@@ -42,7 +58,8 @@ public static class ServiceCollectionExtensions
             .Match(
                 t => (t.Item1, t.Item2).Map(t => AddKeyTransformingRedis(t.Item1, t.Item2.GetKeyMapper(), t.Item2.GetInverseKeyMapper(), capabilities, assemblies)),
                 s => s.InternalAddRedis(capabilities, assemblies))
-            .AddRedisSerDes<T>();
+            .AddRedisSerDes<T>()
+            .TeeWhen(s => s.AddLoggingRedis(capabilities), () => addLogging);
 
     private static IServiceCollection AddKeyTransformingRedis(
         IServiceCollection services,
@@ -100,15 +117,26 @@ public static class ServiceCollectionExtensions
                     .WithSingletonLifetime()),
                 () => capabilities.HasFlag(RedisCapabilities.Subscribe));
 
+    /// <summary>
+    /// Add SystemJsonRedisSerDes Redis serializer/deserializer
+    /// </summary>
+    /// <param name="services"></param>
+    /// <returns></returns>
     public static IServiceCollection AddSystemJsonRedisSerDes(this IServiceCollection services) =>
         services
             .AddSingleton<IRedisSerDes, SystemJsonRedisSerDes>();
 
+    /// <summary>
+    /// Add a custom implementation of <see cref="IRedisSerDes"/>
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="services"></param>
+    /// <returns></returns>
     public static IServiceCollection AddRedisSerDes<T>(this IServiceCollection services) where T : IRedisSerDes =>
         services
             .AddSingleton(typeof(IRedisSerDes), typeof(T));
 
-    public static IServiceCollection AddLoggingRedis(this IServiceCollection services, RedisCapabilities capabilities) =>
+    private static IServiceCollection AddLoggingRedis(this IServiceCollection services, RedisCapabilities capabilities) =>
         services
             .TeeWhen(
                 s => s.Decorate<IRedisKeyService, LoggingRedisKeyService>(),

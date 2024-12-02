@@ -35,6 +35,10 @@ internal abstract class RedisListServiceIntegrationTests(string redisImage) : Re
             v.OnSome(s => s.Should().Be(value));
         });
 
+        getResult = await _sut.GetAsync<TestModel>(key, 10);
+        getResult.IsRight.Should().BeTrue();
+        getResult.OnRight(v => v.IsNone.Should().BeTrue());
+
         var value2 = new TestModel();
         await _sut.PrependAsync(key, value2);
 

@@ -19,7 +19,7 @@ public interface IRedisKeyService
     /// <inheritdoc cref="Delete(string[])"/>
     Task<Either<Error, Unit>> DeleteAsync(params string[] keys);
     /// <summary>
-    /// Get the stored at a key. When the key does not exist, return None
+    /// Get the value stored at a key. When the key does not exist, return None
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key"></param>

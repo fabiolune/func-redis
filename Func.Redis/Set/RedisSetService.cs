@@ -1,5 +1,4 @@
 ﻿using Func.Redis.SerDes;
-using Func.Redis.Utils;
 using TinyFp.Extensions;
 using static Func.Redis.Utils.FunctionUtilities;
 

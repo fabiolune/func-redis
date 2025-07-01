@@ -1,5 +1,4 @@
-﻿using NSubstitute.ExceptionExtensions;
-using static Func.Redis.Tests.TestDataElements;
+﻿using static Func.Redis.Tests.TestDataElements;
 
 namespace Func.Redis.Tests.SortedSet.RedisSortedSetService;
 

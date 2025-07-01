@@ -1,6 +1,5 @@
 ﻿using Func.Redis.SerDes;
 using static Func.Redis.Utils.FunctionUtilities;
-using static Func.Redis.Utils.FunctionUtilities<long>;
 
 namespace Func.Redis.Publisher;
 

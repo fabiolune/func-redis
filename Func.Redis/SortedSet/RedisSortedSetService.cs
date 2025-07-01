@@ -1,9 +1,6 @@
 ﻿using Func.Redis.SerDes;
-using Func.Redis.Utils;
-using StackExchange.Redis;
 using TinyFp.Extensions;
 using static Func.Redis.Utils.FunctionUtilities;
-using static System.Formats.Asn1.AsnWriter;
 
 namespace Func.Redis.SortedSet;
 public class RedisSortedSetService(
@@ -20,25 +17,25 @@ public class RedisSortedSetService(
         Wrap(() => _database.SortedSetAdd(key, _serDes.Serialize(value), score), AddError);
 
     public Either<Error, Unit> Add<T>(string key, IEnumerable<(T Value, double Score)> values) =>
-        Wrap(() => _database.SortedSetAdd(key, values.Select(t => new SortedSetEntry(_serDes.Serialize<T>(t.Value), t.Score)).ToArray()), FunctionUtilities<long>.ToUnit);
+        Wrap(() => _database.SortedSetAdd(key, values.Select(t => new SortedSetEntry(_serDes.Serialize(t.Value), t.Score)).ToArray()), ToUnit);
 
     public Either<Error, Unit> Remove<T>(string key, T value) =>
         Wrap(() => _database.SortedSetRemove(key, _serDes.Serialize(value)), RemoveError);
 
     public Either<Error, Unit> Remove<T>(string key, IEnumerable<T> values) =>
-        Wrap(() => _database.SortedSetRemove(key, values.Select(_serDes.Serialize).ToArray()), FunctionUtilities<long>.ToUnit);
+        Wrap(() => _database.SortedSetRemove(key, values.Select(_serDes.Serialize).ToArray()), ToUnit);
 
     public Either<Error, Unit> RemoveRangeByScore(string key, double start, double stop) =>
-        Wrap(() => _database.SortedSetRemoveRangeByScore(key, start, stop), FunctionUtilities<long>.ToUnit);
+        Wrap(() => _database.SortedSetRemoveRangeByScore(key, start, stop), ToUnit);
 
     public Either<Error, Unit> RemoveRangeByValue<T>(string key, T min, T max) =>
-        Wrap(() => _database.SortedSetRemoveRangeByValue(key, _serDes.Serialize(min), _serDes.Serialize(max)), FunctionUtilities<long>.ToUnit);
+        Wrap(() => _database.SortedSetRemoveRangeByValue(key, _serDes.Serialize(min), _serDes.Serialize(max)), ToUnit);
 
     public Either<Error, Unit> Increment<T>(string key, T value, double score) =>
-        Wrap(() => _database.SortedSetIncrement(key, _serDes.Serialize(value), score), FunctionUtilities<double>.ToUnit);
+        Wrap(() => _database.SortedSetIncrement(key, _serDes.Serialize(value), score), ToUnit);
 
     public Either<Error, Unit> Decrement<T>(string key, T value, double score) =>
-        Wrap(() => _database.SortedSetDecrement(key, _serDes.Serialize(value), score), FunctionUtilities<double>.ToUnit);
+        Wrap(() => _database.SortedSetDecrement(key, _serDes.Serialize(value), score), ToUnit);
 
     public Either<Error, long> Length(string key) =>
         Wrap(() => _database.SortedSetLength(key));
@@ -68,25 +65,25 @@ public class RedisSortedSetService(
         WrapAsync(() => _database.SortedSetAddAsync(key, _serDes.Serialize(value), score), AddError);
 
     public Task<Either<Error, Unit>> AddAsync<T>(string key, IEnumerable<(T Value, double Score)> values) =>
-        WrapAsync(() => _database.SortedSetAddAsync(key, values.Select(t => new SortedSetEntry(_serDes.Serialize<T>(t.Value), t.Score)).ToArray()), FunctionUtilities<long>.ToUnit);
+        WrapAsync(() => _database.SortedSetAddAsync(key, values.Select(t => new SortedSetEntry(_serDes.Serialize(t.Value), t.Score)).ToArray()), ToUnit);
 
     public Task<Either<Error, Unit>> RemoveAsync<T>(string key, T value) =>
-        WrapAsync(() => _database.SortedSetRemoveAsync(key, _serDes.Serialize(value)), FunctionUtilities<bool>.ToUnit);
+        WrapAsync(() => _database.SortedSetRemoveAsync(key, _serDes.Serialize(value)), ToUnit);
 
     public Task<Either<Error, Unit>> RemoveAsync<T>(string key, IEnumerable<T> values) =>
-        WrapAsync(() => _database.SortedSetRemoveAsync(key, values.Select(_serDes.Serialize).ToArray()), FunctionUtilities<long>.ToUnit);
+        WrapAsync(() => _database.SortedSetRemoveAsync(key, values.Select(_serDes.Serialize).ToArray()), ToUnit);
 
     public Task<Either<Error, Unit>> RemoveRangeByScoreAsync(string key, double start, double stop) =>
-        WrapAsync(() => _database.SortedSetRemoveRangeByScoreAsync(key, start, stop), FunctionUtilities<long>.ToUnit);
+        WrapAsync(() => _database.SortedSetRemoveRangeByScoreAsync(key, start, stop), ToUnit);
 
     public Task<Either<Error, Unit>> RemoveRangeByValueAsync<T>(string key, T min, T max) =>
-        WrapAsync(() => _database.SortedSetRemoveRangeByValueAsync(key, _serDes.Serialize(min), _serDes.Serialize(max)), FunctionUtilities<long>.ToUnit);
+        WrapAsync(() => _database.SortedSetRemoveRangeByValueAsync(key, _serDes.Serialize(min), _serDes.Serialize(max)), ToUnit);
 
     public Task<Either<Error, Unit>> IncrementAsync<T>(string key, T value, double score) =>
-        WrapAsync(() => _database.SortedSetIncrementAsync(key, _serDes.Serialize(value), score), FunctionUtilities<double>.ToUnit);
+        WrapAsync(() => _database.SortedSetIncrementAsync(key, _serDes.Serialize(value), score), ToUnit);
 
     public Task<Either<Error, Unit>> DecrementAsync<T>(string key, T value, double score) =>
-        WrapAsync(() => _database.SortedSetDecrementAsync(key, _serDes.Serialize(value), score), FunctionUtilities<double>.ToUnit);
+        WrapAsync(() => _database.SortedSetDecrementAsync(key, _serDes.Serialize(value), score), ToUnit);
 
     public Task<Either<Error, long>> LengthAsync(string key) =>
         WrapAsync(() => _database.SortedSetLengthAsync(key));

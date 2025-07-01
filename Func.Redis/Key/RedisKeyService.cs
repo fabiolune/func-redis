@@ -18,16 +18,16 @@ public class RedisKeyService(
     private readonly IRedisSerDes _serDes = serDes;
 
     public Either<Error, Unit> Delete(string key) =>
-        Wrap(() => _database.KeyDelete(key), FunctionUtilities<bool>.ToUnit);
+        Wrap(() => _database.KeyDelete(key), ToUnit);
 
     public Either<Error, Unit> Delete(params string[] keys) =>
-        Wrap(() => _database.KeyDelete(ConvertToKeys(keys)), FunctionUtilities<long>.ToUnit);
+        Wrap(() => _database.KeyDelete(ConvertToKeys(keys)), ToUnit);
 
     public Task<Either<Error, Unit>> DeleteAsync(string key) =>
-        WrapAsync(() => _database.KeyDeleteAsync(key), FunctionUtilities<bool>.ToUnit);
+        WrapAsync(() => _database.KeyDeleteAsync(key), ToUnit);
 
     public Task<Either<Error, Unit>> DeleteAsync(params string[] keys) =>
-        WrapAsync(() => _database.KeyDeleteAsync(ConvertToKeys(keys)), FunctionUtilities<long>.ToUnit);
+        WrapAsync(() => _database.KeyDeleteAsync(ConvertToKeys(keys)), ToUnit);
 
     public Either<Error, Option<T>> Get<T>(string key) =>
         Wrap(() => _database.StringGet(key).Map(_serDes.Deserialize<T>));

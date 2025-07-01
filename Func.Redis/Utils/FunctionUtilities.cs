@@ -2,18 +2,15 @@
 
 namespace Func.Redis.Utils;
 
-internal static class FunctionUtilities<T>
-{
-    internal static readonly Func<T, Unit> ToUnit = _ => Unit.Default;
-}
-
 internal static class FunctionUtilities
 {
+    internal static Unit ToUnit<T>(T _) => Unit.Default;
+
     internal static Either<Error, Unit> Wrap(Func<bool> func, Error error) =>
         Try(() => func())
             .ToEither()
             .MapLeft(e => Error.New(e.Message))
-            .Bind(res => res.ToEither(FunctionUtilities<bool>.ToUnit, b => !b, error));
+            .Bind(res => res.ToEither(ToUnit, b => !b, error));
 
     internal static Either<Error, TOut> Wrap<TIn, TOut>(Func<TIn> func, Func<TIn, TOut> map) =>
         Try(() => func())
@@ -30,7 +27,7 @@ internal static class FunctionUtilities
         TryAsync(() => func())
             .ToEither()
             .MapLeftAsync(e => Error.New(e.Message))
-            .BindAsync(res => res.ToEither(FunctionUtilities<bool>.ToUnit, b => !b, error));
+            .BindAsync(res => res.ToEither(ToUnit, b => !b, error));
 
     internal static Task<Either<Error, TOut>> WrapAsync<TIn, TOut>(Func<Task<TIn>> func, Func<TIn, TOut> map) =>
         TryAsync(() => func())

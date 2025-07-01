@@ -26,13 +26,13 @@ public class RedisSetService(
         Wrap(() => _database.SetRemove(key, _serDes.Serialize(value)), RemError);
 
     public Either<Error, Unit> Delete<T>(string key, params T[] values) =>
-        Wrap(() => _database.SetRemove(key, values.Select(_serDes.Serialize).ToArray()), FunctionUtilities<long>.ToUnit);
+        Wrap(() => _database.SetRemove(key, values.Select(_serDes.Serialize).ToArray()), ToUnit);
 
     public Task<Either<Error, Unit>> DeleteAsync<T>(string key, T value) =>
         WrapAsync(() => _database.SetRemoveAsync(key, _serDes.Serialize(value)), RemError);
 
     public Task<Either<Error, Unit>> DeleteAsync<T>(string key, params T[] values) =>
-        WrapAsync(() => _database.SetRemoveAsync(key, values.Select(_serDes.Serialize).ToArray()), FunctionUtilities<long>.ToUnit);
+        WrapAsync(() => _database.SetRemoveAsync(key, values.Select(_serDes.Serialize).ToArray()), ToUnit);
 
     public Either<Error, long> Size(string key) =>
         Wrap(() => _database.SetLength(key));

@@ -1,5 +1,4 @@
 ﻿using Func.Redis.SerDes;
-using Func.Redis.Utils;
 using TinyFp.Extensions;
 using static Func.Redis.Utils.FunctionUtilities;
 
@@ -14,16 +13,16 @@ public class RedisHashSetService(
     private readonly IRedisSerDes _serDes = serDes;
 
     public Either<Error, Unit> Delete(string key, string field) =>
-        Wrap(() => _database.HashDelete(key, field), FunctionUtilities<bool>.ToUnit);
+        Wrap(() => _database.HashDelete(key, field), ToUnit);
 
     public Either<Error, Unit> Delete(string key, params string[] fields) =>
-        Wrap(() => _database.HashDelete(key, fields.Map(field => (RedisValue)field).ToArray()), FunctionUtilities<long>.ToUnit);
+        Wrap(() => _database.HashDelete(key, fields.Map(field => (RedisValue)field).ToArray()), ToUnit);
 
     public Task<Either<Error, Unit>> DeleteAsync(string key, string field) =>
-        WrapAsync(() => _database.HashDeleteAsync(key, field), FunctionUtilities<bool>.ToUnit);
+        WrapAsync(() => _database.HashDeleteAsync(key, field), ToUnit);
 
     public Task<Either<Error, Unit>> DeleteAsync(string key, params string[] fields) =>
-        WrapAsync(() => _database.HashDeleteAsync(key, fields.Map(field => (RedisValue)field).ToArray()), FunctionUtilities<long>.ToUnit);
+        WrapAsync(() => _database.HashDeleteAsync(key, fields.Map(field => (RedisValue)field).ToArray()), ToUnit);
 
     public Either<Error, Option<T>> Get<T>(string key, string field) =>
         Wrap(() => _database.HashGet(key, field), _serDes.Deserialize<T>);
@@ -46,13 +45,13 @@ public class RedisHashSetService(
             rvt => rvt.Zip(typeFields.Select(tf => tf.Item1)).Select(t => _serDes.Deserialize(t.First!, t.Second)).ToArray());
 
     public Either<Error, Unit> Set<T>(string key, string field, T value) =>
-        Wrap(() => _database.HashSet(key, field, _serDes.Serialize(value)), FunctionUtilities<bool>.ToUnit);
+        Wrap(() => _database.HashSet(key, field, _serDes.Serialize(value)), ToUnit);
 
     public Either<Error, Unit> Set<T>(string key, params (string, T)[] pairs) =>
         Wrap(() => Unit.Default.Tee(_ => _database.HashSet(key, pairs.Select(t => new HashEntry(t.Item1, _serDes.Serialize(t.Item2))).ToArray())));
 
     public Task<Either<Error, Unit>> SetAsync<T>(string key, string field, T value) =>
-        WrapAsync(() => _database.HashSetAsync(key, field, _serDes.Serialize(value)), FunctionUtilities<bool>.ToUnit);
+        WrapAsync(() => _database.HashSetAsync(key, field, _serDes.Serialize(value)), ToUnit);
 
     public Task<Either<Error, Unit>> SetAsync<T>(string key, params (string, T)[] pairs) =>
         WrapAsync(() => _database.HashSetAsync(key, pairs.Select(t => new HashEntry(t.Item1, _serDes.Serialize(t.Item2))).ToArray()).ToTaskUnit<object>());

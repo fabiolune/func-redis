@@ -229,7 +229,7 @@ Dockerfile
 
 #test results folders
 /test-results
-
+/out
 .lutignore
 
 # launch profiles (may contain env variables)

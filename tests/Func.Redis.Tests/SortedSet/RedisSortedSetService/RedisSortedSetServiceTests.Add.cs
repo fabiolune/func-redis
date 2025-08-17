@@ -247,4 +247,3 @@ internal partial class RedisSortedSetServiceTests
         result.OnLeft(e => e.Should().BeEquivalentTo(error));
     }
 }
-

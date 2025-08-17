@@ -76,12 +76,8 @@ public class RedisKeyService(
         WrapAsync(() => _database.StringSetAsync(ConvertToKeyValues(pairs)), SetError);
 
     private static RedisKey[] ConvertToKeys(string[] keys) =>
-        keys
-            .Select(k => new RedisKey(k))
-            .ToArray();
+        [.. keys.Select(k => new RedisKey(k))];
 
     private KeyValuePair<RedisKey, RedisValue>[] ConvertToKeyValues<T>(params (string, T)[] pairs) =>
-        pairs
-            .Select(kv => KeyValuePair.Create(new RedisKey(kv.Item1), _serDes.Serialize(kv.Item2)))
-            .ToArray();
+        [.. pairs.Select(kv => KeyValuePair.Create(new RedisKey(kv.Item1), _serDes.Serialize(kv.Item2)))];
 }

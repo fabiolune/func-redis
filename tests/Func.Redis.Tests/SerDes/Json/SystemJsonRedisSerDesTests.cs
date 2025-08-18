@@ -1,6 +1,5 @@
 ﻿using Func.Redis.SerDes.Json;
 using System.Text.Json;
-using static Func.Redis.Tests.TestDataElements;
 
 namespace Func.Redis.Tests.SerDes.Json;
 

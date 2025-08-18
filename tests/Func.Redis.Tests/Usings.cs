@@ -7,3 +7,4 @@ global using NUnit.Framework;
 global using StackExchange.Redis;
 global using TinyFp;
 global using TinyFp.Extensions;
+global using static Func.Redis.Tests.TestDataElements;

@@ -40,17 +40,17 @@ public class RedisSortedSetService(
     public Either<Error, long> Length(string key) =>
         Wrap(() => _database.SortedSetLength(key));
 
-    public Either<Error, long> Length(string key, double min, double max) =>
+    public Either<Error, long> LengthByScore(string key, double min, double max) =>
         Wrap(() => _database.SortedSetLength(key, min, max));
 
     public Either<Error, long> LengthByValue<T>(string key, T min, T max) =>
         Wrap(() => _database.SortedSetLengthByValue(key, _serDes.Serialize(min), _serDes.Serialize(max)));
 
     public Either<Error, Option<long>> Rank<T>(string key, T value) =>
-        Wrap(() => _database.SortedSetRank(key, _serDes.Serialize(value)).ToOption(v => !v.HasValue).Map(v => v!.Value));
+        Wrap(() => _database.SortedSetRank(key, _serDes.Serialize(value)).ToOption(v => v!.Value, v => !v.HasValue));
 
     public Either<Error, Option<double>> Score<T>(string key, T value) =>
-        Wrap(() => _database.SortedSetScore(key, _serDes.Serialize(value)).ToOption(v => !v.HasValue).Map(v => v!.Value));
+        Wrap(() => _database.SortedSetScore(key, _serDes.Serialize(value)).ToOption(v => v!.Value, v => !v.HasValue));
 
     public Either<Error, T[]> Intersect<T>(string[] keys) =>
         Combine<T>(keys, SetOperation.Intersect);
@@ -88,17 +88,17 @@ public class RedisSortedSetService(
     public Task<Either<Error, long>> LengthAsync(string key) =>
         WrapAsync(() => _database.SortedSetLengthAsync(key));
 
-    public Task<Either<Error, long>> LengthAsync(string key, double min, double max) =>
+    public Task<Either<Error, long>> LengthByScoreAsync(string key, double min, double max) =>
         WrapAsync(() => _database.SortedSetLengthAsync(key, min, max));
 
     public Task<Either<Error, long>> LengthByValueAsync<T>(string key, T min, T max) =>
         WrapAsync(() => _database.SortedSetLengthByValueAsync(key, _serDes.Serialize(min), _serDes.Serialize(max)));
 
     public Task<Either<Error, Option<long>>> RankAsync<T>(string key, T value) =>
-        WrapAsync(() => _database.SortedSetRankAsync(key, _serDes.Serialize(value)), l => l.ToOption(v => !v.HasValue).Map(v => v!.Value));
+        WrapAsync(() => _database.SortedSetRankAsync(key, _serDes.Serialize(value)).ToOptionAsync(v => v!.Value, v => !v.HasValue));
 
     public Task<Either<Error, Option<double>>> ScoreAsync<T>(string key, T value) =>
-        WrapAsync(() => _database.SortedSetScoreAsync(key, _serDes.Serialize(value)), l => l.ToOption(v => !v.HasValue).Map(v => v!.Value));
+        WrapAsync(() => _database.SortedSetScoreAsync(key, _serDes.Serialize(value)).ToOptionAsync(v => v!.Value, v => !v.HasValue));
 
     public Task<Either<Error, T[]>> IntersectAsync<T>(string[] keys) =>
         CombineAsync<T>(keys, SetOperation.Intersect);

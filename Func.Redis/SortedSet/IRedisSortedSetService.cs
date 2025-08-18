@@ -13,9 +13,9 @@ public interface IRedisSortedSetService
     Either<Error, T[]> Intersect<T>(string[] keys);
     Task<Either<Error, T[]>> IntersectAsync<T>(string[] keys);
     Either<Error, long> Length(string key);
-    Either<Error, long> Length(string key, double min, double max);
+    Either<Error, long> LengthByScore(string key, double min, double max);
     Task<Either<Error, long>> LengthAsync(string key);
-    Task<Either<Error, long>> LengthAsync(string key, double min, double max);
+    Task<Either<Error, long>> LengthByScoreAsync(string key, double min, double max);
     Either<Error, long> LengthByValue<T>(string key, T min, T max);
     Task<Either<Error, long>> LengthByValueAsync<T>(string key, T min, T max);
     Either<Error, Option<long>> Rank<T>(string key, T value);

@@ -1,6 +1,4 @@
-﻿using static Func.Redis.Tests.TestDataElements;
-
-namespace Func.Redis.Tests.SortedSet.RedisSortedSetService;
+﻿namespace Func.Redis.Tests.SortedSet.RedisSortedSetService;
 
 internal partial class RedisSortedSetServiceTests
 {

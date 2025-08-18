@@ -86,4 +86,20 @@ internal static class TestDataElements
         Either<Error, long>.Right(2),
         Either<Error, long>.Left(Error.New("error"))
     ];
+
+    public static readonly Either<Error, Option<long>>[] ErrorOptionLongTestData =
+    [
+        Either<Error, Option<long>>.Right(Option<long>.Some(1)),
+        Either<Error, Option<long>>.Right(Option<long>.Some(2)),
+        Either<Error, Option<long>>.Right(Option<long>.None()),
+        Either<Error, Option<long>>.Left(Error.New("error"))
+    ];
+
+    public static readonly Either<Error, Option<double>>[] ErrorOptionDoubleTestData =
+    [
+        Either<Error, Option<double>>.Right(Option<double>.Some(1.0)),
+        Either<Error, Option<double>>.Right(Option<double>.Some(2.0)),
+        Either<Error, Option<double>>.Right(Option<double>.None()),
+        Either<Error, Option<double>>.Left(Error.New("error"))
+    ];
 }

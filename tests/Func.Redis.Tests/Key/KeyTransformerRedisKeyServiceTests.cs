@@ -1,5 +1,4 @@
 using Func.Redis.Key;
-using static Func.Redis.Tests.TestDataElements;
 
 namespace Func.Redis.Tests.Key;
 

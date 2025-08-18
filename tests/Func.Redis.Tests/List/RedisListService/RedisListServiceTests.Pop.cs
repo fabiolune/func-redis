@@ -1,6 +1,4 @@
-﻿using static Func.Redis.Tests.TestDataElements;
-
-namespace Func.Redis.Tests.RedisListService;
+﻿namespace Func.Redis.Tests.RedisListService;
 internal partial class RedisListServiceTests
 {
     [Test]

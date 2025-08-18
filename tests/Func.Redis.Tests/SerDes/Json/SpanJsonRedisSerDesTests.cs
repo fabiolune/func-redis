@@ -1,6 +1,5 @@
 ﻿using Func.Redis.SerDes.Json;
 using SpanJson;
-using static Func.Redis.Tests.TestDataElements;
 
 namespace Func.Redis.Tests.SerDes.Json;
 

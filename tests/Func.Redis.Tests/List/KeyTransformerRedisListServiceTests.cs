@@ -1,5 +1,4 @@
 ﻿using Func.Redis.List;
-using static Func.Redis.Tests.TestDataElements;
 
 namespace Func.Redis.Tests.List;
 internal class KeyTransformerRedisListServiceTests

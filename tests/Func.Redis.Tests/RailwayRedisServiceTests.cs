@@ -1,6 +1,4 @@
-﻿using static Func.Redis.Tests.TestDataElements;
-
-namespace Func.Redis.Tests;
+﻿namespace Func.Redis.Tests;
 internal class RailwayRedisServiceTests
 {
     private RailwayRedisService _sut;

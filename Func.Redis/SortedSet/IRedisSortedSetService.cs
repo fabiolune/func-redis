@@ -10,7 +10,7 @@ public interface IRedisSortedSetService
     /// <param name="values"></param>
     /// <returns><see cref="Unit"/> or <see cref="Error"/></returns>
     Either<Error, Unit> Add<T>(string key, IEnumerable<(T Value, double Score)> values);
-    
+
     /// <summary>
     /// Add a value with score to a sorted set key.
     /// </summary>
@@ -37,7 +37,7 @@ public interface IRedisSortedSetService
 
     /// <inheritdoc cref="Decrement{T}(string, T, double)"/>
     Task<Either<Error, Unit>> DecrementAsync<T>(string key, T value, double score);
- 
+
     /// <summary>
     /// Increments the score associated with the specified key by the given value.
     /// </summary>
@@ -51,10 +51,10 @@ public interface IRedisSortedSetService
     /// <returns>An <see cref="Either{Error, Unit}"/> indicating the result of the operation. Returns <see langword="Unit"/> if
     /// the operation succeeds, or an <see cref="Error"/> if the operation fails.</returns>
     Either<Error, Unit> Increment<T>(string key, T value, double score);
- 
+
     /// <inheritdoc cref="Intersect{T}(string[])"/>
     Task<Either<Error, Unit>> IncrementAsync<T>(string key, T value, double score);
- 
+
     /// <summary>
     /// Retrieves the intersection of values associated with the specified keys.
     /// </summary>
@@ -66,7 +66,7 @@ public interface IRedisSortedSetService
 
     /// <inheritdoc cref="Intersect{T}(string[])"/>
     Task<Either<Error, T[]>> IntersectAsync<T>(string[] keys);
- 
+
     /// <summary>
     /// Retrieves the length of the value associated with the specified key.
     /// </summary>
@@ -74,7 +74,7 @@ public interface IRedisSortedSetService
     /// <returns>An <see cref="Either{TLeft, TRight}"/> containing either an <see cref="Error"/> if the operation fails,  or a
     /// <see langword="long"/> representing the length of the value if the operation succeeds.</returns>
     Either<Error, long> Length(string key);
- 
+
     /// <summary>
     /// Retrieves the count of elements in a sorted set stored at the specified key,  where the elements' scores fall
     /// within the given range.
@@ -87,13 +87,13 @@ public interface IRedisSortedSetService
     /// <returns>An <see cref="Either{Error, long}"/> containing either an error if the operation fails,  or the count of
     /// elements within the specified score range.</returns>
     Either<Error, long> LengthByScore(string key, double min, double max);
-  
+
     /// <inheritdoc cref="Length(string)"/>
     Task<Either<Error, long>> LengthAsync(string key);
-  
+
     /// <inheritdoc cref="LengthByScore(string, double, double)"/>
     Task<Either<Error, long>> LengthByScoreAsync(string key, double min, double max);
-  
+
     /// <summary>
     /// Retrieves the length of a collection stored under the specified key, filtered by a range of values.
     /// </summary>
@@ -107,7 +107,7 @@ public interface IRedisSortedSetService
     /// <returns>An <see cref="Either{TLeft, TRight}"/> containing either an <see cref="Error"/> if the operation fails,  or a
     /// <see langword="long"/> representing the count of items in the collection that fall within the specified range.</returns>
     Either<Error, long> LengthByValue<T>(string key, T min, T max);
- 
+
     /// <inheritdoc cref="LengthByValue{T}(string, T, T)"/>
     Task<Either<Error, long>> LengthByValueAsync<T>(string key, T min, T max);
 
@@ -124,10 +124,10 @@ public interface IRedisSortedSetService
     /// an <see cref="Option{T}"/> representing the rank of the value as a zero-based index.      Returns <see
     /// langword="None"/> if the value is not found in the collection.</returns>
     Either<Error, Option<long>> Rank<T>(string key, T value);
-  
+
     /// <inheritdoc cref="Rank{T}(string, T)"/>
     Task<Either<Error, Option<long>>> RankAsync<T>(string key, T value);
- 
+
     /// <summary>
     /// Removes the specified values associated with the given key from the collection.
     /// </summary>
@@ -137,7 +137,7 @@ public interface IRedisSortedSetService
     /// <returns>An <see cref="Either{Error, Unit}"/> indicating the result of the operation.  Returns <see langword="Unit"/> if
     /// the removal is successful, or an <see cref="Error"/> if the operation fails.</returns>
     Either<Error, Unit> Remove<T>(string key, IEnumerable<T> values);
- 
+
     /// <summary>
     /// Removes the specified value associated with the given key from the collection.
     /// </summary>
@@ -149,13 +149,13 @@ public interface IRedisSortedSetService
     /// <returns>An <see cref="Either{Error, Unit}"/> indicating the result of the operation.  Returns <see langword="Unit"/> if
     /// the removal is successful, or an <see cref="Error"/> if the operation fails.</returns>
     Either<Error, Unit> Remove<T>(string key, T value);
- 
+
     /// <inheritdoc cref="Remove{T}(string, IEnumerable{T})"/>
     Task<Either<Error, Unit>> RemoveAsync<T>(string key, IEnumerable<T> values);
-  
+
     /// <inheritdoc cref="Remove{T}(string, T)"/>
     Task<Either<Error, Unit>> RemoveAsync<T>(string key, T value);
- 
+
     /// <summary>
     /// Removes all elements in the sorted set stored at the specified key with scores within the given range.
     /// </summary>
@@ -167,10 +167,10 @@ public interface IRedisSortedSetService
     /// <returns>An <see cref="Either{Error, Unit}"/> indicating the result of the operation.  Returns <see langword="Unit"/> if
     /// the operation succeeds, or an <see cref="Error"/> if it fails.</returns>
     Either<Error, Unit> RemoveRangeByScore(string key, double start, double stop);
- 
+
     /// <inheritdoc cref="RemoveRangeByScore(string, double, double)"/>
     Task<Either<Error, Unit>> RemoveRangeByScoreAsync(string key, double start, double stop);
- 
+
     /// <summary>
     /// Removes a range of values from a data store based on the specified key and value range.
     /// </summary>
@@ -187,7 +187,7 @@ public interface IRedisSortedSetService
 
     /// <inheritdoc cref="RemoveRangeByValue{T}(string, T, T)"/>
     Task<Either<Error, Unit>> RemoveRangeByValueAsync<T>(string key, T min, T max);
- 
+
     /// <summary>
     /// Calculates a score based on the provided key and value, returning either an error or an optional score.
     /// </summary>
@@ -198,7 +198,7 @@ public interface IRedisSortedSetService
     /// or an <see cref="Option{double}"/> representing the calculated score. The score may be absent if no valid result
     /// is produced.</returns>
     Either<Error, Option<double>> Score<T>(string key, T value);
- 
+
     /// <inheritdoc cref="Score{T}(string, T)"/>
     Task<Either<Error, Option<double>>> ScoreAsync<T>(string key, T value);
 
@@ -213,4 +213,19 @@ public interface IRedisSortedSetService
 
     /// <inheritdoc cref="Union{T}(string[])"/>
     Task<Either<Error, T[]>> UnionAsync<T>(string[] keys);
+
+    /// <summary>
+    /// Retrieves a range of elements from a sorted collection based on their score values.
+    /// </summary>
+    /// <typeparam name="T">The type of elements in the collection.</typeparam>
+    /// <param name="key">The key identifying the sorted collection. Cannot be null or empty.</param>
+    /// <param name="min">The minimum score value for the range. Elements with scores less than this value are excluded.</param>
+    /// <param name="max">The maximum score value for the range. Elements with scores greater than this value are excluded.</param>
+    /// <returns>An <see cref="Either{TLeft, TRight}"/> containing either an <see cref="Error"/> if the operation fails,  or an
+    /// array of elements of type <typeparamref name="T"/> that fall within the specified score range. If no elements
+    /// match the criteria, an empty array is returned.</returns>
+    Either<Error, T[]> RangeByScore<T>(string key, double min, double max);
+
+    /// <inheritdoc cref="RangeByScore{T}(string, double, double)"/>
+    Task<Either<Error, T[]>> RangeByScoreAsync<T>(string key, double min, double max);
 }

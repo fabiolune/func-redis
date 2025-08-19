@@ -382,4 +382,30 @@ internal class KeyTransformerRedisSortedSetServiceTests
         result.Should().Be(internalResult);
         await _mockService.Received(1).ScoreAsync("mapped_key", "value");
     }
+
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorStringsTestData))]
+    public void RangeByScore_ShouldCallServiceWithMappedKey(Either<Error, string[]> internalResult)
+    {
+        var key = "key";
+        _mockService.RangeByScore<string>("mapped_key", 1.0, 10.0).Returns(internalResult);
+
+        var result = _sut.RangeByScore<string>(key, 1.0, 10.0);
+
+        result.Should().Be(internalResult);
+        _mockService.Received(1).RangeByScore<string>("mapped_key", 1.0, 10.0);
+    }
+
+    [TestCaseSource(typeof(TestDataElements), nameof(ErrorStringsTestData))]
+    public async Task RangeByScoreAsync_ShouldCallServiceWithMappedKey(Either<Error, string[]> internalResult)
+    {
+        var key = "key";
+        _mockService
+            .RangeByScoreAsync<string>("mapped_key", 1.0, 10.0)
+            .Returns(internalResult);
+
+        var result = await _sut.RangeByScoreAsync<string>(key, 1.0, 10.0);
+
+        result.Should().Be(internalResult);
+        await _mockService.Received(1).RangeByScoreAsync<string>("mapped_key", 1.0, 10.0);
+    }
 }

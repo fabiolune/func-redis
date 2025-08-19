@@ -37,15 +37,12 @@ internal class ServiceCollectionExtensionsTests
     private IServiceCollection _mockServices;
 
     internal static readonly RedisCapabilities[] AllCapabilities =
-        Enumerable
+        [.. Enumerable
             .Range(1, Enum.GetValues<RedisCapabilities>().Select(c => (int)c).Max() << 1 - 1)
-            .Select(i => (RedisCapabilities)i)
-            .ToArray();
+            .Select(i => (RedisCapabilities)i)];
 
     internal static readonly object[][] InvalidConfigAndAllCapabilities =
-        new[] { "", null }
-            .Map(inv => AllCapabilities.SelectMany(c => inv.Select(i => new object[] { i, c })))
-            .ToArray();
+        [.. new[] { "", null }.Map(inv => AllCapabilities.SelectMany(c => inv.Select(i => new object[] { i, c })))];
 
     [SetUp]
     public void SetUp()
@@ -262,7 +259,7 @@ internal class ServiceCollectionExtensionsTests
             Type expectedKeyType,
             Type expectedImplementationType)
     {
-        
+
         var config = new MemoryConfigurationSource
         {
             InitialData = new Dictionary<string, string>
@@ -270,7 +267,7 @@ internal class ServiceCollectionExtensionsTests
                 {"RedisConfiguration:ConnectionString", "whatever"}
             }
         };
-        
+
         _mockServices
             .AddRedis<StubSerdes>(new ConfigurationBuilder().Add(config).Build(), capabilities, false, Assembly.GetExecutingAssembly());
 

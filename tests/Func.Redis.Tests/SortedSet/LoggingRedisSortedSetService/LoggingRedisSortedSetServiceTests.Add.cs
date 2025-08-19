@@ -77,12 +77,12 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .AddAsync("some key", "value", 10)
             .Returns(Either<Error, Unit>.Left(error));
-        
+
         var result = await _sut.AddAsync("some key", "value", 10);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(2);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -110,9 +110,9 @@ internal partial class LoggingRedisSortedSetServiceTests
             .Returns(Unit.Default);
 
         var result = _sut.Add("some key", data);
-        
+
         result.IsRight.Should().BeTrue();
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(1);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -134,9 +134,9 @@ internal partial class LoggingRedisSortedSetServiceTests
             .AddAsync("some key", data)
             .Returns(Either<Error, Unit>.Right(Unit.Default));
         var result = await _sut.AddAsync("some key", data);
-        
+
         result.IsRight.Should().BeTrue();
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(1);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -159,10 +159,10 @@ internal partial class LoggingRedisSortedSetServiceTests
             .Add("some key", data)
             .Returns(error);
         var result = _sut.Add("some key", data);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(2);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -189,12 +189,12 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .AddAsync("some key", data)
             .Returns(Either<Error, Unit>.Left(error));
-        
+
         var result = await _sut.AddAsync("some key", data);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(2);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>

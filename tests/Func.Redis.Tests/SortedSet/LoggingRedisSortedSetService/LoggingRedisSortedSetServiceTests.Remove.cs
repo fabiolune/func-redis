@@ -29,11 +29,11 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .RemoveAsync("key", value)
             .Returns(Unit.Default);
-     
+
         var result = await _sut.RemoveAsync("key", value);
-        
+
         result.IsRight.Should().BeTrue();
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(1);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -51,12 +51,12 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .Remove("key", value)
             .Returns(error);
-        
+
         var result = _sut.Remove("key", value);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(2);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -79,12 +79,12 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .RemoveAsync("key", value)
             .Returns(error);
-        
+
         var result = await _sut.RemoveAsync("key", value);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(2);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -106,9 +106,9 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .Remove<object>("key", values)
             .Returns(Unit.Default);
-     
+
         var result = _sut.Remove<object>("key", values);
-        
+
         result.IsRight.Should().BeTrue();
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(1);
@@ -118,7 +118,7 @@ internal partial class LoggingRedisSortedSetServiceTests
             e.LogLevel.Should().Be(LogLevel.Information);
         });
     }
-    
+
     [Test]
     public async Task RemoveAsync_WhenServiceReturnsRightForMultipleValues_ShouldReturnRight()
     {
@@ -126,11 +126,11 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .RemoveAsync<object>("key", values)
             .Returns(Unit.Default);
-     
+
         var result = await _sut.RemoveAsync<object>("key", values);
-        
+
         result.IsRight.Should().BeTrue();
-     
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(1);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -148,12 +148,12 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .Remove<object>("key", values)
             .Returns(error);
-        
+
         var result = _sut.Remove<object>("key", values);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(2);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -176,12 +176,12 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .RemoveAsync<object>("key", values)
             .Returns(error);
-        
+
         var result = await _sut.RemoveAsync<object>("key", values);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(2);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -204,9 +204,9 @@ internal partial class LoggingRedisSortedSetServiceTests
             .Returns(Unit.Default);
 
         var result = _sut.RemoveRangeByScore("key", 1.0, 10.0);
-        
+
         result.IsRight.Should().BeTrue();
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(1);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -222,11 +222,11 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .RemoveRangeByScoreAsync("key", 1.0, 10.0)
             .Returns(Unit.Default);
-        
+
         var result = await _sut.RemoveRangeByScoreAsync("key", 1.0, 10.0);
-        
+
         result.IsRight.Should().BeTrue();
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(1);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -243,12 +243,12 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .RemoveRangeByScore("key", 1.0, 10.0)
             .Returns(error);
-        
+
         var result = _sut.RemoveRangeByScore("key", 1.0, 10.0);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(2);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -270,12 +270,12 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .RemoveRangeByScoreAsync("key", 1.0, 10.0)
             .Returns(error);
-        
+
         var result = await _sut.RemoveRangeByScoreAsync("key", 1.0, 10.0);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(2);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -299,9 +299,9 @@ internal partial class LoggingRedisSortedSetServiceTests
             .RemoveRangeByValue("key", min, max)
             .Returns(Unit.Default);
         var result = _sut.RemoveRangeByValue("key", min, max);
-        
+
         result.IsRight.Should().BeTrue();
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(1);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -319,11 +319,11 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .RemoveRangeByValueAsync("key", min, max)
             .Returns(Unit.Default);
-        
+
         var result = await _sut.RemoveRangeByValueAsync("key", min, max);
-        
+
         result.IsRight.Should().BeTrue();
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(1);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -342,12 +342,12 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .RemoveRangeByValue("key", min, max)
             .Returns(error);
-        
+
         var result = _sut.RemoveRangeByValue("key", min, max);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(2);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -371,12 +371,12 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .RemoveRangeByValueAsync("key", min, max)
             .Returns(error);
-        
+
         var result = await _sut.RemoveRangeByValueAsync("key", min, max);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(2);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>

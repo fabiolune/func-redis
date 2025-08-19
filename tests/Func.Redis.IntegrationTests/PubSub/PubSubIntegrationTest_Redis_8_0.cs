@@ -1,0 +1,7 @@
+﻿namespace Func.Redis.IntegrationTests.PubSub;
+
+internal class PubSubIntegrationTest_Redis_8_0 : PubSubIntegrationTest
+{
+    public PubSubIntegrationTest_Redis_8_0() : base("redis:8") { }
+}
+

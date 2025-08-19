@@ -11,7 +11,7 @@ public interface IRedisService
     /// <returns>An <see cref="Either{Error, T}"/> containing either the result of the operation or an error if the operation
     /// fails.</returns>
     Either<Error, T> Execute<T>(Func<IDatabase, T> exec);
-    
+
     /// <summary>
     /// Executes a database operation and maps the result to a specified output type.
     /// </summary>
@@ -27,13 +27,13 @@ public interface IRedisService
     /// <returns>An <see cref="Either{TLeft, TRight}"/> containing either an <see cref="Error"/> if the operation fails,  or the
     /// mapped result of type <typeparamref name="TOut"/> if the operation succeeds.</returns>
     Either<Error, TOut> Execute<TIn, TOut>(Func<IDatabase, TIn> exec, Func<TIn, TOut> map);
-    
+
     /// <inheritdoc cref="Execute{T}(Func{IDatabase, T})"/>/>
     Task<Either<Error, T>> ExecuteAsync<T>(Func<IDatabase, Task<T>> exec);
-    
+
     /// <inheritdoc cref="Execute{TIn, TOut}(Func{IDatabase, TIn}, Func{TIn, TOut})"/>
     Task<Either<Error, TOut>> ExecuteAsync<TIn, TOut>(Func<IDatabase, Task<TIn>> exec, Func<TIn, TOut> map);
-    
+
     /// <summary>
     /// Executes an asynchronous operation on a database and maps the result to a specified output type.
     /// </summary>

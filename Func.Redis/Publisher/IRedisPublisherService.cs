@@ -13,7 +13,7 @@ public interface IRedisPublisherService
     /// <returns>An <see cref="Either{Error, Unit}"/> indicating the result of the operation.  Returns <see langword="Unit"/> if
     /// the message is successfully published, or an <see cref="Error"/> if the operation fails.</returns>
     Either<Error, Unit> Publish(string channel, object message);
-    
+
     /// <inheritdoc cref="Publish(string, object)"/>
     Task<Either<Error, Unit>> PublishAsync(string channel, object message);
 }

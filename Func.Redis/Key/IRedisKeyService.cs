@@ -19,13 +19,13 @@ public interface IRedisKeyService
     /// <returns>An <see cref="Either{Error, Unit}"/> indicating the result of the operation. If the operation succeeds, the
     /// result will contain <see langword="Unit"/>. If the operation fails, the result will contain an <see
     /// cref="Error"/> describing the failure.</returns>
-    Either<Error, Unit> Delete(params string[] keys);
+    Either<Error, Unit> Delete(string[] keys);
 
     /// <inheritdoc cref="Delete(string)"/>
     Task<Either<Error, Unit>> DeleteAsync(string key);
 
     /// <inheritdoc cref="Delete(string[])"/>
-    Task<Either<Error, Unit>> DeleteAsync(params string[] keys);
+    Task<Either<Error, Unit>> DeleteAsync(string[] keys);
 
     /// <summary>
     /// Retrieves the value associated with the specified key, if it exists.
@@ -44,13 +44,13 @@ public interface IRedisKeyService
     /// <returns>An <see cref="Either{TLeft, TRight}"/> containing either an <see cref="Error"/> if the operation fails, or an
     /// array of <see cref="Option{T}"/> representing the values associated with the specified keys. If a key does not
     /// have an associated value, the corresponding element in the array will be <see cref="Option{T}.None"/>.</returns>
-    Either<Error, Option<T>[]> Get<T>(params string[] keys);
+    Either<Error, Option<T>[]> Get<T>(string[] keys);
 
     /// <inheritdoc cref="Get{T}(string)"/>
     Task<Either<Error, Option<T>>> GetAsync<T>(string key);
 
     /// <inheritdoc cref="Get{T}(string[])"/>
-    Task<Either<Error, Option<T>[]>> GetAsync<T>(params string[] keys);
+    Task<Either<Error, Option<T>[]>> GetAsync<T>(string[] keys);
 
     /// <summary>
     /// Stores a value in the underlying data store associated with the specified key.

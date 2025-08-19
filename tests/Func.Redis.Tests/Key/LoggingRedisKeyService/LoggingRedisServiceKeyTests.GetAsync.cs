@@ -28,14 +28,15 @@ public partial class LoggingRedisKeyServiceTests
     [Test]
     public async Task MultipleGetAsync_WhenServiceReturnsRightWithSome_ShouldReturnRightWithSome()
     {
+        var keys = new[] { "key1", "key2" };
         var data1 = new object();
         var data2 = new object();
         var output = new[] { Option<object>.Some(data1), Option<object>.Some(data2) };
         _mockService
-            .GetAsync<object>("key1", "key2")
+            .GetAsync<object>(keys)
             .Returns(output);
 
-        var result = await _sut.GetAsync<object>("key1", "key2");
+        var result = await _sut.GetAsync<object>(keys);
 
         result.IsRight.Should().BeTrue();
         result.OnRight(r => r.Filter().Should().BeEquivalentTo([data1, data2]));
@@ -78,12 +79,13 @@ public partial class LoggingRedisKeyServiceTests
     [Test]
     public async Task MultipleGetAsync_WhenServiceReturnsRightWithNone_ShouldReturnRightWithNone()
     {
+        var keys = new[] { "key1", "key2" };
         var output = new[] { Option<object>.None(), Option<object>.None() };
         _mockService
-            .GetAsync<object>("key1", "key2")
+            .GetAsync<object>(keys)
             .Returns(output);
 
-        var result = await _sut.GetAsync<object>("key1", "key2");
+        var result = await _sut.GetAsync<object>(keys);
 
         result.IsRight.Should().BeTrue();
         result.OnRight(r => r.Filter().Should().BeEmpty());
@@ -127,12 +129,13 @@ public partial class LoggingRedisKeyServiceTests
     [Test]
     public async Task MultipleGetAsync_WhenServiceReturnsLeft_ShouldReturnLeft()
     {
+        var keys = new[] { "key1", "key2" };
         var error = Error.New("some message");
         _mockService
-            .GetAsync<object>("key1", "key2")
+            .GetAsync<object>(keys)
             .Returns(error);
 
-        var result = await _sut.GetAsync<object>("key1", "key2");
+        var result = await _sut.GetAsync<object>(keys);
 
         result.IsLeft.Should().BeTrue();
         result.OnLeft(r => r.Should().Be(error));
@@ -182,13 +185,14 @@ public partial class LoggingRedisKeyServiceTests
     [Test]
     public async Task MultipleGetAsync_WhenServiceReturnsLeftWithException_ShouldReturnLeft()
     {
+        var keys = new[] { "key1", "key2" };
         var exception = new Exception("some message");
         var error = Error.New(exception);
         _mockService
-            .GetAsync<object>("key1", "key2")
+            .GetAsync<object>(keys)
             .Returns(error);
 
-        var result = await _sut.GetAsync<object>("key1", "key2");
+        var result = await _sut.GetAsync<object>(keys);
 
         result.IsLeft.Should().BeTrue();
         result.OnLeft(r => r.Should().Be(error));

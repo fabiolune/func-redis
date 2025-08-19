@@ -6,6 +6,7 @@ using Func.Redis.Publisher;
 using Func.Redis.SerDes;
 using Func.Redis.SerDes.Json;
 using Func.Redis.Set;
+using Func.Redis.SortedSet;
 using Func.Redis.Subscriber;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -82,6 +83,10 @@ public static class ServiceCollectionExtensions
                 () => capabilities.HasFlag(RedisCapabilities.Set)
             )
             .TeeWhen(
+                s => s.Decorate<IRedisSortedSetService>(hs => new KeyTransformerRedisSortedSetService(hs, keyMapper)),
+                () => capabilities.HasFlag(RedisCapabilities.SortedSet)
+            )
+            .TeeWhen(
                 s => s.Decorate<IRedisListService>(hs => new KeyTransformerRedisListService(hs, keyMapper)),
                 () => capabilities.HasFlag(RedisCapabilities.List)
             );
@@ -106,6 +111,9 @@ public static class ServiceCollectionExtensions
             .TeeWhen(
                 s => s.AddSingleton<IRedisSetService, RedisSetService>(),
                 () => capabilities.HasFlag(RedisCapabilities.Set))
+            .TeeWhen(
+                s => s.AddSingleton<IRedisSortedSetService, RedisSortedSetService>(),
+                () => capabilities.HasFlag(RedisCapabilities.SortedSet))
             .TeeWhen(
                 s => s.AddSingleton<IRedisListService, RedisListService>(),
                 () => capabilities.HasFlag(RedisCapabilities.List))
@@ -149,6 +157,10 @@ public static class ServiceCollectionExtensions
             .TeeWhen(
                 s => s.Decorate<IRedisSetService, LoggingRedisSetService>(),
                 () => capabilities.HasFlag(RedisCapabilities.Set)
+            )
+            .TeeWhen(
+                s => s.Decorate<IRedisSortedSetService, LoggingRedisSortedSetService>(),
+                () => capabilities.HasFlag(RedisCapabilities.SortedSet)
             )
             .TeeWhen(
                 s => s.Decorate<IRedisListService, LoggingRedisListService>(),

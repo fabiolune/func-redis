@@ -13,7 +13,7 @@ internal partial class RedisSortedSetServiceTests
             .Returns(10.0);
 
         var result = _sut.Score("test_key", data);
-        
+
         result.IsRight.Should().BeTrue();
         result.OnRight(score =>
         {
@@ -34,7 +34,7 @@ internal partial class RedisSortedSetServiceTests
             .Returns((double?)null);
 
         var result = _sut.Score("test_key", data);
-        
+
         result.IsRight.Should().BeTrue();
         result.OnRight(score => score.IsNone.Should().BeTrue());
     }
@@ -49,9 +49,9 @@ internal partial class RedisSortedSetServiceTests
         _mockDb
             .SortedSetScore("test_key", "serialized")
             .Returns(_ => throw new Exception("Redis error"));
-     
+
         var result = _sut.Score("test_key", data);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Message.Should().Be("Redis error"));
     }
@@ -64,7 +64,7 @@ internal partial class RedisSortedSetServiceTests
             .Serialize(data)
             .Returns(_ => throw new Exception("Serialization error"));
         var result = _sut.Score("test_key", data);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Message.Should().Be("Serialization error"));
     }
@@ -81,7 +81,7 @@ internal partial class RedisSortedSetServiceTests
             .Returns(10.0);
 
         var result = await _sut.ScoreAsync("test_key", data);
-        
+
         result.IsRight.Should().BeTrue();
         result.OnRight(score =>
         {
@@ -100,9 +100,9 @@ internal partial class RedisSortedSetServiceTests
         _mockDb
             .SortedSetScoreAsync("test_key", "serialized")
             .Returns((double?)null);
-     
+
         var result = await _sut.ScoreAsync("test_key", data);
-        
+
         result.IsRight.Should().BeTrue();
         result.OnRight(score => score.IsNone.Should().BeTrue());
     }
@@ -117,9 +117,9 @@ internal partial class RedisSortedSetServiceTests
         _mockDb
             .SortedSetScoreAsync("test_key", "serialized")
             .Returns<double?>(_ => throw new Exception("Redis error"));
-     
+
         var result = await _sut.ScoreAsync("test_key", data);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Message.Should().Be("Redis error"));
     }
@@ -131,9 +131,9 @@ internal partial class RedisSortedSetServiceTests
         _mockSerDes
             .Serialize(data)
             .Returns(_ => throw new Exception("Serialization error"));
-        
+
         var result = await _sut.ScoreAsync("test_key", data);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Message.Should().Be("Serialization error"));
     }

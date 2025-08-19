@@ -7,7 +7,8 @@ public enum RedisCapabilities
     Key = 1 << 1,
     HashSet = 1 << 2,
     Set = 1 << 3,
-    List = 1 << 4,
-    Publish = 1 << 5,
-    Subscribe = 1 << 6
+    SortedSet = 1 << 4,
+    List = 1 << 5,
+    Publish = 1 << 6,
+    Subscribe = 1 << 7
 }

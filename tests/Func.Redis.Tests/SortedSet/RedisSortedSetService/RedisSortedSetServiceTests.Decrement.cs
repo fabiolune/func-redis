@@ -30,7 +30,7 @@ internal partial class RedisSortedSetServiceTests
             .Returns(_ => throw new Exception("Redis error"));
 
         var result = _sut.Decrement("test_key", data, 1.0);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Message.Should().Be("Redis error"));
     }
@@ -61,7 +61,7 @@ internal partial class RedisSortedSetServiceTests
             .Returns(1.0);
 
         var result = await _sut.DecrementAsync("test_key", data, 1.0);
-        
+
         result.IsRight.Should().BeTrue();
     }
 
@@ -75,9 +75,9 @@ internal partial class RedisSortedSetServiceTests
         _mockDb
             .SortedSetDecrementAsync("test_key", "serialized_data", 1.0)
             .Returns<double>(_ => throw new Exception("Redis error"));
-     
+
         var result = await _sut.DecrementAsync("test_key", data, 1.0);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Message.Should().Be("Redis error"));
     }
@@ -89,9 +89,9 @@ internal partial class RedisSortedSetServiceTests
         _mockSerDes
             .Serialize(data)
             .Returns(_ => throw new Exception("Serialization error"));
-        
+
         var result = await _sut.DecrementAsync("test_key", data, 1.0);
-     
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Message.Should().Be("Serialization error"));
     }

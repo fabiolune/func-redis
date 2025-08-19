@@ -181,9 +181,9 @@ internal partial class RedisSortedSetServiceTests
         _mockDb
             .SortedSetRemoveAsync("key", Arg.Is<RedisValue[]>(a => a.SequenceEqual(serialized)))
             .Returns(removeResult);
-        
+
         var result = await _sut.RemoveAsync<TestData>("key", data);
-        
+
         result.IsRight.Should().BeTrue();
     }
 
@@ -205,7 +205,7 @@ internal partial class RedisSortedSetServiceTests
             .Returns<long>(_ => throw exception);
 
         var result = await _sut.RemoveAsync<TestData>("key", data);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
     }
@@ -220,7 +220,7 @@ internal partial class RedisSortedSetServiceTests
             .Returns(value);
 
         var result = _sut.RemoveRangeByScore("key", 1, 10);
-        
+
         result.IsRight.Should().BeTrue();
     }
 
@@ -233,7 +233,7 @@ internal partial class RedisSortedSetServiceTests
             .SortedSetRemoveRangeByScoreAsync("key", 1, 10)
             .Returns(value);
         var result = await _sut.RemoveRangeByScoreAsync("key", 1, 10);
-        
+
         result.IsRight.Should().BeTrue();
     }
 
@@ -242,12 +242,12 @@ internal partial class RedisSortedSetServiceTests
     {
         var exception = new Exception("some message");
         var error = Error.New(exception);
-        
+
         _mockDb
             .SortedSetRemoveRangeByScore("key", 1, 10)
             .Returns(_ => throw exception);
         var result = _sut.RemoveRangeByScore("key", 1, 10);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
     }
@@ -257,12 +257,12 @@ internal partial class RedisSortedSetServiceTests
     {
         var exception = new Exception("some message");
         var error = Error.New(exception);
-        
+
         _mockDb
             .SortedSetRemoveRangeByScoreAsync("key", 1, 10)
             .Returns<long>(_ => throw exception);
         var result = await _sut.RemoveRangeByScoreAsync("key", 1, 10);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
     }
@@ -285,7 +285,7 @@ internal partial class RedisSortedSetServiceTests
             .Returns(value);
 
         var result = _sut.RemoveRangeByValue("key", data1, data2);
-        
+
         result.IsRight.Should().BeTrue();
     }
 
@@ -306,7 +306,7 @@ internal partial class RedisSortedSetServiceTests
             .SortedSetRemoveRangeByValueAsync("key", "serialized1", "serialized2")
             .Returns(value);
         var result = await _sut.RemoveRangeByValueAsync("key", data1, data2);
-        
+
         result.IsRight.Should().BeTrue();
     }
 
@@ -326,9 +326,9 @@ internal partial class RedisSortedSetServiceTests
         _mockDb
             .SortedSetRemoveRangeByValue("key", "serialized1", "serialized2")
             .Returns(_ => throw exception);
-        
+
         var result = _sut.RemoveRangeByValue("key", data1, data2);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
     }
@@ -349,9 +349,9 @@ internal partial class RedisSortedSetServiceTests
         _mockDb
             .SortedSetRemoveRangeByValueAsync("key", "serialized1", "serialized2")
             .Returns<long>(_ => throw exception);
-        
+
         var result = await _sut.RemoveRangeByValueAsync("key", data1, data2);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
     }
@@ -363,13 +363,13 @@ internal partial class RedisSortedSetServiceTests
         var error = Error.New(exception);
         var data1 = new TestData(1);
         var data2 = new TestData(2);
-        
+
         _mockSerDes
             .Serialize(data1)
             .Returns(_ => throw exception);
-        
+
         var result = _sut.RemoveRangeByValue("key", data1, data2);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
     }
@@ -381,13 +381,13 @@ internal partial class RedisSortedSetServiceTests
         var error = Error.New(exception);
         var data1 = new TestData(1);
         var data2 = new TestData(2);
-        
+
         _mockSerDes
             .Serialize(data1)
             .Returns(_ => throw exception);
-        
+
         var result = await _sut.RemoveRangeByValueAsync("key", data1, data2);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
     }

@@ -5,7 +5,7 @@ internal partial class RedisSortedSetServiceTests
     public void Union_WhenDatabaseThrowsException_ShouldReturnError()
     {
         var exception = new Exception("some message");
-        var keys = new [] { "key1", "key2" };
+        var keys = new[] { "key1", "key2" };
         var redisKeys = keys.Select(k => (RedisKey)k).ToArray();
         _mockDb
             .SortedSetCombine(SetOperation.Union, Arg.Is<RedisKey[]>(a => a.SequenceEqual(redisKeys)))
@@ -84,9 +84,9 @@ internal partial class RedisSortedSetServiceTests
         _mockDb
             .SortedSetCombineAsync(SetOperation.Union, Arg.Is<RedisKey[]>(a => a.SequenceEqual(redisKeys)))
             .Returns<RedisValue[]>(_ => throw exception);
-        
+
         var result = await _sut.UnionAsync<object>(keys);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
     }
@@ -106,9 +106,9 @@ internal partial class RedisSortedSetServiceTests
         _mockDb
             .SortedSetCombineAsync(SetOperation.Union, Arg.Is<RedisKey[]>(a => a.SequenceEqual(keys.Select(k => (RedisKey)k))))
             .Returns(Task.FromResult(values));
-        
+
         var result = await _sut.UnionAsync<TestData>(keys);
-        
+
         result.IsRight.Should().BeTrue();
         result.OnRight(res => res.Should().BeEquivalentTo(deserialized));
     }
@@ -128,9 +128,9 @@ internal partial class RedisSortedSetServiceTests
         _mockDb
             .SortedSetCombineAsync(SetOperation.Union, Arg.Is<RedisKey[]>(a => a.SequenceEqual(keys.Select(k => (RedisKey)k))))
             .Returns(Task.FromResult(values));
-        
+
         var result = await _sut.UnionAsync<TestData>(keys);
-        
+
         result.IsRight.Should().BeTrue();
         result.OnRight(res => res.Should().BeEquivalentTo(deserialized));
     }
@@ -146,9 +146,9 @@ internal partial class RedisSortedSetServiceTests
         _mockSerDes
             .Deserialize<TestData>(Arg.Any<RedisValue>())
             .Returns(_ => throw new Exception("Serialization error"));
-     
+
         var result = await _sut.UnionAsync<TestData>(keys);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Message.Should().Be("Serialization error"));
     }

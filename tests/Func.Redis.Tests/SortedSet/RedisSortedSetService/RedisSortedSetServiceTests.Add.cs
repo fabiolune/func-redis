@@ -240,7 +240,6 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.AddAsync("key", [(data1, 1.0), (data2, 2.0)]);
 
-
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().BeEquivalentTo(error));
     }

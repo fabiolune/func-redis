@@ -67,8 +67,8 @@ internal abstract class RedisSetServiceIntegrationTest(string redisImage) : Redi
     [Test]
     public async Task WhenDataArePresentInDifferentSets_CombineOperationShouldReturnExpectedResults()
     {
-        var key1 = $"{WhenDataArePresentInDifferentSets_CombineOperationShouldReturnExpectedResults}_1";
-        var key2 = $"{WhenDataArePresentInDifferentSets_CombineOperationShouldReturnExpectedResults}_2";
+        var key1 = $"{nameof(WhenDataArePresentInDifferentSets_CombineOperationShouldReturnExpectedResults)}_1";
+        var key2 = $"{nameof(WhenDataArePresentInDifferentSets_CombineOperationShouldReturnExpectedResults)}_2";
 
         var input1 = new TestModel
         {

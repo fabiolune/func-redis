@@ -103,9 +103,9 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .LengthByScore("key", 1, 10)
             .Returns(5);
-        
+
         var result = _sut.LengthByScore("key", 1, 10);
-        
+
         result.IsRight.Should().BeTrue();
         result.OnRight(l => l.Should().Be(5));
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
@@ -124,12 +124,12 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .LengthByScore("key", 1, 10)
             .Returns(error);
-        
+
         var result = _sut.LengthByScore("key", 1, 10);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(2);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -150,12 +150,12 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .LengthByScoreAsync("key", 1, 10)
             .Returns(5);
-        
+
         var result = await _sut.LengthByScoreAsync("key", 1, 10);
-        
+
         result.IsRight.Should().BeTrue();
         result.OnRight(l => l.Should().Be(5));
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(1);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -172,12 +172,12 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .LengthByScoreAsync("key", 1, 10)
             .Returns(error);
-        
+
         var result = await _sut.LengthByScoreAsync("key", 1, 10);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(2);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -198,12 +198,12 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .LengthByValue("key", 1, 10)
             .Returns(5);
-        
+
         var result = _sut.LengthByValue("key", 1, 10);
-        
+
         result.IsRight.Should().BeTrue();
         result.OnRight(l => l.Should().Be(5));
-     
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(1);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -220,12 +220,12 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .LengthByValue("key", 1, 10)
             .Returns(error);
-        
+
         var result = _sut.LengthByValue("key", 1, 10);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(2);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -246,12 +246,12 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .LengthByValueAsync("key", 1, 10)
             .Returns(5);
-        
+
         var result = await _sut.LengthByValueAsync("key", 1, 10);
-        
+
         result.IsRight.Should().BeTrue();
         result.OnRight(l => l.Should().Be(5));
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(1);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -260,7 +260,7 @@ internal partial class LoggingRedisSortedSetServiceTests
             e.LogLevel.Should().Be(LogLevel.Information);
         });
     }
-    
+
     [Test]
     public async Task LengthByValueAsync_WhenServiceReturnsLeft_ShouldReturnLeftAndLog()
     {
@@ -268,12 +268,12 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .LengthByValueAsync("key", 1, 10)
             .Returns(error);
-        
+
         var result = await _sut.LengthByValueAsync("key", 1, 10);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(2);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>

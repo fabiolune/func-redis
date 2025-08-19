@@ -108,4 +108,10 @@ public class RedisSortedSetService(
 
     private Task<Either<Error, T[]>> CombineAsync<T>(string[] keys, SetOperation operation) =>
         WrapUnsafeAsync(() => _database.SortedSetCombineAsync(operation, [.. keys.Select(k => (RedisKey)k)]), vs => vs.Select(_serDes.Deserialize<T>).Filter().ToArray());
+
+    public Either<Error, T[]> RangeByScore<T>(string key, double min, double max) =>
+        Wrap(() => _database.SortedSetRangeByScore(key, min, max).Select(_serDes.Deserialize<T>).Filter().ToArray());
+
+    public Task<Either<Error, T[]>> RangeByScoreAsync<T>(string key, double min, double max) =>
+        WrapUnsafeAsync(() => _database.SortedSetRangeByScoreAsync(key, min, max), vs => vs.Select(_serDes.Deserialize<T>).Filter().ToArray());
 }

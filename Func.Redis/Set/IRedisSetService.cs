@@ -123,7 +123,7 @@ public interface IRedisSetService
     /// type <typeparamref name="T"/> representing the union of the values  associated with <paramref name="key1"/> and
     /// <paramref name="key2"/>.</returns>
     Either<Error, T[]> Union<T>(string key1, string key2);
- 
+
     /// <inheritdoc cref="Union{T}(string, string)"/>
     Task<Either<Error, T[]>> UnionAsync<T>(string key1, string key2);
 }

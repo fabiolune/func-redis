@@ -11,7 +11,7 @@ internal partial class LoggingRedisSortedSetServiceTests
             .Returns(data);
 
         var result = _sut.Union<object>(keys);
-        
+
         result.IsRight.Should().BeTrue();
         result.OnRight(values => values.Should().BeEquivalentTo(data));
 
@@ -32,9 +32,9 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .UnionAsync<object>(keys)
             .Returns(data);
-     
+
         var result = await _sut.UnionAsync<object>(keys);
-        
+
         result.IsRight.Should().BeTrue();
         result.OnRight(values => values.Should().BeEquivalentTo(data));
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
@@ -55,10 +55,10 @@ internal partial class LoggingRedisSortedSetServiceTests
             .Union<object>(keys)
             .Returns(error);
         var result = _sut.Union<object>(keys);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(2);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
@@ -81,12 +81,12 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .UnionAsync<object>(keys)
             .Returns(error);
-        
+
         var result = await _sut.UnionAsync<object>(keys);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
-        
+
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
         entries.Should().HaveCount(2);
         entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>

@@ -190,4 +190,16 @@ internal class LoggingRedisSortedSetService(
             .Tee(k => _logger.LogInformation("{Component}: async union of keys [{Keys}]", ComponentName, string.Join(", ", k)))
             .Map(_service.UnionAsync<T>)
             .TeeLog(_logger, ComponentName);
+
+    public Either<Error, T[]> RangeByScore<T>(string key, double min, double max) =>
+        (key, min, max)
+            .Tee(t => _logger.LogInformation("{Component}: getting range by score from sorted set at \"{Key}\" with range [{Min}, {Max}]", ComponentName, t.key, t.min, t.max))
+            .Map(t => _service.RangeByScore<T>(t.key, t.min, t.max))
+            .TeeLog(_logger, ComponentName);
+
+    public Task<Either<Error, T[]>> RangeByScoreAsync<T>(string key, double min, double max) =>
+        (key, min, max)
+            .Tee(t => _logger.LogInformation("{Component}: async getting range by score from sorted set at \"{Key}\" with range [{Min}, {Max}]", ComponentName, t.key, t.min, t.max))
+            .Map(t => _service.RangeByScoreAsync<T>(t.key, t.min, t.max))
+            .TeeLog(_logger, ComponentName);
 }

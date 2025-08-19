@@ -34,9 +34,9 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .ScoreAsync("key", value)
             .Returns(10.0.ToOption());
-     
+
         var result = await _sut.ScoreAsync("key", value);
-        
+
         result.IsRight.Should().BeTrue();
         result.OnRight(o =>
         {
@@ -62,7 +62,7 @@ internal partial class LoggingRedisSortedSetServiceTests
             .Returns(error);
 
         var result = _sut.Score("key", value);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
 
@@ -88,9 +88,9 @@ internal partial class LoggingRedisSortedSetServiceTests
         _mockService
             .ScoreAsync("key", value)
             .Returns(error);
-     
+
         var result = await _sut.ScoreAsync("key", value);
-        
+
         result.IsLeft.Should().BeTrue();
         result.OnLeft(e => e.Should().Be(error));
         var entries = _loggerFactory.Sink.LogEntries.ToArray();

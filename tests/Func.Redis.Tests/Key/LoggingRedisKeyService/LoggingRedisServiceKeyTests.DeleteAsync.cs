@@ -25,11 +25,12 @@ public partial class LoggingRedisKeyServiceTests
     [Test]
     public async Task MultipleDeleteAsync_WhenServiceReturnsRightWithSome_ShouldReturnRightWithSome()
     {
+        var keys = new[] { "key1", "key2" };
         _mockService
-            .DeleteAsync("key1", "key2")
+            .DeleteAsync(keys)
             .Returns(Unit.Default);
 
-        var result = await _sut.DeleteAsync("key1", "key2");
+        var result = await _sut.DeleteAsync(keys);
 
         result.IsRight.Should().BeTrue();
 
@@ -72,12 +73,13 @@ public partial class LoggingRedisKeyServiceTests
     [Test]
     public async Task MultipleDeleteAsync_WhenServiceReturnsLeft_ShouldReturnLeft()
     {
+        var keys = new[] { "key1", "key2" };
         var error = Error.New("some message");
         _mockService
-            .DeleteAsync("key1", "key2")
+            .DeleteAsync(keys)
             .Returns(error);
 
-        var result = await _sut.DeleteAsync("key1", "key2");
+        var result = await _sut.DeleteAsync(keys);
 
         result.IsLeft.Should().BeTrue();
         result.OnLeft(r => r.Should().Be(error));
@@ -127,13 +129,14 @@ public partial class LoggingRedisKeyServiceTests
     [Test]
     public async Task MultipleDeleteAsync_WhenServiceReturnsLeftWithException_ShouldReturnLeft()
     {
+        var keys = new[] { "key1", "key2" };
         var exception = new Exception("some message");
         var error = Error.New(exception);
         _mockService
-            .DeleteAsync("key1", "key2")
+            .DeleteAsync(keys)
             .Returns(error);
 
-        var result = await _sut.DeleteAsync("key1", "key2");
+        var result = await _sut.DeleteAsync(keys);
 
         result.IsLeft.Should().BeTrue();
         result.OnLeft(r => r.Should().Be(error));

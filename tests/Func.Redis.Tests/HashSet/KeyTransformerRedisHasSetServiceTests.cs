@@ -1,5 +1,4 @@
 ﻿using Func.Redis.HashSet;
-using static Func.Redis.Tests.TestDataElements;
 
 namespace Func.Redis.Tests.HashSet;
 internal class KeyTransformerRedisHasSetServiceTests

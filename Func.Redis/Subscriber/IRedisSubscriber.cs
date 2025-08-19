@@ -3,8 +3,9 @@
 public interface IRedisSubscriber
 {
     /// <summary>
-    /// Subscribe to a channel
+    /// Retrieves the subscription handler for processing Redis messages.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>A tuple containing the subscription channel name as a <see cref="string"/>  and the callback <see
+    /// cref="Action{RedisChannel, RedisValue}"/> to handle incoming messages.</returns>
     (string, Action<RedisChannel, RedisValue>) GetSubscriptionHandler();
 }

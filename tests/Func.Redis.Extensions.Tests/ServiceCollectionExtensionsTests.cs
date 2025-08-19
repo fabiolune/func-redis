@@ -5,6 +5,7 @@ using Func.Redis.Publisher;
 using Func.Redis.SerDes;
 using Func.Redis.SerDes.Json;
 using Func.Redis.Set;
+using Func.Redis.SortedSet;
 using Func.Redis.Subscriber;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Memory;
@@ -142,6 +143,7 @@ internal class ServiceCollectionExtensionsTests
     [TestCase(RedisCapabilities.HashSet, typeof(IRedisHashSetService), typeof(RedisHashSetService))]
     [TestCase(RedisCapabilities.Key, typeof(IRedisKeyService), typeof(RedisKeyService))]
     [TestCase(RedisCapabilities.Set, typeof(IRedisSetService), typeof(RedisSetService))]
+    [TestCase(RedisCapabilities.SortedSet, typeof(IRedisSortedSetService), typeof(RedisSortedSetService))]
     [TestCase(RedisCapabilities.List, typeof(IRedisListService), typeof(RedisListService))]
     [TestCase(RedisCapabilities.Generic, typeof(IRedisService), typeof(RailwayRedisService))]
     public void AddRedis_WhenCapabilityIsEnabledAndConfigIsValid_ShouldRegisterComponents(
@@ -191,6 +193,7 @@ internal class ServiceCollectionExtensionsTests
     [TestCase(RedisCapabilities.HashSet, typeof(IRedisHashSetService), typeof(KeyTransformerRedisHashSetService))]
     [TestCase(RedisCapabilities.Key, typeof(IRedisKeyService), typeof(KeyTransformerRedisKeyService))]
     [TestCase(RedisCapabilities.Set, typeof(IRedisSetService), typeof(KeyTransformerRedisSetService))]
+    [TestCase(RedisCapabilities.SortedSet, typeof(IRedisSortedSetService), typeof(KeyTransformerRedisSortedSetService))]
     [TestCase(RedisCapabilities.List, typeof(IRedisListService), typeof(KeyTransformerRedisListService))]
     public void AddRedis_WhenRedisCapabilityIsEnabledAndKeyPrefixIsValidAndConfigIsValid_ShouldRegisterComponents(
             RedisCapabilities capabilities,
@@ -222,6 +225,7 @@ internal class ServiceCollectionExtensionsTests
     [TestCase(RedisCapabilities.HashSet, typeof(IRedisHashSetService), typeof(LoggingRedisHashSetService))]
     [TestCase(RedisCapabilities.Key, typeof(IRedisKeyService), typeof(LoggingRedisKeyService))]
     [TestCase(RedisCapabilities.Set, typeof(IRedisSetService), typeof(LoggingRedisSetService))]
+    [TestCase(RedisCapabilities.SortedSet, typeof(IRedisSortedSetService), typeof(LoggingRedisSortedSetService))]
     [TestCase(RedisCapabilities.List, typeof(IRedisListService), typeof(LoggingRedisListService))]
     [TestCase(RedisCapabilities.Publish, typeof(IRedisPublisherService), typeof(LoggingRedisPublisherService))]
     public void AddLoggingRedis_WhenRedisCapabilityIsEnabledAndKeyPrefixIsValidAndConfigIsValid_ShouldRegisterComponents(

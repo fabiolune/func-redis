@@ -1,6 +1,4 @@
-﻿using static Func.Redis.Tests.TestDataElements;
-
-namespace Func.Redis.Tests.RedisKeyService;
+﻿namespace Func.Redis.Tests.RedisKeyService;
 
 public partial class RedisKeyServiceTests
 {

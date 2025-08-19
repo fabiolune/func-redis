@@ -8,13 +8,13 @@ internal class KeyTransformerRedisKeyService(IRedisKeyService service, Func<stri
     private readonly IRedisKeyService _service = service;
 
     public Either<Error, Unit> Delete(string key) => _service.Delete(_keyMapper(key));
-    public Either<Error, Unit> Delete(params string[] keys) => _service.Delete(keys.Select(_keyMapper).ToArray());
+    public Either<Error, Unit> Delete(params string[] keys) => _service.Delete([.. keys.Select(_keyMapper)]);
     public Task<Either<Error, Unit>> DeleteAsync(string key) => _service.DeleteAsync(_keyMapper(key));
-    public Task<Either<Error, Unit>> DeleteAsync(params string[] keys) => _service.DeleteAsync(keys.Select(_keyMapper).ToArray());
+    public Task<Either<Error, Unit>> DeleteAsync(params string[] keys) => _service.DeleteAsync([.. keys.Select(_keyMapper)]);
     public Either<Error, Option<T>> Get<T>(string key) => _service.Get<T>(_keyMapper(key));
-    public Either<Error, Option<T>[]> Get<T>(params string[] keys) => _service.Get<T>(keys.Select(_keyMapper).ToArray());
+    public Either<Error, Option<T>[]> Get<T>(params string[] keys) => _service.Get<T>([.. keys.Select(_keyMapper)]);
     public Task<Either<Error, Option<T>>> GetAsync<T>(string key) => _service.GetAsync<T>(_keyMapper(key));
-    public Task<Either<Error, Option<T>[]>> GetAsync<T>(params string[] keys) => _service.GetAsync<T>(keys.Select(_keyMapper).ToArray());
+    public Task<Either<Error, Option<T>[]>> GetAsync<T>(params string[] keys) => _service.GetAsync<T>([.. keys.Select(_keyMapper)]);
     public Either<Error, string[]> GetKeys(string pattern) => _service.GetKeys(_keyMapper(pattern)).Map(kk => kk.Select(_inverseKeyMapper).ToArray());
     public Task<Either<Error, string[]>> GetKeysAsync(string pattern) => _service.GetKeysAsync(_keyMapper(pattern)).MapAsync(kk => kk.Select(_inverseKeyMapper).ToArray());
     public Either<Error, Unit> RenameKey(string key, string newKey) => _service.RenameKey(_keyMapper(key), _keyMapper(newKey));

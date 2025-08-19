@@ -25,11 +25,12 @@ public partial class LoggingRedisKeyServiceTests
     [Test]
     public void MultipleDelete_WhenServiceReturnsRightWithSome_ShouldReturnRightWithSome()
     {
+        var keys = new[] { "key1", "key2" };
         _mockService
-            .Delete("key1", "key2")
+            .Delete(keys)
             .Returns(Unit.Default);
 
-        var result = _sut.Delete("key1", "key2");
+        var result = _sut.Delete(keys);
 
         result.IsRight.Should().BeTrue();
 
@@ -72,12 +73,13 @@ public partial class LoggingRedisKeyServiceTests
     [Test]
     public void MultipleDelete_WhenServiceReturnsLeft_ShouldReturnLeft()
     {
+        var keys = new[] { "key1", "key2" };
         var error = Error.New("some message");
         _mockService
-            .Delete("key1", "key2")
+            .Delete(keys)
             .Returns(error);
 
-        var result = _sut.Delete("key1", "key2");
+        var result = _sut.Delete(keys);
 
         result.IsLeft.Should().BeTrue();
         result.OnLeft(r => r.Should().Be(error));
@@ -127,13 +129,14 @@ public partial class LoggingRedisKeyServiceTests
     [Test]
     public void Delete_WhenServiceReturnsLeftWithException_ShouldReturnLeftMultiple()
     {
+        var keys = new[] { "key1", "key2" };
         var exception = new Exception("some message");
         var error = Error.New(exception);
         _mockService
-            .Delete("key1", "key2")
-            .Returns(Either<Error, Unit>.Left(error));
+            .Delete(keys)
+            .Returns(error);
 
-        var result = _sut.Delete("key1", "key2");
+        var result = _sut.Delete(keys);
 
         result.IsLeft.Should().BeTrue();
         result.OnLeft(r => r.Should().Be(error));

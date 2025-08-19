@@ -2,13 +2,16 @@
 public interface ISourcesProvider
 {
     /// <summary>
-    /// Get the database instance of the Redis server
+    /// Retrieves an instance of the database interface for performing operations.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>An object implementing the <see cref="IDatabase"/> interface, which provides methods for interacting with the
+    /// database.</returns>
     IDatabase GetDatabase();
+
     /// <summary>
-    /// Get all the server references of the Redis instance
+    /// Retrieves an array of servers currently available in the system.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>An array of <see cref="IServer"/> objects representing the available servers.      The array will be empty if no
+    /// servers are available.</returns>
     IServer[] GetServers();
 }

@@ -118,11 +118,12 @@ public static class ServiceCollectionExtensions
                 s => s.AddSingleton<IRedisListService, RedisListService>(),
                 () => capabilities.HasFlag(RedisCapabilities.List))
             .TeeWhen(
-                s => s.Scan(selector => selector
-                    .FromAssemblies(assemblies)
-                    .AddClasses(c => c.AssignableTo<IRedisSubscriber>())
-                    .AsImplementedInterfaces()
-                    .WithSingletonLifetime()),
+                s => s.Scan(selector => 
+                    selector
+                        .FromAssemblies(assemblies)
+                        .AddClasses(c => c.AssignableTo<IRedisSubscriber>())
+                        .AsImplementedInterfaces()
+                        .WithSingletonLifetime()),
                 () => capabilities.HasFlag(RedisCapabilities.Subscribe));
 
     /// <summary>

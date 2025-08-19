@@ -26,7 +26,7 @@ internal class ServiceCollectionExtensionsTests
         public RedisValue Serialize<T>(T value) => throw new NotImplementedException();
     }
 
-    internal class TestRedisSubscriber : IRedisSubscriber
+    public class TestRedisSubscriber : IRedisSubscriber
     {
         public (string, Action<RedisChannel, RedisValue>) GetSubscriptionHandler() =>
             ("my channel", (_, _) => { }
@@ -262,6 +262,7 @@ internal class ServiceCollectionExtensionsTests
             Type expectedKeyType,
             Type expectedImplementationType)
     {
+        
         var config = new MemoryConfigurationSource
         {
             InitialData = new Dictionary<string, string>
@@ -269,7 +270,7 @@ internal class ServiceCollectionExtensionsTests
                 {"RedisConfiguration:ConnectionString", "whatever"}
             }
         };
-
+        
         _mockServices
             .AddRedis<StubSerdes>(new ConfigurationBuilder().Add(config).Build(), capabilities, false, Assembly.GetExecutingAssembly());
 

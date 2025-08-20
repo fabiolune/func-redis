@@ -13,15 +13,15 @@ internal partial class LoggingRedisSetServiceTests
 
         var result = _sut.GetAll<object>("key");
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(e => e.Should().BeEquivalentTo(data));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(e => e.ShouldBeEquivalentTo(data));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSetService: getting all items for \"key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSetService: getting all items for \"key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -35,20 +35,20 @@ internal partial class LoggingRedisSetServiceTests
 
         var result = _sut.GetAll<object>("key");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSetService: getting all items for \"key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSetService: getting all items for \"key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSetService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisSetService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -64,15 +64,15 @@ internal partial class LoggingRedisSetServiceTests
 
         var result = await _sut.GetAllAsync<object>("key");
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(e => e.Should().BeEquivalentTo(data));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(e => e.ShouldBeEquivalentTo(data));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSetService: async getting all items for \"key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSetService: async getting all items for \"key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -86,20 +86,20 @@ internal partial class LoggingRedisSetServiceTests
 
         var result = await _sut.GetAllAsync<object>("key");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSetService: async getting all items for \"key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSetService: async getting all items for \"key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSetService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisSetService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 }

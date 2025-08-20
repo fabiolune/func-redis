@@ -19,8 +19,7 @@ public class RedisSourcesProviderTests
 
         sut
             .GetDatabase()
-            .Should()
-            .Be(mockDatabase);
+            .ShouldBe(mockDatabase);
     }
 
     [Test]
@@ -41,10 +40,10 @@ public class RedisSourcesProviderTests
             .Returns(servers);
 
         var sut = new RedisSourcesProvider(mockProvider);
-
-        sut
-            .GetServers()
-            .Should()
-            .BeEquivalentTo(servers);
+        
+        var result = sut.GetServers();
+        result.Length.ShouldBe(2);
+        result[0].ShouldBe(server1);
+        result[1].ShouldBe(server2);
     }
 }

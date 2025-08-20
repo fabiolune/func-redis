@@ -21,7 +21,7 @@ internal class KeyTransformerRedisSetServiceTests
 
         var result = _sut.Add(key, "value");
 
-        result.Should().Be(internalResult);
+        result.ShouldBe(internalResult);
         _mockService.Received(1).Add("mapped_key", "value");
     }
 
@@ -33,7 +33,7 @@ internal class KeyTransformerRedisSetServiceTests
 
         var result = await _sut.AddAsync(key, "value");
 
-        result.Should().Be(internalResult);
+        result.ShouldBe(internalResult);
         await _mockService.Received(1).AddAsync("mapped_key", "value");
     }
 
@@ -45,7 +45,7 @@ internal class KeyTransformerRedisSetServiceTests
 
         var result = _sut.Delete(key, "value");
 
-        result.Should().Be(internalResult);
+        result.ShouldBe(internalResult);
         _mockService.Received(1).Delete("mapped_key", "value");
     }
 
@@ -56,7 +56,7 @@ internal class KeyTransformerRedisSetServiceTests
 
         var result = _sut.Delete("key", "value1", "value2");
 
-        result.Should().Be(internalResult);
+        result.ShouldBe(internalResult);
         _mockService.Received(1).Delete("mapped_key", "value1", "value2");
     }
 
@@ -68,7 +68,7 @@ internal class KeyTransformerRedisSetServiceTests
 
         var result = await _sut.DeleteAsync(key, "value");
 
-        result.Should().Be(internalResult);
+        result.ShouldBe(internalResult);
         await _mockService.Received(1).DeleteAsync("mapped_key", "value");
     }
 
@@ -79,7 +79,7 @@ internal class KeyTransformerRedisSetServiceTests
 
         var result = await _sut.DeleteAsync("key", "value1", "value2");
 
-        result.Should().Be(internalResult);
+        result.ShouldBe(internalResult);
         await _mockService.Received(1).DeleteAsync("mapped_key", "value1", "value2");
     }
 
@@ -90,7 +90,7 @@ internal class KeyTransformerRedisSetServiceTests
 
         var result = _sut.GetAll<string>("key");
 
-        result.Should().Be(internalResult);
+        result.ShouldBe(internalResult);
         _mockService.Received(1).GetAll<string>("mapped_key");
     }
 
@@ -101,7 +101,7 @@ internal class KeyTransformerRedisSetServiceTests
 
         var result = await _sut.GetAllAsync<string>("key");
 
-        result.Should().Be(internalResult);
+        result.ShouldBe(internalResult);
         await _mockService.Received(1).GetAllAsync<string>("mapped_key");
     }
 
@@ -112,7 +112,7 @@ internal class KeyTransformerRedisSetServiceTests
 
         var result = _sut.Difference<string>("key1", "key2");
 
-        result.Should().Be(internalResult);
+        result.ShouldBe(internalResult);
         _mockService.Received(1).Difference<string>("mapped_key1", "mapped_key2");
     }
 
@@ -123,7 +123,7 @@ internal class KeyTransformerRedisSetServiceTests
 
         var result = await _sut.DifferenceAsync<string>("key1", "key2");
 
-        result.Should().Be(internalResult);
+        result.ShouldBe(internalResult);
         await _mockService.Received(1).DifferenceAsync<string>("mapped_key1", "mapped_key2");
     }
 
@@ -134,7 +134,7 @@ internal class KeyTransformerRedisSetServiceTests
 
         var result = _sut.Intersect<string>("key1", "key2");
 
-        result.Should().Be(internalResult);
+        result.ShouldBe(internalResult);
         _mockService.Received(1).Intersect<string>("mapped_key1", "mapped_key2");
     }
 
@@ -145,7 +145,7 @@ internal class KeyTransformerRedisSetServiceTests
 
         var result = await _sut.IntersectAsync<string>("key1", "key2");
 
-        result.Should().Be(internalResult);
+        result.ShouldBe(internalResult);
         await _mockService.Received(1).IntersectAsync<string>("mapped_key1", "mapped_key2");
     }
 
@@ -156,7 +156,7 @@ internal class KeyTransformerRedisSetServiceTests
 
         var result = _sut.Union<string>("key1", "key2");
 
-        result.Should().Be(internalResult);
+        result.ShouldBe(internalResult);
         _mockService.Received(1).Union<string>("mapped_key1", "mapped_key2");
     }
 
@@ -167,7 +167,7 @@ internal class KeyTransformerRedisSetServiceTests
 
         var result = await _sut.UnionAsync<string>("key1", "key2");
 
-        result.Should().Be(internalResult);
+        result.ShouldBe(internalResult);
         await _mockService.Received(1).UnionAsync<string>("mapped_key1", "mapped_key2");
     }
 
@@ -178,7 +178,7 @@ internal class KeyTransformerRedisSetServiceTests
 
         var result = _sut.Pop<string>("key");
 
-        result.Should().Be(internalResult);
+        result.ShouldBe(internalResult);
         _mockService.Received(1).Pop<string>("mapped_key");
     }
 
@@ -189,7 +189,7 @@ internal class KeyTransformerRedisSetServiceTests
 
         var result = await _sut.PopAsync<string>("key");
 
-        result.Should().Be(internalResult);
+        result.ShouldBe(internalResult);
         await _mockService.Received(1).PopAsync<string>("mapped_key");
     }
 
@@ -200,7 +200,7 @@ internal class KeyTransformerRedisSetServiceTests
 
         var result = _sut.Size("key");
 
-        result.Should().Be(internalResult);
+        result.ShouldBe(internalResult);
         _mockService.Received(1).Size("mapped_key");
     }
 
@@ -211,7 +211,7 @@ internal class KeyTransformerRedisSetServiceTests
 
         var result = await _sut.SizeAsync("key");
 
-        result.Should().Be(internalResult);
+        result.ShouldBe(internalResult);
         await _mockService.Received(1).SizeAsync("mapped_key");
     }
 }

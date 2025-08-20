@@ -14,11 +14,11 @@ internal partial class RedisSetServiceTests
 
         var result = _sut.Pop<TestData>("key");
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result.OnRight(r =>
         {
-            r.IsSome.Should().BeTrue();
-            r.OnSome(v => v.Should().BeEquivalentTo(data));
+            r.IsSome.ShouldBeTrue();
+            r.OnSome(v => v.ShouldBeEquivalentTo(data));
         });
     }
 
@@ -31,8 +31,8 @@ internal partial class RedisSetServiceTests
 
         var result = _sut.Pop<TestData>("key");
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(r => r.IsNone.Should().BeTrue());
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(r => r.IsNone.ShouldBeTrue());
     }
 
     [Test]
@@ -48,11 +48,11 @@ internal partial class RedisSetServiceTests
 
         var result = await _sut.PopAsync<TestData>("key");
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result.OnRight(r =>
         {
-            r.IsSome.Should().BeTrue();
-            r.OnSome(v => v.Should().BeEquivalentTo(data));
+            r.IsSome.ShouldBeTrue();
+            r.OnSome(v => v.ShouldBeEquivalentTo(data));
         });
     }
 
@@ -65,8 +65,8 @@ internal partial class RedisSetServiceTests
 
         var result = await _sut.PopAsync<TestData>("key");
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(r => r.IsNone.Should().BeTrue());
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(r => r.IsNone.ShouldBeTrue());
     }
 
     [Test]
@@ -78,8 +78,8 @@ internal partial class RedisSetServiceTests
 
         var result = _sut.Pop<TestData>("key");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis Exception")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis Exception")));
     }
 
     [Test]
@@ -91,8 +91,8 @@ internal partial class RedisSetServiceTests
 
         var result = await _sut.PopAsync<TestData>("key");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis Exception")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis Exception")));
     }
 
     [Test]
@@ -107,8 +107,8 @@ internal partial class RedisSetServiceTests
 
         var result = _sut.Pop<TestData>("key");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Deserialize Exception")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Deserialize Exception")));
     }
 
     [Test]
@@ -123,7 +123,7 @@ internal partial class RedisSetServiceTests
 
         var result = await _sut.PopAsync<TestData>("key");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Deserialize Exception")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Deserialize Exception")));
     }
 }

@@ -20,7 +20,7 @@ internal class RailwayRedisServiceTests
 
         var result = _sut.Execute(exec);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -30,8 +30,8 @@ internal class RailwayRedisServiceTests
 
         var result = _sut.Execute(exec);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(Error.New("test")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(Error.New("test")));
     }
 
     [Test]
@@ -42,8 +42,8 @@ internal class RailwayRedisServiceTests
 
         var result = _sut.Execute(exec, map);
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(r => r.Should().Be(27));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(r => r.ShouldBe(27));
     }
 
     [Test]
@@ -54,8 +54,8 @@ internal class RailwayRedisServiceTests
 
         var result = _sut.Execute(exec, map);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(Error.New("test")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(Error.New("test")));
     }
 
     [Test]
@@ -66,8 +66,8 @@ internal class RailwayRedisServiceTests
 
         var result = _sut.Execute(exec, map);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(Error.New("test")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(Error.New("test")));
     }
 
     [Test]
@@ -77,7 +77,7 @@ internal class RailwayRedisServiceTests
 
         var result = await _sut.ExecuteAsync(exec);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -87,8 +87,8 @@ internal class RailwayRedisServiceTests
 
         var result = await _sut.ExecuteAsync(exec);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(Error.New("test")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(Error.New("test")));
     }
 
     [Test]
@@ -98,8 +98,8 @@ internal class RailwayRedisServiceTests
 
         var result = await _sut.ExecuteAsync(exec);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(Error.New("test")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(Error.New("test")));
     }
 
     [Test]
@@ -110,8 +110,8 @@ internal class RailwayRedisServiceTests
 
         var result = await _sut.ExecuteAsync(exec, map);
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(r => r.Should().Be(27));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(r => r.ShouldBe(27));
     }
 
     [Test]
@@ -122,8 +122,8 @@ internal class RailwayRedisServiceTests
 
         var result = await _sut.ExecuteAsync(exec, map);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(Error.New("test")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(Error.New("test")));
     }
 
     [Test]
@@ -134,8 +134,8 @@ internal class RailwayRedisServiceTests
 
         var result = await _sut.ExecuteAsync(exec, map);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(Error.New("test")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(Error.New("test")));
     }
 
     [Test]
@@ -146,7 +146,8 @@ internal class RailwayRedisServiceTests
 
         Func<Task> act = () => _sut.ExecuteAsync(exec, map);
 
-        await act.Should().ThrowAsync<Exception>().WithMessage("test");
+        var ex = await act.ShouldThrowAsync<Exception>();
+        ex.Message.ShouldBe("test");
     }
 
     [Test]
@@ -157,8 +158,8 @@ internal class RailwayRedisServiceTests
 
         var result = await _sut.ExecuteUnsafeAsync(exec, map);
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(r => r.Should().Be(27));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(r => r.ShouldBe(27));
     }
 
     [Test]
@@ -169,8 +170,8 @@ internal class RailwayRedisServiceTests
 
         var result = await _sut.ExecuteUnsafeAsync(exec, map);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(Error.New("test")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(Error.New("test")));
     }
 
     [Test]
@@ -181,8 +182,8 @@ internal class RailwayRedisServiceTests
 
         var result = await _sut.ExecuteUnsafeAsync(exec, map);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(Error.New("test")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(Error.New("test")));
     }
 
     [Test]
@@ -193,8 +194,7 @@ internal class RailwayRedisServiceTests
 
         var result = await _sut.ExecuteUnsafeAsync(exec, map);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(Error.New("test")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(Error.New("test")));
     }
-
 }

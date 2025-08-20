@@ -13,15 +13,15 @@ public partial class LoggingRedisKeyServiceTests
 
         var result = await _sut.GetAsync<object>("some key");
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(r => r.OnSome(d => d.Should().Be(data)));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(r => r.OnSome(d => d.ShouldBe(data)));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisKeyService: async getting key \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisKeyService: async getting key \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -38,15 +38,19 @@ public partial class LoggingRedisKeyServiceTests
 
         var result = await _sut.GetAsync<object>(keys);
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(r => r.Filter().Should().BeEquivalentTo([data1, data2]));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(r =>
+        {
+            r.Length.ShouldBe(2);
+            r.Filter().ShouldBe([data1, data2]);
+        });
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisKeyService: async getting keys \"key1, key2\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisKeyService: async getting keys \"key1, key2\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -59,20 +63,20 @@ public partial class LoggingRedisKeyServiceTests
 
         var result = await _sut.GetAsync<object>("some key");
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(r => r.IsNone.Should().BeTrue());
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(r => r.IsNone.ShouldBeTrue());
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisKeyService: async getting key \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisKeyService: async getting key \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisKeyService: key \"some key\" not found");
-            e.LogLevel.Should().Be(LogLevel.Warning);
+            e.Message.ShouldBe("IRedisKeyService: key \"some key\" not found");
+            e.LogLevel.ShouldBe(LogLevel.Warning);
         });
     }
 
@@ -87,15 +91,15 @@ public partial class LoggingRedisKeyServiceTests
 
         var result = await _sut.GetAsync<object>(keys);
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(r => r.Filter().Should().BeEmpty());
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(r => r.Filter().ShouldBeEmpty());
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisKeyService: async getting keys \"key1, key2\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisKeyService: async getting keys \"key1, key2\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -109,20 +113,20 @@ public partial class LoggingRedisKeyServiceTests
 
         var result = await _sut.GetAsync<object>("some key");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(r => r.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(r => r.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisKeyService: async getting key \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisKeyService: async getting key \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisKeyService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisKeyService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -137,20 +141,20 @@ public partial class LoggingRedisKeyServiceTests
 
         var result = await _sut.GetAsync<object>(keys);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(r => r.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(r => r.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisKeyService: async getting keys \"key1, key2\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisKeyService: async getting keys \"key1, key2\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisKeyService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisKeyService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -165,20 +169,20 @@ public partial class LoggingRedisKeyServiceTests
 
         var result = await _sut.GetAsync<object>("some key");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(r => r.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(r => r.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisKeyService: async getting key \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisKeyService: async getting key \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisKeyService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisKeyService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -194,20 +198,20 @@ public partial class LoggingRedisKeyServiceTests
 
         var result = await _sut.GetAsync<object>(keys);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(r => r.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(r => r.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisKeyService: async getting keys \"key1, key2\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisKeyService: async getting keys \"key1, key2\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisKeyService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisKeyService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 }

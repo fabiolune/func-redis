@@ -15,11 +15,11 @@ internal partial class RedisListServiceTests
 
         var result = _sut.Get<TestData>("key", 0);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result.OnRight(o =>
         {
-            o.IsSome.Should().BeTrue();
-            o.OnSome(d => d.Should().BeEquivalentTo(data));
+            o.IsSome.ShouldBeTrue();
+            o.OnSome(d => d.ShouldBeEquivalentTo(data));
         });
     }
 
@@ -36,11 +36,11 @@ internal partial class RedisListServiceTests
 
         var result = await _sut.GetAsync<TestData>("key", 0);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result.OnRight(o =>
         {
-            o.IsSome.Should().BeTrue();
-            o.OnSome(d => d.Should().BeEquivalentTo(data));
+            o.IsSome.ShouldBeTrue();
+            o.OnSome(d => d.ShouldBeEquivalentTo(data));
         });
     }
 
@@ -53,8 +53,8 @@ internal partial class RedisListServiceTests
 
         var result = _sut.Get<TestData>("key", 0);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis Exception")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis Exception")));
     }
 
     [Test]
@@ -66,8 +66,8 @@ internal partial class RedisListServiceTests
 
         var result = await _sut.GetAsync<TestData>("key", 0);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis Exception")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis Exception")));
     }
 
     [Test]
@@ -82,8 +82,8 @@ internal partial class RedisListServiceTests
 
         var result = _sut.Get<TestData>("key", 0);
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(o => o.IsNone.Should().BeTrue());
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(o => o.IsNone.ShouldBeTrue());
     }
 
     [Test]
@@ -98,8 +98,8 @@ internal partial class RedisListServiceTests
 
         var result = await _sut.GetAsync<TestData>("key", 0);
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(o => o.IsNone.Should().BeTrue());
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(o => o.IsNone.ShouldBeTrue());
     }
 
     [Test]
@@ -120,8 +120,8 @@ internal partial class RedisListServiceTests
 
         var result = _sut.Get<TestData>("key", 0, 1);
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(o => o.Filter().Should().BeEquivalentTo(data));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(o => o.Filter().ShouldBe([value1, value2]));
     }
 
     [Test]
@@ -129,7 +129,7 @@ internal partial class RedisListServiceTests
     {
         var value1 = new TestData(1);
         var value2 = new TestData(2);
-        var data = new[] { value1, value2 };
+        
         _mockSerDes
             .Deserialize<TestData>((RedisValue)"serialized1")
             .Returns(value1.ToOption());
@@ -142,8 +142,8 @@ internal partial class RedisListServiceTests
 
         var result = await _sut.GetAsync<TestData>("key", 0, 1);
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(o => o.Filter().Should().BeEquivalentTo(data));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(o => o.Filter().ShouldBe([value1, value2]));
     }
 
     [Test]
@@ -158,8 +158,8 @@ internal partial class RedisListServiceTests
 
         var result = _sut.Get<TestData>("key", 0, 1);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("serdes exception")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("serdes exception")));
     }
 
     [Test]
@@ -174,8 +174,8 @@ internal partial class RedisListServiceTests
 
         var result = await _sut.GetAsync<TestData>("key", 0, 1);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("serdes exception")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("serdes exception")));
     }
 
     [Test]
@@ -187,8 +187,8 @@ internal partial class RedisListServiceTests
 
         var result = _sut.Get<TestData>("key", 0, 1);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis Exception")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis Exception")));
     }
 
     [Test]
@@ -200,7 +200,7 @@ internal partial class RedisListServiceTests
 
         var result = await _sut.GetAsync<TestData>("key", 0, 1);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis Exception")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis Exception")));
     }
 }

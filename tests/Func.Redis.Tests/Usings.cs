@@ -1,4 +1,4 @@
-global using FluentAssertions;
+global using Shouldly;
 global using Func.Redis.Models;
 global using MELT;
 global using Microsoft.Extensions.Logging;

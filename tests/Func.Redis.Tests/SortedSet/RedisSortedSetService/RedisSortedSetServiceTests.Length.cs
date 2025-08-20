@@ -11,8 +11,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.Length("test_key");
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(length => length.Should().Be(5));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(length => length.ShouldBe(5));
     }
 
     [Test]
@@ -24,8 +24,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.Length("test_key");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Message.Should().Be("Redis error"));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.Message.ShouldBe("Redis error"));
     }
 
     [Test]
@@ -37,8 +37,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.LengthByScore("test_key", 1.0, 10.0);
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(length => length.Should().Be(3));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(length => length.ShouldBe(3));
     }
 
     [Test]
@@ -50,8 +50,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.LengthByScore("test_key", 1.0, 10.0);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Message.Should().Be("Redis error"));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.Message.ShouldBe("Redis error"));
     }
 
     [Test]
@@ -70,8 +70,8 @@ internal partial class RedisSortedSetServiceTests
             .SortedSetLengthByValue("test_key", "min_serialized", "max_serialized")
             .Returns(4);
         var result = _sut.LengthByValue("test_key", min, max);
-        result.IsRight.Should().BeTrue();
-        result.OnRight(length => length.Should().Be(4));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(length => length.ShouldBe(4));
     }
 
     [Test]
@@ -92,8 +92,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.LengthByValue("test_key", min, max);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Message.Should().Be("Redis error"));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.Message.ShouldBe("Redis error"));
     }
 
     [Test]
@@ -105,8 +105,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.LengthAsync("test_key");
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(length => length.Should().Be(5));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(length => length.ShouldBe(5));
     }
 
     [Test]
@@ -118,8 +118,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.LengthAsync("test_key");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Message.Should().Be("Redis error"));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.Message.ShouldBe("Redis error"));
     }
 
     [Test]
@@ -131,8 +131,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.LengthByScoreAsync("test_key", 1.0, 10.0);
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(length => length.Should().Be(3));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(length => length.ShouldBe(3));
     }
 
     [Test]
@@ -144,8 +144,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.LengthByScoreAsync("test_key", 1.0, 10.0);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Message.Should().Be("Redis error"));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.Message.ShouldBe("Redis error"));
     }
 
     [Test]
@@ -166,8 +166,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.LengthByValueAsync("test_key", min, max);
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(length => length.Should().Be(4));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(length => length.ShouldBe(4));
     }
 
     [Test]
@@ -188,7 +188,7 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.LengthByValueAsync("test_key", min, max);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Message.Should().Be("Redis error"));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.Message.ShouldBe("Redis error"));
     }
 }

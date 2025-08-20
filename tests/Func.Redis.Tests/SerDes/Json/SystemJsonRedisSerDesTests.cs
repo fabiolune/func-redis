@@ -1,4 +1,5 @@
 ﻿using Func.Redis.SerDes.Json;
+using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 
 namespace Func.Redis.Tests.SerDes.Json;
@@ -23,12 +24,8 @@ public class SystemJsonRedisSerDesTests
     {
         var result = _sut.Deserialize<TestData>(serialized);
 
-        result.IsSome.Should().BeTrue();
-        result
-            .OnSome(data =>
-                data
-                    .Should()
-                    .BeEquivalentTo(new TestData(1)));
+        result.IsSome.ShouldBeTrue();
+        result.OnSome(d => d.ShouldBeEquivalentTo(new TestData(1)));
     }
 
     [TestCaseSource(nameof(InvalidRedisValues))]
@@ -36,23 +33,21 @@ public class SystemJsonRedisSerDesTests
         _sut
             .Deserialize<TestData>(value)
             .IsNone
-            .Should()
-            .BeTrue();
+            .ShouldBeTrue();
 
     [Test]
     public void Deserialize_WhenInputIsNullJson_ShouldReturnNone() =>
         _sut
             .Deserialize<TestData>("null")
             .IsNone
-            .Should()
-            .BeTrue();
+            .ShouldBeTrue();
 
     [Test]
     public void Deserialize_WhenInputIsInvalidJson_ShouldThrowJsonException()
     {
-        var act = () => _sut.Deserialize<TestData>("{ wrong json");
+        Action act = () => _sut.Deserialize<TestData>("{ wrong json");
 
-        act.Should().ThrowExactly<JsonException>();
+        act.ShouldThrow<JsonException>();
     }
 
     [TestCase(@"{""Id"": 1}")]
@@ -61,12 +56,8 @@ public class SystemJsonRedisSerDesTests
     {
         var result = _sut.Deserialize(serialized, typeof(TestData));
 
-        result.IsSome.Should().BeTrue();
-        result
-            .OnSome(data =>
-                data
-                    .Should()
-                    .BeEquivalentTo(new TestData(1)));
+        result.IsSome.ShouldBeTrue();
+        result.OnSome(d => d.ShouldBeEquivalentTo(new TestData(1)));
     }
 
     [TestCaseSource(nameof(InvalidRedisValues))]
@@ -74,23 +65,23 @@ public class SystemJsonRedisSerDesTests
         _sut
             .Deserialize(value, typeof(TestData))
             .IsNone
-            .Should()
-            .BeTrue();
+            .ShouldBeTrue();
 
     [Test]
     public void DeserializeWithType_WhenInputIsNullJson_ShouldReturnNone() =>
         _sut
             .Deserialize("null", typeof(TestData))
             .IsNone
-            .Should()
-            .BeTrue();
+            .ShouldBeTrue();
 
     [Test]
+    [SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression", Justification = "Required for following suppression")]
+    [SuppressMessage("Usage", "CA2263:Prefer generic overload when type is known", Justification = "required for testing")]
     public void DeserializeWithType_WhenInputIsInvalidJson_ShouldThrowJsonException()
     {
-        var act = () => _sut.Deserialize("{ wrong json", typeof(TestData));
+        Action act = () => _sut.Deserialize("{ wrong json", typeof(TestData));
 
-        act.Should().ThrowExactly<JsonException>();
+        act.ShouldThrow<JsonException>();
     }
 
     [Test]
@@ -98,8 +89,7 @@ public class SystemJsonRedisSerDesTests
         _sut
             .Deserialize<TestData>(Array.Empty<RedisValue>())
             .IsNone
-            .Should()
-            .BeTrue();
+            .ShouldBeTrue();
 
     public static readonly RedisValue[][] InvalidValues =
     [
@@ -134,21 +124,15 @@ public class SystemJsonRedisSerDesTests
         _sut
             .Deserialize<TestData>(values)
             .IsNone
-            .Should()
-            .BeTrue();
+            .ShouldBeTrue();
 
     [Test]
     public void Deserialize_WhenValuesAreValidJson_ShouldReturnSome()
     {
         var result = _sut.Deserialize<TestData>([@"{""Id"": 1}", @"{""id"": 2}"]);
 
-        result.IsSome.Should().BeTrue();
-        result
-            .OnSome(v => v.Should().BeEquivalentTo(
-            [
-            new TestData(1),
-            new TestData(2)
-            ]));
+        result.IsSome.ShouldBeTrue();
+        result.OnSome(v => v.ShouldBe([new TestData(1), new TestData(2)]));
     }
 
     public static readonly RedisValue[][] InvalidJsonValues =
@@ -170,9 +154,9 @@ public class SystemJsonRedisSerDesTests
     [TestCaseSource(nameof(InvalidJsonValues))]
     public void Deserialize_WhenInputContainInvalidJson_ShouldThrowJsonException(RedisValue[] values)
     {
-        var act = () => _sut.Deserialize<TestData>(values);
+        Action act = () => _sut.Deserialize<TestData>(values);
 
-        act.Should().ThrowExactly<JsonException>();
+        act.ShouldThrow<JsonException>();
     }
 
     [Test]
@@ -180,8 +164,7 @@ public class SystemJsonRedisSerDesTests
         _sut
             .Deserialize<TestData>(Array.Empty<HashEntry>())
             .IsNone
-            .Should()
-            .BeTrue();
+            .ShouldBeTrue();
 
     public static readonly HashEntry[][] InvalidEntries =
     [
@@ -216,21 +199,15 @@ public class SystemJsonRedisSerDesTests
         _sut
             .Deserialize<TestData>(entries)
             .IsNone
-            .Should()
-            .BeTrue();
+            .ShouldBeTrue();
 
     [Test]
     public void DeserializeEntries_WhenEntriesContainValidJson_ShouldReturnSome()
     {
         var result = _sut.Deserialize<TestData>([new HashEntry("key1", @"{""Id"": 1}"), new HashEntry("key2", @"{""id"": 2}")]);
 
-        result.IsSome.Should().BeTrue();
-        result
-            .OnSome(v => v.Should().BeEquivalentTo(
-            [
-                ("key1", new TestData(1)),
-                ("key2", new TestData(2))
-            ]));
+        result.IsSome.ShouldBeTrue();
+        result.OnSome(v => v.ShouldBe([("key1", new TestData(1)), ("key2", new TestData(2))]));
     }
 
     public static readonly HashEntry[][] InvalidJsonEntries =
@@ -252,9 +229,9 @@ public class SystemJsonRedisSerDesTests
     [TestCaseSource(nameof(InvalidJsonEntries))]
     public void Deserialize_WhenEntriesContainInvalidJson_ShouldThrowJsonException(HashEntry[] entries)
     {
-        var act = () => _sut.Deserialize<TestData>(entries);
+        Action act = () => _sut.Deserialize<TestData>(entries);
 
-        act.Should().ThrowExactly<JsonException>();
+        act.ShouldThrow<JsonException>();
     }
 
     public static readonly object[][] SerializationCombinations =
@@ -267,8 +244,5 @@ public class SystemJsonRedisSerDesTests
 
     [TestCaseSource(nameof(SerializationCombinations))]
     public void Serialize_WnenInputIsValid_ShouldReturnJsonRepresentation(object item, string serialization) =>
-        _sut
-            .Serialize(item)
-            .Should()
-            .Be(serialization);
+        ((string)_sut.Serialize(item)).ShouldBe(serialization);
 }

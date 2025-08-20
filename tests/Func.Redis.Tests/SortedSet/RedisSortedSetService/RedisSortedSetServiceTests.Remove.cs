@@ -17,7 +17,7 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.Remove("key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -35,8 +35,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.Remove("key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(error => error.Message.Should().Be("Redis ZREM Error"));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(error => error.Message.ShouldBe("Redis ZREM Error"));
     }
 
     [Test]
@@ -57,8 +57,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.Remove("key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
     }
 
     [Test]
@@ -76,7 +76,7 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.RemoveAsync("key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -94,8 +94,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.RemoveAsync("key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(error => error.Message.Should().Be("Redis ZREM Error"));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(error => error.Message.ShouldBe("Redis ZREM Error"));
     }
 
     [Test]
@@ -116,8 +116,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.RemoveAsync("key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
     }
 
     [TestCase(0L)]
@@ -139,7 +139,7 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.Remove<TestData>("key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -161,8 +161,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.Remove<TestData>("key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
     }
 
     [TestCase(0L)]
@@ -184,7 +184,7 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.RemoveAsync<TestData>("key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -206,8 +206,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.RemoveAsync<TestData>("key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
     }
 
     [TestCase(0L)]
@@ -221,7 +221,7 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.RemoveRangeByScore("key", 1, 10);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [TestCase(0L)]
@@ -234,7 +234,7 @@ internal partial class RedisSortedSetServiceTests
             .Returns(value);
         var result = await _sut.RemoveRangeByScoreAsync("key", 1, 10);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -248,8 +248,8 @@ internal partial class RedisSortedSetServiceTests
             .Returns(_ => throw exception);
         var result = _sut.RemoveRangeByScore("key", 1, 10);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
     }
 
     [Test]
@@ -263,8 +263,8 @@ internal partial class RedisSortedSetServiceTests
             .Returns<long>(_ => throw exception);
         var result = await _sut.RemoveRangeByScoreAsync("key", 1, 10);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
     }
 
     [TestCase(0L)]
@@ -286,7 +286,7 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.RemoveRangeByValue("key", data1, data2);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [TestCase(0L)]
@@ -307,7 +307,7 @@ internal partial class RedisSortedSetServiceTests
             .Returns(value);
         var result = await _sut.RemoveRangeByValueAsync("key", data1, data2);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -329,8 +329,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.RemoveRangeByValue("key", data1, data2);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
     }
 
     [Test]
@@ -352,8 +352,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.RemoveRangeByValueAsync("key", data1, data2);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
     }
 
     [Test]
@@ -370,8 +370,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.RemoveRangeByValue("key", data1, data2);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
     }
 
     [Test]
@@ -388,7 +388,7 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.RemoveRangeByValueAsync("key", data1, data2);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
     }
 }

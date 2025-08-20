@@ -13,8 +13,8 @@ internal partial class RedisSetServiceTests
 
         var result = _sut.Difference<string>("key1", "key2");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(err => err.Should().Be(Error.New(new NullReferenceException())));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(err => err.ShouldBe(Error.New(new NullReferenceException())));
     }
 
     [Test]
@@ -28,9 +28,9 @@ internal partial class RedisSetServiceTests
 
         var result = _sut.Difference<string>("key1", "key2");
 
-        result.IsLeft.Should().BeTrue();
+        result.IsLeft.ShouldBeTrue();
         result
-            .OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
+            .OnLeft(e => e.ShouldBeEquivalentTo(Error.New(exception)));
     }
 
     [Test]
@@ -51,8 +51,8 @@ internal partial class RedisSetServiceTests
 
         var result = _sut.Difference<TestData>("key1", "key2");
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(res => res.Should().BeEquivalentTo(deserialized));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(res => res.ShouldBeEquivalentTo(deserialized));
     }
 
     [Test]
@@ -73,8 +73,8 @@ internal partial class RedisSetServiceTests
 
         var result = await _sut.DifferenceAsync<TestData>("key1", "key2");
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(res => res.Should().BeEquivalentTo(deserialized));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(res => res.ShouldBeEquivalentTo(deserialized));
     }
 
     [Test]
@@ -88,8 +88,8 @@ internal partial class RedisSetServiceTests
 
         var result = await _sut.DifferenceAsync<string>("key1", "key2");
 
-        result.IsLeft.Should().BeTrue();
+        result.IsLeft.ShouldBeTrue();
         result
-            .OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
+            .OnLeft(e => e.ShouldBeEquivalentTo(Error.New(exception)));
     }
 }

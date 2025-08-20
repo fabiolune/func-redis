@@ -18,18 +18,18 @@ internal abstract class RedisSortedSetServiceIntegrationTest(string redisImage) 
     public async Task WhenDataAreNotPresent_AddShouldReturnRightUnit()
     {
         var addResult = await _sut.AddAsync("some key", "some value", 10);
-        addResult.IsRight.Should().BeTrue();
+        addResult.IsRight.ShouldBeTrue();
 
         var getResult = await _sut.RangeByScoreAsync<string>("some key", 1, 10);
-        getResult.IsRight.Should().BeTrue();
-        getResult.OnRight(o => o.Should().BeEquivalentTo(["some value"]));
+        getResult.IsRight.ShouldBeTrue();
+        getResult.OnRight(o => o.ShouldBe(["some value"]));
 
         var removeResult = await _sut.RemoveAsync("some key", "some value");
-        removeResult.IsRight.Should().BeTrue();
+        removeResult.IsRight.ShouldBeTrue();
 
         getResult = await _sut.RangeByScoreAsync<string>("some key", 1, 10);
-        getResult.IsRight.Should().BeTrue();
-        getResult.OnRight(o => o.Should().BeEmpty());
+        getResult.IsRight.ShouldBeTrue();
+        getResult.OnRight(o => o.ShouldBeEmpty());
     }
 
     [Test]
@@ -43,12 +43,12 @@ internal abstract class RedisSortedSetServiceIntegrationTest(string redisImage) 
         };
 
         var addResult = await _sut.AddAsync(key, input, 1);
-        addResult.IsRight.Should().BeTrue();
+        addResult.IsRight.ShouldBeTrue();
 
         var lengthResult = await _sut.LengthAsync(key);
 
-        lengthResult.IsRight.Should().BeTrue();
-        lengthResult.OnRight(o => o.Should().Be(1));
+        lengthResult.IsRight.ShouldBeTrue();
+        lengthResult.OnRight(o => o.ShouldBe(1));
 
         var input2 = new TestModel
         {
@@ -56,20 +56,20 @@ internal abstract class RedisSortedSetServiceIntegrationTest(string redisImage) 
         };
 
         addResult = await _sut.AddAsync(key, input2, 10);
-        addResult.IsRight.Should().BeTrue();
+        addResult.IsRight.ShouldBeTrue();
 
         lengthResult = await _sut.LengthAsync(key);
 
-        lengthResult.IsRight.Should().BeTrue();
-        lengthResult.OnRight(o => o.Should().Be(2));
+        lengthResult.IsRight.ShouldBeTrue();
+        lengthResult.OnRight(o => o.ShouldBe(2));
 
         var rangeResult = await _sut.RangeByScoreAsync<TestModel>(key, 1, 5);
-        rangeResult.IsRight.Should().BeTrue();
-        rangeResult.OnRight(o => o.Should().BeEquivalentTo([input]));
+        rangeResult.IsRight.ShouldBeTrue();
+        rangeResult.OnRight(o => o.ShouldBeEquivalentTo(new[] { input }));
 
         rangeResult = await _sut.RangeByScoreAsync<TestModel>(key, 1, 10);
-        rangeResult.IsRight.Should().BeTrue();
-        rangeResult.OnRight(o => o.Should().BeEquivalentTo([input, input2]));
+        rangeResult.IsRight.ShouldBeTrue();
+        rangeResult.OnRight(o => o.ShouldBeEquivalentTo(new[] { input, input2 }));
     }
 
     [Test]
@@ -104,23 +104,36 @@ internal abstract class RedisSortedSetServiceIntegrationTest(string redisImage) 
             .BindAsync(_ => _sut.AddAsync(key1, input3, 3))
             .BindAsync(_ => _sut.AddAsync(key1, input4, 4));
 
-        addResult1.IsRight.Should().BeTrue();
+        addResult1.IsRight.ShouldBeTrue();
 
         var addResult2 = await _sut.AddAsync(key2, input3, 10)
             .BindAsync(_ => _sut.AddAsync(key2, input4, 11))
             .BindAsync(_ => _sut.AddAsync(key2, input5, 12));
 
-        addResult2.IsRight.Should().BeTrue();
+        addResult2.IsRight.ShouldBeTrue();
 
         var keys = new[] { key1, key2 };
         var intersectResult = await _sut.IntersectAsync<TestModel>(keys);
 
-        intersectResult.IsRight.Should().BeTrue();
-        intersectResult.OnRight(o => o.Should().BeEquivalentTo([input3, input4]));
+        intersectResult.IsRight.ShouldBeTrue();
+        intersectResult.OnRight(o =>
+        {
+            o.Length.ShouldBe(2);
+            o.ShouldContain(input3);
+            o.ShouldContain(input4);
+        });
 
         var unionResult = await _sut.UnionAsync<TestModel>(keys);
 
-        unionResult.IsRight.Should().BeTrue();
-        unionResult.OnRight(o => o.Should().BeEquivalentTo([input1, input2, input3, input4, input5]));
+        unionResult.IsRight.ShouldBeTrue();
+        unionResult.OnRight(o =>
+        {
+            o.Length.ShouldBe(5);
+            o.ShouldContain(input1);
+            o.ShouldContain(input2);
+            o.ShouldContain(input3);
+            o.ShouldContain(input4);
+            o.ShouldContain(input5);
+        });
     }
 }

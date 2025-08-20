@@ -21,38 +21,38 @@ internal abstract class RedisListServiceIntegrationTests(string redisImage) : Re
 
         var getResult = await _sut.GetAsync<TestModel>(key, 0);
 
-        getResult.IsRight.Should().BeTrue();
-        getResult.OnRight(v => v.IsNone.Should().BeTrue());
+        getResult.IsRight.ShouldBeTrue();
+        getResult.OnRight(v => v.IsNone.ShouldBeTrue());
 
         await _sut.AppendAsync(key, value);
 
         getResult = await _sut.GetAsync<TestModel>(key, 0);
 
-        getResult.IsRight.Should().BeTrue();
+        getResult.IsRight.ShouldBeTrue();
         getResult.OnRight(v =>
         {
-            v.IsSome.Should().BeTrue();
-            v.OnSome(s => s.Should().Be(value));
+            v.IsSome.ShouldBeTrue();
+            v.OnSome(s => s.ShouldBe(value));
         });
 
         getResult = await _sut.GetAsync<TestModel>(key, 10);
-        getResult.IsRight.Should().BeTrue();
-        getResult.OnRight(v => v.IsNone.Should().BeTrue());
+        getResult.IsRight.ShouldBeTrue();
+        getResult.OnRight(v => v.IsNone.ShouldBeTrue());
 
         var value2 = new TestModel();
         await _sut.PrependAsync(key, value2);
 
         var sizeResult = await _sut.SizeAsync(key);
 
-        sizeResult.IsRight.Should().BeTrue();
-        sizeResult.OnRight(s => s.Should().Be(2));
+        sizeResult.IsRight.ShouldBeTrue();
+        sizeResult.OnRight(s => s.ShouldBe(2));
 
         getResult = await _sut.GetAsync<TestModel>(key, 0);
-        getResult.IsRight.Should().BeTrue();
+        getResult.IsRight.ShouldBeTrue();
         getResult.OnRight(v =>
         {
-            v.IsSome.Should().BeTrue();
-            v.OnSome(s => s.Should().Be(value2));
+            v.IsSome.ShouldBeTrue();
+            v.OnSome(s => s.ShouldBe(value2));
         });
 
         var value3 = new TestModel();
@@ -60,35 +60,43 @@ internal abstract class RedisListServiceIntegrationTests(string redisImage) : Re
 
         var valuesResult = await _sut.GetAsync<TestModel>(key, 0, 2);
 
-        valuesResult.IsRight.Should().BeTrue();
-        valuesResult.OnRight(v => v.Filter().Should().BeEquivalentTo([value2, value, value3]));
+        valuesResult.IsRight.ShouldBeTrue();
+        valuesResult.OnRight(v => v.Filter().Tee(f =>
+        {
+            var expected = new[] { value2, value, value3 };
+            f.ShouldBe(expected);
+            //f.Count().ShouldBe(3);
+            //f.ShouldContain(value2);
+            //f.ShouldContain(value);
+            //f.ShouldContain(value3);
+        }));
 
         sizeResult = await _sut.SizeAsync(key);
 
-        sizeResult.IsRight.Should().BeTrue();
-        sizeResult.OnRight(s => s.Should().Be(3));
+        sizeResult.IsRight.ShouldBeTrue();
+        sizeResult.OnRight(s => s.ShouldBe(3));
 
         var popResult = await _sut.PopAsync<TestModel>(key);
 
-        popResult.IsRight.Should().BeTrue();
+        popResult.IsRight.ShouldBeTrue();
         popResult.OnRight(v =>
         {
-            v.IsSome.Should().BeTrue();
-            v.OnSome(s => s.Should().Be(value3));
+            v.IsSome.ShouldBeTrue();
+            v.OnSome(s => s.ShouldBe(value3));
         });
 
         sizeResult = await _sut.SizeAsync(key);
 
-        sizeResult.IsRight.Should().BeTrue();
-        sizeResult.OnRight(s => s.Should().Be(2));
+        sizeResult.IsRight.ShouldBeTrue();
+        sizeResult.OnRight(s => s.ShouldBe(2));
 
         var shiftResult = await _sut.ShiftAsync<TestModel>(key);
 
-        shiftResult.IsRight.Should().BeTrue();
+        shiftResult.IsRight.ShouldBeTrue();
         shiftResult.OnRight(v =>
         {
-            v.IsSome.Should().BeTrue();
-            v.OnSome(s => s.Should().Be(value2));
+            v.IsSome.ShouldBeTrue();
+            v.OnSome(s => s.ShouldBe(value2));
         });
     }
 }

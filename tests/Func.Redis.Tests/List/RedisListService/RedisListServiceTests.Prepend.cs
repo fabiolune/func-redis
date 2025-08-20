@@ -15,7 +15,7 @@ internal partial class RedisListServiceTests
 
         var result = _sut.Prepend("key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -31,7 +31,7 @@ internal partial class RedisListServiceTests
 
         var result = await _sut.PrependAsync("key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -47,8 +47,8 @@ internal partial class RedisListServiceTests
 
         var result = _sut.Prepend("key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis Exception")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis Exception")));
     }
 
     [Test]
@@ -64,8 +64,8 @@ internal partial class RedisListServiceTests
 
         var result = await _sut.PrependAsync("key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis Exception")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis Exception")));
     }
 
     [Test]
@@ -87,7 +87,7 @@ internal partial class RedisListServiceTests
 
         var result = _sut.Prepend("key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -109,7 +109,7 @@ internal partial class RedisListServiceTests
 
         var result = await _sut.PrependAsync("key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -131,8 +131,8 @@ internal partial class RedisListServiceTests
 
         var result = _sut.Prepend("key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis Exception")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis Exception")));
     }
 
     [Test]
@@ -154,7 +154,7 @@ internal partial class RedisListServiceTests
 
         var result = await _sut.PrependAsync("key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis Exception")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis Exception")));
     }
 }

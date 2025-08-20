@@ -15,8 +15,8 @@ public partial class RedisHashSetServiceTests
 
         var result = _sut.Get<object>("key", "field");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(err => err.Should().Be(Error.New(new NullReferenceException())));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(err => err.ShouldBe(Error.New(new NullReferenceException())));
     }
 
     [Test]
@@ -30,8 +30,8 @@ public partial class RedisHashSetServiceTests
 
         var result = _sut.Get<object>("key", "field");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(err => err.Message.Should().Be("some message"));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(err => err.Message.ShouldBe("some message"));
         _mockDb
             .Received(1)
             .HashGet("key", "field", Arg.Any<CommandFlags>());
@@ -47,9 +47,9 @@ public partial class RedisHashSetServiceTests
 
         var result = _sut.Get<object>("key", "field");
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result
-            .OnRight(e => e.IsNone.Should().BeTrue());
+            .OnRight(e => e.IsNone.ShouldBeTrue());
         _mockDb
             .Received(1)
             .HashGet("key", "field", Arg.Any<CommandFlags>());
@@ -69,9 +69,9 @@ public partial class RedisHashSetServiceTests
 
         var result = _sut.Get<object>("key", "field");
 
-        result.IsLeft.Should().BeTrue();
+        result.IsLeft.ShouldBeTrue();
         result
-            .OnLeft(e => e.Message.Should().Be("some message"));
+            .OnLeft(e => e.Message.ShouldBe("some message"));
         _mockDb
             .Received(1)
             .HashGet("key", "field", CommandFlags.None);
@@ -86,9 +86,9 @@ public partial class RedisHashSetServiceTests
 
         var result = _sut.Get<object>("key", "field");
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result
-            .OnRight(e => e.IsNone.Should().BeTrue());
+            .OnRight(e => e.IsNone.ShouldBeTrue());
         _mockDb
             .Received(1)
             .HashGet("key", "field", Arg.Any<CommandFlags>());
@@ -107,12 +107,12 @@ public partial class RedisHashSetServiceTests
 
         var result = _sut.Get<TestData>("key", "field");
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result
             .OnRight(e =>
             {
-                e.IsSome.Should().BeTrue();
-                e.OnSome(d => d.Should().BeEquivalentTo(new TestData(1)));
+                e.IsSome.ShouldBeTrue();
+                e.OnSome(d => d.ShouldBeEquivalentTo(new TestData(1)));
             });
         _mockDb
             .Received(1)
@@ -133,8 +133,8 @@ public partial class RedisHashSetServiceTests
 
         var result = _sut.Get<object>("key", fields);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(err => err.Should().Be(Error.New(new NullReferenceException())));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(err => err.ShouldBe(Error.New(new NullReferenceException())));
     }
 
     [Test]
@@ -151,9 +151,9 @@ public partial class RedisHashSetServiceTests
 
         var result = _sut.Get<object>("key", stringfields);
 
-        result.IsLeft.Should().BeTrue();
+        result.IsLeft.ShouldBeTrue();
         result
-            .OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
+            .OnLeft(e => e.ShouldBeEquivalentTo(Error.New(exception)));
         _mockDb
             .Received(1)
             .HashGet("key", Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>());
@@ -173,12 +173,12 @@ public partial class RedisHashSetServiceTests
 
         var result = _sut.Get<object>("key", stringfields);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result
             .OnRight(e =>
             {
-                e.Should().HaveCount(2);
-                e.Filter().Should().BeEmpty();
+                e.Length.ShouldBe(2);
+                e.Filter().ShouldBeEmpty();
             });
 
         _mockDb
@@ -199,12 +199,12 @@ public partial class RedisHashSetServiceTests
 
         var result = _sut.Get<object>("key", stringfields);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result
             .OnRight(e =>
             {
-                e.Should().HaveCount(2);
-                e.Filter().Should().BeEmpty();
+                e.Length.ShouldBe(2);
+                e.Filter().ShouldBeEmpty();
             });
 
         _mockDb
@@ -224,12 +224,12 @@ public partial class RedisHashSetServiceTests
 
         var result = _sut.Get<object>("key", stringfields);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result
             .OnRight(e =>
             {
-                e.Should().HaveCount(2);
-                e.Filter().Should().BeEmpty();
+                e.Length.ShouldBe(2);
+                e.Filter().ShouldBeEmpty();
             });
         _mockDb
             .Received(1)
@@ -260,10 +260,10 @@ public partial class RedisHashSetServiceTests
         result
             .OnRight(r =>
             {
-                r.Should().HaveCount(2);
+                r.Length.ShouldBe(2);
                 var somes = r.Filter();
-                somes.Should().HaveCount(2);
-                somes.Should().BeEquivalentTo([new TestData(1), new TestData(2)]);
+                var expected = new[] { new TestData(1), new TestData(2) };
+                somes.ShouldBe(expected);
             });
     }
 }

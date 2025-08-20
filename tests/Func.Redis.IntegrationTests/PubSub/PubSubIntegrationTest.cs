@@ -34,7 +34,7 @@ internal abstract class PubSubIntegrationTest(string redisImage) : RedisIntegrat
         var subscriber1 = new TestSubscriber(o =>
         {
             called1 = true;
-            o.IsSome.Should().BeTrue();
+            o.IsSome.ShouldBeTrue();
             o.OnSome(d => receivedData1 = d);
         }, channel);
 
@@ -43,7 +43,7 @@ internal abstract class PubSubIntegrationTest(string redisImage) : RedisIntegrat
         var subscriber2 = new TestSubscriber(o =>
         {
             called2 = true;
-            o.IsSome.Should().BeTrue();
+            o.IsSome.ShouldBeTrue();
             o.OnSome(d => receivedData2 = d);
         }, "different channel");
 
@@ -69,13 +69,13 @@ internal abstract class PubSubIntegrationTest(string redisImage) : RedisIntegrat
         };
         var publishResult = await _sut.PublishAsync(channel, data);
 
-        publishResult.IsRight.Should().BeTrue();
+        publishResult.IsRight.ShouldBeTrue();
 
         await Task.Delay(500);
-        called1.Should().BeTrue();
-        receivedData1.Should().BeEquivalentTo(data);
+        called1.ShouldBeTrue();
+        receivedData1.ShouldBeEquivalentTo(data);
 
-        called2.Should().BeFalse();
-        receivedData2.Should().BeNull();
+        called2.ShouldBeFalse();
+        receivedData2.ShouldBeNull();
     }
 }

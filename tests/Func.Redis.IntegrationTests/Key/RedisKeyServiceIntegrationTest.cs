@@ -19,8 +19,8 @@ internal abstract class RedisKeyServiceIntegrationTest(string redisImage) : Redi
     {
         var getResult = await _sut.GetAsync<TestModel>("some key");
 
-        getResult.IsRight.Should().BeTrue();
-        getResult.OnRight(o => o.IsNone.Should().BeTrue());
+        getResult.IsRight.ShouldBeTrue();
+        getResult.OnRight(o => o.IsNone.ShouldBeTrue());
     }
 
     [Test]
@@ -35,24 +35,24 @@ internal abstract class RedisKeyServiceIntegrationTest(string redisImage) : Redi
 
         var insertResult = await _sut.SetAsync(key, input);
 
-        insertResult.IsRight.Should().BeTrue();
+        insertResult.IsRight.ShouldBeTrue();
 
         var getResult = await _sut.GetAsync<TestModel>(key);
 
-        getResult.IsRight.Should().BeTrue();
+        getResult.IsRight.ShouldBeTrue();
         getResult.OnRight(o =>
         {
-            o.IsSome.Should().BeTrue();
-            o.OnSome(v => v.Should().BeEquivalentTo(input));
+            o.IsSome.ShouldBeTrue();
+            o.OnSome(v => v.ShouldBeEquivalentTo(input));
         });
 
         var deleteResult = await _sut.DeleteAsync(key);
 
-        deleteResult.IsRight.Should().BeTrue();
+        deleteResult.IsRight.ShouldBeTrue();
 
         var getResultAfterDelete = await _sut.GetAsync<TestModel>(key);
 
-        getResultAfterDelete.IsRight.Should().BeTrue();
-        getResultAfterDelete.OnRight(o => o.IsNone.Should().BeTrue());
+        getResultAfterDelete.IsRight.ShouldBeTrue();
+        getResultAfterDelete.OnRight(o => o.IsNone.ShouldBeTrue());
     }
 }

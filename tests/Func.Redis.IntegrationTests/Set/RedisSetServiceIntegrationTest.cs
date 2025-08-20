@@ -19,7 +19,7 @@ internal abstract class RedisSetServiceIntegrationTest(string redisImage) : Redi
     {
         var addResult = await _sut.AddAsync("some key", "some value");
 
-        addResult.IsRight.Should().BeTrue();
+        addResult.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -33,17 +33,20 @@ internal abstract class RedisSetServiceIntegrationTest(string redisImage) : Redi
         };
 
         var addResult = await _sut.AddAsync(key, input);
-        addResult.IsRight.Should().BeTrue();
+        addResult.IsRight.ShouldBeTrue();
 
         var getAllResult = await _sut.GetAllAsync<TestModel>(key);
 
-        getAllResult.IsRight.Should().BeTrue();
-        getAllResult.OnRight(o => o.Should().BeEquivalentTo([input.ToOption()]));
+        getAllResult.IsRight.ShouldBeTrue();
+        getAllResult.OnRight(o =>
+        {
+            o.ShouldContain(input.ToOption());
+            o.Length.ShouldBe(1);
+        });
 
         var sizeResult = await _sut.SizeAsync(key);
-
-        sizeResult.IsRight.Should().BeTrue();
-        sizeResult.OnRight(o => o.Should().Be(1));
+        sizeResult.IsRight.ShouldBeTrue();
+        sizeResult.OnRight(o => o.ShouldBe(1));
 
         var input2 = new TestModel
         {
@@ -51,17 +54,20 @@ internal abstract class RedisSetServiceIntegrationTest(string redisImage) : Redi
         };
 
         addResult = await _sut.AddAsync(key, input2);
-        addResult.IsRight.Should().BeTrue();
+        addResult.IsRight.ShouldBeTrue();
 
         getAllResult = await _sut.GetAllAsync<TestModel>(key);
-
-        getAllResult.IsRight.Should().BeTrue();
-        getAllResult.OnRight(o => o.Should().BeEquivalentTo([input.ToOption(), input2.ToOption()]));
+        getAllResult.IsRight.ShouldBeTrue();
+        getAllResult.OnRight(o =>
+        {
+            o.Length.ShouldBe(2);
+            o.ShouldContain(input.ToOption());
+            o.ShouldContain(input2.ToOption());
+        });
 
         sizeResult = await _sut.SizeAsync(key);
-
-        sizeResult.IsRight.Should().BeTrue();
-        sizeResult.OnRight(o => o.Should().Be(2));
+        sizeResult.IsRight.ShouldBeTrue();
+        sizeResult.OnRight(o => o.ShouldBe(2));
     }
 
     [Test]
@@ -96,27 +102,44 @@ internal abstract class RedisSetServiceIntegrationTest(string redisImage) : Redi
             .BindAsync(_ => _sut.AddAsync(key1, input3))
             .BindAsync(_ => _sut.AddAsync(key1, input4));
 
-        addResult1.IsRight.Should().BeTrue();
+        addResult1.IsRight.ShouldBeTrue();
 
         var addResult2 = await _sut.AddAsync(key2, input3)
             .BindAsync(_ => _sut.AddAsync(key2, input4))
             .BindAsync(_ => _sut.AddAsync(key2, input5));
 
-        addResult2.IsRight.Should().BeTrue();
+        addResult2.IsRight.ShouldBeTrue();
 
         var intersectResult = await _sut.IntersectAsync<TestModel>(key1, key2);
 
-        intersectResult.IsRight.Should().BeTrue();
-        intersectResult.OnRight(o => o.Should().BeEquivalentTo([input3, input4]));
+        intersectResult.IsRight.ShouldBeTrue();
+        intersectResult.OnRight(o =>
+        {
+            o.ShouldContain(input3);
+            o.ShouldContain(input4);
+            o.Length.ShouldBe(2);
+        });
 
         var unionResult = await _sut.UnionAsync<TestModel>(key1, key2);
 
-        unionResult.IsRight.Should().BeTrue();
-        unionResult.OnRight(o => o.Should().BeEquivalentTo([input1, input2, input3, input4, input5]));
+        unionResult.IsRight.ShouldBeTrue();
+        unionResult.OnRight(o =>
+        {
+            o.ShouldContain(input1);
+            o.ShouldContain(input2);
+            o.ShouldContain(input3);
+            o.ShouldContain(input4);
+            o.ShouldContain(input5);
+            o.Length.ShouldBe(5);
+        });
 
         var differenceResult = await _sut.DifferenceAsync<TestModel>(key1, key2);
-
-        differenceResult.IsRight.Should().BeTrue();
-        differenceResult.OnRight(o => o.Should().BeEquivalentTo([input1, input2]));
+        differenceResult.IsRight.ShouldBeTrue();
+        differenceResult.OnRight(o =>
+        {
+            o.ShouldContain(input1);
+            o.ShouldContain(input2);
+            o.Length.ShouldBe(2);
+        });
     }
 }

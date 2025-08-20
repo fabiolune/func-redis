@@ -16,7 +16,7 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.Add("key", data, 1);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -33,7 +33,7 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.AddAsync("key", data, 1);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -50,8 +50,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.Add("key", data, 1);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis ZADD Error")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis ZADD Error")));
     }
 
     [Test]
@@ -68,8 +68,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.AddAsync("key", data, 1);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis ZADD Error")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis ZADD Error")));
     }
 
     [Test]
@@ -89,8 +89,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.Add("key", data, 1);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(error));
     }
 
     [Test]
@@ -110,8 +110,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.AddAsync("key", data, 1);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(error));
     }
 
     [TestCase(0L)]
@@ -146,7 +146,7 @@ internal partial class RedisSortedSetServiceTests
                 entries[0].Element == "data1" &&
                 entries[1].Element == "data2"));
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -182,8 +182,8 @@ internal partial class RedisSortedSetServiceTests
                 entries[0].Element == "data1" &&
                 entries[1].Element == "data2"));
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(error));
     }
 
     [TestCase(0L)]
@@ -211,7 +211,7 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.AddAsync("key", [(data1, 1.0), (data2, 2.0)]);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -240,7 +240,7 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.AddAsync("key", [(data1, 1.0), (data2, 2.0)]);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(error));
     }
 }

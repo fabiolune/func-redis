@@ -15,8 +15,8 @@ public partial class RedisHashSetServiceTests
 
         var result = await _sut.GetAllAsync<object>("key");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(err => err.Should().Be(Error.New(new NullReferenceException())));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(err => err.ShouldBe(Error.New(new NullReferenceException())));
     }
 
     [Test]
@@ -30,9 +30,9 @@ public partial class RedisHashSetServiceTests
 
         var result = await _sut.GetAllAsync<object>("key");
 
-        result.IsLeft.Should().BeTrue();
+        result.IsLeft.ShouldBeTrue();
         result
-            .OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
+            .OnLeft(e => e.ShouldBeEquivalentTo(Error.New(exception)));
         await _mockDb
             .Received(1)
             .HashGetAllAsync("key", Arg.Any<CommandFlags>());
@@ -47,9 +47,9 @@ public partial class RedisHashSetServiceTests
 
         var result = await _sut.GetAllAsync<object>("key");
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result
-            .OnRight(e => e.IsNone.Should().BeTrue());
+            .OnRight(e => e.IsNone.ShouldBeTrue());
         await _mockDb
             .Received(1)
             .HashGetAllAsync("key", Arg.Any<CommandFlags>());
@@ -68,12 +68,12 @@ public partial class RedisHashSetServiceTests
 
         var result = await _sut.GetAllAsync<TestData>("key");
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result
             .OnRight(e =>
             {
-                e.IsSome.Should().BeTrue();
-                e.OnSome(d => d.Should().BeEquivalentTo([("key", new TestData(1))]));
+                e.IsSome.ShouldBeTrue();
+                e.OnSome(d => d.ShouldBe([("key", new TestData(1))]));
             });
         await _mockDb
             .Received(1)

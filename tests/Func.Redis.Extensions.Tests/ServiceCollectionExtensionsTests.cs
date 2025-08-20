@@ -65,9 +65,9 @@ internal class ServiceCollectionExtensionsTests
             .Build(), capabilities);
 
         action
-            .Should()
-            .ThrowExactly<KeyNotFoundException>()
-            .WithMessage("Missing RedisConfiguration");
+            .ShouldThrow<KeyNotFoundException>()
+            .Message
+            .ShouldBe("Missing RedisConfiguration");
     }
 
     [TestCaseSource(nameof(InvalidConfigAndAllCapabilities))]
@@ -87,9 +87,9 @@ internal class ServiceCollectionExtensionsTests
             .Build(), capabilities);
 
         action
-            .Should()
-            .ThrowExactly<KeyNotFoundException>()
-            .WithMessage("RedisConfiguration: ConnectionString is invalid");
+            .ShouldThrow<KeyNotFoundException>()
+            .Message
+            .ShouldBe("RedisConfiguration: ConnectionString is invalid");
     }
 
     [TestCaseSource(nameof(AllCapabilities))]
@@ -215,8 +215,7 @@ internal class ServiceCollectionExtensionsTests
 
         provider
             .GetRequiredService(expectedKeyType)
-            .Should()
-            .BeOfType(expectedImplementationType);
+            .ShouldBeOfType(expectedImplementationType);
     }
 
     [TestCase(RedisCapabilities.HashSet, typeof(IRedisHashSetService), typeof(LoggingRedisHashSetService))]
@@ -248,8 +247,7 @@ internal class ServiceCollectionExtensionsTests
 
         provider
             .GetRequiredService(expectedKeyType)
-            .Should()
-            .BeOfType(expectedImplementationType);
+            .ShouldBeOfType(expectedImplementationType);
     }
 
     [TestCase(RedisCapabilities.Publish, typeof(IRedisPublisherService), typeof(RedisPublisherService))]

@@ -16,7 +16,7 @@ public partial class RedisKeyServiceTests
 
         var result = _sut.Set("key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -42,7 +42,7 @@ public partial class RedisKeyServiceTests
 
         var result = _sut.Set(("key1", data1), ("key2", data2));
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -56,8 +56,8 @@ public partial class RedisKeyServiceTests
 
         var result = _sut.Set("key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis KEY SET Error")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis KEY SET Error")));
     }
 
     [Test]
@@ -75,8 +75,8 @@ public partial class RedisKeyServiceTests
 
         var result = _sut.Set(("key1", data1), ("key2", data2));
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis KEY SET Error")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis KEY SET Error")));
     }
 
     [Test]
@@ -94,8 +94,8 @@ public partial class RedisKeyServiceTests
 
         var result = _sut.Set("key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New(exception)));
     }
 
     [Test]
@@ -122,7 +122,7 @@ public partial class RedisKeyServiceTests
 
         var result = _sut.Set(("key1", data1), ("key2", data2));
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New(exception)));
     }
 }

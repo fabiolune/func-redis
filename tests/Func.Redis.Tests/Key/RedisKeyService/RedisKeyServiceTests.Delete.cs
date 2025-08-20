@@ -15,8 +15,8 @@ public partial class RedisKeyServiceTests
 
         var result = _sut.Delete("key");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(err => err.Should().Be(Error.New(new NullReferenceException())));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(err => err.ShouldBe(Error.New(new NullReferenceException())));
     }
 
     [Test]
@@ -31,8 +31,8 @@ public partial class RedisKeyServiceTests
 
         var result = _sut.Delete("key1", "key2");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(err => err.Should().Be(Error.New(new NullReferenceException())));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(err => err.ShouldBe(Error.New(new NullReferenceException())));
     }
 
     [Test]
@@ -46,9 +46,9 @@ public partial class RedisKeyServiceTests
 
         var result = _sut.Delete("key");
 
-        result.IsLeft.Should().BeTrue();
+        result.IsLeft.ShouldBeTrue();
         result
-            .OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
+            .OnLeft(e => e.ShouldBeEquivalentTo(Error.New(exception)));
         _mockDb
             .Received(1)
             .KeyDelete("key", Arg.Any<CommandFlags>());
@@ -66,9 +66,9 @@ public partial class RedisKeyServiceTests
 
         var result = _sut.Delete("key1", "key2");
 
-        result.IsLeft.Should().BeTrue();
+        result.IsLeft.ShouldBeTrue();
         result
-            .OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
+            .OnLeft(e => e.ShouldBeEquivalentTo(Error.New(exception)));
         _mockDb
             .Received(1)
             .KeyDelete(Arg.Is<RedisKey[]>(k => k.SequenceEqual(keys)), Arg.Any<CommandFlags>());
@@ -85,9 +85,9 @@ public partial class RedisKeyServiceTests
 
         var result = _sut.Delete("key");
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result
-            .OnRight(e => e.Should().Be(Unit.Default));
+            .OnRight(e => e.ShouldBe(Unit.Default));
     }
 
     [TestCase(0)]
@@ -102,6 +102,6 @@ public partial class RedisKeyServiceTests
 
         var result = _sut.Delete("key1", "key2");
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 }

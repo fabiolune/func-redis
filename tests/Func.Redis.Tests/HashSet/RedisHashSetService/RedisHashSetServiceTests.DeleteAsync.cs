@@ -15,8 +15,8 @@ public partial class RedisHashSetServiceTests
 
         var result = await _sut.DeleteAsync("key", "field");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(err => err.Should().Be(Error.New(new NullReferenceException())));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(err => err.ShouldBe(Error.New(new NullReferenceException())));
     }
 
     [Test]
@@ -29,8 +29,8 @@ public partial class RedisHashSetServiceTests
 
         var result = await _sut.DeleteAsync("key", "field");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(err => err.Message.Should().Be("some message"));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(err => err.Message.ShouldBe("some message"));
         await _mockDb
             .Received(1)
             .HashDeleteAsync("key", "field", Arg.Any<CommandFlags>());
@@ -46,9 +46,9 @@ public partial class RedisHashSetServiceTests
 
         var result = await _sut.DeleteAsync("key", "field");
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result
-            .OnRight(e => e.Should().Be(Unit.Default));
+            .OnRight(e => e.ShouldBe(Unit.Default));
     }
 
     [Test]
@@ -64,9 +64,9 @@ public partial class RedisHashSetServiceTests
 
         var result = await _sut.DeleteAsync("key", _params);
 
-        result.IsLeft.Should().BeTrue();
+        result.IsLeft.ShouldBeTrue();
         result
-            .OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
+            .OnLeft(e => e.ShouldBeEquivalentTo(Error.New(exception)));
         await _mockDb
             .Received(1)
             .HashDeleteAsync((RedisKey)"key", Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>());
@@ -85,8 +85,8 @@ public partial class RedisHashSetServiceTests
 
         var result = await _sut.DeleteAsync("key", requestParams);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result
-            .OnRight(e => e.Should().Be(Unit.Default));
+            .OnRight(e => e.ShouldBe(Unit.Default));
     }
 }

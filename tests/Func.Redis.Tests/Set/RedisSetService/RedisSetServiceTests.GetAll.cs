@@ -20,8 +20,12 @@ internal partial class RedisSetServiceTests
 
         var result = _sut.GetAll<TestData>("key");
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(r => r.Filter().Should().BeEquivalentTo([data1, data2]));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(v =>
+        {
+            v.Length.ShouldBe(2);
+            v.Filter().ShouldBe([data1, data2]);
+        });
     }
 
     [Test]
@@ -33,8 +37,8 @@ internal partial class RedisSetServiceTests
 
         var result = _sut.GetAll<TestData>("key");
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(r => r.Filter().Should().BeEmpty());
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(r => r.Filter().ShouldBeEmpty());
     }
 
     [Test]
@@ -56,8 +60,12 @@ internal partial class RedisSetServiceTests
 
         var result = await _sut.GetAllAsync<TestData>("key");
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(r => r.Filter().Should().BeEquivalentTo([data1, data2]));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(v =>
+        {
+            v.Length.ShouldBe(2);
+            v.Filter().ShouldBe([data1, data2]);
+        });
     }
 
     [Test]
@@ -69,8 +77,8 @@ internal partial class RedisSetServiceTests
 
         var result = await _sut.GetAllAsync<TestData>("key");
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(r => r.Filter().Should().BeEmpty());
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(r => r.Filter().ShouldBeEmpty());
     }
 
     [Test]
@@ -82,8 +90,8 @@ internal partial class RedisSetServiceTests
 
         var result = _sut.GetAll<TestData>("key");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis ERROR")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis ERROR")));
     }
 
     [Test]
@@ -95,7 +103,7 @@ internal partial class RedisSetServiceTests
 
         var result = await _sut.GetAllAsync<TestData>("key");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis ERROR")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis ERROR")));
     }
 }

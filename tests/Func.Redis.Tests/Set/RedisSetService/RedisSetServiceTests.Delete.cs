@@ -15,7 +15,7 @@ internal partial class RedisSetServiceTests
 
         var result = _sut.Delete("key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -32,7 +32,7 @@ internal partial class RedisSetServiceTests
 
         var result = await _sut.DeleteAsync("key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [TestCase(0)]
@@ -59,7 +59,7 @@ internal partial class RedisSetServiceTests
 
         var result = _sut.Delete("key", data1, data2);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [TestCase(0)]
@@ -86,7 +86,7 @@ internal partial class RedisSetServiceTests
 
         var result = await _sut.DeleteAsync("key", data1, data2);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -102,9 +102,9 @@ internal partial class RedisSetServiceTests
 
         var result = _sut.Delete("key", data);
 
-        result.IsLeft.Should().BeTrue();
+        result.IsLeft.ShouldBeTrue();
         result
-            .OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis SREM Error")));
+            .OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis SREM Error")));
     }
 
     [Test]
@@ -120,9 +120,9 @@ internal partial class RedisSetServiceTests
 
         var result = await _sut.DeleteAsync("key", data);
 
-        result.IsLeft.Should().BeTrue();
+        result.IsLeft.ShouldBeTrue();
         result
-            .OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis SREM Error")));
+            .OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis SREM Error")));
     }
 
     [Test]
@@ -138,9 +138,9 @@ internal partial class RedisSetServiceTests
 
         var result = _sut.Delete("key", data);
 
-        result.IsLeft.Should().BeTrue();
+        result.IsLeft.ShouldBeTrue();
         result
-            .OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis Exception")));
+            .OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis Exception")));
     }
 
     [Test]
@@ -156,9 +156,9 @@ internal partial class RedisSetServiceTests
 
         var result = await _sut.DeleteAsync("key", data);
 
-        result.IsLeft.Should().BeTrue();
+        result.IsLeft.ShouldBeTrue();
         result
-            .OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis Exception")));
+            .OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis Exception")));
     }
 
     [Test]
@@ -184,9 +184,9 @@ internal partial class RedisSetServiceTests
 
         var result = _sut.Delete("key", data1, data2);
 
-        result.IsLeft.Should().BeTrue();
+        result.IsLeft.ShouldBeTrue();
         result
-            .OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis Exception")));
+            .OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis Exception")));
     }
 
     [Test]
@@ -212,8 +212,8 @@ internal partial class RedisSetServiceTests
 
         var result = await _sut.DeleteAsync("key", data1, data2);
 
-        result.IsLeft.Should().BeTrue();
+        result.IsLeft.ShouldBeTrue();
         result
-            .OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis Exception")));
+            .OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis Exception")));
     }
 }

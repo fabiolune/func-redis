@@ -13,8 +13,8 @@ internal partial class RedisSetServiceTests
 
         var result = _sut.Size("key");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(err => err.Should().Be(Error.New(new NullReferenceException())));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(err => err.ShouldBe(Error.New(new NullReferenceException())));
     }
 
     [Test]
@@ -28,9 +28,9 @@ internal partial class RedisSetServiceTests
 
         var result = _sut.Size("key");
 
-        result.IsLeft.Should().BeTrue();
+        result.IsLeft.ShouldBeTrue();
         result
-            .OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
+            .OnLeft(e => e.ShouldBeEquivalentTo(Error.New(exception)));
     }
 
     [TestCase(0)]
@@ -44,8 +44,8 @@ internal partial class RedisSetServiceTests
 
         var result = _sut.Size("key");
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(size => size.Should().Be(returnValue));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(size => size.ShouldBe(returnValue));
     }
 
     [TestCase(0)]
@@ -59,7 +59,7 @@ internal partial class RedisSetServiceTests
 
         var result = await _sut.SizeAsync("key");
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(size => size.Should().Be(returnValue));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(size => size.ShouldBe(returnValue));
     }
 }

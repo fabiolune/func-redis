@@ -13,8 +13,8 @@ public partial class RedisKeyServiceTests
 
         var result = _sut.RenameKey("key1", "key2");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New(exception)));
     }
 
     [Test]
@@ -26,8 +26,8 @@ public partial class RedisKeyServiceTests
 
         var result = _sut.RenameKey("key", "key2");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Error renaming key")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Error renaming key")));
     }
 
     [Test]
@@ -39,6 +39,6 @@ public partial class RedisKeyServiceTests
 
         var result = _sut.RenameKey("key1", "key2");
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 }

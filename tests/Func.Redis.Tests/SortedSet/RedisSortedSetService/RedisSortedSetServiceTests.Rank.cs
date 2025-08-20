@@ -14,11 +14,11 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.Rank("test_key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result.OnRight(rank =>
         {
-            rank.IsSome.Should().BeTrue();
-            rank.OnSome(r => r.Should().Be(2));
+            rank.IsSome.ShouldBeTrue();
+            rank.OnSome(r => r.ShouldBe(2));
         });
     }
 
@@ -35,8 +35,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.Rank("test_key", data);
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(rank => rank.IsNone.Should().BeTrue());
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(rank => rank.IsNone.ShouldBeTrue());
     }
 
     [Test]
@@ -52,8 +52,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.Rank("test_key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Message.Should().Be("Redis error"));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.Message.ShouldBe("Redis error"));
     }
 
     [Test]
@@ -66,8 +66,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.Rank("test_key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Message.Should().Be("Serialization error"));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.Message.ShouldBe("Serialization error"));
     }
 
     [Test]
@@ -83,11 +83,11 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.RankAsync("test_key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result.OnRight(rank =>
         {
-            rank.IsSome.Should().BeTrue();
-            rank.OnSome(r => r.Should().Be(2));
+            rank.IsSome.ShouldBeTrue();
+            rank.OnSome(r => r.ShouldBe(2));
         });
     }
 
@@ -104,8 +104,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.RankAsync("test_key", data);
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(rank => rank.IsNone.Should().BeTrue());
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(rank => rank.IsNone.ShouldBeTrue());
     }
 
     [Test]
@@ -121,8 +121,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.RankAsync("test_key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Message.Should().Be("Redis error"));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.Message.ShouldBe("Redis error"));
     }
 
     [Test]
@@ -135,7 +135,7 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.RankAsync("test_key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Message.Should().Be("Serialization error"));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.Message.ShouldBe("Serialization error"));
     }
 }

@@ -11,14 +11,14 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = _sut.Remove("key", value);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: removing item from sorted set at \"key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: removing item from sorted set at \"key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -32,14 +32,14 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = await _sut.RemoveAsync("key", value);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: async removing item from sorted set at \"key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: async removing item from sorted set at \"key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -54,20 +54,20 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = _sut.Remove("key", value);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: removing item from sorted set at \"key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: removing item from sorted set at \"key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService raised an error with some error");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisSortedSetService raised an error with some error");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -82,20 +82,20 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = await _sut.RemoveAsync("key", value);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: async removing item from sorted set at \"key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: async removing item from sorted set at \"key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService raised an error with some error");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisSortedSetService raised an error with some error");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -109,13 +109,13 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = _sut.Remove<object>("key", values);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: removing items from sorted set at \"key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: removing items from sorted set at \"key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -129,14 +129,14 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = await _sut.RemoveAsync<object>("key", values);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: async removing items from sorted set at \"key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: async removing items from sorted set at \"key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -151,20 +151,20 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = _sut.Remove<object>("key", values);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: removing items from sorted set at \"key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: removing items from sorted set at \"key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService raised an error with some error");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisSortedSetService raised an error with some error");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -179,20 +179,20 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = await _sut.RemoveAsync<object>("key", values);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: async removing items from sorted set at \"key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: async removing items from sorted set at \"key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService raised an error with some error");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisSortedSetService raised an error with some error");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -205,14 +205,14 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = _sut.RemoveRangeByScore("key", 1.0, 10.0);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: removing range by score from sorted set at \"key\" with range [1, 10]");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: removing range by score from sorted set at \"key\" with range [1, 10]");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -225,14 +225,14 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = await _sut.RemoveRangeByScoreAsync("key", 1.0, 10.0);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: async removing range by score from sorted set at \"key\" with range [1, 10]");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: async removing range by score from sorted set at \"key\" with range [1, 10]");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -246,20 +246,20 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = _sut.RemoveRangeByScore("key", 1.0, 10.0);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: removing range by score from sorted set at \"key\" with range [1, 10]");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: removing range by score from sorted set at \"key\" with range [1, 10]");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService raised an error with some error");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisSortedSetService raised an error with some error");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -273,20 +273,20 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = await _sut.RemoveRangeByScoreAsync("key", 1.0, 10.0);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: async removing range by score from sorted set at \"key\" with range [1, 10]");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: async removing range by score from sorted set at \"key\" with range [1, 10]");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService raised an error with some error");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisSortedSetService raised an error with some error");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -300,14 +300,14 @@ internal partial class LoggingRedisSortedSetServiceTests
             .Returns(Unit.Default);
         var result = _sut.RemoveRangeByValue("key", min, max);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: removing range by value from sorted set at \"key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: removing range by value from sorted set at \"key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -322,14 +322,14 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = await _sut.RemoveRangeByValueAsync("key", min, max);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: async removing range by value from sorted set at \"key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: async removing range by value from sorted set at \"key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -345,20 +345,20 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = _sut.RemoveRangeByValue("key", min, max);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: removing range by value from sorted set at \"key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: removing range by value from sorted set at \"key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService raised an error with some error");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisSortedSetService raised an error with some error");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -374,20 +374,20 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = await _sut.RemoveRangeByValueAsync("key", min, max);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: async removing range by value from sorted set at \"key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: async removing range by value from sorted set at \"key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService raised an error with some error");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisSortedSetService raised an error with some error");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 }

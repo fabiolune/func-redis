@@ -18,8 +18,18 @@ internal abstract class RedisSortedSetServiceIntegrationTest(string redisImage) 
     public async Task WhenDataAreNotPresent_AddShouldReturnRightUnit()
     {
         var addResult = await _sut.AddAsync("some key", "some value", 10);
-
         addResult.IsRight.Should().BeTrue();
+
+        var getResult = await _sut.RangeByScoreAsync<string>("some key", 1, 10);
+        getResult.IsRight.Should().BeTrue();
+        getResult.OnRight(o => o.Should().BeEquivalentTo(["some value"]));
+
+        var removeResult = await _sut.RemoveAsync("some key", "some value");
+        removeResult.IsRight.Should().BeTrue();
+
+        getResult = await _sut.RangeByScoreAsync<string>("some key", 1, 10);
+        getResult.IsRight.Should().BeTrue();
+        getResult.OnRight(o => o.Should().BeEmpty());
     }
 
     [Test]

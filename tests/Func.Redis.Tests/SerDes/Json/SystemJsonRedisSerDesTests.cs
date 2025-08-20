@@ -1,5 +1,5 @@
 ﻿using Func.Redis.SerDes.Json;
-using Shouldly;
+using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 
 namespace Func.Redis.Tests.SerDes.Json;
@@ -75,6 +75,8 @@ public class SystemJsonRedisSerDesTests
             .ShouldBeTrue();
 
     [Test]
+    [SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression", Justification = "Required for following suppression")]
+    [SuppressMessage("Usage", "CA2263:Prefer generic overload when type is known", Justification = "required for testing")]
     public void DeserializeWithType_WhenInputIsInvalidJson_ShouldThrowJsonException()
     {
         Action act = () => _sut.Deserialize("{ wrong json", typeof(TestData));

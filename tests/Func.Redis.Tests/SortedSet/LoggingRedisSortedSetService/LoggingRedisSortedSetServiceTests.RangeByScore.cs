@@ -1,6 +1,4 @@
-﻿using TinyFp.Extensions;
-
-namespace Func.Redis.Tests.SortedSet.LoggingRedisSortedSetService;
+﻿namespace Func.Redis.Tests.SortedSet.LoggingRedisSortedSetService;
 internal partial class LoggingRedisSortedSetServiceTests
 {
     [Test]

@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
-
-namespace Func.Redis.Tests.RedisListService;
+﻿namespace Func.Redis.Tests.RedisListService;
 internal partial class RedisListServiceTests
 {
     [Test]

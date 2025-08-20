@@ -12,14 +12,14 @@ public partial class LoggingRedisKeyServiceTests
 
         var result = _sut.Set("some key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisKeyService: setting key \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisKeyService: setting key \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -34,14 +34,14 @@ public partial class LoggingRedisKeyServiceTests
 
         var result = _sut.Set(("key1", data1), ("key2", data2));
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisKeyService: setting keys \"key1, key2\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisKeyService: setting keys \"key1, key2\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -56,20 +56,20 @@ public partial class LoggingRedisKeyServiceTests
 
         var result = _sut.Set("some key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisKeyService: setting key \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisKeyService: setting key \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisKeyService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisKeyService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -85,20 +85,20 @@ public partial class LoggingRedisKeyServiceTests
 
         var result = _sut.Set(("key1", data1), ("key2", data2));
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisKeyService: setting keys \"key1, key2\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisKeyService: setting keys \"key1, key2\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisKeyService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisKeyService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -114,20 +114,20 @@ public partial class LoggingRedisKeyServiceTests
 
         var result = _sut.Set("some key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisKeyService: setting key \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisKeyService: setting key \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisKeyService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisKeyService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -144,20 +144,20 @@ public partial class LoggingRedisKeyServiceTests
 
         var result = _sut.Set(("key1", data1), ("key2", data2));
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisKeyService: setting keys \"key1, key2\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisKeyService: setting keys \"key1, key2\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisKeyService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisKeyService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 }

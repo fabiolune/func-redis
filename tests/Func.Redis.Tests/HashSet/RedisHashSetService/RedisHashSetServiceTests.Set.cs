@@ -14,7 +14,7 @@ public partial class RedisHashSetServiceTests
 
         var result = _sut.Set("key", "field", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -41,8 +41,8 @@ public partial class RedisHashSetServiceTests
 
         var result = _sut.Set("key", ("field1", data1), ("field2", data2));
 
-        result.IsRight.Should().BeTrue();
-        called.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
+        called.ShouldBeTrue();
     }
 
     [Test]
@@ -59,8 +59,8 @@ public partial class RedisHashSetServiceTests
 
         var result = _sut.Set("key", "field", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New(exception)));
     }
 
     [Test]
@@ -82,7 +82,7 @@ public partial class RedisHashSetServiceTests
 
         var result = _sut.Set("key", ("field1", data1), ("field2", data2));
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New(exception)));
     }
 }

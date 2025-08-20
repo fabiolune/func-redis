@@ -20,8 +20,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.RangeByScore<int>("key", 1, 10);
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(r => r.Should().BeEquivalentTo([1, 2]));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(v => v.ShouldBe([1, 2]));
     }
 
     [Test]
@@ -42,8 +42,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.RangeByScoreAsync<int>("key", 1, 10);
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(r => r.Should().BeEquivalentTo([1, 2]));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(r => r.ShouldBe([1, 2]));
     }
 
     [Test]
@@ -58,8 +58,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.RangeByScore<int>("key", 1, 10);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Deserialization error")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Deserialization error")));
     }
 
     [Test]
@@ -74,8 +74,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.RangeByScoreAsync<int>("key", 1, 10);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Deserialization error")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Deserialization error")));
     }
 
     [Test]
@@ -88,8 +88,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.RangeByScore<int>("key", 1, 10);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New(exception)));
     }
 
     [Test]
@@ -102,7 +102,7 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.RangeByScoreAsync<int>("key", 1, 10);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New(exception)));
     }
 }

@@ -13,8 +13,8 @@ public partial class RedisKeyServiceTests
 
         var result = await _sut.RenameKeyAsync("key1", "key2");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New(exception)));
     }
 
     [Test]
@@ -26,8 +26,8 @@ public partial class RedisKeyServiceTests
 
         var result = await _sut.RenameKeyAsync("key1", "key2");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Error renaming key")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Error renaming key")));
         await _mockDb
             .Received(1)
             .KeyRenameAsync("key1", "key2", When.Always, CommandFlags.None);
@@ -42,7 +42,7 @@ public partial class RedisKeyServiceTests
 
         var result = await _sut.RenameKeyAsync("key1", "key2");
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         await _mockDb
             .Received(1)
             .KeyRenameAsync("key1", "key2", When.Always, CommandFlags.None);

@@ -11,14 +11,14 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = _sut.Add("some key", data, 10);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: adding item to \"some key\" with score 10");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: adding item to \"some key\" with score 10");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -32,14 +32,14 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = await _sut.AddAsync("some key", data, 10);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: async adding item to \"some key\" with score 10");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: async adding item to \"some key\" with score 10");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -53,20 +53,20 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = _sut.Add("some key", "value", 10);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: adding item to \"some key\" with score 10");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: adding item to \"some key\" with score 10");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService raised an error with Some error");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisSortedSetService raised an error with Some error");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -80,20 +80,20 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = await _sut.AddAsync("some key", "value", 10);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: async adding item to \"some key\" with score 10");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: async adding item to \"some key\" with score 10");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService raised an error with Some error");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisSortedSetService raised an error with Some error");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -111,14 +111,14 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = _sut.Add("some key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: adding items to \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: adding items to \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -135,14 +135,14 @@ internal partial class LoggingRedisSortedSetServiceTests
             .Returns(Either<Error, Unit>.Right(Unit.Default));
         var result = await _sut.AddAsync("some key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: async adding items to \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: async adding items to \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -160,20 +160,20 @@ internal partial class LoggingRedisSortedSetServiceTests
             .Returns(error);
         var result = _sut.Add("some key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: adding items to \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: adding items to \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService raised an error with Some error");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisSortedSetService raised an error with Some error");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -192,20 +192,20 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = await _sut.AddAsync("some key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: async adding items to \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: async adding items to \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService raised an error with Some error");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisSortedSetService raised an error with Some error");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 }

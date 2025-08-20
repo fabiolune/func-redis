@@ -54,33 +54,32 @@ internal class SpanJsonRedisSerDesTests
     [TestCaseSource(nameof(ExpectedDeserializations))]
     public void Deserialize_WhenInputIsValidJson_ShouldReturnSome(string serialized, TestData expected)
     {
-        var result = _sut.Deserialize<TestData>(serialized);
+        var result = _sut.Deserialize(serialized, expected.GetType());
 
-        result.IsSome.Should().BeTrue();
-        result.OnSome(data =>
-                data
-                    .Should()
-                    .BeEquivalentTo(expected));
+        result.IsSome.ShouldBeTrue();
+        result.OnSome(d => d.ShouldBe(expected));
     }
 
     [TestCaseSource(nameof(InvalidRedisValues))]
     public void Deserialize_WhenInputIsNullOrEmptyString_ShouldReturnNone(RedisValue value) =>
         _sut
             .Deserialize<TestData>(value)
-            .IsNone.Should().BeTrue();
+            .IsNone
+            .ShouldBeTrue();
 
     [Test]
     public void Deserialize_WhenInputIsNullJson_ShouldReturnNone() =>
         _sut
             .Deserialize<TestData>("null")
-            .IsNone.Should().BeTrue();
+            .IsNone
+            .ShouldBeTrue();
 
     [Test]
     public void Deserialize_WhenInputIsInvalidJson_ShouldThrowJsonParserException()
     {
-        var act = () => _sut.Deserialize<TestData>("{ wrong json");
+        Action act = () => _sut.Deserialize<TestData>("{ wrong json");
 
-        act.Should().ThrowExactly<JsonParserException>();
+        act.ShouldThrow<JsonParserException>();
     }
 
     [TestCaseSource(nameof(ExpectedDeserializations))]
@@ -88,38 +87,36 @@ internal class SpanJsonRedisSerDesTests
     {
         var result = _sut.Deserialize(serialized, expected.GetType());
 
-        result.IsSome.Should().BeTrue();
-        result.OnSome(data =>
-                data
-                    .Should()
-                    .BeEquivalentTo(expected));
+        result.IsSome.ShouldBeTrue();
+        result.OnSome(d => d.ShouldBeEquivalentTo(expected));
     }
 
     [TestCaseSource(nameof(InvalidRedisValues))]
     public void DeserializeWithType_WhenInputIsNullOrEmptyString_ShouldReturnNone(RedisValue value) =>
         _sut
             .Deserialize(value, typeof(TestData))
-            .IsNone.Should().BeTrue();
+            .IsNone.ShouldBeTrue();
 
     [Test]
     public void DeserializeWithType_WhenInputIsNullJson_ShouldReturnNone() =>
         _sut
             .Deserialize("null", typeof(TestData))
-            .IsNone.Should().BeTrue();
+            .IsNone.ShouldBeTrue();
 
     [Test]
     public void DeserializeWithType_WhenInputIsInvalidJson_ShouldThrowJsonParserException()
     {
-        var act = () => _sut.Deserialize("{ wrong json", typeof(TestData));
+        Action act = () => _sut.Deserialize("{ wrong json", typeof(TestData));
 
-        act.Should().ThrowExactly<JsonParserException>();
+        act.ShouldThrow<JsonParserException>();
     }
 
     [Test]
     public void Deserialize_WhenInputHasZeroLength_ShouldReturnNone() =>
         _sut
             .Deserialize<TestData>(Array.Empty<RedisValue>())
-            .IsNone.Should().BeTrue();
+            .IsNone
+            .ShouldBeTrue();
 
     public static readonly RedisValue[][] InvalidValues =
     [
@@ -153,19 +150,16 @@ internal class SpanJsonRedisSerDesTests
     public void Deserialize_WhenInputHasSomeNullOrEmptyValues_ShouldReturnNone(RedisValue[] values) =>
         _sut
             .Deserialize<TestData>(values)
-            .IsNone.Should().BeTrue();
+            .IsNone
+            .ShouldBeTrue();
 
     [Test]
     public void Deserialize_WhenValuesAreValidJson_ShouldReturnSome()
     {
         var result = _sut.Deserialize<TestData>(["""{"Id": 1}""", """{"Id": 2}"""]);
 
-        result.IsSome.Should().BeTrue();
-        result.OnSome(v => v.Should().BeEquivalentTo(
-            [
-            new TestData(1),
-            new TestData(2)
-            ]));
+        result.IsSome.ShouldBeTrue();
+        result.OnSome(v => v.ShouldBe([new TestData(1), new TestData(2)]));
     }
 
     public static readonly RedisValue[][] InvalidJsonValues =
@@ -187,16 +181,16 @@ internal class SpanJsonRedisSerDesTests
     [TestCaseSource(nameof(InvalidJsonValues))]
     public void Deserialize_WhenInputContainInvalidJson_ShouldThrowJsonParserException(RedisValue[] values)
     {
-        var act = () => _sut.Deserialize<TestData>(values);
+        Action act = () => _sut.Deserialize<TestData>(values);
 
-        act.Should().ThrowExactly<JsonParserException>();
+        act.ShouldThrow<JsonParserException>();
     }
 
     [Test]
     public void Deserialize_WhenHashEntriesAreEmpty_ShouldReturnNone() =>
         _sut
             .Deserialize<TestData>(Array.Empty<HashEntry>())
-            .IsNone.Should().BeTrue();
+            .IsNone.ShouldBeTrue();
 
     public static readonly HashEntry[][] InvalidEntries =
     [
@@ -231,8 +225,7 @@ internal class SpanJsonRedisSerDesTests
         _sut
             .Deserialize<TestData>(entries)
             .IsNone
-            .Should()
-            .BeTrue();
+            .ShouldBeTrue();
 
     [Test]
     public void DeserializeEntries_WhenEntriesContainValidJson_ShouldReturnSome()
@@ -240,12 +233,8 @@ internal class SpanJsonRedisSerDesTests
         var result = _sut
             .Deserialize<TestData>([new HashEntry("key1", """{"Id": 12}"""), new HashEntry("key2", """{"Id": 27}""")]);
 
-        result.IsSome.Should().BeTrue();
-        result.OnSome(v => v.Should().BeEquivalentTo(
-            [
-            ("key1", new TestData(12)),
-            ("key2", new TestData(27))
-            ]));
+        result.IsSome.ShouldBeTrue();
+        result.OnSome(v => v.ShouldBe([("key1", new TestData(12)), ("key2", new TestData(27))]));
     }
 
     public static readonly HashEntry[][] InvalidJsonEntries =
@@ -267,9 +256,9 @@ internal class SpanJsonRedisSerDesTests
     [TestCaseSource(nameof(InvalidJsonEntries))]
     public void Deserialize_WhenEntriesContainInvalidJson_ShouldThrowJsonParserException(HashEntry[] entries)
     {
-        var act = () => _sut.Deserialize<TestData>(entries);
+        Action act = () => _sut.Deserialize<TestData>(entries);
 
-        act.Should().ThrowExactly<JsonParserException>();
+        act.ShouldThrow<JsonParserException>();
     }
 
     public static readonly object[][] SerializationCombinations =
@@ -284,8 +273,5 @@ internal class SpanJsonRedisSerDesTests
 
     [TestCaseSource(nameof(SerializationCombinations))]
     public void Serialize_WnenInputIsValid_ShouldReturnJsonRepresentation(object item, string serialization) =>
-        _sut
-            .Serialize(item)
-            .Should()
-            .Be(serialization);
+        ((string)_sut.Serialize(item)).ShouldBe(serialization);
 }

@@ -13,8 +13,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.Intersect<object>(keys);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New(exception)));
     }
 
     [Test]
@@ -33,8 +33,8 @@ internal partial class RedisSortedSetServiceTests
             .SortedSetCombine(SetOperation.Intersect, Arg.Is<RedisKey[]>(a => a.SequenceEqual(keys.Select(k => (RedisKey)k))))
             .Returns(values);
         var result = _sut.Intersect<TestData>(keys);
-        result.IsRight.Should().BeTrue();
-        result.OnRight(res => res.Should().BeEquivalentTo(deserialized));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(res => res.ShouldBeEquivalentTo(deserialized));
     }
 
     [Test]
@@ -53,8 +53,8 @@ internal partial class RedisSortedSetServiceTests
             .SortedSetCombine(SetOperation.Intersect, Arg.Is<RedisKey[]>(a => a.SequenceEqual(keys.Select(k => (RedisKey)k))))
             .Returns(values);
         var result = _sut.Intersect<TestData>(keys);
-        result.IsRight.Should().BeTrue();
-        result.OnRight(res => res.Should().BeEquivalentTo(deserialized));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(res => res.ShouldBeEquivalentTo(deserialized));
     }
 
     [Test]
@@ -71,8 +71,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.Intersect<TestData>(keys);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Message.Should().Be("Serialization error"));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.Message.ShouldBe("Serialization error"));
     }
 
     [Test]
@@ -87,8 +87,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.IntersectAsync<object>(keys);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New(exception)));
     }
 
     [Test]
@@ -109,8 +109,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.IntersectAsync<TestData>(keys);
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(res => res.Should().BeEquivalentTo(deserialized));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(res => res.ShouldBeEquivalentTo(deserialized));
     }
 
     [Test]
@@ -131,8 +131,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.IntersectAsync<TestData>(keys);
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(res => res.Should().BeEquivalentTo(deserialized));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(res => res.ShouldBeEquivalentTo(deserialized));
     }
 
     [Test]
@@ -149,7 +149,7 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.IntersectAsync<TestData>(keys);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Message.Should().Be("Serialization error"));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.Message.ShouldBe("Serialization error"));
     }
 }

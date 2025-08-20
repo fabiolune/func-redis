@@ -1,4 +1,6 @@
-﻿namespace Func.Redis.Tests.SortedSet.LoggingRedisSortedSetService;
+﻿using TinyFp.Extensions;
+
+namespace Func.Redis.Tests.SortedSet.LoggingRedisSortedSetService;
 internal partial class LoggingRedisSortedSetServiceTests
 {
     [Test]
@@ -10,15 +12,15 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = _sut.RangeByScore<int>("some key", 1, 10);
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(r => r.Should().BeEquivalentTo([1, 2]));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(r => r.ShouldBe([1, 2]));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: getting range by score from sorted set at \"some key\" with range [1, 10]");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: getting range by score from sorted set at \"some key\" with range [1, 10]");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -31,15 +33,15 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = await _sut.RangeByScoreAsync<int>("some key", 1, 10);
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(r => r.Should().BeEquivalentTo([1, 2]));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(r => r.ShouldBe([1, 2]));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: async getting range by score from sorted set at \"some key\" with range [1, 10]");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: async getting range by score from sorted set at \"some key\" with range [1, 10]");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -53,20 +55,20 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = _sut.RangeByScore<int>("some key", 1, 10);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: getting range by score from sorted set at \"some key\" with range [1, 10]");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: getting range by score from sorted set at \"some key\" with range [1, 10]");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService raised an error with Some error");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisSortedSetService raised an error with Some error");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -80,20 +82,20 @@ internal partial class LoggingRedisSortedSetServiceTests
 
         var result = await _sut.RangeByScoreAsync<int>("some key", 1, 10);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService: async getting range by score from sorted set at \"some key\" with range [1, 10]");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSortedSetService: async getting range by score from sorted set at \"some key\" with range [1, 10]");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSortedSetService raised an error with Some error");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisSortedSetService raised an error with Some error");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 }

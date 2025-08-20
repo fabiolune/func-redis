@@ -12,8 +12,8 @@ public partial class RedisKeyServiceTests
             .Throws(exception);
 
         var result = _sut.GetKeys("some pattern");
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(Error.New(exception)));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(Error.New(exception)));
     }
 
     [Test]
@@ -50,8 +50,8 @@ public partial class RedisKeyServiceTests
 
         var result = _sut.GetKeys("some pattern");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(Error.New(exception)));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(Error.New(exception)));
 
         server2
             .DidNotReceiveWithAnyArgs()
@@ -87,8 +87,8 @@ public partial class RedisKeyServiceTests
 
         var result = _sut.GetKeys("some pattern");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(Error.New(exception1)));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(Error.New(exception1)));
 
         server2
             .DidNotReceiveWithAnyArgs()
@@ -119,8 +119,8 @@ public partial class RedisKeyServiceTests
         var result = _sut.GetKeys("some pattern");
 
         var resultKeys = new[] { "1.1", "1.2", "1.3", "2.1", "2.2" };
-        result.IsRight.Should().BeTrue();
-        result.OnRight(r => r.SequenceEqual(resultKeys).Should().BeTrue());
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(r => r.SequenceEqual(resultKeys).ShouldBeTrue());
     }
 
     [Test]
@@ -155,7 +155,7 @@ public partial class RedisKeyServiceTests
 
         var resultKeys = new[] { "1.1", "1.2", "1.3", "2.1", "2.2" };
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(r => r.SequenceEqual(resultKeys).Should().BeTrue());
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(r => r.SequenceEqual(resultKeys).ShouldBeTrue());
     }
 }

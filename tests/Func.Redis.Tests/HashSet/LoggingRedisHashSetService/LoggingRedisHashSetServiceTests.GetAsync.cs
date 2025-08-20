@@ -13,15 +13,15 @@ public partial class LoggingRedisHashSetServiceTest
 
         var result = await _sut.GetAsync<object>("some key", "some field");
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(r => r.OnSome(d => d.Should().Be(data)));
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(r => r.OnSome(d => d.ShouldBe(data)));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisHashSetService: async getting field \"some field\" for key \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisHashSetService: async getting field \"some field\" for key \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -35,20 +35,20 @@ public partial class LoggingRedisHashSetServiceTest
 
         var result = await _sut.GetAsync<object>("some key", "some field");
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(r => r.IsNone.Should().BeTrue());
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(r => r.IsNone.ShouldBeTrue());
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisHashSetService: async getting field \"some field\" for key \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisHashSetService: async getting field \"some field\" for key \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisHashSetService: the key \"some key\" does not contain the field \"some field\"");
-            e.LogLevel.Should().Be(LogLevel.Warning);
+            e.Message.ShouldBe("IRedisHashSetService: the key \"some key\" does not contain the field \"some field\"");
+            e.LogLevel.ShouldBe(LogLevel.Warning);
         });
     }
 
@@ -62,20 +62,20 @@ public partial class LoggingRedisHashSetServiceTest
 
         var result = await _sut.GetAsync<object>("some key", "some field");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisHashSetService: async getting field \"some field\" for key \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisHashSetService: async getting field \"some field\" for key \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisHashSetService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisHashSetService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -90,20 +90,20 @@ public partial class LoggingRedisHashSetServiceTest
 
         var result = await _sut.GetAsync<object>("some key", "some field");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisHashSetService: async getting field \"some field\" for key \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisHashSetService: async getting field \"some field\" for key \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisHashSetService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisHashSetService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -119,19 +119,22 @@ public partial class LoggingRedisHashSetServiceTest
 
         var result = await _sut.GetAsync<object>("some key", fields);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result.OnRight(r =>
         {
-            r.Should().HaveCount(2);
-            r.Filter().Should().BeEquivalentTo([data, data]);
+            r.Length.ShouldBe(2);
+            var filtered = r.Filter().ToArray();
+            filtered.Length.ShouldBe(2);
+            filtered[0].ShouldBe(data);
+            filtered[1].ShouldBe(data);
         });
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisHashSetService: async getting fields \"some field 1, some field 2\" for key \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisHashSetService: async getting fields \"some field 1, some field 2\" for key \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -146,19 +149,19 @@ public partial class LoggingRedisHashSetServiceTest
 
         var result = await _sut.GetAsync<object>("some key", fields);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result.OnRight(r =>
         {
-            r.Should().HaveCount(2);
-            r.Filter().Should().BeEmpty();
+            r.Length.ShouldBe(2);
+            r.Filter().ShouldBeEmpty();
         });
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisHashSetService: async getting fields \"some field 1, some field 2\" for key \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisHashSetService: async getting fields \"some field 1, some field 2\" for key \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -173,20 +176,20 @@ public partial class LoggingRedisHashSetServiceTest
 
         var result = await _sut.GetAsync<object>("some key", fields);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisHashSetService: async getting fields \"some field 1, some field 2\" for key \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisHashSetService: async getting fields \"some field 1, some field 2\" for key \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisHashSetService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisHashSetService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -202,20 +205,20 @@ public partial class LoggingRedisHashSetServiceTest
 
         var result = await _sut.GetAsync<object>("some key", fields);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisHashSetService: async getting fields \"some field 1, some field 2\" for key \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisHashSetService: async getting fields \"some field 1, some field 2\" for key \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisHashSetService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisHashSetService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -231,19 +234,22 @@ public partial class LoggingRedisHashSetServiceTest
 
         var result = await _sut.GetAsync("some key", fields);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result.OnRight(r =>
         {
-            r.Should().HaveCount(2);
-            r.Filter().Should().BeEquivalentTo([data, data]);
+            r.Length.ShouldBe(2);
+            var filtered = r.Filter().ToArray();
+            filtered.Length.ShouldBe(2);
+            filtered[0].ShouldBe(data);
+            filtered[1].ShouldBe(data);
         });
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisHashSetService: async getting fields \"some field 1, some field 2\" for key \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisHashSetService: async getting fields \"some field 1, some field 2\" for key \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -258,19 +264,19 @@ public partial class LoggingRedisHashSetServiceTest
 
         var result = await _sut.GetAsync("some key", fields);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result.OnRight(r =>
         {
-            r.Should().HaveCount(2);
-            r.Filter().Should().BeEmpty();
+            r.Length.ShouldBe(2);
+            r.Filter().ShouldBeEmpty();
         });
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisHashSetService: async getting fields \"some field 1, some field 2\" for key \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisHashSetService: async getting fields \"some field 1, some field 2\" for key \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -285,20 +291,20 @@ public partial class LoggingRedisHashSetServiceTest
 
         var result = await _sut.GetAsync("some key", fields);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisHashSetService: async getting fields \"some field 1, some field 2\" for key \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisHashSetService: async getting fields \"some field 1, some field 2\" for key \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisHashSetService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisHashSetService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -314,20 +320,20 @@ public partial class LoggingRedisHashSetServiceTest
 
         var result = await _sut.GetAsync("some key", fields);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisHashSetService: async getting fields \"some field 1, some field 2\" for key \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisHashSetService: async getting fields \"some field 1, some field 2\" for key \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisHashSetService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisHashSetService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 }

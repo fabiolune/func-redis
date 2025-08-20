@@ -13,8 +13,8 @@ internal class RedisKeyConfigurationExtensionsTests
         var mapper = config.GetKeyMapper();
         var inverseMapper = config.GetInverseKeyMapper();
 
-        mapper(input).Should().Be(input);
-        inverseMapper(input).Should().Be(input);
+        mapper(input).ShouldBe(input);
+        inverseMapper(input).ShouldBe(input);
     }
 
     [TestCase("key")]
@@ -26,8 +26,8 @@ internal class RedisKeyConfigurationExtensionsTests
         var mapper = config.GetKeyMapper();
         var inverseMapper = config.GetInverseKeyMapper();
 
-        mapper(input).Should().Be(input);
-        inverseMapper(input).Should().Be(input);
+        mapper(input).ShouldBe(input);
+        inverseMapper(input).ShouldBe(input);
     }
 
     [TestCase("", "key")]
@@ -66,8 +66,8 @@ internal class RedisKeyConfigurationExtensionsTests
             KeyPrefix = prefix
         }.GetInverseKeyMapper();
 
-        mapper(input).Should().Be(input);
-        inverseMapper(input).Should().Be(input);
+        mapper(input).ShouldBe(input);
+        inverseMapper(input).ShouldBe(input);
     }
 
     [TestCase("prefix", "key", "prefix:key")]
@@ -125,7 +125,7 @@ internal class RedisKeyConfigurationExtensionsTests
             KeyPrefix = prefix
         }.GetInverseKeyMapper();
 
-        mapper(input).Should().Be(output);
-        inverseMapper(output).Should().Be(input);
+        mapper(input).ShouldBe(output);
+        inverseMapper(output).ShouldBe(input);
     }
 }

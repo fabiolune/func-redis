@@ -20,7 +20,7 @@ internal class KeyTransformerRedisHasSetServiceTests
 
         var actual = _sut.Delete("key", "field");
 
-        actual.Should().Be(result);
+        actual.ShouldBe(result);
         _mockService.Received(1).Delete("mapped_key", "field");
     }
 
@@ -31,7 +31,7 @@ internal class KeyTransformerRedisHasSetServiceTests
 
         var actual = await _sut.DeleteAsync("key", "field");
 
-        actual.Should().Be(result);
+        actual.ShouldBe(result);
         await _mockService.Received(1).DeleteAsync("mapped_key", "field");
     }
 
@@ -42,7 +42,7 @@ internal class KeyTransformerRedisHasSetServiceTests
 
         var actual = _sut.Delete("key", "field1", "field2");
 
-        actual.Should().Be(result);
+        actual.ShouldBe(result);
         _mockService.Received(1).Delete("mapped_key", "field1", "field2");
     }
 
@@ -53,7 +53,7 @@ internal class KeyTransformerRedisHasSetServiceTests
 
         var actual = await _sut.DeleteAsync("key", "field1", "field2");
 
-        actual.Should().Be(result);
+        actual.ShouldBe(result);
         await _mockService.Received(1).DeleteAsync("mapped_key", "field1", "field2");
     }
 
@@ -64,7 +64,7 @@ internal class KeyTransformerRedisHasSetServiceTests
 
         var actual = _sut.Get<string>("key", "field");
 
-        actual.Should().Be(result);
+        actual.ShouldBe(result);
         _mockService.Received(1).Get<string>("mapped_key", "field");
     }
 
@@ -75,7 +75,7 @@ internal class KeyTransformerRedisHasSetServiceTests
 
         var actual = await _sut.GetAsync<string>("key", "field");
 
-        actual.Should().Be(result);
+        actual.ShouldBe(result);
         await _mockService.Received(1).GetAsync<string>("mapped_key", "field");
     }
 
@@ -86,7 +86,7 @@ internal class KeyTransformerRedisHasSetServiceTests
 
         var actual = _sut.Get<string>("key", "field1", "field2");
 
-        actual.Should().Be(result);
+        actual.ShouldBe(result);
         _mockService.Received(1).Get<string>("mapped_key", "field1", "field2");
     }
 
@@ -97,7 +97,7 @@ internal class KeyTransformerRedisHasSetServiceTests
 
         var actual = await _sut.GetAsync<string>("key", "field1", "field2");
 
-        actual.Should().Be(result);
+        actual.ShouldBe(result);
         await _mockService.Received(1).GetAsync<string>("mapped_key", "field1", "field2");
     }
 
@@ -108,7 +108,7 @@ internal class KeyTransformerRedisHasSetServiceTests
 
         var actual = _sut.Get("key", (typeof(TestData), "field1"), (typeof(TestData), "field2"));
 
-        actual.Should().Be(result);
+        actual.ShouldBe(result);
         _mockService.Received(1).Get("mapped_key", (typeof(TestData), "field1"), (typeof(TestData), "field2"));
     }
 
@@ -119,7 +119,7 @@ internal class KeyTransformerRedisHasSetServiceTests
 
         var actual = await _sut.GetAsync("key", (typeof(TestData), "field1"), (typeof(TestData), "field2"));
 
-        actual.Should().Be(result);
+        actual.ShouldBe(result);
         await _mockService.Received(1).GetAsync("mapped_key", (typeof(TestData), "field1"), (typeof(TestData), "field2"));
     }
 
@@ -130,7 +130,7 @@ internal class KeyTransformerRedisHasSetServiceTests
 
         var actual = _sut.Set("key", "field", new TestData(1));
 
-        actual.Should().Be(result);
+        actual.ShouldBe(result);
         _mockService.Received(1).Set("mapped_key", "field", Arg.Any<TestData>());
     }
 
@@ -141,7 +141,7 @@ internal class KeyTransformerRedisHasSetServiceTests
 
         var actual = await _sut.SetAsync("key", "field", new TestData(1));
 
-        actual.Should().Be(result);
+        actual.ShouldBe(result);
         await _mockService.Received(1).SetAsync("mapped_key", "field", Arg.Any<TestData>());
     }
 
@@ -152,7 +152,7 @@ internal class KeyTransformerRedisHasSetServiceTests
 
         var actual = _sut.Set("key", ("field1", new TestData(1)), ("field2", new TestData(1)));
 
-        actual.Should().Be(result);
+        actual.ShouldBe(result);
         _mockService.Received(1).Set("mapped_key", ("field1", new TestData(1)), ("field2", new TestData(1)));
     }
 
@@ -163,7 +163,7 @@ internal class KeyTransformerRedisHasSetServiceTests
 
         var actual = await _sut.SetAsync("key", ("field1", new TestData(1)), ("field2", new TestData(1)));
 
-        actual.Should().Be(result);
+        actual.ShouldBe(result);
         await _mockService.Received(1).SetAsync("mapped_key", ("field1", new TestData(1)), ("field2", new TestData(1)));
     }
 
@@ -174,7 +174,7 @@ internal class KeyTransformerRedisHasSetServiceTests
 
         var actual = _sut.GetAll<TestData>("key");
 
-        actual.Should().Be(result);
+        actual.ShouldBe(result);
         _mockService.Received(1).GetAll<TestData>("mapped_key");
     }
 
@@ -185,7 +185,7 @@ internal class KeyTransformerRedisHasSetServiceTests
 
         var actual = await _sut.GetAllAsync<TestData>("key");
 
-        actual.Should().Be(result);
+        actual.ShouldBe(result);
         await _mockService.Received(1).GetAllAsync<TestData>("mapped_key");
     }
 
@@ -196,7 +196,7 @@ internal class KeyTransformerRedisHasSetServiceTests
 
         var actual = _sut.GetValues<TestData>("key");
 
-        actual.Should().Be(result);
+        actual.ShouldBe(result);
         _mockService.Received(1).GetValues<TestData>("mapped_key");
     }
 
@@ -207,7 +207,7 @@ internal class KeyTransformerRedisHasSetServiceTests
 
         var actual = await _sut.GetValuesAsync<TestData>("key");
 
-        actual.Should().Be(result);
+        actual.ShouldBe(result);
         await _mockService.Received(1).GetValuesAsync<TestData>("mapped_key");
     }
 
@@ -218,7 +218,7 @@ internal class KeyTransformerRedisHasSetServiceTests
 
         var actual = _sut.GetFieldKeys("key");
 
-        actual.Should().Be(result);
+        actual.ShouldBe(result);
         _mockService.Received(1).GetFieldKeys("mapped_key");
     }
 
@@ -229,7 +229,7 @@ internal class KeyTransformerRedisHasSetServiceTests
 
         var actual = await _sut.GetFieldKeysAsync("key");
 
-        actual.Should().Be(result);
+        actual.ShouldBe(result);
         await _mockService.Received(1).GetFieldKeysAsync("mapped_key");
     }
 }

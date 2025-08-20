@@ -11,14 +11,14 @@ internal partial class LoggingRedisSetServiceTests
 
         var result = _sut.Add("some key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSetService: adding item to \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSetService: adding item to \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -33,20 +33,20 @@ internal partial class LoggingRedisSetServiceTests
 
         var result = _sut.Add("some key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSetService: adding item to \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSetService: adding item to \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSetService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisSetService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -60,14 +60,14 @@ internal partial class LoggingRedisSetServiceTests
 
         var result = await _sut.AddAsync("some key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSetService: async adding item to \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSetService: async adding item to \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -82,20 +82,20 @@ internal partial class LoggingRedisSetServiceTests
 
         var result = await _sut.AddAsync("some key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSetService: async adding item to \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSetService: async adding item to \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSetService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisSetService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -108,14 +108,14 @@ internal partial class LoggingRedisSetServiceTests
 
         var result = _sut.Add("some key", new object());
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSetService: adding item to \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSetService: adding item to \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -129,14 +129,14 @@ internal partial class LoggingRedisSetServiceTests
 
         var result = _sut.Add("some key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSetService: adding items to \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSetService: adding items to \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -151,20 +151,20 @@ internal partial class LoggingRedisSetServiceTests
 
         var result = _sut.Add("some key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSetService: adding items to \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSetService: adding items to \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSetService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisSetService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -178,14 +178,14 @@ internal partial class LoggingRedisSetServiceTests
 
         var result = await _sut.AddAsync("some key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSetService: async adding items to \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSetService: async adding items to \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -200,20 +200,20 @@ internal partial class LoggingRedisSetServiceTests
 
         var result = await _sut.AddAsync("some key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSetService: async adding items to \"some key\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisSetService: async adding items to \"some key\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisSetService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisSetService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 }

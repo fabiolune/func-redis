@@ -63,10 +63,12 @@ internal abstract class RedisListServiceIntegrationTests(string redisImage) : Re
         valuesResult.IsRight.ShouldBeTrue();
         valuesResult.OnRight(v => v.Filter().Tee(f =>
         {
-            f.Count().ShouldBe(3);
-            f.ShouldContain(value2);
-            f.ShouldContain(value);
-            f.ShouldContain(value3);
+            var expected = new[] { value2, value, value3 };
+            f.ShouldBe(expected);
+            //f.Count().ShouldBe(3);
+            //f.ShouldContain(value2);
+            //f.ShouldContain(value);
+            //f.ShouldContain(value3);
         }));
 
         sizeResult = await _sut.SizeAsync(key);

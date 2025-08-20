@@ -19,8 +19,8 @@ public partial class RedisHashSetServiceTests
 
         var result = _sut.Get("key", typeFields);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(err => err.Should().Be(Error.New(new NullReferenceException())));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(err => err.ShouldBe(Error.New(new NullReferenceException())));
     }
 
     [Test]
@@ -37,9 +37,9 @@ public partial class RedisHashSetServiceTests
 
         var result = _sut.Get("key", typefields);
 
-        result.IsLeft.Should().BeTrue();
+        result.IsLeft.ShouldBeTrue();
         result
-            .OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
+            .OnLeft(e => e.ShouldBeEquivalentTo(Error.New(exception)));
 
         _mockDb
             .Received(1)
@@ -60,12 +60,12 @@ public partial class RedisHashSetServiceTests
 
         var result = _sut.Get("key", typefields);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result
             .OnRight(e =>
             {
-                e.Should().HaveCount(2);
-                e.Filter().Should().BeEmpty();
+                e.Length.ShouldBe(2);
+                e.Filter().ShouldBeEmpty();
             });
         _mockDb
             .Received(1)
@@ -85,12 +85,12 @@ public partial class RedisHashSetServiceTests
 
         var result = _sut.Get("key", typefields);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result
             .OnRight(e =>
             {
-                e.Should().HaveCount(2);
-                e.Filter().Should().BeEmpty();
+                e.Length.ShouldBe(2);
+                e.Filter().ShouldBeEmpty();
             });
         _mockDb
             .HashGet("key", Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>());
@@ -109,12 +109,12 @@ public partial class RedisHashSetServiceTests
 
         var result = _sut.Get("key", typefields);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result
             .OnRight(e =>
             {
-                e.Should().HaveCount(2);
-                e.Filter().Should().BeEmpty();
+                e.Length.ShouldBe(2);
+                e.Filter().ShouldBeEmpty();
             });
         _mockDb
             .Received(1)
@@ -145,8 +145,7 @@ public partial class RedisHashSetServiceTests
 
         var result = _sut.Get("key", stringfields);
 
-        result
-            .OnRight(e => e.Should().BeEquivalentTo([obj1, obj2]));
+        result.OnRight(v => v.ShouldBe([obj1, obj2]));
     }
 
     [Test]
@@ -163,8 +162,8 @@ public partial class RedisHashSetServiceTests
 
         var result = await _sut.GetAsync("key", typeFields);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(err => err.Should().Be(Error.New(new NullReferenceException())));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(err => err.ShouldBe(Error.New(new NullReferenceException())));
     }
 
     [Test]
@@ -181,9 +180,9 @@ public partial class RedisHashSetServiceTests
 
         var result = await _sut.GetAsync("key", typeFields);
 
-        result.IsLeft.Should().BeTrue();
+        result.IsLeft.ShouldBeTrue();
         result
-            .OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
+            .OnLeft(e => e.ShouldBeEquivalentTo(Error.New(exception)));
         await _mockDb
             .Received(1)
             .HashGetAsync("key", Arg.Is<RedisValue[]>(v => v.SequenceEqual(fields)), Arg.Any<CommandFlags>());
@@ -203,12 +202,12 @@ public partial class RedisHashSetServiceTests
 
         var result = await _sut.GetAsync("key", typeFields);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result
             .OnRight(e =>
             {
-                e.Should().HaveCount(2);
-                e.Filter().Should().BeEmpty();
+                e.Length.ShouldBe(2);
+                e.Filter().ShouldBeEmpty();
             });
         await _mockDb
             .Received(1)
@@ -229,12 +228,12 @@ public partial class RedisHashSetServiceTests
 
         var result = await _sut.GetAsync("key", typeFields);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result
             .OnRight(e =>
             {
-                e.Should().HaveCount(2);
-                e.Filter().Should().BeEmpty();
+                e.Length.ShouldBe(2);
+                e.Filter().ShouldBeEmpty();
             });
         await _mockDb
             .Received(1)
@@ -254,12 +253,12 @@ public partial class RedisHashSetServiceTests
 
         var result = await _sut.GetAsync("key", typeFields);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result
             .OnRight(e =>
             {
-                e.Should().HaveCount(2);
-                e.Filter().Should().BeEmpty();
+                e.Length.ShouldBe(2);
+                e.Filter().ShouldBeEmpty();
             });
         await _mockDb
             .Received(1)
@@ -285,13 +284,12 @@ public partial class RedisHashSetServiceTests
 
         var result = await _sut.GetAsync("key", typeFields);
 
-        result.IsRight.Should().BeTrue();
-        result
-            .OnRight(e =>
-            {
-                e.Should().HaveCount(2);
-                e.Filter().Should().BeEquivalentTo([new TestData(1), new TestData(2)]);
-            });
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(v =>
+        {
+            v.Length.ShouldBe(2);
+            v.Filter().ShouldBe([new TestData(1), new TestData(2)]);
+        });
     }
 
     [Test]
@@ -310,12 +308,11 @@ public partial class RedisHashSetServiceTests
 
         var result = await _sut.GetAsync("key", typeFields);
 
-        result.IsRight.Should().BeTrue();
-        result
-            .OnRight(e =>
-            {
-                e.Should().HaveCount(1);
-                e.Filter().Should().BeEquivalentTo([new TestData(1)]);
-            });
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(v =>
+        {
+            v.Length.ShouldBe(1);
+            v.Filter().ShouldBe([new TestData(1)]);
+        });
     }
 }

@@ -30,14 +30,14 @@ public class LoggingRedisPublisherServiceTests
 
         var result = _sut.Publish("some channel", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisPublisherService: publishing message to \"some channel\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisPublisherService: publishing message to \"some channel\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -52,20 +52,20 @@ public class LoggingRedisPublisherServiceTests
 
         var result = _sut.Publish("some channel", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(r => r.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(r => r.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisPublisherService: publishing message to \"some channel\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisPublisherService: publishing message to \"some channel\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisPublisherService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisPublisherService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -81,20 +81,20 @@ public class LoggingRedisPublisherServiceTests
 
         var result = _sut.Publish("some channel", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(r => r.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(r => r.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisPublisherService: publishing message to \"some channel\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisPublisherService: publishing message to \"some channel\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisPublisherService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisPublisherService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -112,14 +112,14 @@ public class LoggingRedisPublisherServiceTests
 
         var result = await _sut.PublishAsync("some channel", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(1);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(1);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisPublisherService: async publishing message to \"some channel\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisPublisherService: async publishing message to \"some channel\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
     }
 
@@ -134,20 +134,20 @@ public class LoggingRedisPublisherServiceTests
 
         var result = await _sut.PublishAsync("some channel", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(r => r.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(r => r.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisPublisherService: async publishing message to \"some channel\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisPublisherService: async publishing message to \"some channel\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisPublisherService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisPublisherService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 
@@ -163,20 +163,20 @@ public class LoggingRedisPublisherServiceTests
 
         var result = await _sut.PublishAsync("some channel", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(r => r.Should().Be(error));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(r => r.ShouldBe(error));
 
         var entries = _loggerFactory.Sink.LogEntries.ToArray();
-        entries.Should().HaveCount(2);
-        entries[0].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries.Length.ShouldBe(2);
+        entries[0].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisPublisherService: async publishing message to \"some channel\"");
-            e.LogLevel.Should().Be(LogLevel.Information);
+            e.Message.ShouldBe("IRedisPublisherService: async publishing message to \"some channel\"");
+            e.LogLevel.ShouldBe(LogLevel.Information);
         });
-        entries[1].Should().BeOfType<LogEntry>().Which.Tee(e =>
+        entries[1].ShouldBeOfType<LogEntry>().Tee(e =>
         {
-            e.Message.Should().Be("IRedisPublisherService raised an error with some message");
-            e.LogLevel.Should().Be(LogLevel.Error);
+            e.Message.ShouldBe("IRedisPublisherService raised an error with some message");
+            e.LogLevel.ShouldBe(LogLevel.Error);
         });
     }
 

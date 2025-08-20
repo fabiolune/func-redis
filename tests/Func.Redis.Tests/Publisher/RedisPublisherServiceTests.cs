@@ -34,7 +34,7 @@ public class RedisPublisherServiceTests
 
         var result = _sut.Publish("some channel", "message");
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -50,8 +50,8 @@ public class RedisPublisherServiceTests
 
         var result = _sut.Publish("some channel", "message");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New(exception)));
     }
 
     #endregion
@@ -70,7 +70,7 @@ public class RedisPublisherServiceTests
 
         var result = await _sut.PublishAsync("some channel", "message");
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -86,8 +86,8 @@ public class RedisPublisherServiceTests
 
         var result = await _sut.PublishAsync("some channel", "message");
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New(exception)));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New(exception)));
     }
 
     #endregion

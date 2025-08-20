@@ -15,7 +15,7 @@ internal partial class RedisSetServiceTests
 
         var result = _sut.Add("key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -32,7 +32,7 @@ internal partial class RedisSetServiceTests
 
         var result = await _sut.AddAsync("key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
     }
 
     [Test]
@@ -46,8 +46,8 @@ internal partial class RedisSetServiceTests
 
         var result = _sut.Add("key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis SADD Error")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis SADD Error")));
     }
 
     [Test]
@@ -61,8 +61,8 @@ internal partial class RedisSetServiceTests
 
         var result = await _sut.AddAsync("key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis SADD Error")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis SADD Error")));
     }
 
     [Test]
@@ -80,8 +80,8 @@ internal partial class RedisSetServiceTests
 
         var result = _sut.Add("key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("some message")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("some message")));
     }
 
     [Test]
@@ -99,8 +99,8 @@ internal partial class RedisSetServiceTests
 
         var result = await _sut.AddAsync("key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("some message")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("some message")));
     }
 
     [Test]
@@ -110,8 +110,8 @@ internal partial class RedisSetServiceTests
 
         var result = _sut.Add("key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis SADD Error")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis SADD Error")));
     }
 
     [Test]
@@ -121,7 +121,7 @@ internal partial class RedisSetServiceTests
 
         var result = await _sut.AddAsync("key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Should().BeEquivalentTo(Error.New("Redis SADD Error")));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.ShouldBeEquivalentTo(Error.New("Redis SADD Error")));
     }
 }

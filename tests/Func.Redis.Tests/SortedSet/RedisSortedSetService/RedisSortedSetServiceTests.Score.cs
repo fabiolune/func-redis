@@ -14,11 +14,11 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.Score("test_key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result.OnRight(score =>
         {
-            score.IsSome.Should().BeTrue();
-            score.OnSome(s => s.Should().Be(10.0));
+            score.IsSome.ShouldBeTrue();
+            score.OnSome(s => s.ShouldBe(10.0));
         });
     }
 
@@ -35,8 +35,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.Score("test_key", data);
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(score => score.IsNone.Should().BeTrue());
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(score => score.IsNone.ShouldBeTrue());
     }
 
     [Test]
@@ -52,8 +52,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = _sut.Score("test_key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Message.Should().Be("Redis error"));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.Message.ShouldBe("Redis error"));
     }
 
     [Test]
@@ -65,8 +65,8 @@ internal partial class RedisSortedSetServiceTests
             .Returns(_ => throw new Exception("Serialization error"));
         var result = _sut.Score("test_key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Message.Should().Be("Serialization error"));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.Message.ShouldBe("Serialization error"));
     }
 
     [Test]
@@ -82,11 +82,11 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.ScoreAsync("test_key", data);
 
-        result.IsRight.Should().BeTrue();
+        result.IsRight.ShouldBeTrue();
         result.OnRight(score =>
         {
-            score.IsSome.Should().BeTrue();
-            score.OnSome(s => s.Should().Be(10.0));
+            score.IsSome.ShouldBeTrue();
+            score.OnSome(s => s.ShouldBe(10.0));
         });
     }
 
@@ -103,8 +103,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.ScoreAsync("test_key", data);
 
-        result.IsRight.Should().BeTrue();
-        result.OnRight(score => score.IsNone.Should().BeTrue());
+        result.IsRight.ShouldBeTrue();
+        result.OnRight(score => score.IsNone.ShouldBeTrue());
     }
 
     [Test]
@@ -120,8 +120,8 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.ScoreAsync("test_key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Message.Should().Be("Redis error"));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.Message.ShouldBe("Redis error"));
     }
 
     [Test]
@@ -134,7 +134,7 @@ internal partial class RedisSortedSetServiceTests
 
         var result = await _sut.ScoreAsync("test_key", data);
 
-        result.IsLeft.Should().BeTrue();
-        result.OnLeft(e => e.Message.Should().Be("Serialization error"));
+        result.IsLeft.ShouldBeTrue();
+        result.OnLeft(e => e.Message.ShouldBe("Serialization error"));
     }
 }

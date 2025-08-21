@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IRedisHashSetService | Functional Redis Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IRedisHashSetService | Functional Redis Documentation ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/fabiolune/func-redis/new/v0.1.0/apiSpec/new?filename=Func_Redis_HashSet_IRedisHashSetService.md&amp;value=---%0Auid%3A%20Func.Redis.HashSet.IRedisHashSetService%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Func.Redis.HashSet.IRedisHashSetService">
+
+
+
+  <h1 id="Func_Redis_HashSet_IRedisHashSetService" data-uid="Func.Redis.HashSet.IRedisHashSetService" class="text-break">
+Interface IRedisHashSetService  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/HashSet/IRedisHashSetService.cs/#L3"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Func.html">Func</a>.<a class="xref" href="Func.Redis.html">Redis</a>.<a class="xref" href="Func.Redis.HashSet.html">HashSet</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Func.Redis.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IRedisHashSetService</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Func_Redis_HashSet_IRedisHashSetService_Delete_" data-uid="Func.Redis.HashSet.IRedisHashSetService.Delete*"></a>
+
+  <h3 id="Func_Redis_HashSet_IRedisHashSetService_Delete_System_String_System_String_" data-uid="Func.Redis.HashSet.IRedisHashSetService.Delete(System.String,System.String)">
+  Delete(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/HashSet/IRedisHashSetService.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes a specific field associated with the given key from the data store.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, Unit&gt; Delete(string key, string field)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the entity from which the field should be deleted. Cannot be null or empty.</p>
+</dd>
+    <dt><code>field</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the field to delete. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> indicating the result of the operation. Returns <code>Unit</code> if
+the deletion is successful, or an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_HashSet_IRedisHashSetService_Delete_" data-uid="Func.Redis.HashSet.IRedisHashSetService.Delete*"></a>
+
+  <h3 id="Func_Redis_HashSet_IRedisHashSetService_Delete_System_String_System_String___" data-uid="Func.Redis.HashSet.IRedisHashSetService.Delete(System.String,System.String[])">
+  Delete(string, params string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/HashSet/IRedisHashSetService.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes specified fields associated with the given key from the data store.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, Unit&gt; Delete(string key, params string[] fields)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The unique identifier for the data entry to modify. Cannot be null or empty.</p>
+</dd>
+    <dt><code>fields</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>An array of field names to delete. If no fields are specified, the method deletes all fields associated with the
+key.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> indicating the result of the operation. Returns <code>Unit</code> if
+the operation succeeds, or an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_HashSet_IRedisHashSetService_Delete_System_String_System_String____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method performs a partial or complete deletion of fields associated with the specified
+key. If the key does not exist, the operation fails and returns an <a class="xref" href="Func.Redis.Error.html">Error</a>.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_HashSet_IRedisHashSetService_DeleteAsync_" data-uid="Func.Redis.HashSet.IRedisHashSetService.DeleteAsync*"></a>
+
+  <h3 id="Func_Redis_HashSet_IRedisHashSetService_DeleteAsync_System_String_System_String_" data-uid="Func.Redis.HashSet.IRedisHashSetService.DeleteAsync(System.String,System.String)">
+  DeleteAsync(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/HashSet/IRedisHashSetService.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes a specific field associated with the given key from the data store.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, Unit&gt;&gt; DeleteAsync(string key, string field)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the entity from which the field should be deleted. Cannot be null or empty.</p>
+</dd>
+    <dt><code>field</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the field to delete. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> indicating the result of the operation. Returns <code>Unit</code> if
+the deletion is successful, or an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_HashSet_IRedisHashSetService_DeleteAsync_" data-uid="Func.Redis.HashSet.IRedisHashSetService.DeleteAsync*"></a>
+
+  <h3 id="Func_Redis_HashSet_IRedisHashSetService_DeleteAsync_System_String_System_String___" data-uid="Func.Redis.HashSet.IRedisHashSetService.DeleteAsync(System.String,System.String[])">
+  DeleteAsync(string, params string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/HashSet/IRedisHashSetService.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes specified fields associated with the given key from the data store.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, Unit&gt;&gt; DeleteAsync(string key, params string[] fields)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The unique identifier for the data entry to modify. Cannot be null or empty.</p>
+</dd>
+    <dt><code>fields</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>An array of field names to delete. If no fields are specified, the method deletes all fields associated with the
+key.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> indicating the result of the operation. Returns <code>Unit</code> if
+the operation succeeds, or an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_HashSet_IRedisHashSetService_DeleteAsync_System_String_System_String____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method performs a partial or complete deletion of fields associated with the specified
+key. If the key does not exist, the operation fails and returns an <a class="xref" href="Func.Redis.Error.html">Error</a>.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_HashSet_IRedisHashSetService_Get_" data-uid="Func.Redis.HashSet.IRedisHashSetService.Get*"></a>
+
+  <h3 id="Func_Redis_HashSet_IRedisHashSetService_Get_System_String_System_ValueTuple_System_Type_System_String____" data-uid="Func.Redis.HashSet.IRedisHashSetService.Get(System.String,System.ValueTuple{System.Type,System.String}[])">
+  Get(string, params (Type, string)[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/HashSet/IRedisHashSetService.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves an array of optional objects based on the specified key and type-field pairs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, Option&lt;object&gt;[]&gt; Get(string key, params (Type, string)[] typeFields)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key used to identify the data to retrieve. Cannot be null or empty.</p>
+</dd>
+    <dt><code>typeFields</code> (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>)[]</dt>
+    <dd><p>A collection of type-field pairs, where each pair specifies the type and field name to query. The type
+represents the expected type of the data, and the field name identifies the specific field to retrieve.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;[]&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an <a class="xref" href="Func.Redis.Error.html">Error</a> object if the operation fails,
+or an array of <span class="xref">TinyFp.Option&lt;A&gt;</span> objects representing the retrieved data. Each element in the array
+corresponds to a type-field pair, and will be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the data for that pair is unavailable.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_HashSet_IRedisHashSetService_GetAllAsync_" data-uid="Func.Redis.HashSet.IRedisHashSetService.GetAllAsync*"></a>
+
+  <h3 id="Func_Redis_HashSet_IRedisHashSetService_GetAllAsync__1_System_String_" data-uid="Func.Redis.HashSet.IRedisHashSetService.GetAllAsync``1(System.String)">
+  GetAllAsync&lt;T&gt;(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/HashSet/IRedisHashSetService.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves all values associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, Option&lt;(string, T)[]&gt;&gt;&gt; GetAllAsync&lt;T&gt;(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key used to look up the values. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, T)[]&gt;&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an error or an optional array of key-value pairs. If
+successful, the result is an <span class="xref">TinyFp.Option&lt;A&gt;</span> containing an array of tuples, where each tuple consists of
+a string key and a value of type <code class="typeparamref">T</code>. If no values are found, the <span class="xref">TinyFp.Option&lt;A&gt;</span>
+will be empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values to retrieve.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_HashSet_IRedisHashSetService_GetAll_" data-uid="Func.Redis.HashSet.IRedisHashSetService.GetAll*"></a>
+
+  <h3 id="Func_Redis_HashSet_IRedisHashSetService_GetAll__1_System_String_" data-uid="Func.Redis.HashSet.IRedisHashSetService.GetAll``1(System.String)">
+  GetAll&lt;T&gt;(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/HashSet/IRedisHashSetService.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves all values associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, Option&lt;(string, T)[]&gt;&gt; GetAll&lt;T&gt;(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key used to look up the values. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, T)[]&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an error or an optional array of key-value pairs. If
+successful, the result is an <span class="xref">TinyFp.Option&lt;A&gt;</span> containing an array of tuples, where each tuple consists of
+a string key and a value of type <code class="typeparamref">T</code>. If no values are found, the <span class="xref">TinyFp.Option&lt;A&gt;</span>
+will be empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values to retrieve.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_HashSet_IRedisHashSetService_GetAsync_" data-uid="Func.Redis.HashSet.IRedisHashSetService.GetAsync*"></a>
+
+  <h3 id="Func_Redis_HashSet_IRedisHashSetService_GetAsync_System_String_System_ValueTuple_System_Type_System_String____" data-uid="Func.Redis.HashSet.IRedisHashSetService.GetAsync(System.String,System.ValueTuple{System.Type,System.String}[])">
+  GetAsync(string, params (Type, string)[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/HashSet/IRedisHashSetService.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, Option&lt;object&gt;[]&gt;&gt; GetAsync(string key, params (Type, string)[] typeFields)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>typeFields</code> (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>)[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;[]&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_HashSet_IRedisHashSetService_GetAsync_" data-uid="Func.Redis.HashSet.IRedisHashSetService.GetAsync*"></a>
+
+  <h3 id="Func_Redis_HashSet_IRedisHashSetService_GetAsync__1_System_String_System_String_" data-uid="Func.Redis.HashSet.IRedisHashSetService.GetAsync``1(System.String,System.String)">
+  GetAsync&lt;T&gt;(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/HashSet/IRedisHashSetService.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the value associated with the specified key and field.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, Option&lt;T&gt;&gt;&gt; GetAsync&lt;T&gt;(string key, string field)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the collection or object to search. Cannot be null or empty.</p>
+</dd>
+    <dt><code>field</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The field within the collection or object to retrieve the value from. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;T&gt;&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an error or an optional value of type <code class="typeparamref">T</code>. If the key or field does not exist, the result will contain an empty <span class="xref">TinyFp.Option&lt;A&gt;</span>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the value to retrieve.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_HashSet_IRedisHashSetService_GetAsync_" data-uid="Func.Redis.HashSet.IRedisHashSetService.GetAsync*"></a>
+
+  <h3 id="Func_Redis_HashSet_IRedisHashSetService_GetAsync__1_System_String_System_String___" data-uid="Func.Redis.HashSet.IRedisHashSetService.GetAsync``1(System.String,System.String[])">
+  GetAsync&lt;T&gt;(string, params string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/HashSet/IRedisHashSetService.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves an array of optional values associated with the specified key and fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, Option&lt;T&gt;[]&gt;&gt; GetAsync&lt;T&gt;(string key, params string[] fields)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key used to identify the values. Cannot be null or empty.</p>
+</dd>
+    <dt><code>fields</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>An optional array of field names to filter the values. If no fields are specified, all values associated with
+the key are retrieved.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;T&gt;[]&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails,  or an
+array of <span class="xref">TinyFp.Option&lt;A&gt;</span> representing the retrieved values. The array will be empty if no values are
+found.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values to retrieve.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_HashSet_IRedisHashSetService_GetFieldKeys_" data-uid="Func.Redis.HashSet.IRedisHashSetService.GetFieldKeys*"></a>
+
+  <h3 id="Func_Redis_HashSet_IRedisHashSetService_GetFieldKeys_System_String_" data-uid="Func.Redis.HashSet.IRedisHashSetService.GetFieldKeys(System.String)">
+  GetFieldKeys(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/HashSet/IRedisHashSetService.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the field keys associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, Option&lt;string[]&gt;&gt; GetFieldKeys(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key for which field keys are to be retrieved. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails,  or an
+<span class="xref">TinyFp.Option&lt;A&gt;</span> representing the field keys as a string array.  If no field keys are found, the <span class="xref">TinyFp.Option&lt;A&gt;</span> will be empty.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_HashSet_IRedisHashSetService_GetFieldKeysAsync_" data-uid="Func.Redis.HashSet.IRedisHashSetService.GetFieldKeysAsync*"></a>
+
+  <h3 id="Func_Redis_HashSet_IRedisHashSetService_GetFieldKeysAsync_System_String_" data-uid="Func.Redis.HashSet.IRedisHashSetService.GetFieldKeysAsync(System.String)">
+  GetFieldKeysAsync(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/HashSet/IRedisHashSetService.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the field keys associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, Option&lt;string[]&gt;&gt;&gt; GetFieldKeysAsync(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key for which field keys are to be retrieved. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]&gt;&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails,  or an
+<span class="xref">TinyFp.Option&lt;A&gt;</span> representing the field keys as a string array.  If no field keys are found, the <span class="xref">TinyFp.Option&lt;A&gt;</span> will be empty.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_HashSet_IRedisHashSetService_GetValuesAsync_" data-uid="Func.Redis.HashSet.IRedisHashSetService.GetValuesAsync*"></a>
+
+  <h3 id="Func_Redis_HashSet_IRedisHashSetService_GetValuesAsync__1_System_String_" data-uid="Func.Redis.HashSet.IRedisHashSetService.GetValuesAsync``1(System.String)">
+  GetValuesAsync&lt;T&gt;(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/HashSet/IRedisHashSetService.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the values associated with the specified key, if available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, Option&lt;T[]&gt;&gt;&gt; GetValuesAsync&lt;T&gt;(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key used to look up the values. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;T[]&gt;&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an error or an optional array of values. If the
+key is not found, the result will contain an empty option.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values to retrieve.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_HashSet_IRedisHashSetService_GetValues_" data-uid="Func.Redis.HashSet.IRedisHashSetService.GetValues*"></a>
+
+  <h3 id="Func_Redis_HashSet_IRedisHashSetService_GetValues__1_System_String_" data-uid="Func.Redis.HashSet.IRedisHashSetService.GetValues``1(System.String)">
+  GetValues&lt;T&gt;(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/HashSet/IRedisHashSetService.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the values associated with the specified key, if available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, Option&lt;T[]&gt;&gt; GetValues&lt;T&gt;(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key used to look up the values. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;T[]&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an error or an optional array of values. If the
+key is not found, the result will contain an empty option.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values to retrieve.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_HashSet_IRedisHashSetService_Get_" data-uid="Func.Redis.HashSet.IRedisHashSetService.Get*"></a>
+
+  <h3 id="Func_Redis_HashSet_IRedisHashSetService_Get__1_System_String_System_String_" data-uid="Func.Redis.HashSet.IRedisHashSetService.Get``1(System.String,System.String)">
+  Get&lt;T&gt;(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/HashSet/IRedisHashSetService.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the value associated with the specified key and field.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, Option&lt;T&gt;&gt; Get&lt;T&gt;(string key, string field)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the collection or object to search. Cannot be null or empty.</p>
+</dd>
+    <dt><code>field</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The field within the collection or object to retrieve the value from. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;T&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an error or an optional value of type <code class="typeparamref">T</code>. If the key or field does not exist, the result will contain an empty <span class="xref">TinyFp.Option&lt;A&gt;</span>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the value to retrieve.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_HashSet_IRedisHashSetService_Get_" data-uid="Func.Redis.HashSet.IRedisHashSetService.Get*"></a>
+
+  <h3 id="Func_Redis_HashSet_IRedisHashSetService_Get__1_System_String_System_String___" data-uid="Func.Redis.HashSet.IRedisHashSetService.Get``1(System.String,System.String[])">
+  Get&lt;T&gt;(string, params string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/HashSet/IRedisHashSetService.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves an array of optional values associated with the specified key and fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, Option&lt;T&gt;[]&gt; Get&lt;T&gt;(string key, params string[] fields)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key used to identify the values. Cannot be null or empty.</p>
+</dd>
+    <dt><code>fields</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>An optional array of field names to filter the values. If no fields are specified, all values associated with
+the key are retrieved.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;T&gt;[]&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails,  or an
+array of <span class="xref">TinyFp.Option&lt;A&gt;</span> representing the retrieved values. The array will be empty if no values are
+found.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values to retrieve.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_HashSet_IRedisHashSetService_SetAsync_" data-uid="Func.Redis.HashSet.IRedisHashSetService.SetAsync*"></a>
+
+  <h3 id="Func_Redis_HashSet_IRedisHashSetService_SetAsync__1_System_String_System_String___0_" data-uid="Func.Redis.HashSet.IRedisHashSetService.SetAsync``1(System.String,System.String,``0)">
+  SetAsync&lt;T&gt;(string, string, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/HashSet/IRedisHashSetService.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the specified value for a given key and field in the data store.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, Unit&gt;&gt; SetAsync&lt;T&gt;(string key, string field, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the data store entry. Cannot be null or empty.</p>
+</dd>
+    <dt><code>field</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The field within the entry to set the value for. Cannot be null or empty.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd><p>The value to set for the specified field. Cannot be null.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> indicating the result of the operation.  Returns <code>Unit</code> if
+the operation succeeds, or an <a class="xref" href="Func.Redis.Error.html">Error</a> if it fails.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the value to set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_HashSet_IRedisHashSetService_SetAsync__1_System_String_System_String___0__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method updates the value for the specified field within the entry identified by the key.
+If the key or field does not exist, or if the operation fails, an <a class="xref" href="Func.Redis.Error.html">Error</a> is returned.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_HashSet_IRedisHashSetService_SetAsync_" data-uid="Func.Redis.HashSet.IRedisHashSetService.SetAsync*"></a>
+
+  <h3 id="Func_Redis_HashSet_IRedisHashSetService_SetAsync__1_System_String_System_ValueTuple_System_String___0____" data-uid="Func.Redis.HashSet.IRedisHashSetService.SetAsync``1(System.String,System.ValueTuple{System.String,``0}[])">
+  SetAsync&lt;T&gt;(string, params (string, T)[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/HashSet/IRedisHashSetService.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets multiple key-value pairs in the specified storage, associating each pair with the given key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, Unit&gt;&gt; SetAsync&lt;T&gt;(string key, params (string, T)[] pairs)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key used to group the pairs in the storage. Cannot be null or empty.</p>
+</dd>
+    <dt><code>pairs</code> (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, T)[]</dt>
+    <dd><p>An array of tuples, where each tuple contains a string identifier and a value of type <code class="typeparamref">T</code>.
+The identifiers must be unique within the specified key.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> indicating the result of the operation.  Returns <code>Unit</code> if
+the operation succeeds; otherwise, returns an <a class="xref" href="Func.Redis.Error.html">Error</a> describing the failure.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values to be stored.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_HashSet_IRedisHashSetService_Set_" data-uid="Func.Redis.HashSet.IRedisHashSetService.Set*"></a>
+
+  <h3 id="Func_Redis_HashSet_IRedisHashSetService_Set__1_System_String_System_String___0_" data-uid="Func.Redis.HashSet.IRedisHashSetService.Set``1(System.String,System.String,``0)">
+  Set&lt;T&gt;(string, string, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/HashSet/IRedisHashSetService.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the specified value for a given key and field in the data store.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, Unit&gt; Set&lt;T&gt;(string key, string field, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the data store entry. Cannot be null or empty.</p>
+</dd>
+    <dt><code>field</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The field within the entry to set the value for. Cannot be null or empty.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd><p>The value to set for the specified field. Cannot be null.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> indicating the result of the operation.  Returns <code>Unit</code> if
+the operation succeeds, or an <a class="xref" href="Func.Redis.Error.html">Error</a> if it fails.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the value to set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_HashSet_IRedisHashSetService_Set__1_System_String_System_String___0__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method updates the value for the specified field within the entry identified by the key.
+If the key or field does not exist, or if the operation fails, an <a class="xref" href="Func.Redis.Error.html">Error</a> is returned.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_HashSet_IRedisHashSetService_Set_" data-uid="Func.Redis.HashSet.IRedisHashSetService.Set*"></a>
+
+  <h3 id="Func_Redis_HashSet_IRedisHashSetService_Set__1_System_String_System_ValueTuple_System_String___0____" data-uid="Func.Redis.HashSet.IRedisHashSetService.Set``1(System.String,System.ValueTuple{System.String,``0}[])">
+  Set&lt;T&gt;(string, params (string, T)[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/HashSet/IRedisHashSetService.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets multiple key-value pairs in the specified storage, associating each pair with the given key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, Unit&gt; Set&lt;T&gt;(string key, params (string, T)[] pairs)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key used to group the pairs in the storage. Cannot be null or empty.</p>
+</dd>
+    <dt><code>pairs</code> (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, T)[]</dt>
+    <dd><p>An array of tuples, where each tuple contains a string identifier and a value of type <code class="typeparamref">T</code>.
+The identifiers must be unique within the specified key.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> indicating the result of the operation.  Returns <code>Unit</code> if
+the operation succeeds; otherwise, returns an <a class="xref" href="Func.Redis.Error.html">Error</a> describing the failure.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values to be stored.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/HashSet/IRedisHashSetService.cs/#L3" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

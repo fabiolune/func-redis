@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title> | Functional Redis Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content=" | Functional Redis Documentation ">
+      
+      
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/fabiolune/func-redis/blob/v0.1.0/docs/index.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="landing" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+
+
+<p>version 0.1.0</p>
+<p><img src="https://github.com/fabiolune/func-redis/actions/workflows/main.yaml/badge.svg" alt="GitHub CI">
+<a href="https://sonarcloud.io/summary/new_code?id=fabiolune_func-redis"><img src="https://sonarcloud.io/api/project_badges/measure?project=fabiolune_func-redis&amp;metric=alert_status" alt="Quality Gate Status"></a>
+<a href="https://codecov.io/gh/fabiolune/func-redis"><img src="https://codecov.io/gh/fabiolune/func-redis/graph/badge.svg?token=EBG533UNGE" alt="codecov"></a>
+<a href="https://dashboard.stryker-mutator.io/reports/github.com/fabiolune/func-redis/main"><img src="https://img.shields.io/endpoint?style=flat&amp;url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Ffabiolune%2Ffunc-redis%2Fmain" alt="Mutation testing badge"></a></p>
+<p><strong>func-redis</strong> contains components aimed to simplify the adoption of <a href="https://github.com/StackExchange/StackExchange.Redis">StackExchange.Redis</a> using a Functional Programming-first approach (thanks to Franco Melandri's <a href="https://github.com/FrancoMelandri/tiny-fp">tiny-fp</a>).</p>
+<p>The design of <code>Func.Redis</code> emphasizes a robust and flexible functional programming approach. Below are the key aspects that highlight the purpose and benefits of using Func.Redis in your .NET applications:</p>
+<ul>
+<li><strong>Abstraction</strong>: These classes and interfaces abstract the complexity of interacting with Redis, providing a clean and consistent API for the rest of the application.</li>
+<li><strong>Key Transformation</strong>: The key transformation functions allow for flexible key management, enabling the modification of keys before they are used in Redis operations.</li>
+<li><strong>Error Handling</strong>: The use of <code>Either&lt;Error, Unit&gt;</code> and <code>Option&lt;T&gt;</code> types from the <code>TinyFp</code> library helps in handling errors and optional values in a functional programming style.</li>
+<li><strong>Asynchronous Operations</strong>: The inclusion of asynchronous methods ensures that the application can perform Redis operations without blocking the main thread, improving performance and scalability.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="installation">Installation</h3>
+<pre><code class="lang-shell">dotnet add package func-redis
+</code></pre>
+<p>To include the functionalities to setup the native dependency injection container you will need to install the associated extensions:</p>
+<pre><code class="lang-shell">dotnet add package func-redis-extensions
+</code></pre>
+<h3 id="example">Example</h3>
+<pre><code class="lang-csharp">using TinyFp;
+using Func.Redis.Extensions;
+using Func.Redis;
+using Microsoft.Extensions.DependencyInjection;
+using Func.Redis.SerDes.Json;
+using Microsoft.Extensions.Configuration;
+using System.Text.Json;
+
+// Configure services 
+var config = new ConfigurationBuilder()
+    .AddJsonFile(&quot;AppSettings.json&quot;, optional: false)
+    .Build();
+
+var services = new ServiceCollection();
+// Use func-redis-extensions
+services
+  .AddRedis&lt;SystemJsonRedisSerDes&gt;(config, RedisCapabilities.Keys);
+
+var serviceProvider = services.BuildServiceProvider();
+
+// Resolve the Redis service 
+var redisService = serviceProvider.GetRequiredService&lt;IRedisKeyService&gt;();
+
+// Save and retrieve data
+var result = await redisService
+  .SetAsync(&quot;key&quot;, new TestData(42))
+  .BindAsync(_ =&gt; redisService.GetAsync&lt;TestData&gt;(&quot;key&quot;));
+
+result
+    .OnRight(o =&gt; o
+        .OnSome(td =&gt; Console.WriteLine($&quot;data found: {JsonSerializer.Serialize(td)}&quot;))
+        .OnNone(() =&gt; Console.WriteLine(&quot;data not found&quot;)))
+    .OnLeft(e =&gt; Console.WriteLine($&quot;Returned error {e.Message}&quot;));
+
+internal record TestData(int Id);
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/fabiolune/func-redis/blob/v0.1.0/docs/index.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IRedisService | Functional Redis Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IRedisService | Functional Redis Documentation ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/fabiolune/func-redis/new/v0.1.0/apiSpec/new?filename=Func_Redis_IRedisService.md&amp;value=---%0Auid%3A%20Func.Redis.IRedisService%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Func.Redis.IRedisService">
+
+
+
+  <h1 id="Func_Redis_IRedisService" data-uid="Func.Redis.IRedisService" class="text-break">
+Interface IRedisService  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/IRedisService.cs/#L4"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Func.html">Func</a>.<a class="xref" href="Func.Redis.html">Redis</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Func.Redis.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IRedisService</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Func_Redis_IRedisService_ExecuteAsync_" data-uid="Func.Redis.IRedisService.ExecuteAsync*"></a>
+
+  <h3 id="Func_Redis_IRedisService_ExecuteAsync__1_System_Func_StackExchange_Redis_IDatabase_System_Threading_Tasks_Task___0___" data-uid="Func.Redis.IRedisService.ExecuteAsync``1(System.Func{StackExchange.Redis.IDatabase,System.Threading.Tasks.Task{``0}})">
+  ExecuteAsync&lt;T&gt;(Func&lt;IDatabase, Task&lt;T&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/IRedisService.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes the specified function within the context of a database operation and returns the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, T&gt;&gt; ExecuteAsync&lt;T&gt;(Func&lt;IDatabase, Task&lt;T&gt;&gt; exec)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>exec</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">IDatabase</span>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;T&gt;&gt;</dt>
+    <dd><p>A function that takes an <span class="xref">StackExchange.Redis.IDatabase</span> instance and performs the desired operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, T&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either the result of the operation or an error if the operation
+fails.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the result produced by the function.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_IRedisService_ExecuteAsync_" data-uid="Func.Redis.IRedisService.ExecuteAsync*"></a>
+
+  <h3 id="Func_Redis_IRedisService_ExecuteAsync__2_System_Func_StackExchange_Redis_IDatabase_System_Threading_Tasks_Task___0___System_Func___0___1__" data-uid="Func.Redis.IRedisService.ExecuteAsync``2(System.Func{StackExchange.Redis.IDatabase,System.Threading.Tasks.Task{``0}},System.Func{``0,``1})">
+  ExecuteAsync&lt;TIn, TOut&gt;(Func&lt;IDatabase, Task&lt;TIn&gt;&gt;, Func&lt;TIn, TOut&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/IRedisService.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes a database operation and maps the result to a specified output type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, TOut&gt;&gt; ExecuteAsync&lt;TIn, TOut&gt;(Func&lt;IDatabase, Task&lt;TIn&gt;&gt; exec, Func&lt;TIn, TOut&gt; map)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>exec</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">IDatabase</span>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TIn&gt;&gt;</dt>
+    <dd><p>A function that performs the database operation and returns a result of type <code class="typeparamref">TIn</code>.</p>
+</dd>
+    <dt><code>map</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TIn, TOut&gt;</dt>
+    <dd><p>A function that transforms the intermediate result of type <code class="typeparamref">TIn</code> into the final result of
+type <code class="typeparamref">TOut</code>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, TOut&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails,  or the
+mapped result of type <code class="typeparamref">TOut</code> if the operation succeeds.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TIn</code></dt>
+    <dd><p>The type of the intermediate result produced by the database operation.</p>
+</dd>
+    <dt><code>TOut</code></dt>
+    <dd><p>The type of the final result after mapping.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_IRedisService_ExecuteAsync__2_System_Func_StackExchange_Redis_IDatabase_System_Threading_Tasks_Task___0___System_Func___0___1___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method provides a mechanism to execute a database operation and process its result in a
+functional style. The <code class="paramref">exec</code> function is responsible for interacting with the database, while
+the <code class="paramref">map</code>  function allows transformation of the intermediate result into the desired
+output.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_IRedisService_ExecuteUnsafeAsync_" data-uid="Func.Redis.IRedisService.ExecuteUnsafeAsync*"></a>
+
+  <h3 id="Func_Redis_IRedisService_ExecuteUnsafeAsync__2_System_Func_StackExchange_Redis_IDatabase_System_Threading_Tasks_Task___0___System_Func___0___1__" data-uid="Func.Redis.IRedisService.ExecuteUnsafeAsync``2(System.Func{StackExchange.Redis.IDatabase,System.Threading.Tasks.Task{``0}},System.Func{``0,``1})">
+  ExecuteUnsafeAsync&lt;TIn, TOut&gt;(Func&lt;IDatabase, Task&lt;TIn&gt;&gt;, Func&lt;TIn, TOut&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/IRedisService.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes an asynchronous operation on a database and maps the result to a specified output type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, TOut&gt;&gt; ExecuteUnsafeAsync&lt;TIn, TOut&gt;(Func&lt;IDatabase, Task&lt;TIn&gt;&gt; exec, Func&lt;TIn, TOut&gt; map)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>exec</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">IDatabase</span>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TIn&gt;&gt;</dt>
+    <dd><p>A function that performs the database operation and returns a task producing the intermediate result.</p>
+</dd>
+    <dt><code>map</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TIn, TOut&gt;</dt>
+    <dd><p>A function that transforms the intermediate result into the final output type.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, TOut&gt;&gt;</dt>
+    <dd><p>A task that represents the asynchronous operation. The result is an <span class="xref">TinyFp.Either&lt;L, R&gt;</span>
+containing either an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails, or the mapped result of type <code class="typeparamref">TOut</code> if successful.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TIn</code></dt>
+    <dd><p>The type of the intermediate result produced by the database operation.</p>
+</dd>
+    <dt><code>TOut</code></dt>
+    <dd><p>The type of the final result after mapping.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_IRedisService_Execute_" data-uid="Func.Redis.IRedisService.Execute*"></a>
+
+  <h3 id="Func_Redis_IRedisService_Execute__1_System_Func_StackExchange_Redis_IDatabase___0__" data-uid="Func.Redis.IRedisService.Execute``1(System.Func{StackExchange.Redis.IDatabase,``0})">
+  Execute&lt;T&gt;(Func&lt;IDatabase, T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/IRedisService.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes the specified function within the context of a database operation and returns the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, T&gt; Execute&lt;T&gt;(Func&lt;IDatabase, T&gt; exec)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>exec</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">IDatabase</span>, T&gt;</dt>
+    <dd><p>A function that takes an <span class="xref">StackExchange.Redis.IDatabase</span> instance and performs the desired operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, T&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either the result of the operation or an error if the operation
+fails.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the result produced by the function.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_IRedisService_Execute_" data-uid="Func.Redis.IRedisService.Execute*"></a>
+
+  <h3 id="Func_Redis_IRedisService_Execute__2_System_Func_StackExchange_Redis_IDatabase___0__System_Func___0___1__" data-uid="Func.Redis.IRedisService.Execute``2(System.Func{StackExchange.Redis.IDatabase,``0},System.Func{``0,``1})">
+  Execute&lt;TIn, TOut&gt;(Func&lt;IDatabase, TIn&gt;, Func&lt;TIn, TOut&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/IRedisService.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes a database operation and maps the result to a specified output type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, TOut&gt; Execute&lt;TIn, TOut&gt;(Func&lt;IDatabase, TIn&gt; exec, Func&lt;TIn, TOut&gt; map)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>exec</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">IDatabase</span>, TIn&gt;</dt>
+    <dd><p>A function that performs the database operation and returns a result of type <code class="typeparamref">TIn</code>.</p>
+</dd>
+    <dt><code>map</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TIn, TOut&gt;</dt>
+    <dd><p>A function that transforms the intermediate result of type <code class="typeparamref">TIn</code> into the final result of
+type <code class="typeparamref">TOut</code>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, TOut&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails,  or the
+mapped result of type <code class="typeparamref">TOut</code> if the operation succeeds.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TIn</code></dt>
+    <dd><p>The type of the intermediate result produced by the database operation.</p>
+</dd>
+    <dt><code>TOut</code></dt>
+    <dd><p>The type of the final result after mapping.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_IRedisService_Execute__2_System_Func_StackExchange_Redis_IDatabase___0__System_Func___0___1___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method provides a mechanism to execute a database operation and process its result in a
+functional style. The <code class="paramref">exec</code> function is responsible for interacting with the database, while
+the <code class="paramref">map</code>  function allows transformation of the intermediate result into the desired
+output.</p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/IRedisService.cs/#L4" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

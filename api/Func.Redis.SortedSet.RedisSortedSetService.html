@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class RedisSortedSetService | Functional Redis Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RedisSortedSetService | Functional Redis Documentation ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/fabiolune/func-redis/new/v0.1.0/apiSpec/new?filename=Func_Redis_SortedSet_RedisSortedSetService.md&amp;value=---%0Auid%3A%20Func.Redis.SortedSet.RedisSortedSetService%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Func.Redis.SortedSet.RedisSortedSetService">
+
+
+
+  <h1 id="Func_Redis_SortedSet_RedisSortedSetService" data-uid="Func.Redis.SortedSet.RedisSortedSetService" class="text-break">
+Class RedisSortedSetService  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Func.html">Func</a>.<a class="xref" href="Func.Redis.html">Redis</a>.<a class="xref" href="Func.Redis.SortedSet.html">SortedSet</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Func.Redis.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class RedisSortedSetService : IRedisSortedSetService</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">RedisSortedSetService</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Func.Redis.SortedSet.IRedisSortedSetService.html">IRedisSortedSetService</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService__ctor_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.#ctor*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService__ctor_Func_Redis_ISourcesProvider_Func_Redis_SerDes_IRedisSerDes_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.#ctor(Func.Redis.ISourcesProvider,Func.Redis.SerDes.IRedisSerDes)">
+  RedisSortedSetService(ISourcesProvider, IRedisSerDes)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RedisSortedSetService(ISourcesProvider sourcesProvider, IRedisSerDes serDes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourcesProvider</code> <a class="xref" href="Func.Redis.ISourcesProvider.html">ISourcesProvider</a></dt>
+    <dd></dd>
+    <dt><code>serDes</code> <a class="xref" href="Func.Redis.SerDes.IRedisSerDes.html">IRedisSerDes</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_AddAsync_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.AddAsync*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_AddAsync__1_System_String_System_Collections_Generic_IEnumerable_System_ValueTuple___0_System_Double___" data-uid="Func.Redis.SortedSet.RedisSortedSetService.AddAsync``1(System.String,System.Collections.Generic.IEnumerable{System.ValueTuple{``0,System.Double}})">
+  AddAsync&lt;T&gt;(string, IEnumerable&lt;(T Value, double Score)&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>inheritdoc cref=&quot;Add{T}(string, IEnumerable{(T Value, double Score)})&quot;/&gt;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Either&lt;Error, Unit&gt;&gt; AddAsync&lt;T&gt;(string key, IEnumerable&lt;(T Value, double Score)&gt; values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;(T <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple---0,system.double-.value">Value</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple---0,system.double-.score">Score</a>)&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_AddAsync_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.AddAsync*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_AddAsync__1_System_String___0_System_Double_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.AddAsync``1(System.String,``0,System.Double)">
+  AddAsync&lt;T&gt;(string, T, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>inheritdoc cref=&quot;Add{T}(string, T, double)&quot;/&gt;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Either&lt;Error, Unit&gt;&gt; AddAsync&lt;T&gt;(string key, T value, double score)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>score</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_Add_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.Add*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_Add__1_System_String_System_Collections_Generic_IEnumerable_System_ValueTuple___0_System_Double___" data-uid="Func.Redis.SortedSet.RedisSortedSetService.Add``1(System.String,System.Collections.Generic.IEnumerable{System.ValueTuple{``0,System.Double}})">
+  Add&lt;T&gt;(string, IEnumerable&lt;(T Value, double Score)&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Add values with scores to a sorted set key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Either&lt;Error, Unit&gt; Add&lt;T&gt;(string key, IEnumerable&lt;(T Value, double Score)&gt; values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;(T <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple---0,system.double-.value">Value</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple---0,system.double-.score">Score</a>)&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;</dt>
+    <dd><p><span class="xref">TinyFp.Unit</span> or <a class="xref" href="Func.Redis.Error.html">Error</a></p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_Add_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.Add*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_Add__1_System_String___0_System_Double_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.Add``1(System.String,``0,System.Double)">
+  Add&lt;T&gt;(string, T, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Add a value with score to a sorted set key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Either&lt;Error, Unit&gt; Add&lt;T&gt;(string key, T value, double score)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>score</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;</dt>
+    <dd><p><span class="xref">TinyFp.Unit</span> or <a class="xref" href="Func.Redis.Error.html">Error</a></p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_DecrementAsync_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.DecrementAsync*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_DecrementAsync__1_System_String___0_System_Double_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.DecrementAsync``1(System.String,``0,System.Double)">
+  DecrementAsync&lt;T&gt;(string, T, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Decrement the score of a value in a sorted set key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Either&lt;Error, Unit&gt;&gt; DecrementAsync&lt;T&gt;(string key, T value, double score)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>score</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_Decrement_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.Decrement*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_Decrement__1_System_String___0_System_Double_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.Decrement``1(System.String,``0,System.Double)">
+  Decrement&lt;T&gt;(string, T, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Decrement the score of a value in a sorted set key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Either&lt;Error, Unit&gt; Decrement&lt;T&gt;(string key, T value, double score)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>score</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_IncrementAsync_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.IncrementAsync*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_IncrementAsync__1_System_String___0_System_Double_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.IncrementAsync``1(System.String,``0,System.Double)">
+  IncrementAsync&lt;T&gt;(string, T, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the intersection of values associated with the specified keys.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Either&lt;Error, Unit&gt;&gt; IncrementAsync&lt;T&gt;(string key, T value, double score)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>score</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an error if the operation fails,  or an array of values of
+type <code class="typeparamref">T</code> that represent the intersection of the values associated with the provided keys.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values to be intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_Increment_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.Increment*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_Increment__1_System_String___0_System_Double_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.Increment``1(System.String,``0,System.Double)">
+  Increment&lt;T&gt;(string, T, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Increments the score associated with the specified key by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Either&lt;Error, Unit&gt; Increment&lt;T&gt;(string key, T value, double score)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the item whose score is to be incremented. Cannot be null or empty.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd><p>The value to increment the score by. Must be compatible with the type parameter <code class="typeparamref">T</code>.</p>
+</dd>
+    <dt><code>score</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The amount by which the score is incremented. Must be a valid double value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> indicating the result of the operation. Returns <code>Unit</code> if
+the operation succeeds, or an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the value to be incremented. Typically a numeric type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_SortedSet_RedisSortedSetService_Increment__1_System_String___0_System_Double__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is typically used in scenarios where scores are tracked and updated dynamically,
+such as leaderboards or ranking systems. Ensure that the key exists and is valid before calling this method to
+avoid errors.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_IntersectAsync_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.IntersectAsync*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_IntersectAsync__1_System_String___" data-uid="Func.Redis.SortedSet.RedisSortedSetService.IntersectAsync``1(System.String[])">
+  IntersectAsync&lt;T&gt;(string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the intersection of values associated with the specified keys.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Either&lt;Error, T[]&gt;&gt; IntersectAsync&lt;T&gt;(string[] keys)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keys</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>An array of keys used to identify the values to intersect. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, T[]&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an error if the operation fails,  or an array of values of
+type <code class="typeparamref">T</code> that represent the intersection of the values associated with the provided keys.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values to be intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_Intersect_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.Intersect*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_Intersect__1_System_String___" data-uid="Func.Redis.SortedSet.RedisSortedSetService.Intersect``1(System.String[])">
+  Intersect&lt;T&gt;(string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the intersection of values associated with the specified keys.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Either&lt;Error, T[]&gt; Intersect&lt;T&gt;(string[] keys)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keys</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>An array of keys used to identify the values to intersect. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, T[]&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an error if the operation fails,  or an array of values of
+type <code class="typeparamref">T</code> that represent the intersection of the values associated with the provided keys.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values to be intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_Length_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.Length*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_Length_System_String_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.Length(System.String)">
+  Length(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the length of the value associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Either&lt;Error, long&gt; Length(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the value whose length is to be retrieved. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails,  or a
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">long</a> representing the length of the value if the operation succeeds.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_LengthAsync_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.LengthAsync*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_LengthAsync_System_String_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.LengthAsync(System.String)">
+  LengthAsync(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the length of the value associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Either&lt;Error, long&gt;&gt; LengthAsync(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the value whose length is to be retrieved. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails,  or a
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">long</a> representing the length of the value if the operation succeeds.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_LengthByScore_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.LengthByScore*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_LengthByScore_System_String_System_Double_System_Double_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.LengthByScore(System.String,System.Double,System.Double)">
+  LengthByScore(string, double, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the count of elements in a sorted set stored at the specified key,  where the elements' scores fall
+within the given range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Either&lt;Error, long&gt; LengthByScore(string key, double min, double max)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the sorted set. Cannot be null or empty.</p>
+</dd>
+    <dt><code>min</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The minimum score of the range. Elements with scores greater than or equal to this value are included.</p>
+</dd>
+    <dt><code>max</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The maximum score of the range. Elements with scores less than or equal to this value are included.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an error if the operation fails,  or the count of
+elements within the specified score range.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_SortedSet_RedisSortedSetService_LengthByScore_System_String_System_Double_System_Double__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The score range is inclusive of both <code class="paramref">min</code> and
+<code class="paramref">max</code>.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_LengthByScoreAsync_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.LengthByScoreAsync*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_LengthByScoreAsync_System_String_System_Double_System_Double_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.LengthByScoreAsync(System.String,System.Double,System.Double)">
+  LengthByScoreAsync(string, double, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the count of elements in a sorted set stored at the specified key,  where the elements' scores fall
+within the given range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Either&lt;Error, long&gt;&gt; LengthByScoreAsync(string key, double min, double max)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the sorted set. Cannot be null or empty.</p>
+</dd>
+    <dt><code>min</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The minimum score of the range. Elements with scores greater than or equal to this value are included.</p>
+</dd>
+    <dt><code>max</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The maximum score of the range. Elements with scores less than or equal to this value are included.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an error if the operation fails,  or the count of
+elements within the specified score range.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_SortedSet_RedisSortedSetService_LengthByScoreAsync_System_String_System_Double_System_Double__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The score range is inclusive of both <code class="paramref">min</code> and
+<code class="paramref">max</code>.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_LengthByValueAsync_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.LengthByValueAsync*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_LengthByValueAsync__1_System_String___0___0_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.LengthByValueAsync``1(System.String,``0,``0)">
+  LengthByValueAsync&lt;T&gt;(string, T, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the length of a collection stored under the specified key, filtered by a range of values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Either&lt;Error, long&gt;&gt; LengthByValueAsync&lt;T&gt;(string key, T min, T max)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the collection in the data store. Cannot be null or empty.</p>
+</dd>
+    <dt><code>min</code> <span class="xref">T</span></dt>
+    <dd><p>The minimum value of the range used to filter the collection.</p>
+</dd>
+    <dt><code>max</code> <span class="xref">T</span></dt>
+    <dd><p>The maximum value of the range used to filter the collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails,  or a
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">long</a> representing the count of items in the collection that fall within the specified range.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values used to filter the collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_SortedSet_RedisSortedSetService_LengthByValueAsync__1_System_String___0___0__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The method filters the collection based on the provided range [<code class="paramref">min</code>,
+<code class="paramref">max</code>].  Ensure that <code class="paramref">min</code> is less than or equal to <code class="paramref">max</code> to
+avoid unexpected results.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_LengthByValue_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.LengthByValue*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_LengthByValue__1_System_String___0___0_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.LengthByValue``1(System.String,``0,``0)">
+  LengthByValue&lt;T&gt;(string, T, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the length of a collection stored under the specified key, filtered by a range of values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Either&lt;Error, long&gt; LengthByValue&lt;T&gt;(string key, T min, T max)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the collection in the data store. Cannot be null or empty.</p>
+</dd>
+    <dt><code>min</code> <span class="xref">T</span></dt>
+    <dd><p>The minimum value of the range used to filter the collection.</p>
+</dd>
+    <dt><code>max</code> <span class="xref">T</span></dt>
+    <dd><p>The maximum value of the range used to filter the collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails,  or a
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">long</a> representing the count of items in the collection that fall within the specified range.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values used to filter the collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_SortedSet_RedisSortedSetService_LengthByValue__1_System_String___0___0__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The method filters the collection based on the provided range [<code class="paramref">min</code>,
+<code class="paramref">max</code>].  Ensure that <code class="paramref">min</code> is less than or equal to <code class="paramref">max</code> to
+avoid unexpected results.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_RangeByScoreAsync_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.RangeByScoreAsync*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_RangeByScoreAsync__1_System_String_System_Double_System_Double_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.RangeByScoreAsync``1(System.String,System.Double,System.Double)">
+  RangeByScoreAsync&lt;T&gt;(string, double, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves a range of elements from a sorted collection based on their score values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Either&lt;Error, T[]&gt;&gt; RangeByScoreAsync&lt;T&gt;(string key, double min, double max)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the sorted collection. Cannot be null or empty.</p>
+</dd>
+    <dt><code>min</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The minimum score value for the range. Elements with scores less than this value are excluded.</p>
+</dd>
+    <dt><code>max</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The maximum score value for the range. Elements with scores greater than this value are excluded.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, T[]&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails,  or an
+array of elements of type <code class="typeparamref">T</code> that fall within the specified score range. If no elements
+match the criteria, an empty array is returned.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of elements in the collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_RangeByScore_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.RangeByScore*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_RangeByScore__1_System_String_System_Double_System_Double_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.RangeByScore``1(System.String,System.Double,System.Double)">
+  RangeByScore&lt;T&gt;(string, double, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves a range of elements from a sorted collection based on their score values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Either&lt;Error, T[]&gt; RangeByScore&lt;T&gt;(string key, double min, double max)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the sorted collection. Cannot be null or empty.</p>
+</dd>
+    <dt><code>min</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The minimum score value for the range. Elements with scores less than this value are excluded.</p>
+</dd>
+    <dt><code>max</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The maximum score value for the range. Elements with scores greater than this value are excluded.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, T[]&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails,  or an
+array of elements of type <code class="typeparamref">T</code> that fall within the specified score range. If no elements
+match the criteria, an empty array is returned.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of elements in the collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_RankAsync_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.RankAsync*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_RankAsync__1_System_String___0_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.RankAsync``1(System.String,``0)">
+  RankAsync&lt;T&gt;(string, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the rank of a specified value within a collection associated with the given key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Either&lt;Error, Option&lt;long&gt;&gt;&gt; RankAsync&lt;T&gt;(string key, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the collection in which the rank is calculated. Cannot be null or empty.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd><p>The value whose rank is to be determined. Must exist within the collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>&gt;&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails,      or
+an <span class="xref">TinyFp.Option&lt;A&gt;</span> representing the rank of the value as a zero-based index.      Returns <code>None</code> if the value is not found in the collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the value to rank. Must be comparable within the collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_SortedSet_RedisSortedSetService_RankAsync__1_System_String___0__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The rank is determined based on the ordering of the collection associated with the specified
+key.      If the key does not exist or the value is not found, the method returns <code>None</code> within
+the result.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_Rank_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.Rank*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_Rank__1_System_String___0_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.Rank``1(System.String,``0)">
+  Rank&lt;T&gt;(string, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the rank of a specified value within a collection associated with the given key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Either&lt;Error, Option&lt;long&gt;&gt; Rank&lt;T&gt;(string key, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the collection in which the rank is calculated. Cannot be null or empty.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd><p>The value whose rank is to be determined. Must exist within the collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails,      or
+an <span class="xref">TinyFp.Option&lt;A&gt;</span> representing the rank of the value as a zero-based index.      Returns <code>None</code> if the value is not found in the collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the value to rank. Must be comparable within the collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_SortedSet_RedisSortedSetService_Rank__1_System_String___0__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The rank is determined based on the ordering of the collection associated with the specified
+key.      If the key does not exist or the value is not found, the method returns <code>None</code> within
+the result.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_RemoveAsync_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.RemoveAsync*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_RemoveAsync__1_System_String_System_Collections_Generic_IEnumerable___0__" data-uid="Func.Redis.SortedSet.RedisSortedSetService.RemoveAsync``1(System.String,System.Collections.Generic.IEnumerable{``0})">
+  RemoveAsync&lt;T&gt;(string, IEnumerable&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the specified values associated with the given key from the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Either&lt;Error, Unit&gt;&gt; RemoveAsync&lt;T&gt;(string key, IEnumerable&lt;T&gt; values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the collection from which the values will be removed. Cannot be null or empty.</p>
+</dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd><p>The values to be removed from the collection. Cannot be null.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> indicating the result of the operation.  Returns <code>Unit</code> if
+the removal is successful, or an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values to be removed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_RemoveAsync_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.RemoveAsync*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_RemoveAsync__1_System_String___0_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.RemoveAsync``1(System.String,``0)">
+  RemoveAsync&lt;T&gt;(string, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the specified value associated with the given key from the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Either&lt;Error, Unit&gt;&gt; RemoveAsync&lt;T&gt;(string key, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the value to be removed. Cannot be null or empty.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd><p>The value to be removed. Must match the value associated with the specified key.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> indicating the result of the operation.  Returns <code>Unit</code> if
+the removal is successful, or an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the value to be removed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_SortedSet_RedisSortedSetService_RemoveAsync__1_System_String___0__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The method will fail if the specified key does not exist in the collection or if the value
+does not match the one associated with the key.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_RemoveRangeByScore_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByScore*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_RemoveRangeByScore_System_String_System_Double_System_Double_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByScore(System.String,System.Double,System.Double)">
+  RemoveRangeByScore(string, double, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes all elements in the sorted set stored at the specified key with scores within the given range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Either&lt;Error, Unit&gt; RemoveRangeByScore(string key, double start, double stop)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the sorted set. Cannot be null or empty.</p>
+</dd>
+    <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The inclusive lower bound of the score range.</p>
+</dd>
+    <dt><code>stop</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The inclusive upper bound of the score range.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> indicating the result of the operation.  Returns <code>Unit</code> if
+the operation succeeds, or an <a class="xref" href="Func.Redis.Error.html">Error</a> if it fails.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_SortedSet_RedisSortedSetService_RemoveRangeByScore_System_String_System_Double_System_Double__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method operates on a sorted set and removes elements whose scores fall within the
+specified range. The range is inclusive of both <code class="paramref">start</code> and <code class="paramref">stop</code>.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_RemoveRangeByScoreAsync_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByScoreAsync*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_RemoveRangeByScoreAsync_System_String_System_Double_System_Double_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByScoreAsync(System.String,System.Double,System.Double)">
+  RemoveRangeByScoreAsync(string, double, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes all elements in the sorted set stored at the specified key with scores within the given range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Either&lt;Error, Unit&gt;&gt; RemoveRangeByScoreAsync(string key, double start, double stop)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the sorted set. Cannot be null or empty.</p>
+</dd>
+    <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The inclusive lower bound of the score range.</p>
+</dd>
+    <dt><code>stop</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The inclusive upper bound of the score range.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> indicating the result of the operation.  Returns <code>Unit</code> if
+the operation succeeds, or an <a class="xref" href="Func.Redis.Error.html">Error</a> if it fails.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_SortedSet_RedisSortedSetService_RemoveRangeByScoreAsync_System_String_System_Double_System_Double__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method operates on a sorted set and removes elements whose scores fall within the
+specified range. The range is inclusive of both <code class="paramref">start</code> and <code class="paramref">stop</code>.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_RemoveRangeByValueAsync_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByValueAsync*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_RemoveRangeByValueAsync__1_System_String___0___0_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByValueAsync``1(System.String,``0,``0)">
+  RemoveRangeByValueAsync&lt;T&gt;(string, T, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a range of values from a data store based on the specified key and value range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Either&lt;Error, Unit&gt;&gt; RemoveRangeByValueAsync&lt;T&gt;(string key, T min, T max)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the data store or collection from which values will be removed. Cannot be null or empty.</p>
+</dd>
+    <dt><code>min</code> <span class="xref">T</span></dt>
+    <dd><p>The minimum value of the range to remove. Values less than this will not be affected.</p>
+</dd>
+    <dt><code>max</code> <span class="xref">T</span></dt>
+    <dd><p>The maximum value of the range to remove. Values greater than this will not be affected.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> indicating the result of the operation.  Returns <code>Unit</code> if
+the operation succeeds, or an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values to compare. Must be comparable.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_SortedSet_RedisSortedSetService_RemoveRangeByValueAsync__1_System_String___0___0__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The method removes all values within the specified range [<code class="paramref">min</code>, <code class="paramref">max</code>]  associated with the given <code class="paramref">key</code>. The range is inclusive of both
+bounds.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_RemoveRangeByValue_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByValue*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_RemoveRangeByValue__1_System_String___0___0_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByValue``1(System.String,``0,``0)">
+  RemoveRangeByValue&lt;T&gt;(string, T, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a range of values from a data store based on the specified key and value range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Either&lt;Error, Unit&gt; RemoveRangeByValue&lt;T&gt;(string key, T min, T max)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the data store or collection from which values will be removed. Cannot be null or empty.</p>
+</dd>
+    <dt><code>min</code> <span class="xref">T</span></dt>
+    <dd><p>The minimum value of the range to remove. Values less than this will not be affected.</p>
+</dd>
+    <dt><code>max</code> <span class="xref">T</span></dt>
+    <dd><p>The maximum value of the range to remove. Values greater than this will not be affected.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> indicating the result of the operation.  Returns <code>Unit</code> if
+the operation succeeds, or an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values to compare. Must be comparable.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_SortedSet_RedisSortedSetService_RemoveRangeByValue__1_System_String___0___0__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The method removes all values within the specified range [<code class="paramref">min</code>, <code class="paramref">max</code>]  associated with the given <code class="paramref">key</code>. The range is inclusive of both
+bounds.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_Remove_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.Remove*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_Remove__1_System_String_System_Collections_Generic_IEnumerable___0__" data-uid="Func.Redis.SortedSet.RedisSortedSetService.Remove``1(System.String,System.Collections.Generic.IEnumerable{``0})">
+  Remove&lt;T&gt;(string, IEnumerable&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the specified values associated with the given key from the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Either&lt;Error, Unit&gt; Remove&lt;T&gt;(string key, IEnumerable&lt;T&gt; values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the collection from which the values will be removed. Cannot be null or empty.</p>
+</dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd><p>The values to be removed from the collection. Cannot be null.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> indicating the result of the operation.  Returns <code>Unit</code> if
+the removal is successful, or an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values to be removed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_Remove_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.Remove*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_Remove__1_System_String___0_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.Remove``1(System.String,``0)">
+  Remove&lt;T&gt;(string, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the specified value associated with the given key from the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Either&lt;Error, Unit&gt; Remove&lt;T&gt;(string key, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the value to be removed. Cannot be null or empty.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd><p>The value to be removed. Must match the value associated with the specified key.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> indicating the result of the operation.  Returns <code>Unit</code> if
+the removal is successful, or an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the value to be removed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_SortedSet_RedisSortedSetService_Remove__1_System_String___0__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The method will fail if the specified key does not exist in the collection or if the value
+does not match the one associated with the key.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_ScoreAsync_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.ScoreAsync*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_ScoreAsync__1_System_String___0_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.ScoreAsync``1(System.String,``0)">
+  ScoreAsync&lt;T&gt;(string, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates a score based on the provided key and value, returning either an error or an optional score.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Either&lt;Error, Option&lt;double&gt;&gt;&gt; ScoreAsync&lt;T&gt;(string key, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string representing the key used to identify the scoring context. Cannot be null or empty.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd><p>The value associated with the key, which influences the scoring calculation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails,
+or an <span class="xref">TinyFp.Option&lt;A&gt;</span> representing the calculated score. The score may be absent if no valid result
+is produced.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the value used in the scoring operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_Score_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.Score*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_Score__1_System_String___0_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.Score``1(System.String,``0)">
+  Score&lt;T&gt;(string, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates a score based on the provided key and value, returning either an error or an optional score.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Either&lt;Error, Option&lt;double&gt;&gt; Score&lt;T&gt;(string key, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string representing the key used to identify the scoring context. Cannot be null or empty.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd><p>The value associated with the key, which influences the scoring calculation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails,
+or an <span class="xref">TinyFp.Option&lt;A&gt;</span> representing the calculated score. The score may be absent if no valid result
+is produced.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the value used in the scoring operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_UnionAsync_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.UnionAsync*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_UnionAsync__1_System_String___" data-uid="Func.Redis.SortedSet.RedisSortedSetService.UnionAsync``1(System.String[])">
+  UnionAsync&lt;T&gt;(string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Combines the values associated with the specified keys into a single array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Either&lt;Error, T[]&gt;&gt; UnionAsync&lt;T&gt;(string[] keys)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keys</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>An array of keys whose associated values will be combined. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, T[]&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an error if the operation fails,  or an array of values of
+type <code class="typeparamref">T</code> if the operation succeeds.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values to be combined.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_SortedSet_RedisSortedSetService_Union_" data-uid="Func.Redis.SortedSet.RedisSortedSetService.Union*"></a>
+
+  <h3 id="Func_Redis_SortedSet_RedisSortedSetService_Union__1_System_String___" data-uid="Func.Redis.SortedSet.RedisSortedSetService.Union``1(System.String[])">
+  Union&lt;T&gt;(string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Combines the values associated with the specified keys into a single array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Either&lt;Error, T[]&gt; Union&lt;T&gt;(string[] keys)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keys</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>An array of keys whose associated values will be combined. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, T[]&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an error if the operation fails,  or an array of values of
+type <code class="typeparamref">T</code> if the operation succeeds.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values to be combined.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SortedSet/RedisSortedSetService.cs/#L6" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IRedisSerDes | Functional Redis Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IRedisSerDes | Functional Redis Documentation ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/fabiolune/func-redis/new/v0.1.0/apiSpec/new?filename=Func_Redis_SerDes_IRedisSerDes.md&amp;value=---%0Auid%3A%20Func.Redis.SerDes.IRedisSerDes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Func.Redis.SerDes.IRedisSerDes">
+
+
+
+  <h1 id="Func_Redis_SerDes_IRedisSerDes" data-uid="Func.Redis.SerDes.IRedisSerDes" class="text-break">
+Interface IRedisSerDes  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SerDes/IRedisSerDes.cs/#L3"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Func.html">Func</a>.<a class="xref" href="Func.Redis.html">Redis</a>.<a class="xref" href="Func.Redis.SerDes.html">SerDes</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Func.Redis.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IRedisSerDes</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Func_Redis_SerDes_IRedisSerDes_Deserialize_" data-uid="Func.Redis.SerDes.IRedisSerDes.Deserialize*"></a>
+
+  <h3 id="Func_Redis_SerDes_IRedisSerDes_Deserialize_StackExchange_Redis_RedisValue_System_Type_" data-uid="Func.Redis.SerDes.IRedisSerDes.Deserialize(StackExchange.Redis.RedisValue,System.Type)">
+  Deserialize(RedisValue, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SerDes/IRedisSerDes.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deserializes the specified Redis value into an object of the given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Option&lt;object&gt; Deserialize(RedisValue value, Type type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">RedisValue</span></dt>
+    <dd><p>The Redis value to deserialize. Must not be null or empty.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>The target type to deserialize the value into. Must not be null.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Option</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Option&lt;A&gt;</span> containing the deserialized object if successful; otherwise, an empty <span class="xref">TinyFp.Option&lt;A&gt;</span> if deserialization fails.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_SerDes_IRedisSerDes_Deserialize_StackExchange_Redis_RedisValue_System_Type__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method attempts to convert the Redis value into the specified type. If the conversion is
+not possible, the method returns an empty <span class="xref">TinyFp.Option&lt;A&gt;</span> rather than throwing an exception.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_SerDes_IRedisSerDes_Deserialize_" data-uid="Func.Redis.SerDes.IRedisSerDes.Deserialize*"></a>
+
+  <h3 id="Func_Redis_SerDes_IRedisSerDes_Deserialize__1_StackExchange_Redis_HashEntry___" data-uid="Func.Redis.SerDes.IRedisSerDes.Deserialize``1(StackExchange.Redis.HashEntry[])">
+  Deserialize&lt;T&gt;(HashEntry[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SerDes/IRedisSerDes.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deserializes an array of hash entries into an array of key-value pairs, where the key is a string and the value
+is of the specified type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Option&lt;(string, T)[]&gt; Deserialize&lt;T&gt;(HashEntry[] entries)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entries</code> <span class="xref">HashEntry</span>[]</dt>
+    <dd><p>An array of hash entries to be deserialized. Each entry represents a key-value pair.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Option</span>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, T)[]&gt;</dt>
+    <dd><p>An array of key-value pairs, where the key is a string and the value is of type <code class="typeparamref">T</code>.
+Returns an empty array if no entries are provided.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the value to deserialize each hash entry into.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_SerDes_IRedisSerDes_Deserialize_" data-uid="Func.Redis.SerDes.IRedisSerDes.Deserialize*"></a>
+
+  <h3 id="Func_Redis_SerDes_IRedisSerDes_Deserialize__1_StackExchange_Redis_RedisValue_" data-uid="Func.Redis.SerDes.IRedisSerDes.Deserialize``1(StackExchange.Redis.RedisValue)">
+  Deserialize&lt;T&gt;(RedisValue)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SerDes/IRedisSerDes.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deserializes the specified Redis value into an instance of the specified type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Option&lt;T&gt; Deserialize&lt;T&gt;(RedisValue value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">RedisValue</span></dt>
+    <dd><p>The Redis value to deserialize. Must not be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Option</span>&lt;T&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Option&lt;A&gt;</span> containing the deserialized object if successful;  otherwise, an empty <span class="xref">TinyFp.Option&lt;A&gt;</span> if the value cannot be deserialized.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type to deserialize the Redis value into.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_SerDes_IRedisSerDes_Deserialize__1_StackExchange_Redis_RedisValue__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method attempts to convert the Redis value into the specified type <code class="typeparamref">T</code>.  If the conversion fails, the method returns an empty <span class="xref">TinyFp.Option&lt;A&gt;</span> instead of throwing an
+exception.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_SerDes_IRedisSerDes_Deserialize_" data-uid="Func.Redis.SerDes.IRedisSerDes.Deserialize*"></a>
+
+  <h3 id="Func_Redis_SerDes_IRedisSerDes_Deserialize__1_StackExchange_Redis_RedisValue___" data-uid="Func.Redis.SerDes.IRedisSerDes.Deserialize``1(StackExchange.Redis.RedisValue[])">
+  Deserialize&lt;T&gt;(RedisValue[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SerDes/IRedisSerDes.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deserializes an array of <span class="xref">StackExchange.Redis.RedisValue</span> objects into an array of the specified type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Option&lt;T[]&gt; Deserialize&lt;T&gt;(RedisValue[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <span class="xref">RedisValue</span>[]</dt>
+    <dd><p>An array of <span class="xref">StackExchange.Redis.RedisValue</span> objects to deserialize. Cannot be null.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Option</span>&lt;T[]&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Option&lt;A&gt;</span> containing the deserialized array of type <code class="typeparamref">T</code>. If
+deserialization fails, the <span class="xref">TinyFp.Option&lt;A&gt;</span> will represent an empty or error state.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type to which each <span class="xref">StackExchange.Redis.RedisValue</span> will be deserialized.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_SerDes_IRedisSerDes_Deserialize__1_StackExchange_Redis_RedisValue____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method attempts to deserialize each <span class="xref">StackExchange.Redis.RedisValue</span> in the input array into the
+specified type. Ensure that the type <code class="typeparamref">T</code> is compatible with the data contained in the <span class="xref">StackExchange.Redis.RedisValue</span> objects.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_SerDes_IRedisSerDes_Serialize_" data-uid="Func.Redis.SerDes.IRedisSerDes.Serialize*"></a>
+
+  <h3 id="Func_Redis_SerDes_IRedisSerDes_Serialize__1___0_" data-uid="Func.Redis.SerDes.IRedisSerDes.Serialize``1(``0)">
+  Serialize&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SerDes/IRedisSerDes.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serializes the specified value into a Redis-compatible format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">RedisValue Serialize&lt;T&gt;(T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd><p>The value to serialize. Cannot be null.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">RedisValue</span></dt>
+    <dd><p>A <span class="xref">StackExchange.Redis.RedisValue</span> representing the serialized form of the input value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the value to serialize.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_SerDes_IRedisSerDes_Serialize__1___0__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method converts the input value into a format suitable for storage in Redis.  Ensure
+that the type <code class="typeparamref">T</code> is supported by the serialization mechanism.</p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/SerDes/IRedisSerDes.cs/#L3" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

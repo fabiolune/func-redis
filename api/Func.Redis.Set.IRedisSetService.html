@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IRedisSetService | Functional Redis Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IRedisSetService | Functional Redis Documentation ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/fabiolune/func-redis/new/v0.1.0/apiSpec/new?filename=Func_Redis_Set_IRedisSetService.md&amp;value=---%0Auid%3A%20Func.Redis.Set.IRedisSetService%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Func.Redis.Set.IRedisSetService">
+
+
+
+  <h1 id="Func_Redis_Set_IRedisSetService" data-uid="Func.Redis.Set.IRedisSetService" class="text-break">
+Interface IRedisSetService  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/Set/IRedisSetService.cs/#L2"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Func.html">Func</a>.<a class="xref" href="Func.Redis.html">Redis</a>.<a class="xref" href="Func.Redis.Set.html">Set</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Func.Redis.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IRedisSetService</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Func_Redis_Set_IRedisSetService_AddAsync_" data-uid="Func.Redis.Set.IRedisSetService.AddAsync*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_AddAsync__1_System_String___0_" data-uid="Func.Redis.Set.IRedisSetService.AddAsync``1(System.String,``0)">
+  AddAsync&lt;T&gt;(string, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/Set/IRedisSetService.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a value to the collection with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, Unit&gt;&gt; AddAsync&lt;T&gt;(string key, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key associated with the value. Cannot be null or empty.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd><p>The value to add. Cannot be null.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> indicating the result of the operation.  Returns <code>Unit</code> if
+the addition is successful, or an <a class="xref" href="Func.Redis.Error.html">Error</a>  if the operation fails.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the value to add.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_Set_IRedisSetService_AddAsync__1_System_String___0__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The method ensures that the key-value pair is added to the collection. If the key already
+exists,  the operation may fail depending on the implementation, and an <a class="xref" href="Func.Redis.Error.html">Error</a> will be
+returned.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_Add_" data-uid="Func.Redis.Set.IRedisSetService.Add*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_Add__1_System_String___0_" data-uid="Func.Redis.Set.IRedisSetService.Add``1(System.String,``0)">
+  Add&lt;T&gt;(string, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/Set/IRedisSetService.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a value to the collection with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, Unit&gt; Add&lt;T&gt;(string key, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key associated with the value. Cannot be null or empty.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd><p>The value to add. Cannot be null.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> indicating the result of the operation.  Returns <code>Unit</code> if
+the addition is successful, or an <a class="xref" href="Func.Redis.Error.html">Error</a>  if the operation fails.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the value to add.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_Set_IRedisSetService_Add__1_System_String___0__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The method ensures that the key-value pair is added to the collection. If the key already
+exists,  the operation may fail depending on the implementation, and an <a class="xref" href="Func.Redis.Error.html">Error</a> will be
+returned.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_DeleteAsync_" data-uid="Func.Redis.Set.IRedisSetService.DeleteAsync*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_DeleteAsync__1_System_String___0_" data-uid="Func.Redis.Set.IRedisSetService.DeleteAsync``1(System.String,``0)">
+  DeleteAsync&lt;T&gt;(string, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/Set/IRedisSetService.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes an item identified by the specified key and value from the underlying data store.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, Unit&gt;&gt; DeleteAsync&lt;T&gt;(string key, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The unique key identifying the item to delete. Cannot be null or empty.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd><p>The value associated with the key, used for validation or additional context. Cannot be null.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> indicating the result of the operation.  Returns <code>Unit</code> if
+the deletion is successful, or an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the value associated with the key.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_Set_IRedisSetService_DeleteAsync__1_System_String___0__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The method performs a deletion operation and returns a result encapsulated in an <span class="xref">TinyFp.Either&lt;L, R&gt;</span>.  If the operation fails, the <a class="xref" href="Func.Redis.Error.html">Error</a> provides details about the
+failure, such as invalid input or a missing item.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_DeleteAsync_" data-uid="Func.Redis.Set.IRedisSetService.DeleteAsync*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_DeleteAsync__1_System_String___0___" data-uid="Func.Redis.Set.IRedisSetService.DeleteAsync``1(System.String,``0[])">
+  DeleteAsync&lt;T&gt;(string, params T[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/Set/IRedisSetService.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes the specified values associated with the given key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, Unit&gt;&gt; DeleteAsync&lt;T&gt;(string key, params T[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the values to delete. Cannot be null or empty.</p>
+</dd>
+    <dt><code>values</code> T[]</dt>
+    <dd><p>The values to delete. If no values are provided, the method performs no operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> indicating the result of the operation.  Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if
+the deletion is successful; otherwise, returns an <a class="xref" href="Func.Redis.Error.html">Error</a> describing the failure.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values to delete.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_Set_IRedisSetService_DeleteAsync__1_System_String___0____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method does not guarantee the existence of the specified values prior to deletion.
+Ensure the key and values are valid and consistent with the underlying data store.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_Delete_" data-uid="Func.Redis.Set.IRedisSetService.Delete*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_Delete__1_System_String___0_" data-uid="Func.Redis.Set.IRedisSetService.Delete``1(System.String,``0)">
+  Delete&lt;T&gt;(string, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/Set/IRedisSetService.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes an item identified by the specified key and value from the underlying data store.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, Unit&gt; Delete&lt;T&gt;(string key, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The unique key identifying the item to delete. Cannot be null or empty.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd><p>The value associated with the key, used for validation or additional context. Cannot be null.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> indicating the result of the operation.  Returns <code>Unit</code> if
+the deletion is successful, or an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the value associated with the key.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_Set_IRedisSetService_Delete__1_System_String___0__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The method performs a deletion operation and returns a result encapsulated in an <span class="xref">TinyFp.Either&lt;L, R&gt;</span>.  If the operation fails, the <a class="xref" href="Func.Redis.Error.html">Error</a> provides details about the
+failure, such as invalid input or a missing item.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_Delete_" data-uid="Func.Redis.Set.IRedisSetService.Delete*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_Delete__1_System_String___0___" data-uid="Func.Redis.Set.IRedisSetService.Delete``1(System.String,``0[])">
+  Delete&lt;T&gt;(string, params T[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/Set/IRedisSetService.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes the specified values associated with the given key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, Unit&gt; Delete&lt;T&gt;(string key, params T[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the values to delete. Cannot be null or empty.</p>
+</dd>
+    <dt><code>values</code> T[]</dt>
+    <dd><p>The values to delete. If no values are provided, the method performs no operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Unit</span>&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> indicating the result of the operation.  Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if
+the deletion is successful; otherwise, returns an <a class="xref" href="Func.Redis.Error.html">Error</a> describing the failure.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values to delete.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_Set_IRedisSetService_Delete__1_System_String___0____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method does not guarantee the existence of the specified values prior to deletion.
+Ensure the key and values are valid and consistent with the underlying data store.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_DifferenceAsync_" data-uid="Func.Redis.Set.IRedisSetService.DifferenceAsync*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_DifferenceAsync__1_System_String_System_String_" data-uid="Func.Redis.Set.IRedisSetService.DifferenceAsync``1(System.String,System.String)">
+  DifferenceAsync&lt;T&gt;(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/Set/IRedisSetService.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes the difference between two sets of data identified by the specified keys.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, T[]&gt;&gt; DifferenceAsync&lt;T&gt;(string key1, string key2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the first set of data. Cannot be null or empty.</p>
+</dd>
+    <dt><code>key2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the second set of data. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, T[]&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an error if the operation fails,  or an array of elements
+representing the difference between the two sets.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of elements in the sets.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_Set_IRedisSetService_DifferenceAsync__1_System_String_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The difference is calculated as the elements present in the first set but not in the second
+set. If either key does not correspond to a valid set, an error is returned.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_Difference_" data-uid="Func.Redis.Set.IRedisSetService.Difference*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_Difference__1_System_String_System_String_" data-uid="Func.Redis.Set.IRedisSetService.Difference``1(System.String,System.String)">
+  Difference&lt;T&gt;(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/Set/IRedisSetService.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes the difference between two sets of data identified by the specified keys.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, T[]&gt; Difference&lt;T&gt;(string key1, string key2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the first set of data. Cannot be null or empty.</p>
+</dd>
+    <dt><code>key2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the second set of data. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, T[]&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an error if the operation fails,  or an array of elements
+representing the difference between the two sets.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of elements in the sets.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_Set_IRedisSetService_Difference__1_System_String_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The difference is calculated as the elements present in the first set but not in the second
+set. If either key does not correspond to a valid set, an error is returned.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_GetAllAsync_" data-uid="Func.Redis.Set.IRedisSetService.GetAllAsync*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_GetAllAsync__1_System_String_" data-uid="Func.Redis.Set.IRedisSetService.GetAllAsync``1(System.String)">
+  GetAllAsync&lt;T&gt;(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/Set/IRedisSetService.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves all values associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, Option&lt;T&gt;[]&gt;&gt; GetAllAsync&lt;T&gt;(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key used to look up the values. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;T&gt;[]&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an error or an array of optional values. If the
+key is not found, the array will be empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values to retrieve.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_GetAll_" data-uid="Func.Redis.Set.IRedisSetService.GetAll*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_GetAll__1_System_String_" data-uid="Func.Redis.Set.IRedisSetService.GetAll``1(System.String)">
+  GetAll&lt;T&gt;(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/Set/IRedisSetService.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves all values associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, Option&lt;T&gt;[]&gt; GetAll&lt;T&gt;(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key used to look up the values. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;T&gt;[]&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an error or an array of optional values. If the
+key is not found, the array will be empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values to retrieve.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_IntersectAsync_" data-uid="Func.Redis.Set.IRedisSetService.IntersectAsync*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_IntersectAsync__1_System_String_System_String_" data-uid="Func.Redis.Set.IRedisSetService.IntersectAsync``1(System.String,System.String)">
+  IntersectAsync&lt;T&gt;(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/Set/IRedisSetService.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes the intersection of two sets stored under the specified keys.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, T[]&gt;&gt; IntersectAsync&lt;T&gt;(string key1, string key2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the first set. Cannot be null or empty.</p>
+</dd>
+    <dt><code>key2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the second set. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, T[]&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an error if the operation fails,  or an array of elements
+representing the intersection of the two sets. If either key does not exist or the sets are empty, the result
+will be an empty array.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of elements in the sets.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_Intersect_" data-uid="Func.Redis.Set.IRedisSetService.Intersect*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_Intersect__1_System_String_System_String_" data-uid="Func.Redis.Set.IRedisSetService.Intersect``1(System.String,System.String)">
+  Intersect&lt;T&gt;(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/Set/IRedisSetService.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes the intersection of two sets stored under the specified keys.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, T[]&gt; Intersect&lt;T&gt;(string key1, string key2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the first set. Cannot be null or empty.</p>
+</dd>
+    <dt><code>key2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifying the second set. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, T[]&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an error if the operation fails,  or an array of elements
+representing the intersection of the two sets. If either key does not exist or the sets are empty, the result
+will be an empty array.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of elements in the sets.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_PopAsync_" data-uid="Func.Redis.Set.IRedisSetService.PopAsync*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_PopAsync__1_System_String_" data-uid="Func.Redis.Set.IRedisSetService.PopAsync``1(System.String)">
+  PopAsync&lt;T&gt;(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/Set/IRedisSetService.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, Option&lt;T&gt;&gt;&gt; PopAsync&lt;T&gt;(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;T&gt;&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_Pop_" data-uid="Func.Redis.Set.IRedisSetService.Pop*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_Pop__1_System_String_" data-uid="Func.Redis.Set.IRedisSetService.Pop``1(System.String)">
+  Pop&lt;T&gt;(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/Set/IRedisSetService.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, Option&lt;T&gt;&gt; Pop&lt;T&gt;(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <span class="xref">Option</span>&lt;T&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_Size_" data-uid="Func.Redis.Set.IRedisSetService.Size*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_Size_System_String_" data-uid="Func.Redis.Set.IRedisSetService.Size(System.String)">
+  Size(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/Set/IRedisSetService.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the size, in bytes, of the object associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, long&gt; Size(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The unique identifier of the object whose size is to be retrieved. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails,  or a
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">long</a> representing the size of the object in bytes if successful.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_SizeAsync_" data-uid="Func.Redis.Set.IRedisSetService.SizeAsync*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_SizeAsync_System_String_" data-uid="Func.Redis.Set.IRedisSetService.SizeAsync(System.String)">
+  SizeAsync(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/Set/IRedisSetService.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the size, in bytes, of the object associated with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, long&gt;&gt; SizeAsync(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The unique identifier of the object whose size is to be retrieved. Cannot be null or empty.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an <a class="xref" href="Func.Redis.Error.html">Error</a> if the operation fails,  or a
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">long</a> representing the size of the object in bytes if successful.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_UnionAsync_" data-uid="Func.Redis.Set.IRedisSetService.UnionAsync*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_UnionAsync__1_System_String_System_String_" data-uid="Func.Redis.Set.IRedisSetService.UnionAsync``1(System.String,System.String)">
+  UnionAsync&lt;T&gt;(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/Set/IRedisSetService.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Combines the values associated with two specified keys into a single array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Either&lt;Error, T[]&gt;&gt; UnionAsync&lt;T&gt;(string key1, string key2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The first key whose associated values will be included in the union.</p>
+</dd>
+    <dt><code>key2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The second key whose associated values will be included in the union.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, T[]&gt;&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an error if the operation fails,  or an array of values of
+type <code class="typeparamref">T</code> representing the union of the values  associated with <code class="paramref">key1</code> and
+<code class="paramref">key2</code>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values associated with the keys.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_Set_IRedisSetService_UnionAsync__1_System_String_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If either key does not exist or an error occurs during the operation, the result will contain
+an <a class="xref" href="Func.Redis.Error.html">Error</a> describing the issue. Otherwise, the result will contain the combined  values from both
+keys, with duplicates removed if applicable.</p>
+</div>
+
+
+
+
+  <a id="Func_Redis_Set_IRedisSetService_Union_" data-uid="Func.Redis.Set.IRedisSetService.Union*"></a>
+
+  <h3 id="Func_Redis_Set_IRedisSetService_Union__1_System_String_System_String_" data-uid="Func.Redis.Set.IRedisSetService.Union``1(System.String,System.String)">
+  Union&lt;T&gt;(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/Set/IRedisSetService.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Combines the values associated with two specified keys into a single array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Either&lt;Error, T[]&gt; Union&lt;T&gt;(string key1, string key2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The first key whose associated values will be included in the union.</p>
+</dd>
+    <dt><code>key2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The second key whose associated values will be included in the union.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Either</span>&lt;<a class="xref" href="Func.Redis.Error.html">Error</a>, T[]&gt;</dt>
+    <dd><p>An <span class="xref">TinyFp.Either&lt;L, R&gt;</span> containing either an error if the operation fails,  or an array of values of
+type <code class="typeparamref">T</code> representing the union of the values  associated with <code class="paramref">key1</code> and
+<code class="paramref">key2</code>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the values associated with the keys.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Func_Redis_Set_IRedisSetService_Union__1_System_String_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If either key does not exist or an error occurs during the operation, the result will contain
+an <a class="xref" href="Func.Redis.Error.html">Error</a> describing the issue. Otherwise, the result will contain the combined  values from both
+keys, with duplicates removed if applicable.</p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/fabiolune/func-redis/blob/v0.1.0/Func.Redis/Set/IRedisSetService.cs/#L2" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

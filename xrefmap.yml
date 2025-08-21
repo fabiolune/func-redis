@@ -1,0 +1,2796 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: Func.Redis
+  name: Func.Redis
+  href: api/Func.Redis.html
+  commentId: N:Func.Redis
+  fullName: Func.Redis
+  nameWithType: Func.Redis
+- uid: Func.Redis.ConnectionMultiplexerProvider
+  name: ConnectionMultiplexerProvider
+  href: api/Func.Redis.ConnectionMultiplexerProvider.html
+  commentId: T:Func.Redis.ConnectionMultiplexerProvider
+  fullName: Func.Redis.ConnectionMultiplexerProvider
+  nameWithType: ConnectionMultiplexerProvider
+- uid: Func.Redis.ConnectionMultiplexerProvider.#ctor(Func.Redis.Models.RedisConfiguration)
+  name: ConnectionMultiplexerProvider(RedisConfiguration)
+  href: api/Func.Redis.ConnectionMultiplexerProvider.html#Func_Redis_ConnectionMultiplexerProvider__ctor_Func_Redis_Models_RedisConfiguration_
+  commentId: M:Func.Redis.ConnectionMultiplexerProvider.#ctor(Func.Redis.Models.RedisConfiguration)
+  name.vb: New(RedisConfiguration)
+  fullName: Func.Redis.ConnectionMultiplexerProvider.ConnectionMultiplexerProvider(Func.Redis.Models.RedisConfiguration)
+  fullName.vb: Func.Redis.ConnectionMultiplexerProvider.New(Func.Redis.Models.RedisConfiguration)
+  nameWithType: ConnectionMultiplexerProvider.ConnectionMultiplexerProvider(RedisConfiguration)
+  nameWithType.vb: ConnectionMultiplexerProvider.New(RedisConfiguration)
+- uid: Func.Redis.ConnectionMultiplexerProvider.#ctor*
+  name: ConnectionMultiplexerProvider
+  href: api/Func.Redis.ConnectionMultiplexerProvider.html#Func_Redis_ConnectionMultiplexerProvider__ctor_
+  commentId: Overload:Func.Redis.ConnectionMultiplexerProvider.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Func.Redis.ConnectionMultiplexerProvider.ConnectionMultiplexerProvider
+  fullName.vb: Func.Redis.ConnectionMultiplexerProvider.New
+  nameWithType: ConnectionMultiplexerProvider.ConnectionMultiplexerProvider
+  nameWithType.vb: ConnectionMultiplexerProvider.New
+- uid: Func.Redis.ConnectionMultiplexerProvider.GetMultiplexer
+  name: GetMultiplexer()
+  href: api/Func.Redis.ConnectionMultiplexerProvider.html#Func_Redis_ConnectionMultiplexerProvider_GetMultiplexer
+  commentId: M:Func.Redis.ConnectionMultiplexerProvider.GetMultiplexer
+  fullName: Func.Redis.ConnectionMultiplexerProvider.GetMultiplexer()
+  nameWithType: ConnectionMultiplexerProvider.GetMultiplexer()
+- uid: Func.Redis.ConnectionMultiplexerProvider.GetMultiplexer*
+  name: GetMultiplexer
+  href: api/Func.Redis.ConnectionMultiplexerProvider.html#Func_Redis_ConnectionMultiplexerProvider_GetMultiplexer_
+  commentId: Overload:Func.Redis.ConnectionMultiplexerProvider.GetMultiplexer
+  isSpec: "True"
+  fullName: Func.Redis.ConnectionMultiplexerProvider.GetMultiplexer
+  nameWithType: ConnectionMultiplexerProvider.GetMultiplexer
+- uid: Func.Redis.Error
+  name: Error
+  href: api/Func.Redis.Error.html
+  commentId: T:Func.Redis.Error
+  fullName: Func.Redis.Error
+  nameWithType: Error
+- uid: Func.Redis.Error.Message
+  name: Message
+  href: api/Func.Redis.Error.html#Func_Redis_Error_Message
+  commentId: P:Func.Redis.Error.Message
+  fullName: Func.Redis.Error.Message
+  nameWithType: Error.Message
+- uid: Func.Redis.Error.Message*
+  name: Message
+  href: api/Func.Redis.Error.html#Func_Redis_Error_Message_
+  commentId: Overload:Func.Redis.Error.Message
+  isSpec: "True"
+  fullName: Func.Redis.Error.Message
+  nameWithType: Error.Message
+- uid: Func.Redis.Error.New(System.Exception)
+  name: New(Exception)
+  href: api/Func.Redis.Error.html#Func_Redis_Error_New_System_Exception_
+  commentId: M:Func.Redis.Error.New(System.Exception)
+  fullName: Func.Redis.Error.New(System.Exception)
+  nameWithType: Error.New(Exception)
+- uid: Func.Redis.Error.New(System.String)
+  name: New(string)
+  href: api/Func.Redis.Error.html#Func_Redis_Error_New_System_String_
+  commentId: M:Func.Redis.Error.New(System.String)
+  name.vb: New(String)
+  fullName: Func.Redis.Error.New(string)
+  fullName.vb: Func.Redis.Error.New(String)
+  nameWithType: Error.New(string)
+  nameWithType.vb: Error.New(String)
+- uid: Func.Redis.Error.New*
+  name: New
+  href: api/Func.Redis.Error.html#Func_Redis_Error_New_
+  commentId: Overload:Func.Redis.Error.New
+  isSpec: "True"
+  fullName: Func.Redis.Error.New
+  nameWithType: Error.New
+- uid: Func.Redis.Extensions
+  name: Func.Redis.Extensions
+  href: api/Func.Redis.Extensions.html
+  commentId: N:Func.Redis.Extensions
+  fullName: Func.Redis.Extensions
+  nameWithType: Func.Redis.Extensions
+- uid: Func.Redis.Extensions.EitherLoggingExtensions
+  name: EitherLoggingExtensions
+  href: api/Func.Redis.Extensions.EitherLoggingExtensions.html
+  commentId: T:Func.Redis.Extensions.EitherLoggingExtensions
+  fullName: Func.Redis.Extensions.EitherLoggingExtensions
+  nameWithType: EitherLoggingExtensions
+- uid: Func.Redis.Extensions.RedisCapabilities
+  name: RedisCapabilities
+  href: api/Func.Redis.Extensions.RedisCapabilities.html
+  commentId: T:Func.Redis.Extensions.RedisCapabilities
+  fullName: Func.Redis.Extensions.RedisCapabilities
+  nameWithType: RedisCapabilities
+- uid: Func.Redis.Extensions.RedisCapabilities.Generic
+  name: Generic
+  href: api/Func.Redis.Extensions.RedisCapabilities.html#Func_Redis_Extensions_RedisCapabilities_Generic
+  commentId: F:Func.Redis.Extensions.RedisCapabilities.Generic
+  fullName: Func.Redis.Extensions.RedisCapabilities.Generic
+  nameWithType: RedisCapabilities.Generic
+- uid: Func.Redis.Extensions.RedisCapabilities.HashSet
+  name: HashSet
+  href: api/Func.Redis.Extensions.RedisCapabilities.html#Func_Redis_Extensions_RedisCapabilities_HashSet
+  commentId: F:Func.Redis.Extensions.RedisCapabilities.HashSet
+  fullName: Func.Redis.Extensions.RedisCapabilities.HashSet
+  nameWithType: RedisCapabilities.HashSet
+- uid: Func.Redis.Extensions.RedisCapabilities.Key
+  name: Key
+  href: api/Func.Redis.Extensions.RedisCapabilities.html#Func_Redis_Extensions_RedisCapabilities_Key
+  commentId: F:Func.Redis.Extensions.RedisCapabilities.Key
+  fullName: Func.Redis.Extensions.RedisCapabilities.Key
+  nameWithType: RedisCapabilities.Key
+- uid: Func.Redis.Extensions.RedisCapabilities.List
+  name: List
+  href: api/Func.Redis.Extensions.RedisCapabilities.html#Func_Redis_Extensions_RedisCapabilities_List
+  commentId: F:Func.Redis.Extensions.RedisCapabilities.List
+  fullName: Func.Redis.Extensions.RedisCapabilities.List
+  nameWithType: RedisCapabilities.List
+- uid: Func.Redis.Extensions.RedisCapabilities.Publish
+  name: Publish
+  href: api/Func.Redis.Extensions.RedisCapabilities.html#Func_Redis_Extensions_RedisCapabilities_Publish
+  commentId: F:Func.Redis.Extensions.RedisCapabilities.Publish
+  fullName: Func.Redis.Extensions.RedisCapabilities.Publish
+  nameWithType: RedisCapabilities.Publish
+- uid: Func.Redis.Extensions.RedisCapabilities.Set
+  name: Set
+  href: api/Func.Redis.Extensions.RedisCapabilities.html#Func_Redis_Extensions_RedisCapabilities_Set
+  commentId: F:Func.Redis.Extensions.RedisCapabilities.Set
+  fullName: Func.Redis.Extensions.RedisCapabilities.Set
+  nameWithType: RedisCapabilities.Set
+- uid: Func.Redis.Extensions.RedisCapabilities.SortedSet
+  name: SortedSet
+  href: api/Func.Redis.Extensions.RedisCapabilities.html#Func_Redis_Extensions_RedisCapabilities_SortedSet
+  commentId: F:Func.Redis.Extensions.RedisCapabilities.SortedSet
+  fullName: Func.Redis.Extensions.RedisCapabilities.SortedSet
+  nameWithType: RedisCapabilities.SortedSet
+- uid: Func.Redis.Extensions.RedisCapabilities.Subscribe
+  name: Subscribe
+  href: api/Func.Redis.Extensions.RedisCapabilities.html#Func_Redis_Extensions_RedisCapabilities_Subscribe
+  commentId: F:Func.Redis.Extensions.RedisCapabilities.Subscribe
+  fullName: Func.Redis.Extensions.RedisCapabilities.Subscribe
+  nameWithType: RedisCapabilities.Subscribe
+- uid: Func.Redis.Extensions.ServiceCollectionExtensions
+  name: ServiceCollectionExtensions
+  href: api/Func.Redis.Extensions.ServiceCollectionExtensions.html
+  commentId: T:Func.Redis.Extensions.ServiceCollectionExtensions
+  fullName: Func.Redis.Extensions.ServiceCollectionExtensions
+  nameWithType: ServiceCollectionExtensions
+- uid: Func.Redis.Extensions.ServiceCollectionExtensions.AddRedis*
+  name: AddRedis
+  href: api/Func.Redis.Extensions.ServiceCollectionExtensions.html#Func_Redis_Extensions_ServiceCollectionExtensions_AddRedis_
+  commentId: Overload:Func.Redis.Extensions.ServiceCollectionExtensions.AddRedis
+  isSpec: "True"
+  fullName: Func.Redis.Extensions.ServiceCollectionExtensions.AddRedis
+  nameWithType: ServiceCollectionExtensions.AddRedis
+- uid: Func.Redis.Extensions.ServiceCollectionExtensions.AddRedisSerDes*
+  name: AddRedisSerDes
+  href: api/Func.Redis.Extensions.ServiceCollectionExtensions.html#Func_Redis_Extensions_ServiceCollectionExtensions_AddRedisSerDes_
+  commentId: Overload:Func.Redis.Extensions.ServiceCollectionExtensions.AddRedisSerDes
+  isSpec: "True"
+  fullName: Func.Redis.Extensions.ServiceCollectionExtensions.AddRedisSerDes
+  nameWithType: ServiceCollectionExtensions.AddRedisSerDes
+- uid: Func.Redis.Extensions.ServiceCollectionExtensions.AddRedisSerDes``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: AddRedisSerDes<T>(IServiceCollection)
+  href: api/Func.Redis.Extensions.ServiceCollectionExtensions.html#Func_Redis_Extensions_ServiceCollectionExtensions_AddRedisSerDes__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Func.Redis.Extensions.ServiceCollectionExtensions.AddRedisSerDes``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name.vb: AddRedisSerDes(Of T)(IServiceCollection)
+  fullName: Func.Redis.Extensions.ServiceCollectionExtensions.AddRedisSerDes<T>(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName.vb: Func.Redis.Extensions.ServiceCollectionExtensions.AddRedisSerDes(Of T)(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: ServiceCollectionExtensions.AddRedisSerDes<T>(IServiceCollection)
+  nameWithType.vb: ServiceCollectionExtensions.AddRedisSerDes(Of T)(IServiceCollection)
+- uid: Func.Redis.Extensions.ServiceCollectionExtensions.AddRedis``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,Func.Redis.Extensions.RedisCapabilities,System.Boolean,System.Reflection.Assembly[])
+  name: AddRedis<T>(IServiceCollection, IConfiguration, RedisCapabilities, bool, params Assembly[])
+  href: api/Func.Redis.Extensions.ServiceCollectionExtensions.html#Func_Redis_Extensions_ServiceCollectionExtensions_AddRedis__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_Func_Redis_Extensions_RedisCapabilities_System_Boolean_System_Reflection_Assembly___
+  commentId: M:Func.Redis.Extensions.ServiceCollectionExtensions.AddRedis``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,Func.Redis.Extensions.RedisCapabilities,System.Boolean,System.Reflection.Assembly[])
+  name.vb: AddRedis(Of T)(IServiceCollection, IConfiguration, RedisCapabilities, Boolean, ParamArray Assembly())
+  fullName: Func.Redis.Extensions.ServiceCollectionExtensions.AddRedis<T>(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration, Func.Redis.Extensions.RedisCapabilities, bool, params System.Reflection.Assembly[])
+  fullName.vb: Func.Redis.Extensions.ServiceCollectionExtensions.AddRedis(Of T)(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration, Func.Redis.Extensions.RedisCapabilities, Boolean, ParamArray System.Reflection.Assembly())
+  nameWithType: ServiceCollectionExtensions.AddRedis<T>(IServiceCollection, IConfiguration, RedisCapabilities, bool, params Assembly[])
+  nameWithType.vb: ServiceCollectionExtensions.AddRedis(Of T)(IServiceCollection, IConfiguration, RedisCapabilities, Boolean, ParamArray Assembly())
+- uid: Func.Redis.Extensions.ServiceCollectionExtensions.AddSystemJsonRedisSerDes(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: AddSystemJsonRedisSerDes(IServiceCollection)
+  href: api/Func.Redis.Extensions.ServiceCollectionExtensions.html#Func_Redis_Extensions_ServiceCollectionExtensions_AddSystemJsonRedisSerDes_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Func.Redis.Extensions.ServiceCollectionExtensions.AddSystemJsonRedisSerDes(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: Func.Redis.Extensions.ServiceCollectionExtensions.AddSystemJsonRedisSerDes(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: ServiceCollectionExtensions.AddSystemJsonRedisSerDes(IServiceCollection)
+- uid: Func.Redis.Extensions.ServiceCollectionExtensions.AddSystemJsonRedisSerDes*
+  name: AddSystemJsonRedisSerDes
+  href: api/Func.Redis.Extensions.ServiceCollectionExtensions.html#Func_Redis_Extensions_ServiceCollectionExtensions_AddSystemJsonRedisSerDes_
+  commentId: Overload:Func.Redis.Extensions.ServiceCollectionExtensions.AddSystemJsonRedisSerDes
+  isSpec: "True"
+  fullName: Func.Redis.Extensions.ServiceCollectionExtensions.AddSystemJsonRedisSerDes
+  nameWithType: ServiceCollectionExtensions.AddSystemJsonRedisSerDes
+- uid: Func.Redis.Extensions.WebApplicationExtensions
+  name: WebApplicationExtensions
+  href: api/Func.Redis.Extensions.WebApplicationExtensions.html
+  commentId: T:Func.Redis.Extensions.WebApplicationExtensions
+  fullName: Func.Redis.Extensions.WebApplicationExtensions
+  nameWithType: WebApplicationExtensions
+- uid: Func.Redis.Extensions.WebApplicationExtensions.UseRedisSubcribers(Microsoft.AspNetCore.Builder.WebApplication)
+  name: UseRedisSubcribers(WebApplication)
+  href: api/Func.Redis.Extensions.WebApplicationExtensions.html#Func_Redis_Extensions_WebApplicationExtensions_UseRedisSubcribers_Microsoft_AspNetCore_Builder_WebApplication_
+  commentId: M:Func.Redis.Extensions.WebApplicationExtensions.UseRedisSubcribers(Microsoft.AspNetCore.Builder.WebApplication)
+  fullName: Func.Redis.Extensions.WebApplicationExtensions.UseRedisSubcribers(Microsoft.AspNetCore.Builder.WebApplication)
+  nameWithType: WebApplicationExtensions.UseRedisSubcribers(WebApplication)
+- uid: Func.Redis.Extensions.WebApplicationExtensions.UseRedisSubcribers*
+  name: UseRedisSubcribers
+  href: api/Func.Redis.Extensions.WebApplicationExtensions.html#Func_Redis_Extensions_WebApplicationExtensions_UseRedisSubcribers_
+  commentId: Overload:Func.Redis.Extensions.WebApplicationExtensions.UseRedisSubcribers
+  isSpec: "True"
+  fullName: Func.Redis.Extensions.WebApplicationExtensions.UseRedisSubcribers
+  nameWithType: WebApplicationExtensions.UseRedisSubcribers
+- uid: Func.Redis.HashSet
+  name: Func.Redis.HashSet
+  href: api/Func.Redis.HashSet.html
+  commentId: N:Func.Redis.HashSet
+  fullName: Func.Redis.HashSet
+  nameWithType: Func.Redis.HashSet
+- uid: Func.Redis.HashSet.IRedisHashSetService
+  name: IRedisHashSetService
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html
+  commentId: T:Func.Redis.HashSet.IRedisHashSetService
+  fullName: Func.Redis.HashSet.IRedisHashSetService
+  nameWithType: IRedisHashSetService
+- uid: Func.Redis.HashSet.IRedisHashSetService.Delete(System.String,System.String)
+  name: Delete(string, string)
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_Delete_System_String_System_String_
+  commentId: M:Func.Redis.HashSet.IRedisHashSetService.Delete(System.String,System.String)
+  name.vb: Delete(String, String)
+  fullName: Func.Redis.HashSet.IRedisHashSetService.Delete(string, string)
+  fullName.vb: Func.Redis.HashSet.IRedisHashSetService.Delete(String, String)
+  nameWithType: IRedisHashSetService.Delete(string, string)
+  nameWithType.vb: IRedisHashSetService.Delete(String, String)
+- uid: Func.Redis.HashSet.IRedisHashSetService.Delete(System.String,System.String[])
+  name: Delete(string, params string[])
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_Delete_System_String_System_String___
+  commentId: M:Func.Redis.HashSet.IRedisHashSetService.Delete(System.String,System.String[])
+  name.vb: Delete(String, ParamArray String())
+  fullName: Func.Redis.HashSet.IRedisHashSetService.Delete(string, params string[])
+  fullName.vb: Func.Redis.HashSet.IRedisHashSetService.Delete(String, ParamArray String())
+  nameWithType: IRedisHashSetService.Delete(string, params string[])
+  nameWithType.vb: IRedisHashSetService.Delete(String, ParamArray String())
+- uid: Func.Redis.HashSet.IRedisHashSetService.Delete*
+  name: Delete
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_Delete_
+  commentId: Overload:Func.Redis.HashSet.IRedisHashSetService.Delete
+  isSpec: "True"
+  fullName: Func.Redis.HashSet.IRedisHashSetService.Delete
+  nameWithType: IRedisHashSetService.Delete
+- uid: Func.Redis.HashSet.IRedisHashSetService.DeleteAsync(System.String,System.String)
+  name: DeleteAsync(string, string)
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_DeleteAsync_System_String_System_String_
+  commentId: M:Func.Redis.HashSet.IRedisHashSetService.DeleteAsync(System.String,System.String)
+  name.vb: DeleteAsync(String, String)
+  fullName: Func.Redis.HashSet.IRedisHashSetService.DeleteAsync(string, string)
+  fullName.vb: Func.Redis.HashSet.IRedisHashSetService.DeleteAsync(String, String)
+  nameWithType: IRedisHashSetService.DeleteAsync(string, string)
+  nameWithType.vb: IRedisHashSetService.DeleteAsync(String, String)
+- uid: Func.Redis.HashSet.IRedisHashSetService.DeleteAsync(System.String,System.String[])
+  name: DeleteAsync(string, params string[])
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_DeleteAsync_System_String_System_String___
+  commentId: M:Func.Redis.HashSet.IRedisHashSetService.DeleteAsync(System.String,System.String[])
+  name.vb: DeleteAsync(String, ParamArray String())
+  fullName: Func.Redis.HashSet.IRedisHashSetService.DeleteAsync(string, params string[])
+  fullName.vb: Func.Redis.HashSet.IRedisHashSetService.DeleteAsync(String, ParamArray String())
+  nameWithType: IRedisHashSetService.DeleteAsync(string, params string[])
+  nameWithType.vb: IRedisHashSetService.DeleteAsync(String, ParamArray String())
+- uid: Func.Redis.HashSet.IRedisHashSetService.DeleteAsync*
+  name: DeleteAsync
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_DeleteAsync_
+  commentId: Overload:Func.Redis.HashSet.IRedisHashSetService.DeleteAsync
+  isSpec: "True"
+  fullName: Func.Redis.HashSet.IRedisHashSetService.DeleteAsync
+  nameWithType: IRedisHashSetService.DeleteAsync
+- uid: Func.Redis.HashSet.IRedisHashSetService.Get(System.String,System.ValueTuple{System.Type,System.String}[])
+  name: Get(string, params (Type, string)[])
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_Get_System_String_System_ValueTuple_System_Type_System_String____
+  commentId: M:Func.Redis.HashSet.IRedisHashSetService.Get(System.String,System.ValueTuple{System.Type,System.String}[])
+  name.vb: Get(String, ParamArray (Type, String)())
+  fullName: Func.Redis.HashSet.IRedisHashSetService.Get(string, params (System.Type, string)[])
+  fullName.vb: Func.Redis.HashSet.IRedisHashSetService.Get(String, ParamArray (System.Type, String)())
+  nameWithType: IRedisHashSetService.Get(string, params (Type, string)[])
+  nameWithType.vb: IRedisHashSetService.Get(String, ParamArray (Type, String)())
+- uid: Func.Redis.HashSet.IRedisHashSetService.Get*
+  name: Get
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_Get_
+  commentId: Overload:Func.Redis.HashSet.IRedisHashSetService.Get
+  isSpec: "True"
+  fullName: Func.Redis.HashSet.IRedisHashSetService.Get
+  nameWithType: IRedisHashSetService.Get
+- uid: Func.Redis.HashSet.IRedisHashSetService.GetAll*
+  name: GetAll
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_GetAll_
+  commentId: Overload:Func.Redis.HashSet.IRedisHashSetService.GetAll
+  isSpec: "True"
+  fullName: Func.Redis.HashSet.IRedisHashSetService.GetAll
+  nameWithType: IRedisHashSetService.GetAll
+- uid: Func.Redis.HashSet.IRedisHashSetService.GetAllAsync*
+  name: GetAllAsync
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_GetAllAsync_
+  commentId: Overload:Func.Redis.HashSet.IRedisHashSetService.GetAllAsync
+  isSpec: "True"
+  fullName: Func.Redis.HashSet.IRedisHashSetService.GetAllAsync
+  nameWithType: IRedisHashSetService.GetAllAsync
+- uid: Func.Redis.HashSet.IRedisHashSetService.GetAllAsync``1(System.String)
+  name: GetAllAsync<T>(string)
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_GetAllAsync__1_System_String_
+  commentId: M:Func.Redis.HashSet.IRedisHashSetService.GetAllAsync``1(System.String)
+  name.vb: GetAllAsync(Of T)(String)
+  fullName: Func.Redis.HashSet.IRedisHashSetService.GetAllAsync<T>(string)
+  fullName.vb: Func.Redis.HashSet.IRedisHashSetService.GetAllAsync(Of T)(String)
+  nameWithType: IRedisHashSetService.GetAllAsync<T>(string)
+  nameWithType.vb: IRedisHashSetService.GetAllAsync(Of T)(String)
+- uid: Func.Redis.HashSet.IRedisHashSetService.GetAll``1(System.String)
+  name: GetAll<T>(string)
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_GetAll__1_System_String_
+  commentId: M:Func.Redis.HashSet.IRedisHashSetService.GetAll``1(System.String)
+  name.vb: GetAll(Of T)(String)
+  fullName: Func.Redis.HashSet.IRedisHashSetService.GetAll<T>(string)
+  fullName.vb: Func.Redis.HashSet.IRedisHashSetService.GetAll(Of T)(String)
+  nameWithType: IRedisHashSetService.GetAll<T>(string)
+  nameWithType.vb: IRedisHashSetService.GetAll(Of T)(String)
+- uid: Func.Redis.HashSet.IRedisHashSetService.GetAsync(System.String,System.ValueTuple{System.Type,System.String}[])
+  name: GetAsync(string, params (Type, string)[])
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_GetAsync_System_String_System_ValueTuple_System_Type_System_String____
+  commentId: M:Func.Redis.HashSet.IRedisHashSetService.GetAsync(System.String,System.ValueTuple{System.Type,System.String}[])
+  name.vb: GetAsync(String, ParamArray (Type, String)())
+  fullName: Func.Redis.HashSet.IRedisHashSetService.GetAsync(string, params (System.Type, string)[])
+  fullName.vb: Func.Redis.HashSet.IRedisHashSetService.GetAsync(String, ParamArray (System.Type, String)())
+  nameWithType: IRedisHashSetService.GetAsync(string, params (Type, string)[])
+  nameWithType.vb: IRedisHashSetService.GetAsync(String, ParamArray (Type, String)())
+- uid: Func.Redis.HashSet.IRedisHashSetService.GetAsync*
+  name: GetAsync
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_GetAsync_
+  commentId: Overload:Func.Redis.HashSet.IRedisHashSetService.GetAsync
+  isSpec: "True"
+  fullName: Func.Redis.HashSet.IRedisHashSetService.GetAsync
+  nameWithType: IRedisHashSetService.GetAsync
+- uid: Func.Redis.HashSet.IRedisHashSetService.GetAsync``1(System.String,System.String)
+  name: GetAsync<T>(string, string)
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_GetAsync__1_System_String_System_String_
+  commentId: M:Func.Redis.HashSet.IRedisHashSetService.GetAsync``1(System.String,System.String)
+  name.vb: GetAsync(Of T)(String, String)
+  fullName: Func.Redis.HashSet.IRedisHashSetService.GetAsync<T>(string, string)
+  fullName.vb: Func.Redis.HashSet.IRedisHashSetService.GetAsync(Of T)(String, String)
+  nameWithType: IRedisHashSetService.GetAsync<T>(string, string)
+  nameWithType.vb: IRedisHashSetService.GetAsync(Of T)(String, String)
+- uid: Func.Redis.HashSet.IRedisHashSetService.GetAsync``1(System.String,System.String[])
+  name: GetAsync<T>(string, params string[])
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_GetAsync__1_System_String_System_String___
+  commentId: M:Func.Redis.HashSet.IRedisHashSetService.GetAsync``1(System.String,System.String[])
+  name.vb: GetAsync(Of T)(String, ParamArray String())
+  fullName: Func.Redis.HashSet.IRedisHashSetService.GetAsync<T>(string, params string[])
+  fullName.vb: Func.Redis.HashSet.IRedisHashSetService.GetAsync(Of T)(String, ParamArray String())
+  nameWithType: IRedisHashSetService.GetAsync<T>(string, params string[])
+  nameWithType.vb: IRedisHashSetService.GetAsync(Of T)(String, ParamArray String())
+- uid: Func.Redis.HashSet.IRedisHashSetService.GetFieldKeys(System.String)
+  name: GetFieldKeys(string)
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_GetFieldKeys_System_String_
+  commentId: M:Func.Redis.HashSet.IRedisHashSetService.GetFieldKeys(System.String)
+  name.vb: GetFieldKeys(String)
+  fullName: Func.Redis.HashSet.IRedisHashSetService.GetFieldKeys(string)
+  fullName.vb: Func.Redis.HashSet.IRedisHashSetService.GetFieldKeys(String)
+  nameWithType: IRedisHashSetService.GetFieldKeys(string)
+  nameWithType.vb: IRedisHashSetService.GetFieldKeys(String)
+- uid: Func.Redis.HashSet.IRedisHashSetService.GetFieldKeys*
+  name: GetFieldKeys
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_GetFieldKeys_
+  commentId: Overload:Func.Redis.HashSet.IRedisHashSetService.GetFieldKeys
+  isSpec: "True"
+  fullName: Func.Redis.HashSet.IRedisHashSetService.GetFieldKeys
+  nameWithType: IRedisHashSetService.GetFieldKeys
+- uid: Func.Redis.HashSet.IRedisHashSetService.GetFieldKeysAsync(System.String)
+  name: GetFieldKeysAsync(string)
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_GetFieldKeysAsync_System_String_
+  commentId: M:Func.Redis.HashSet.IRedisHashSetService.GetFieldKeysAsync(System.String)
+  name.vb: GetFieldKeysAsync(String)
+  fullName: Func.Redis.HashSet.IRedisHashSetService.GetFieldKeysAsync(string)
+  fullName.vb: Func.Redis.HashSet.IRedisHashSetService.GetFieldKeysAsync(String)
+  nameWithType: IRedisHashSetService.GetFieldKeysAsync(string)
+  nameWithType.vb: IRedisHashSetService.GetFieldKeysAsync(String)
+- uid: Func.Redis.HashSet.IRedisHashSetService.GetFieldKeysAsync*
+  name: GetFieldKeysAsync
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_GetFieldKeysAsync_
+  commentId: Overload:Func.Redis.HashSet.IRedisHashSetService.GetFieldKeysAsync
+  isSpec: "True"
+  fullName: Func.Redis.HashSet.IRedisHashSetService.GetFieldKeysAsync
+  nameWithType: IRedisHashSetService.GetFieldKeysAsync
+- uid: Func.Redis.HashSet.IRedisHashSetService.GetValues*
+  name: GetValues
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_GetValues_
+  commentId: Overload:Func.Redis.HashSet.IRedisHashSetService.GetValues
+  isSpec: "True"
+  fullName: Func.Redis.HashSet.IRedisHashSetService.GetValues
+  nameWithType: IRedisHashSetService.GetValues
+- uid: Func.Redis.HashSet.IRedisHashSetService.GetValuesAsync*
+  name: GetValuesAsync
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_GetValuesAsync_
+  commentId: Overload:Func.Redis.HashSet.IRedisHashSetService.GetValuesAsync
+  isSpec: "True"
+  fullName: Func.Redis.HashSet.IRedisHashSetService.GetValuesAsync
+  nameWithType: IRedisHashSetService.GetValuesAsync
+- uid: Func.Redis.HashSet.IRedisHashSetService.GetValuesAsync``1(System.String)
+  name: GetValuesAsync<T>(string)
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_GetValuesAsync__1_System_String_
+  commentId: M:Func.Redis.HashSet.IRedisHashSetService.GetValuesAsync``1(System.String)
+  name.vb: GetValuesAsync(Of T)(String)
+  fullName: Func.Redis.HashSet.IRedisHashSetService.GetValuesAsync<T>(string)
+  fullName.vb: Func.Redis.HashSet.IRedisHashSetService.GetValuesAsync(Of T)(String)
+  nameWithType: IRedisHashSetService.GetValuesAsync<T>(string)
+  nameWithType.vb: IRedisHashSetService.GetValuesAsync(Of T)(String)
+- uid: Func.Redis.HashSet.IRedisHashSetService.GetValues``1(System.String)
+  name: GetValues<T>(string)
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_GetValues__1_System_String_
+  commentId: M:Func.Redis.HashSet.IRedisHashSetService.GetValues``1(System.String)
+  name.vb: GetValues(Of T)(String)
+  fullName: Func.Redis.HashSet.IRedisHashSetService.GetValues<T>(string)
+  fullName.vb: Func.Redis.HashSet.IRedisHashSetService.GetValues(Of T)(String)
+  nameWithType: IRedisHashSetService.GetValues<T>(string)
+  nameWithType.vb: IRedisHashSetService.GetValues(Of T)(String)
+- uid: Func.Redis.HashSet.IRedisHashSetService.Get``1(System.String,System.String)
+  name: Get<T>(string, string)
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_Get__1_System_String_System_String_
+  commentId: M:Func.Redis.HashSet.IRedisHashSetService.Get``1(System.String,System.String)
+  name.vb: Get(Of T)(String, String)
+  fullName: Func.Redis.HashSet.IRedisHashSetService.Get<T>(string, string)
+  fullName.vb: Func.Redis.HashSet.IRedisHashSetService.Get(Of T)(String, String)
+  nameWithType: IRedisHashSetService.Get<T>(string, string)
+  nameWithType.vb: IRedisHashSetService.Get(Of T)(String, String)
+- uid: Func.Redis.HashSet.IRedisHashSetService.Get``1(System.String,System.String[])
+  name: Get<T>(string, params string[])
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_Get__1_System_String_System_String___
+  commentId: M:Func.Redis.HashSet.IRedisHashSetService.Get``1(System.String,System.String[])
+  name.vb: Get(Of T)(String, ParamArray String())
+  fullName: Func.Redis.HashSet.IRedisHashSetService.Get<T>(string, params string[])
+  fullName.vb: Func.Redis.HashSet.IRedisHashSetService.Get(Of T)(String, ParamArray String())
+  nameWithType: IRedisHashSetService.Get<T>(string, params string[])
+  nameWithType.vb: IRedisHashSetService.Get(Of T)(String, ParamArray String())
+- uid: Func.Redis.HashSet.IRedisHashSetService.Set*
+  name: Set
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_Set_
+  commentId: Overload:Func.Redis.HashSet.IRedisHashSetService.Set
+  isSpec: "True"
+  fullName: Func.Redis.HashSet.IRedisHashSetService.Set
+  nameWithType: IRedisHashSetService.Set
+- uid: Func.Redis.HashSet.IRedisHashSetService.SetAsync*
+  name: SetAsync
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_SetAsync_
+  commentId: Overload:Func.Redis.HashSet.IRedisHashSetService.SetAsync
+  isSpec: "True"
+  fullName: Func.Redis.HashSet.IRedisHashSetService.SetAsync
+  nameWithType: IRedisHashSetService.SetAsync
+- uid: Func.Redis.HashSet.IRedisHashSetService.SetAsync``1(System.String,System.String,``0)
+  name: SetAsync<T>(string, string, T)
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_SetAsync__1_System_String_System_String___0_
+  commentId: M:Func.Redis.HashSet.IRedisHashSetService.SetAsync``1(System.String,System.String,``0)
+  name.vb: SetAsync(Of T)(String, String, T)
+  fullName: Func.Redis.HashSet.IRedisHashSetService.SetAsync<T>(string, string, T)
+  fullName.vb: Func.Redis.HashSet.IRedisHashSetService.SetAsync(Of T)(String, String, T)
+  nameWithType: IRedisHashSetService.SetAsync<T>(string, string, T)
+  nameWithType.vb: IRedisHashSetService.SetAsync(Of T)(String, String, T)
+- uid: Func.Redis.HashSet.IRedisHashSetService.SetAsync``1(System.String,System.ValueTuple{System.String,``0}[])
+  name: SetAsync<T>(string, params (string, T)[])
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_SetAsync__1_System_String_System_ValueTuple_System_String___0____
+  commentId: M:Func.Redis.HashSet.IRedisHashSetService.SetAsync``1(System.String,System.ValueTuple{System.String,``0}[])
+  name.vb: SetAsync(Of T)(String, ParamArray (String, T)())
+  fullName: Func.Redis.HashSet.IRedisHashSetService.SetAsync<T>(string, params (string, T)[])
+  fullName.vb: Func.Redis.HashSet.IRedisHashSetService.SetAsync(Of T)(String, ParamArray (String, T)())
+  nameWithType: IRedisHashSetService.SetAsync<T>(string, params (string, T)[])
+  nameWithType.vb: IRedisHashSetService.SetAsync(Of T)(String, ParamArray (String, T)())
+- uid: Func.Redis.HashSet.IRedisHashSetService.Set``1(System.String,System.String,``0)
+  name: Set<T>(string, string, T)
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_Set__1_System_String_System_String___0_
+  commentId: M:Func.Redis.HashSet.IRedisHashSetService.Set``1(System.String,System.String,``0)
+  name.vb: Set(Of T)(String, String, T)
+  fullName: Func.Redis.HashSet.IRedisHashSetService.Set<T>(string, string, T)
+  fullName.vb: Func.Redis.HashSet.IRedisHashSetService.Set(Of T)(String, String, T)
+  nameWithType: IRedisHashSetService.Set<T>(string, string, T)
+  nameWithType.vb: IRedisHashSetService.Set(Of T)(String, String, T)
+- uid: Func.Redis.HashSet.IRedisHashSetService.Set``1(System.String,System.ValueTuple{System.String,``0}[])
+  name: Set<T>(string, params (string, T)[])
+  href: api/Func.Redis.HashSet.IRedisHashSetService.html#Func_Redis_HashSet_IRedisHashSetService_Set__1_System_String_System_ValueTuple_System_String___0____
+  commentId: M:Func.Redis.HashSet.IRedisHashSetService.Set``1(System.String,System.ValueTuple{System.String,``0}[])
+  name.vb: Set(Of T)(String, ParamArray (String, T)())
+  fullName: Func.Redis.HashSet.IRedisHashSetService.Set<T>(string, params (string, T)[])
+  fullName.vb: Func.Redis.HashSet.IRedisHashSetService.Set(Of T)(String, ParamArray (String, T)())
+  nameWithType: IRedisHashSetService.Set<T>(string, params (string, T)[])
+  nameWithType.vb: IRedisHashSetService.Set(Of T)(String, ParamArray (String, T)())
+- uid: Func.Redis.IConnectionMultiplexerProvider
+  name: IConnectionMultiplexerProvider
+  href: api/Func.Redis.IConnectionMultiplexerProvider.html
+  commentId: T:Func.Redis.IConnectionMultiplexerProvider
+  fullName: Func.Redis.IConnectionMultiplexerProvider
+  nameWithType: IConnectionMultiplexerProvider
+- uid: Func.Redis.IConnectionMultiplexerProvider.GetMultiplexer
+  name: GetMultiplexer()
+  href: api/Func.Redis.IConnectionMultiplexerProvider.html#Func_Redis_IConnectionMultiplexerProvider_GetMultiplexer
+  commentId: M:Func.Redis.IConnectionMultiplexerProvider.GetMultiplexer
+  fullName: Func.Redis.IConnectionMultiplexerProvider.GetMultiplexer()
+  nameWithType: IConnectionMultiplexerProvider.GetMultiplexer()
+- uid: Func.Redis.IConnectionMultiplexerProvider.GetMultiplexer*
+  name: GetMultiplexer
+  href: api/Func.Redis.IConnectionMultiplexerProvider.html#Func_Redis_IConnectionMultiplexerProvider_GetMultiplexer_
+  commentId: Overload:Func.Redis.IConnectionMultiplexerProvider.GetMultiplexer
+  isSpec: "True"
+  fullName: Func.Redis.IConnectionMultiplexerProvider.GetMultiplexer
+  nameWithType: IConnectionMultiplexerProvider.GetMultiplexer
+- uid: Func.Redis.IRedisService
+  name: IRedisService
+  href: api/Func.Redis.IRedisService.html
+  commentId: T:Func.Redis.IRedisService
+  fullName: Func.Redis.IRedisService
+  nameWithType: IRedisService
+- uid: Func.Redis.IRedisService.Execute*
+  name: Execute
+  href: api/Func.Redis.IRedisService.html#Func_Redis_IRedisService_Execute_
+  commentId: Overload:Func.Redis.IRedisService.Execute
+  isSpec: "True"
+  fullName: Func.Redis.IRedisService.Execute
+  nameWithType: IRedisService.Execute
+- uid: Func.Redis.IRedisService.ExecuteAsync*
+  name: ExecuteAsync
+  href: api/Func.Redis.IRedisService.html#Func_Redis_IRedisService_ExecuteAsync_
+  commentId: Overload:Func.Redis.IRedisService.ExecuteAsync
+  isSpec: "True"
+  fullName: Func.Redis.IRedisService.ExecuteAsync
+  nameWithType: IRedisService.ExecuteAsync
+- uid: Func.Redis.IRedisService.ExecuteAsync``1(System.Func{StackExchange.Redis.IDatabase,System.Threading.Tasks.Task{``0}})
+  name: ExecuteAsync<T>(Func<IDatabase, Task<T>>)
+  href: api/Func.Redis.IRedisService.html#Func_Redis_IRedisService_ExecuteAsync__1_System_Func_StackExchange_Redis_IDatabase_System_Threading_Tasks_Task___0___
+  commentId: M:Func.Redis.IRedisService.ExecuteAsync``1(System.Func{StackExchange.Redis.IDatabase,System.Threading.Tasks.Task{``0}})
+  name.vb: ExecuteAsync(Of T)(Func(Of IDatabase, Task(Of T)))
+  fullName: Func.Redis.IRedisService.ExecuteAsync<T>(System.Func<StackExchange.Redis.IDatabase, System.Threading.Tasks.Task<T>>)
+  fullName.vb: Func.Redis.IRedisService.ExecuteAsync(Of T)(System.Func(Of StackExchange.Redis.IDatabase, System.Threading.Tasks.Task(Of T)))
+  nameWithType: IRedisService.ExecuteAsync<T>(Func<IDatabase, Task<T>>)
+  nameWithType.vb: IRedisService.ExecuteAsync(Of T)(Func(Of IDatabase, Task(Of T)))
+- uid: Func.Redis.IRedisService.ExecuteAsync``2(System.Func{StackExchange.Redis.IDatabase,System.Threading.Tasks.Task{``0}},System.Func{``0,``1})
+  name: ExecuteAsync<TIn, TOut>(Func<IDatabase, Task<TIn>>, Func<TIn, TOut>)
+  href: api/Func.Redis.IRedisService.html#Func_Redis_IRedisService_ExecuteAsync__2_System_Func_StackExchange_Redis_IDatabase_System_Threading_Tasks_Task___0___System_Func___0___1__
+  commentId: M:Func.Redis.IRedisService.ExecuteAsync``2(System.Func{StackExchange.Redis.IDatabase,System.Threading.Tasks.Task{``0}},System.Func{``0,``1})
+  name.vb: ExecuteAsync(Of TIn, TOut)(Func(Of IDatabase, Task(Of TIn)), Func(Of TIn, TOut))
+  fullName: Func.Redis.IRedisService.ExecuteAsync<TIn, TOut>(System.Func<StackExchange.Redis.IDatabase, System.Threading.Tasks.Task<TIn>>, System.Func<TIn, TOut>)
+  fullName.vb: Func.Redis.IRedisService.ExecuteAsync(Of TIn, TOut)(System.Func(Of StackExchange.Redis.IDatabase, System.Threading.Tasks.Task(Of TIn)), System.Func(Of TIn, TOut))
+  nameWithType: IRedisService.ExecuteAsync<TIn, TOut>(Func<IDatabase, Task<TIn>>, Func<TIn, TOut>)
+  nameWithType.vb: IRedisService.ExecuteAsync(Of TIn, TOut)(Func(Of IDatabase, Task(Of TIn)), Func(Of TIn, TOut))
+- uid: Func.Redis.IRedisService.ExecuteUnsafeAsync*
+  name: ExecuteUnsafeAsync
+  href: api/Func.Redis.IRedisService.html#Func_Redis_IRedisService_ExecuteUnsafeAsync_
+  commentId: Overload:Func.Redis.IRedisService.ExecuteUnsafeAsync
+  isSpec: "True"
+  fullName: Func.Redis.IRedisService.ExecuteUnsafeAsync
+  nameWithType: IRedisService.ExecuteUnsafeAsync
+- uid: Func.Redis.IRedisService.ExecuteUnsafeAsync``2(System.Func{StackExchange.Redis.IDatabase,System.Threading.Tasks.Task{``0}},System.Func{``0,``1})
+  name: ExecuteUnsafeAsync<TIn, TOut>(Func<IDatabase, Task<TIn>>, Func<TIn, TOut>)
+  href: api/Func.Redis.IRedisService.html#Func_Redis_IRedisService_ExecuteUnsafeAsync__2_System_Func_StackExchange_Redis_IDatabase_System_Threading_Tasks_Task___0___System_Func___0___1__
+  commentId: M:Func.Redis.IRedisService.ExecuteUnsafeAsync``2(System.Func{StackExchange.Redis.IDatabase,System.Threading.Tasks.Task{``0}},System.Func{``0,``1})
+  name.vb: ExecuteUnsafeAsync(Of TIn, TOut)(Func(Of IDatabase, Task(Of TIn)), Func(Of TIn, TOut))
+  fullName: Func.Redis.IRedisService.ExecuteUnsafeAsync<TIn, TOut>(System.Func<StackExchange.Redis.IDatabase, System.Threading.Tasks.Task<TIn>>, System.Func<TIn, TOut>)
+  fullName.vb: Func.Redis.IRedisService.ExecuteUnsafeAsync(Of TIn, TOut)(System.Func(Of StackExchange.Redis.IDatabase, System.Threading.Tasks.Task(Of TIn)), System.Func(Of TIn, TOut))
+  nameWithType: IRedisService.ExecuteUnsafeAsync<TIn, TOut>(Func<IDatabase, Task<TIn>>, Func<TIn, TOut>)
+  nameWithType.vb: IRedisService.ExecuteUnsafeAsync(Of TIn, TOut)(Func(Of IDatabase, Task(Of TIn)), Func(Of TIn, TOut))
+- uid: Func.Redis.IRedisService.Execute``1(System.Func{StackExchange.Redis.IDatabase,``0})
+  name: Execute<T>(Func<IDatabase, T>)
+  href: api/Func.Redis.IRedisService.html#Func_Redis_IRedisService_Execute__1_System_Func_StackExchange_Redis_IDatabase___0__
+  commentId: M:Func.Redis.IRedisService.Execute``1(System.Func{StackExchange.Redis.IDatabase,``0})
+  name.vb: Execute(Of T)(Func(Of IDatabase, T))
+  fullName: Func.Redis.IRedisService.Execute<T>(System.Func<StackExchange.Redis.IDatabase, T>)
+  fullName.vb: Func.Redis.IRedisService.Execute(Of T)(System.Func(Of StackExchange.Redis.IDatabase, T))
+  nameWithType: IRedisService.Execute<T>(Func<IDatabase, T>)
+  nameWithType.vb: IRedisService.Execute(Of T)(Func(Of IDatabase, T))
+- uid: Func.Redis.IRedisService.Execute``2(System.Func{StackExchange.Redis.IDatabase,``0},System.Func{``0,``1})
+  name: Execute<TIn, TOut>(Func<IDatabase, TIn>, Func<TIn, TOut>)
+  href: api/Func.Redis.IRedisService.html#Func_Redis_IRedisService_Execute__2_System_Func_StackExchange_Redis_IDatabase___0__System_Func___0___1__
+  commentId: M:Func.Redis.IRedisService.Execute``2(System.Func{StackExchange.Redis.IDatabase,``0},System.Func{``0,``1})
+  name.vb: Execute(Of TIn, TOut)(Func(Of IDatabase, TIn), Func(Of TIn, TOut))
+  fullName: Func.Redis.IRedisService.Execute<TIn, TOut>(System.Func<StackExchange.Redis.IDatabase, TIn>, System.Func<TIn, TOut>)
+  fullName.vb: Func.Redis.IRedisService.Execute(Of TIn, TOut)(System.Func(Of StackExchange.Redis.IDatabase, TIn), System.Func(Of TIn, TOut))
+  nameWithType: IRedisService.Execute<TIn, TOut>(Func<IDatabase, TIn>, Func<TIn, TOut>)
+  nameWithType.vb: IRedisService.Execute(Of TIn, TOut)(Func(Of IDatabase, TIn), Func(Of TIn, TOut))
+- uid: Func.Redis.ISourcesProvider
+  name: ISourcesProvider
+  href: api/Func.Redis.ISourcesProvider.html
+  commentId: T:Func.Redis.ISourcesProvider
+  fullName: Func.Redis.ISourcesProvider
+  nameWithType: ISourcesProvider
+- uid: Func.Redis.ISourcesProvider.GetDatabase
+  name: GetDatabase()
+  href: api/Func.Redis.ISourcesProvider.html#Func_Redis_ISourcesProvider_GetDatabase
+  commentId: M:Func.Redis.ISourcesProvider.GetDatabase
+  fullName: Func.Redis.ISourcesProvider.GetDatabase()
+  nameWithType: ISourcesProvider.GetDatabase()
+- uid: Func.Redis.ISourcesProvider.GetDatabase*
+  name: GetDatabase
+  href: api/Func.Redis.ISourcesProvider.html#Func_Redis_ISourcesProvider_GetDatabase_
+  commentId: Overload:Func.Redis.ISourcesProvider.GetDatabase
+  isSpec: "True"
+  fullName: Func.Redis.ISourcesProvider.GetDatabase
+  nameWithType: ISourcesProvider.GetDatabase
+- uid: Func.Redis.ISourcesProvider.GetServers
+  name: GetServers()
+  href: api/Func.Redis.ISourcesProvider.html#Func_Redis_ISourcesProvider_GetServers
+  commentId: M:Func.Redis.ISourcesProvider.GetServers
+  fullName: Func.Redis.ISourcesProvider.GetServers()
+  nameWithType: ISourcesProvider.GetServers()
+- uid: Func.Redis.ISourcesProvider.GetServers*
+  name: GetServers
+  href: api/Func.Redis.ISourcesProvider.html#Func_Redis_ISourcesProvider_GetServers_
+  commentId: Overload:Func.Redis.ISourcesProvider.GetServers
+  isSpec: "True"
+  fullName: Func.Redis.ISourcesProvider.GetServers
+  nameWithType: ISourcesProvider.GetServers
+- uid: Func.Redis.Key
+  name: Func.Redis.Key
+  href: api/Func.Redis.Key.html
+  commentId: N:Func.Redis.Key
+  fullName: Func.Redis.Key
+  nameWithType: Func.Redis.Key
+- uid: Func.Redis.Key.IRedisKeyService
+  name: IRedisKeyService
+  href: api/Func.Redis.Key.IRedisKeyService.html
+  commentId: T:Func.Redis.Key.IRedisKeyService
+  fullName: Func.Redis.Key.IRedisKeyService
+  nameWithType: IRedisKeyService
+- uid: Func.Redis.Key.IRedisKeyService.Delete(System.String)
+  name: Delete(string)
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_Delete_System_String_
+  commentId: M:Func.Redis.Key.IRedisKeyService.Delete(System.String)
+  name.vb: Delete(String)
+  fullName: Func.Redis.Key.IRedisKeyService.Delete(string)
+  fullName.vb: Func.Redis.Key.IRedisKeyService.Delete(String)
+  nameWithType: IRedisKeyService.Delete(string)
+  nameWithType.vb: IRedisKeyService.Delete(String)
+- uid: Func.Redis.Key.IRedisKeyService.Delete(System.String[])
+  name: Delete(string[])
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_Delete_System_String___
+  commentId: M:Func.Redis.Key.IRedisKeyService.Delete(System.String[])
+  name.vb: Delete(String())
+  fullName: Func.Redis.Key.IRedisKeyService.Delete(string[])
+  fullName.vb: Func.Redis.Key.IRedisKeyService.Delete(String())
+  nameWithType: IRedisKeyService.Delete(string[])
+  nameWithType.vb: IRedisKeyService.Delete(String())
+- uid: Func.Redis.Key.IRedisKeyService.Delete*
+  name: Delete
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_Delete_
+  commentId: Overload:Func.Redis.Key.IRedisKeyService.Delete
+  isSpec: "True"
+  fullName: Func.Redis.Key.IRedisKeyService.Delete
+  nameWithType: IRedisKeyService.Delete
+- uid: Func.Redis.Key.IRedisKeyService.DeleteAsync(System.String)
+  name: DeleteAsync(string)
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_DeleteAsync_System_String_
+  commentId: M:Func.Redis.Key.IRedisKeyService.DeleteAsync(System.String)
+  name.vb: DeleteAsync(String)
+  fullName: Func.Redis.Key.IRedisKeyService.DeleteAsync(string)
+  fullName.vb: Func.Redis.Key.IRedisKeyService.DeleteAsync(String)
+  nameWithType: IRedisKeyService.DeleteAsync(string)
+  nameWithType.vb: IRedisKeyService.DeleteAsync(String)
+- uid: Func.Redis.Key.IRedisKeyService.DeleteAsync(System.String[])
+  name: DeleteAsync(string[])
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_DeleteAsync_System_String___
+  commentId: M:Func.Redis.Key.IRedisKeyService.DeleteAsync(System.String[])
+  name.vb: DeleteAsync(String())
+  fullName: Func.Redis.Key.IRedisKeyService.DeleteAsync(string[])
+  fullName.vb: Func.Redis.Key.IRedisKeyService.DeleteAsync(String())
+  nameWithType: IRedisKeyService.DeleteAsync(string[])
+  nameWithType.vb: IRedisKeyService.DeleteAsync(String())
+- uid: Func.Redis.Key.IRedisKeyService.DeleteAsync*
+  name: DeleteAsync
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_DeleteAsync_
+  commentId: Overload:Func.Redis.Key.IRedisKeyService.DeleteAsync
+  isSpec: "True"
+  fullName: Func.Redis.Key.IRedisKeyService.DeleteAsync
+  nameWithType: IRedisKeyService.DeleteAsync
+- uid: Func.Redis.Key.IRedisKeyService.Get*
+  name: Get
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_Get_
+  commentId: Overload:Func.Redis.Key.IRedisKeyService.Get
+  isSpec: "True"
+  fullName: Func.Redis.Key.IRedisKeyService.Get
+  nameWithType: IRedisKeyService.Get
+- uid: Func.Redis.Key.IRedisKeyService.GetAsync*
+  name: GetAsync
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_GetAsync_
+  commentId: Overload:Func.Redis.Key.IRedisKeyService.GetAsync
+  isSpec: "True"
+  fullName: Func.Redis.Key.IRedisKeyService.GetAsync
+  nameWithType: IRedisKeyService.GetAsync
+- uid: Func.Redis.Key.IRedisKeyService.GetAsync``1(System.String)
+  name: GetAsync<T>(string)
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_GetAsync__1_System_String_
+  commentId: M:Func.Redis.Key.IRedisKeyService.GetAsync``1(System.String)
+  name.vb: GetAsync(Of T)(String)
+  fullName: Func.Redis.Key.IRedisKeyService.GetAsync<T>(string)
+  fullName.vb: Func.Redis.Key.IRedisKeyService.GetAsync(Of T)(String)
+  nameWithType: IRedisKeyService.GetAsync<T>(string)
+  nameWithType.vb: IRedisKeyService.GetAsync(Of T)(String)
+- uid: Func.Redis.Key.IRedisKeyService.GetAsync``1(System.String[])
+  name: GetAsync<T>(string[])
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_GetAsync__1_System_String___
+  commentId: M:Func.Redis.Key.IRedisKeyService.GetAsync``1(System.String[])
+  name.vb: GetAsync(Of T)(String())
+  fullName: Func.Redis.Key.IRedisKeyService.GetAsync<T>(string[])
+  fullName.vb: Func.Redis.Key.IRedisKeyService.GetAsync(Of T)(String())
+  nameWithType: IRedisKeyService.GetAsync<T>(string[])
+  nameWithType.vb: IRedisKeyService.GetAsync(Of T)(String())
+- uid: Func.Redis.Key.IRedisKeyService.GetKeys(System.String)
+  name: GetKeys(string)
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_GetKeys_System_String_
+  commentId: M:Func.Redis.Key.IRedisKeyService.GetKeys(System.String)
+  name.vb: GetKeys(String)
+  fullName: Func.Redis.Key.IRedisKeyService.GetKeys(string)
+  fullName.vb: Func.Redis.Key.IRedisKeyService.GetKeys(String)
+  nameWithType: IRedisKeyService.GetKeys(string)
+  nameWithType.vb: IRedisKeyService.GetKeys(String)
+- uid: Func.Redis.Key.IRedisKeyService.GetKeys*
+  name: GetKeys
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_GetKeys_
+  commentId: Overload:Func.Redis.Key.IRedisKeyService.GetKeys
+  isSpec: "True"
+  fullName: Func.Redis.Key.IRedisKeyService.GetKeys
+  nameWithType: IRedisKeyService.GetKeys
+- uid: Func.Redis.Key.IRedisKeyService.GetKeysAsync(System.String)
+  name: GetKeysAsync(string)
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_GetKeysAsync_System_String_
+  commentId: M:Func.Redis.Key.IRedisKeyService.GetKeysAsync(System.String)
+  name.vb: GetKeysAsync(String)
+  fullName: Func.Redis.Key.IRedisKeyService.GetKeysAsync(string)
+  fullName.vb: Func.Redis.Key.IRedisKeyService.GetKeysAsync(String)
+  nameWithType: IRedisKeyService.GetKeysAsync(string)
+  nameWithType.vb: IRedisKeyService.GetKeysAsync(String)
+- uid: Func.Redis.Key.IRedisKeyService.GetKeysAsync*
+  name: GetKeysAsync
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_GetKeysAsync_
+  commentId: Overload:Func.Redis.Key.IRedisKeyService.GetKeysAsync
+  isSpec: "True"
+  fullName: Func.Redis.Key.IRedisKeyService.GetKeysAsync
+  nameWithType: IRedisKeyService.GetKeysAsync
+- uid: Func.Redis.Key.IRedisKeyService.Get``1(System.String)
+  name: Get<T>(string)
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_Get__1_System_String_
+  commentId: M:Func.Redis.Key.IRedisKeyService.Get``1(System.String)
+  name.vb: Get(Of T)(String)
+  fullName: Func.Redis.Key.IRedisKeyService.Get<T>(string)
+  fullName.vb: Func.Redis.Key.IRedisKeyService.Get(Of T)(String)
+  nameWithType: IRedisKeyService.Get<T>(string)
+  nameWithType.vb: IRedisKeyService.Get(Of T)(String)
+- uid: Func.Redis.Key.IRedisKeyService.Get``1(System.String[])
+  name: Get<T>(string[])
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_Get__1_System_String___
+  commentId: M:Func.Redis.Key.IRedisKeyService.Get``1(System.String[])
+  name.vb: Get(Of T)(String())
+  fullName: Func.Redis.Key.IRedisKeyService.Get<T>(string[])
+  fullName.vb: Func.Redis.Key.IRedisKeyService.Get(Of T)(String())
+  nameWithType: IRedisKeyService.Get<T>(string[])
+  nameWithType.vb: IRedisKeyService.Get(Of T)(String())
+- uid: Func.Redis.Key.IRedisKeyService.RenameKey(System.String,System.String)
+  name: RenameKey(string, string)
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_RenameKey_System_String_System_String_
+  commentId: M:Func.Redis.Key.IRedisKeyService.RenameKey(System.String,System.String)
+  name.vb: RenameKey(String, String)
+  fullName: Func.Redis.Key.IRedisKeyService.RenameKey(string, string)
+  fullName.vb: Func.Redis.Key.IRedisKeyService.RenameKey(String, String)
+  nameWithType: IRedisKeyService.RenameKey(string, string)
+  nameWithType.vb: IRedisKeyService.RenameKey(String, String)
+- uid: Func.Redis.Key.IRedisKeyService.RenameKey*
+  name: RenameKey
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_RenameKey_
+  commentId: Overload:Func.Redis.Key.IRedisKeyService.RenameKey
+  isSpec: "True"
+  fullName: Func.Redis.Key.IRedisKeyService.RenameKey
+  nameWithType: IRedisKeyService.RenameKey
+- uid: Func.Redis.Key.IRedisKeyService.RenameKeyAsync(System.String,System.String)
+  name: RenameKeyAsync(string, string)
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_RenameKeyAsync_System_String_System_String_
+  commentId: M:Func.Redis.Key.IRedisKeyService.RenameKeyAsync(System.String,System.String)
+  name.vb: RenameKeyAsync(String, String)
+  fullName: Func.Redis.Key.IRedisKeyService.RenameKeyAsync(string, string)
+  fullName.vb: Func.Redis.Key.IRedisKeyService.RenameKeyAsync(String, String)
+  nameWithType: IRedisKeyService.RenameKeyAsync(string, string)
+  nameWithType.vb: IRedisKeyService.RenameKeyAsync(String, String)
+- uid: Func.Redis.Key.IRedisKeyService.RenameKeyAsync*
+  name: RenameKeyAsync
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_RenameKeyAsync_
+  commentId: Overload:Func.Redis.Key.IRedisKeyService.RenameKeyAsync
+  isSpec: "True"
+  fullName: Func.Redis.Key.IRedisKeyService.RenameKeyAsync
+  nameWithType: IRedisKeyService.RenameKeyAsync
+- uid: Func.Redis.Key.IRedisKeyService.Set*
+  name: Set
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_Set_
+  commentId: Overload:Func.Redis.Key.IRedisKeyService.Set
+  isSpec: "True"
+  fullName: Func.Redis.Key.IRedisKeyService.Set
+  nameWithType: IRedisKeyService.Set
+- uid: Func.Redis.Key.IRedisKeyService.SetAsync*
+  name: SetAsync
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_SetAsync_
+  commentId: Overload:Func.Redis.Key.IRedisKeyService.SetAsync
+  isSpec: "True"
+  fullName: Func.Redis.Key.IRedisKeyService.SetAsync
+  nameWithType: IRedisKeyService.SetAsync
+- uid: Func.Redis.Key.IRedisKeyService.SetAsync``1(System.String,``0)
+  name: SetAsync<T>(string, T)
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_SetAsync__1_System_String___0_
+  commentId: M:Func.Redis.Key.IRedisKeyService.SetAsync``1(System.String,``0)
+  name.vb: SetAsync(Of T)(String, T)
+  fullName: Func.Redis.Key.IRedisKeyService.SetAsync<T>(string, T)
+  fullName.vb: Func.Redis.Key.IRedisKeyService.SetAsync(Of T)(String, T)
+  nameWithType: IRedisKeyService.SetAsync<T>(string, T)
+  nameWithType.vb: IRedisKeyService.SetAsync(Of T)(String, T)
+- uid: Func.Redis.Key.IRedisKeyService.SetAsync``1(System.ValueTuple{System.String,``0}[])
+  name: SetAsync<T>(params (string, T)[])
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_SetAsync__1_System_ValueTuple_System_String___0____
+  commentId: M:Func.Redis.Key.IRedisKeyService.SetAsync``1(System.ValueTuple{System.String,``0}[])
+  name.vb: SetAsync(Of T)(ParamArray (String, T)())
+  fullName: Func.Redis.Key.IRedisKeyService.SetAsync<T>(params (string, T)[])
+  fullName.vb: Func.Redis.Key.IRedisKeyService.SetAsync(Of T)(ParamArray (String, T)())
+  nameWithType: IRedisKeyService.SetAsync<T>(params (string, T)[])
+  nameWithType.vb: IRedisKeyService.SetAsync(Of T)(ParamArray (String, T)())
+- uid: Func.Redis.Key.IRedisKeyService.Set``1(System.String,``0)
+  name: Set<T>(string, T)
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_Set__1_System_String___0_
+  commentId: M:Func.Redis.Key.IRedisKeyService.Set``1(System.String,``0)
+  name.vb: Set(Of T)(String, T)
+  fullName: Func.Redis.Key.IRedisKeyService.Set<T>(string, T)
+  fullName.vb: Func.Redis.Key.IRedisKeyService.Set(Of T)(String, T)
+  nameWithType: IRedisKeyService.Set<T>(string, T)
+  nameWithType.vb: IRedisKeyService.Set(Of T)(String, T)
+- uid: Func.Redis.Key.IRedisKeyService.Set``1(System.ValueTuple{System.String,``0}[])
+  name: Set<T>(params (string, T)[])
+  href: api/Func.Redis.Key.IRedisKeyService.html#Func_Redis_Key_IRedisKeyService_Set__1_System_ValueTuple_System_String___0____
+  commentId: M:Func.Redis.Key.IRedisKeyService.Set``1(System.ValueTuple{System.String,``0}[])
+  name.vb: Set(Of T)(ParamArray (String, T)())
+  fullName: Func.Redis.Key.IRedisKeyService.Set<T>(params (string, T)[])
+  fullName.vb: Func.Redis.Key.IRedisKeyService.Set(Of T)(ParamArray (String, T)())
+  nameWithType: IRedisKeyService.Set<T>(params (string, T)[])
+  nameWithType.vb: IRedisKeyService.Set(Of T)(ParamArray (String, T)())
+- uid: Func.Redis.List
+  name: Func.Redis.List
+  href: api/Func.Redis.List.html
+  commentId: N:Func.Redis.List
+  fullName: Func.Redis.List
+  nameWithType: Func.Redis.List
+- uid: Func.Redis.List.IRedisListService
+  name: IRedisListService
+  href: api/Func.Redis.List.IRedisListService.html
+  commentId: T:Func.Redis.List.IRedisListService
+  fullName: Func.Redis.List.IRedisListService
+  nameWithType: IRedisListService
+- uid: Func.Redis.List.IRedisListService.Append*
+  name: Append
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_Append_
+  commentId: Overload:Func.Redis.List.IRedisListService.Append
+  isSpec: "True"
+  fullName: Func.Redis.List.IRedisListService.Append
+  nameWithType: IRedisListService.Append
+- uid: Func.Redis.List.IRedisListService.AppendAsync*
+  name: AppendAsync
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_AppendAsync_
+  commentId: Overload:Func.Redis.List.IRedisListService.AppendAsync
+  isSpec: "True"
+  fullName: Func.Redis.List.IRedisListService.AppendAsync
+  nameWithType: IRedisListService.AppendAsync
+- uid: Func.Redis.List.IRedisListService.AppendAsync``1(System.String,``0)
+  name: AppendAsync<T>(string, T)
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_AppendAsync__1_System_String___0_
+  commentId: M:Func.Redis.List.IRedisListService.AppendAsync``1(System.String,``0)
+  name.vb: AppendAsync(Of T)(String, T)
+  fullName: Func.Redis.List.IRedisListService.AppendAsync<T>(string, T)
+  fullName.vb: Func.Redis.List.IRedisListService.AppendAsync(Of T)(String, T)
+  nameWithType: IRedisListService.AppendAsync<T>(string, T)
+  nameWithType.vb: IRedisListService.AppendAsync(Of T)(String, T)
+- uid: Func.Redis.List.IRedisListService.AppendAsync``1(System.String,``0[])
+  name: AppendAsync<T>(string, params T[])
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_AppendAsync__1_System_String___0___
+  commentId: M:Func.Redis.List.IRedisListService.AppendAsync``1(System.String,``0[])
+  name.vb: AppendAsync(Of T)(String, ParamArray T())
+  fullName: Func.Redis.List.IRedisListService.AppendAsync<T>(string, params T[])
+  fullName.vb: Func.Redis.List.IRedisListService.AppendAsync(Of T)(String, ParamArray T())
+  nameWithType: IRedisListService.AppendAsync<T>(string, params T[])
+  nameWithType.vb: IRedisListService.AppendAsync(Of T)(String, ParamArray T())
+- uid: Func.Redis.List.IRedisListService.Append``1(System.String,``0)
+  name: Append<T>(string, T)
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_Append__1_System_String___0_
+  commentId: M:Func.Redis.List.IRedisListService.Append``1(System.String,``0)
+  name.vb: Append(Of T)(String, T)
+  fullName: Func.Redis.List.IRedisListService.Append<T>(string, T)
+  fullName.vb: Func.Redis.List.IRedisListService.Append(Of T)(String, T)
+  nameWithType: IRedisListService.Append<T>(string, T)
+  nameWithType.vb: IRedisListService.Append(Of T)(String, T)
+- uid: Func.Redis.List.IRedisListService.Append``1(System.String,``0[])
+  name: Append<T>(string, params T[])
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_Append__1_System_String___0___
+  commentId: M:Func.Redis.List.IRedisListService.Append``1(System.String,``0[])
+  name.vb: Append(Of T)(String, ParamArray T())
+  fullName: Func.Redis.List.IRedisListService.Append<T>(string, params T[])
+  fullName.vb: Func.Redis.List.IRedisListService.Append(Of T)(String, ParamArray T())
+  nameWithType: IRedisListService.Append<T>(string, params T[])
+  nameWithType.vb: IRedisListService.Append(Of T)(String, ParamArray T())
+- uid: Func.Redis.List.IRedisListService.Get*
+  name: Get
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_Get_
+  commentId: Overload:Func.Redis.List.IRedisListService.Get
+  isSpec: "True"
+  fullName: Func.Redis.List.IRedisListService.Get
+  nameWithType: IRedisListService.Get
+- uid: Func.Redis.List.IRedisListService.GetAsync*
+  name: GetAsync
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_GetAsync_
+  commentId: Overload:Func.Redis.List.IRedisListService.GetAsync
+  isSpec: "True"
+  fullName: Func.Redis.List.IRedisListService.GetAsync
+  nameWithType: IRedisListService.GetAsync
+- uid: Func.Redis.List.IRedisListService.GetAsync``1(System.String,System.Int64)
+  name: GetAsync<T>(string, long)
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_GetAsync__1_System_String_System_Int64_
+  commentId: M:Func.Redis.List.IRedisListService.GetAsync``1(System.String,System.Int64)
+  name.vb: GetAsync(Of T)(String, Long)
+  fullName: Func.Redis.List.IRedisListService.GetAsync<T>(string, long)
+  fullName.vb: Func.Redis.List.IRedisListService.GetAsync(Of T)(String, Long)
+  nameWithType: IRedisListService.GetAsync<T>(string, long)
+  nameWithType.vb: IRedisListService.GetAsync(Of T)(String, Long)
+- uid: Func.Redis.List.IRedisListService.GetAsync``1(System.String,System.Int64,System.Int64)
+  name: GetAsync<T>(string, long, long)
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_GetAsync__1_System_String_System_Int64_System_Int64_
+  commentId: M:Func.Redis.List.IRedisListService.GetAsync``1(System.String,System.Int64,System.Int64)
+  name.vb: GetAsync(Of T)(String, Long, Long)
+  fullName: Func.Redis.List.IRedisListService.GetAsync<T>(string, long, long)
+  fullName.vb: Func.Redis.List.IRedisListService.GetAsync(Of T)(String, Long, Long)
+  nameWithType: IRedisListService.GetAsync<T>(string, long, long)
+  nameWithType.vb: IRedisListService.GetAsync(Of T)(String, Long, Long)
+- uid: Func.Redis.List.IRedisListService.Get``1(System.String,System.Int64)
+  name: Get<T>(string, long)
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_Get__1_System_String_System_Int64_
+  commentId: M:Func.Redis.List.IRedisListService.Get``1(System.String,System.Int64)
+  name.vb: Get(Of T)(String, Long)
+  fullName: Func.Redis.List.IRedisListService.Get<T>(string, long)
+  fullName.vb: Func.Redis.List.IRedisListService.Get(Of T)(String, Long)
+  nameWithType: IRedisListService.Get<T>(string, long)
+  nameWithType.vb: IRedisListService.Get(Of T)(String, Long)
+- uid: Func.Redis.List.IRedisListService.Get``1(System.String,System.Int64,System.Int64)
+  name: Get<T>(string, long, long)
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_Get__1_System_String_System_Int64_System_Int64_
+  commentId: M:Func.Redis.List.IRedisListService.Get``1(System.String,System.Int64,System.Int64)
+  name.vb: Get(Of T)(String, Long, Long)
+  fullName: Func.Redis.List.IRedisListService.Get<T>(string, long, long)
+  fullName.vb: Func.Redis.List.IRedisListService.Get(Of T)(String, Long, Long)
+  nameWithType: IRedisListService.Get<T>(string, long, long)
+  nameWithType.vb: IRedisListService.Get(Of T)(String, Long, Long)
+- uid: Func.Redis.List.IRedisListService.Pop*
+  name: Pop
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_Pop_
+  commentId: Overload:Func.Redis.List.IRedisListService.Pop
+  isSpec: "True"
+  fullName: Func.Redis.List.IRedisListService.Pop
+  nameWithType: IRedisListService.Pop
+- uid: Func.Redis.List.IRedisListService.PopAsync*
+  name: PopAsync
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_PopAsync_
+  commentId: Overload:Func.Redis.List.IRedisListService.PopAsync
+  isSpec: "True"
+  fullName: Func.Redis.List.IRedisListService.PopAsync
+  nameWithType: IRedisListService.PopAsync
+- uid: Func.Redis.List.IRedisListService.PopAsync``1(System.String)
+  name: PopAsync<T>(string)
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_PopAsync__1_System_String_
+  commentId: M:Func.Redis.List.IRedisListService.PopAsync``1(System.String)
+  name.vb: PopAsync(Of T)(String)
+  fullName: Func.Redis.List.IRedisListService.PopAsync<T>(string)
+  fullName.vb: Func.Redis.List.IRedisListService.PopAsync(Of T)(String)
+  nameWithType: IRedisListService.PopAsync<T>(string)
+  nameWithType.vb: IRedisListService.PopAsync(Of T)(String)
+- uid: Func.Redis.List.IRedisListService.PopAsync``1(System.String,System.Int64)
+  name: PopAsync<T>(string, long)
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_PopAsync__1_System_String_System_Int64_
+  commentId: M:Func.Redis.List.IRedisListService.PopAsync``1(System.String,System.Int64)
+  name.vb: PopAsync(Of T)(String, Long)
+  fullName: Func.Redis.List.IRedisListService.PopAsync<T>(string, long)
+  fullName.vb: Func.Redis.List.IRedisListService.PopAsync(Of T)(String, Long)
+  nameWithType: IRedisListService.PopAsync<T>(string, long)
+  nameWithType.vb: IRedisListService.PopAsync(Of T)(String, Long)
+- uid: Func.Redis.List.IRedisListService.Pop``1(System.String)
+  name: Pop<T>(string)
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_Pop__1_System_String_
+  commentId: M:Func.Redis.List.IRedisListService.Pop``1(System.String)
+  name.vb: Pop(Of T)(String)
+  fullName: Func.Redis.List.IRedisListService.Pop<T>(string)
+  fullName.vb: Func.Redis.List.IRedisListService.Pop(Of T)(String)
+  nameWithType: IRedisListService.Pop<T>(string)
+  nameWithType.vb: IRedisListService.Pop(Of T)(String)
+- uid: Func.Redis.List.IRedisListService.Pop``1(System.String,System.Int64)
+  name: Pop<T>(string, long)
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_Pop__1_System_String_System_Int64_
+  commentId: M:Func.Redis.List.IRedisListService.Pop``1(System.String,System.Int64)
+  name.vb: Pop(Of T)(String, Long)
+  fullName: Func.Redis.List.IRedisListService.Pop<T>(string, long)
+  fullName.vb: Func.Redis.List.IRedisListService.Pop(Of T)(String, Long)
+  nameWithType: IRedisListService.Pop<T>(string, long)
+  nameWithType.vb: IRedisListService.Pop(Of T)(String, Long)
+- uid: Func.Redis.List.IRedisListService.Prepend*
+  name: Prepend
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_Prepend_
+  commentId: Overload:Func.Redis.List.IRedisListService.Prepend
+  isSpec: "True"
+  fullName: Func.Redis.List.IRedisListService.Prepend
+  nameWithType: IRedisListService.Prepend
+- uid: Func.Redis.List.IRedisListService.PrependAsync*
+  name: PrependAsync
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_PrependAsync_
+  commentId: Overload:Func.Redis.List.IRedisListService.PrependAsync
+  isSpec: "True"
+  fullName: Func.Redis.List.IRedisListService.PrependAsync
+  nameWithType: IRedisListService.PrependAsync
+- uid: Func.Redis.List.IRedisListService.PrependAsync``1(System.String,``0)
+  name: PrependAsync<T>(string, T)
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_PrependAsync__1_System_String___0_
+  commentId: M:Func.Redis.List.IRedisListService.PrependAsync``1(System.String,``0)
+  name.vb: PrependAsync(Of T)(String, T)
+  fullName: Func.Redis.List.IRedisListService.PrependAsync<T>(string, T)
+  fullName.vb: Func.Redis.List.IRedisListService.PrependAsync(Of T)(String, T)
+  nameWithType: IRedisListService.PrependAsync<T>(string, T)
+  nameWithType.vb: IRedisListService.PrependAsync(Of T)(String, T)
+- uid: Func.Redis.List.IRedisListService.PrependAsync``1(System.String,``0[])
+  name: PrependAsync<T>(string, params T[])
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_PrependAsync__1_System_String___0___
+  commentId: M:Func.Redis.List.IRedisListService.PrependAsync``1(System.String,``0[])
+  name.vb: PrependAsync(Of T)(String, ParamArray T())
+  fullName: Func.Redis.List.IRedisListService.PrependAsync<T>(string, params T[])
+  fullName.vb: Func.Redis.List.IRedisListService.PrependAsync(Of T)(String, ParamArray T())
+  nameWithType: IRedisListService.PrependAsync<T>(string, params T[])
+  nameWithType.vb: IRedisListService.PrependAsync(Of T)(String, ParamArray T())
+- uid: Func.Redis.List.IRedisListService.Prepend``1(System.String,``0)
+  name: Prepend<T>(string, T)
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_Prepend__1_System_String___0_
+  commentId: M:Func.Redis.List.IRedisListService.Prepend``1(System.String,``0)
+  name.vb: Prepend(Of T)(String, T)
+  fullName: Func.Redis.List.IRedisListService.Prepend<T>(string, T)
+  fullName.vb: Func.Redis.List.IRedisListService.Prepend(Of T)(String, T)
+  nameWithType: IRedisListService.Prepend<T>(string, T)
+  nameWithType.vb: IRedisListService.Prepend(Of T)(String, T)
+- uid: Func.Redis.List.IRedisListService.Prepend``1(System.String,``0[])
+  name: Prepend<T>(string, params T[])
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_Prepend__1_System_String___0___
+  commentId: M:Func.Redis.List.IRedisListService.Prepend``1(System.String,``0[])
+  name.vb: Prepend(Of T)(String, ParamArray T())
+  fullName: Func.Redis.List.IRedisListService.Prepend<T>(string, params T[])
+  fullName.vb: Func.Redis.List.IRedisListService.Prepend(Of T)(String, ParamArray T())
+  nameWithType: IRedisListService.Prepend<T>(string, params T[])
+  nameWithType.vb: IRedisListService.Prepend(Of T)(String, ParamArray T())
+- uid: Func.Redis.List.IRedisListService.Shift*
+  name: Shift
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_Shift_
+  commentId: Overload:Func.Redis.List.IRedisListService.Shift
+  isSpec: "True"
+  fullName: Func.Redis.List.IRedisListService.Shift
+  nameWithType: IRedisListService.Shift
+- uid: Func.Redis.List.IRedisListService.ShiftAsync*
+  name: ShiftAsync
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_ShiftAsync_
+  commentId: Overload:Func.Redis.List.IRedisListService.ShiftAsync
+  isSpec: "True"
+  fullName: Func.Redis.List.IRedisListService.ShiftAsync
+  nameWithType: IRedisListService.ShiftAsync
+- uid: Func.Redis.List.IRedisListService.ShiftAsync``1(System.String)
+  name: ShiftAsync<T>(string)
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_ShiftAsync__1_System_String_
+  commentId: M:Func.Redis.List.IRedisListService.ShiftAsync``1(System.String)
+  name.vb: ShiftAsync(Of T)(String)
+  fullName: Func.Redis.List.IRedisListService.ShiftAsync<T>(string)
+  fullName.vb: Func.Redis.List.IRedisListService.ShiftAsync(Of T)(String)
+  nameWithType: IRedisListService.ShiftAsync<T>(string)
+  nameWithType.vb: IRedisListService.ShiftAsync(Of T)(String)
+- uid: Func.Redis.List.IRedisListService.ShiftAsync``1(System.String,System.Int64)
+  name: ShiftAsync<T>(string, long)
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_ShiftAsync__1_System_String_System_Int64_
+  commentId: M:Func.Redis.List.IRedisListService.ShiftAsync``1(System.String,System.Int64)
+  name.vb: ShiftAsync(Of T)(String, Long)
+  fullName: Func.Redis.List.IRedisListService.ShiftAsync<T>(string, long)
+  fullName.vb: Func.Redis.List.IRedisListService.ShiftAsync(Of T)(String, Long)
+  nameWithType: IRedisListService.ShiftAsync<T>(string, long)
+  nameWithType.vb: IRedisListService.ShiftAsync(Of T)(String, Long)
+- uid: Func.Redis.List.IRedisListService.Shift``1(System.String)
+  name: Shift<T>(string)
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_Shift__1_System_String_
+  commentId: M:Func.Redis.List.IRedisListService.Shift``1(System.String)
+  name.vb: Shift(Of T)(String)
+  fullName: Func.Redis.List.IRedisListService.Shift<T>(string)
+  fullName.vb: Func.Redis.List.IRedisListService.Shift(Of T)(String)
+  nameWithType: IRedisListService.Shift<T>(string)
+  nameWithType.vb: IRedisListService.Shift(Of T)(String)
+- uid: Func.Redis.List.IRedisListService.Shift``1(System.String,System.Int64)
+  name: Shift<T>(string, long)
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_Shift__1_System_String_System_Int64_
+  commentId: M:Func.Redis.List.IRedisListService.Shift``1(System.String,System.Int64)
+  name.vb: Shift(Of T)(String, Long)
+  fullName: Func.Redis.List.IRedisListService.Shift<T>(string, long)
+  fullName.vb: Func.Redis.List.IRedisListService.Shift(Of T)(String, Long)
+  nameWithType: IRedisListService.Shift<T>(string, long)
+  nameWithType.vb: IRedisListService.Shift(Of T)(String, Long)
+- uid: Func.Redis.List.IRedisListService.Size(System.String)
+  name: Size(string)
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_Size_System_String_
+  commentId: M:Func.Redis.List.IRedisListService.Size(System.String)
+  name.vb: Size(String)
+  fullName: Func.Redis.List.IRedisListService.Size(string)
+  fullName.vb: Func.Redis.List.IRedisListService.Size(String)
+  nameWithType: IRedisListService.Size(string)
+  nameWithType.vb: IRedisListService.Size(String)
+- uid: Func.Redis.List.IRedisListService.Size*
+  name: Size
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_Size_
+  commentId: Overload:Func.Redis.List.IRedisListService.Size
+  isSpec: "True"
+  fullName: Func.Redis.List.IRedisListService.Size
+  nameWithType: IRedisListService.Size
+- uid: Func.Redis.List.IRedisListService.SizeAsync(System.String)
+  name: SizeAsync(string)
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_SizeAsync_System_String_
+  commentId: M:Func.Redis.List.IRedisListService.SizeAsync(System.String)
+  name.vb: SizeAsync(String)
+  fullName: Func.Redis.List.IRedisListService.SizeAsync(string)
+  fullName.vb: Func.Redis.List.IRedisListService.SizeAsync(String)
+  nameWithType: IRedisListService.SizeAsync(string)
+  nameWithType.vb: IRedisListService.SizeAsync(String)
+- uid: Func.Redis.List.IRedisListService.SizeAsync*
+  name: SizeAsync
+  href: api/Func.Redis.List.IRedisListService.html#Func_Redis_List_IRedisListService_SizeAsync_
+  commentId: Overload:Func.Redis.List.IRedisListService.SizeAsync
+  isSpec: "True"
+  fullName: Func.Redis.List.IRedisListService.SizeAsync
+  nameWithType: IRedisListService.SizeAsync
+- uid: Func.Redis.Models
+  name: Func.Redis.Models
+  href: api/Func.Redis.Models.html
+  commentId: N:Func.Redis.Models
+  fullName: Func.Redis.Models
+  nameWithType: Func.Redis.Models
+- uid: Func.Redis.Models.RedisConfiguration
+  name: RedisConfiguration
+  href: api/Func.Redis.Models.RedisConfiguration.html
+  commentId: T:Func.Redis.Models.RedisConfiguration
+  fullName: Func.Redis.Models.RedisConfiguration
+  nameWithType: RedisConfiguration
+- uid: Func.Redis.Models.RedisConfiguration.ConnectionString
+  name: ConnectionString
+  href: api/Func.Redis.Models.RedisConfiguration.html#Func_Redis_Models_RedisConfiguration_ConnectionString
+  commentId: P:Func.Redis.Models.RedisConfiguration.ConnectionString
+  fullName: Func.Redis.Models.RedisConfiguration.ConnectionString
+  nameWithType: RedisConfiguration.ConnectionString
+- uid: Func.Redis.Models.RedisConfiguration.ConnectionString*
+  name: ConnectionString
+  href: api/Func.Redis.Models.RedisConfiguration.html#Func_Redis_Models_RedisConfiguration_ConnectionString_
+  commentId: Overload:Func.Redis.Models.RedisConfiguration.ConnectionString
+  isSpec: "True"
+  fullName: Func.Redis.Models.RedisConfiguration.ConnectionString
+  nameWithType: RedisConfiguration.ConnectionString
+- uid: Func.Redis.Models.RedisKeyConfiguration
+  name: RedisKeyConfiguration
+  href: api/Func.Redis.Models.RedisKeyConfiguration.html
+  commentId: T:Func.Redis.Models.RedisKeyConfiguration
+  fullName: Func.Redis.Models.RedisKeyConfiguration
+  nameWithType: RedisKeyConfiguration
+- uid: Func.Redis.Models.RedisKeyConfiguration.KeyPrefix
+  name: KeyPrefix
+  href: api/Func.Redis.Models.RedisKeyConfiguration.html#Func_Redis_Models_RedisKeyConfiguration_KeyPrefix
+  commentId: P:Func.Redis.Models.RedisKeyConfiguration.KeyPrefix
+  fullName: Func.Redis.Models.RedisKeyConfiguration.KeyPrefix
+  nameWithType: RedisKeyConfiguration.KeyPrefix
+- uid: Func.Redis.Models.RedisKeyConfiguration.KeyPrefix*
+  name: KeyPrefix
+  href: api/Func.Redis.Models.RedisKeyConfiguration.html#Func_Redis_Models_RedisKeyConfiguration_KeyPrefix_
+  commentId: Overload:Func.Redis.Models.RedisKeyConfiguration.KeyPrefix
+  isSpec: "True"
+  fullName: Func.Redis.Models.RedisKeyConfiguration.KeyPrefix
+  nameWithType: RedisKeyConfiguration.KeyPrefix
+- uid: Func.Redis.Publisher
+  name: Func.Redis.Publisher
+  href: api/Func.Redis.Publisher.html
+  commentId: N:Func.Redis.Publisher
+  fullName: Func.Redis.Publisher
+  nameWithType: Func.Redis.Publisher
+- uid: Func.Redis.Publisher.IRedisPublisherService
+  name: IRedisPublisherService
+  href: api/Func.Redis.Publisher.IRedisPublisherService.html
+  commentId: T:Func.Redis.Publisher.IRedisPublisherService
+  fullName: Func.Redis.Publisher.IRedisPublisherService
+  nameWithType: IRedisPublisherService
+- uid: Func.Redis.Publisher.IRedisPublisherService.Publish(System.String,System.Object)
+  name: Publish(string, object)
+  href: api/Func.Redis.Publisher.IRedisPublisherService.html#Func_Redis_Publisher_IRedisPublisherService_Publish_System_String_System_Object_
+  commentId: M:Func.Redis.Publisher.IRedisPublisherService.Publish(System.String,System.Object)
+  name.vb: Publish(String, Object)
+  fullName: Func.Redis.Publisher.IRedisPublisherService.Publish(string, object)
+  fullName.vb: Func.Redis.Publisher.IRedisPublisherService.Publish(String, Object)
+  nameWithType: IRedisPublisherService.Publish(string, object)
+  nameWithType.vb: IRedisPublisherService.Publish(String, Object)
+- uid: Func.Redis.Publisher.IRedisPublisherService.Publish*
+  name: Publish
+  href: api/Func.Redis.Publisher.IRedisPublisherService.html#Func_Redis_Publisher_IRedisPublisherService_Publish_
+  commentId: Overload:Func.Redis.Publisher.IRedisPublisherService.Publish
+  isSpec: "True"
+  fullName: Func.Redis.Publisher.IRedisPublisherService.Publish
+  nameWithType: IRedisPublisherService.Publish
+- uid: Func.Redis.Publisher.IRedisPublisherService.PublishAsync(System.String,System.Object)
+  name: PublishAsync(string, object)
+  href: api/Func.Redis.Publisher.IRedisPublisherService.html#Func_Redis_Publisher_IRedisPublisherService_PublishAsync_System_String_System_Object_
+  commentId: M:Func.Redis.Publisher.IRedisPublisherService.PublishAsync(System.String,System.Object)
+  name.vb: PublishAsync(String, Object)
+  fullName: Func.Redis.Publisher.IRedisPublisherService.PublishAsync(string, object)
+  fullName.vb: Func.Redis.Publisher.IRedisPublisherService.PublishAsync(String, Object)
+  nameWithType: IRedisPublisherService.PublishAsync(string, object)
+  nameWithType.vb: IRedisPublisherService.PublishAsync(String, Object)
+- uid: Func.Redis.Publisher.IRedisPublisherService.PublishAsync*
+  name: PublishAsync
+  href: api/Func.Redis.Publisher.IRedisPublisherService.html#Func_Redis_Publisher_IRedisPublisherService_PublishAsync_
+  commentId: Overload:Func.Redis.Publisher.IRedisPublisherService.PublishAsync
+  isSpec: "True"
+  fullName: Func.Redis.Publisher.IRedisPublisherService.PublishAsync
+  nameWithType: IRedisPublisherService.PublishAsync
+- uid: Func.Redis.RedisSourcesProvider
+  name: RedisSourcesProvider
+  href: api/Func.Redis.RedisSourcesProvider.html
+  commentId: T:Func.Redis.RedisSourcesProvider
+  fullName: Func.Redis.RedisSourcesProvider
+  nameWithType: RedisSourcesProvider
+- uid: Func.Redis.RedisSourcesProvider.#ctor(Func.Redis.IConnectionMultiplexerProvider)
+  name: RedisSourcesProvider(IConnectionMultiplexerProvider)
+  href: api/Func.Redis.RedisSourcesProvider.html#Func_Redis_RedisSourcesProvider__ctor_Func_Redis_IConnectionMultiplexerProvider_
+  commentId: M:Func.Redis.RedisSourcesProvider.#ctor(Func.Redis.IConnectionMultiplexerProvider)
+  name.vb: New(IConnectionMultiplexerProvider)
+  fullName: Func.Redis.RedisSourcesProvider.RedisSourcesProvider(Func.Redis.IConnectionMultiplexerProvider)
+  fullName.vb: Func.Redis.RedisSourcesProvider.New(Func.Redis.IConnectionMultiplexerProvider)
+  nameWithType: RedisSourcesProvider.RedisSourcesProvider(IConnectionMultiplexerProvider)
+  nameWithType.vb: RedisSourcesProvider.New(IConnectionMultiplexerProvider)
+- uid: Func.Redis.RedisSourcesProvider.#ctor*
+  name: RedisSourcesProvider
+  href: api/Func.Redis.RedisSourcesProvider.html#Func_Redis_RedisSourcesProvider__ctor_
+  commentId: Overload:Func.Redis.RedisSourcesProvider.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Func.Redis.RedisSourcesProvider.RedisSourcesProvider
+  fullName.vb: Func.Redis.RedisSourcesProvider.New
+  nameWithType: RedisSourcesProvider.RedisSourcesProvider
+  nameWithType.vb: RedisSourcesProvider.New
+- uid: Func.Redis.RedisSourcesProvider.GetDatabase
+  name: GetDatabase()
+  href: api/Func.Redis.RedisSourcesProvider.html#Func_Redis_RedisSourcesProvider_GetDatabase
+  commentId: M:Func.Redis.RedisSourcesProvider.GetDatabase
+  fullName: Func.Redis.RedisSourcesProvider.GetDatabase()
+  nameWithType: RedisSourcesProvider.GetDatabase()
+- uid: Func.Redis.RedisSourcesProvider.GetDatabase*
+  name: GetDatabase
+  href: api/Func.Redis.RedisSourcesProvider.html#Func_Redis_RedisSourcesProvider_GetDatabase_
+  commentId: Overload:Func.Redis.RedisSourcesProvider.GetDatabase
+  isSpec: "True"
+  fullName: Func.Redis.RedisSourcesProvider.GetDatabase
+  nameWithType: RedisSourcesProvider.GetDatabase
+- uid: Func.Redis.RedisSourcesProvider.GetServers
+  name: GetServers()
+  href: api/Func.Redis.RedisSourcesProvider.html#Func_Redis_RedisSourcesProvider_GetServers
+  commentId: M:Func.Redis.RedisSourcesProvider.GetServers
+  fullName: Func.Redis.RedisSourcesProvider.GetServers()
+  nameWithType: RedisSourcesProvider.GetServers()
+- uid: Func.Redis.RedisSourcesProvider.GetServers*
+  name: GetServers
+  href: api/Func.Redis.RedisSourcesProvider.html#Func_Redis_RedisSourcesProvider_GetServers_
+  commentId: Overload:Func.Redis.RedisSourcesProvider.GetServers
+  isSpec: "True"
+  fullName: Func.Redis.RedisSourcesProvider.GetServers
+  nameWithType: RedisSourcesProvider.GetServers
+- uid: Func.Redis.SerDes
+  name: Func.Redis.SerDes
+  href: api/Func.Redis.SerDes.html
+  commentId: N:Func.Redis.SerDes
+  fullName: Func.Redis.SerDes
+  nameWithType: Func.Redis.SerDes
+- uid: Func.Redis.SerDes.IRedisSerDes
+  name: IRedisSerDes
+  href: api/Func.Redis.SerDes.IRedisSerDes.html
+  commentId: T:Func.Redis.SerDes.IRedisSerDes
+  fullName: Func.Redis.SerDes.IRedisSerDes
+  nameWithType: IRedisSerDes
+- uid: Func.Redis.SerDes.IRedisSerDes.Deserialize(StackExchange.Redis.RedisValue,System.Type)
+  name: Deserialize(RedisValue, Type)
+  href: api/Func.Redis.SerDes.IRedisSerDes.html#Func_Redis_SerDes_IRedisSerDes_Deserialize_StackExchange_Redis_RedisValue_System_Type_
+  commentId: M:Func.Redis.SerDes.IRedisSerDes.Deserialize(StackExchange.Redis.RedisValue,System.Type)
+  fullName: Func.Redis.SerDes.IRedisSerDes.Deserialize(StackExchange.Redis.RedisValue, System.Type)
+  nameWithType: IRedisSerDes.Deserialize(RedisValue, Type)
+- uid: Func.Redis.SerDes.IRedisSerDes.Deserialize*
+  name: Deserialize
+  href: api/Func.Redis.SerDes.IRedisSerDes.html#Func_Redis_SerDes_IRedisSerDes_Deserialize_
+  commentId: Overload:Func.Redis.SerDes.IRedisSerDes.Deserialize
+  isSpec: "True"
+  fullName: Func.Redis.SerDes.IRedisSerDes.Deserialize
+  nameWithType: IRedisSerDes.Deserialize
+- uid: Func.Redis.SerDes.IRedisSerDes.Deserialize``1(StackExchange.Redis.HashEntry[])
+  name: Deserialize<T>(HashEntry[])
+  href: api/Func.Redis.SerDes.IRedisSerDes.html#Func_Redis_SerDes_IRedisSerDes_Deserialize__1_StackExchange_Redis_HashEntry___
+  commentId: M:Func.Redis.SerDes.IRedisSerDes.Deserialize``1(StackExchange.Redis.HashEntry[])
+  name.vb: Deserialize(Of T)(HashEntry())
+  fullName: Func.Redis.SerDes.IRedisSerDes.Deserialize<T>(StackExchange.Redis.HashEntry[])
+  fullName.vb: Func.Redis.SerDes.IRedisSerDes.Deserialize(Of T)(StackExchange.Redis.HashEntry())
+  nameWithType: IRedisSerDes.Deserialize<T>(HashEntry[])
+  nameWithType.vb: IRedisSerDes.Deserialize(Of T)(HashEntry())
+- uid: Func.Redis.SerDes.IRedisSerDes.Deserialize``1(StackExchange.Redis.RedisValue)
+  name: Deserialize<T>(RedisValue)
+  href: api/Func.Redis.SerDes.IRedisSerDes.html#Func_Redis_SerDes_IRedisSerDes_Deserialize__1_StackExchange_Redis_RedisValue_
+  commentId: M:Func.Redis.SerDes.IRedisSerDes.Deserialize``1(StackExchange.Redis.RedisValue)
+  name.vb: Deserialize(Of T)(RedisValue)
+  fullName: Func.Redis.SerDes.IRedisSerDes.Deserialize<T>(StackExchange.Redis.RedisValue)
+  fullName.vb: Func.Redis.SerDes.IRedisSerDes.Deserialize(Of T)(StackExchange.Redis.RedisValue)
+  nameWithType: IRedisSerDes.Deserialize<T>(RedisValue)
+  nameWithType.vb: IRedisSerDes.Deserialize(Of T)(RedisValue)
+- uid: Func.Redis.SerDes.IRedisSerDes.Deserialize``1(StackExchange.Redis.RedisValue[])
+  name: Deserialize<T>(RedisValue[])
+  href: api/Func.Redis.SerDes.IRedisSerDes.html#Func_Redis_SerDes_IRedisSerDes_Deserialize__1_StackExchange_Redis_RedisValue___
+  commentId: M:Func.Redis.SerDes.IRedisSerDes.Deserialize``1(StackExchange.Redis.RedisValue[])
+  name.vb: Deserialize(Of T)(RedisValue())
+  fullName: Func.Redis.SerDes.IRedisSerDes.Deserialize<T>(StackExchange.Redis.RedisValue[])
+  fullName.vb: Func.Redis.SerDes.IRedisSerDes.Deserialize(Of T)(StackExchange.Redis.RedisValue())
+  nameWithType: IRedisSerDes.Deserialize<T>(RedisValue[])
+  nameWithType.vb: IRedisSerDes.Deserialize(Of T)(RedisValue())
+- uid: Func.Redis.SerDes.IRedisSerDes.Serialize*
+  name: Serialize
+  href: api/Func.Redis.SerDes.IRedisSerDes.html#Func_Redis_SerDes_IRedisSerDes_Serialize_
+  commentId: Overload:Func.Redis.SerDes.IRedisSerDes.Serialize
+  isSpec: "True"
+  fullName: Func.Redis.SerDes.IRedisSerDes.Serialize
+  nameWithType: IRedisSerDes.Serialize
+- uid: Func.Redis.SerDes.IRedisSerDes.Serialize``1(``0)
+  name: Serialize<T>(T)
+  href: api/Func.Redis.SerDes.IRedisSerDes.html#Func_Redis_SerDes_IRedisSerDes_Serialize__1___0_
+  commentId: M:Func.Redis.SerDes.IRedisSerDes.Serialize``1(``0)
+  name.vb: Serialize(Of T)(T)
+  fullName: Func.Redis.SerDes.IRedisSerDes.Serialize<T>(T)
+  fullName.vb: Func.Redis.SerDes.IRedisSerDes.Serialize(Of T)(T)
+  nameWithType: IRedisSerDes.Serialize<T>(T)
+  nameWithType.vb: IRedisSerDes.Serialize(Of T)(T)
+- uid: Func.Redis.SerDes.Json
+  name: Func.Redis.SerDes.Json
+  href: api/Func.Redis.SerDes.Json.html
+  commentId: N:Func.Redis.SerDes.Json
+  fullName: Func.Redis.SerDes.Json
+  nameWithType: Func.Redis.SerDes.Json
+- uid: Func.Redis.SerDes.Json.SpanJsonRedisSerDes
+  name: SpanJsonRedisSerDes
+  href: api/Func.Redis.SerDes.Json.SpanJsonRedisSerDes.html
+  commentId: T:Func.Redis.SerDes.Json.SpanJsonRedisSerDes
+  fullName: Func.Redis.SerDes.Json.SpanJsonRedisSerDes
+  nameWithType: SpanJsonRedisSerDes
+- uid: Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Deserialize(StackExchange.Redis.RedisValue,System.Type)
+  name: Deserialize(RedisValue, Type)
+  href: api/Func.Redis.SerDes.Json.SpanJsonRedisSerDes.html#Func_Redis_SerDes_Json_SpanJsonRedisSerDes_Deserialize_StackExchange_Redis_RedisValue_System_Type_
+  commentId: M:Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Deserialize(StackExchange.Redis.RedisValue,System.Type)
+  fullName: Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Deserialize(StackExchange.Redis.RedisValue, System.Type)
+  nameWithType: SpanJsonRedisSerDes.Deserialize(RedisValue, Type)
+- uid: Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Deserialize*
+  name: Deserialize
+  href: api/Func.Redis.SerDes.Json.SpanJsonRedisSerDes.html#Func_Redis_SerDes_Json_SpanJsonRedisSerDes_Deserialize_
+  commentId: Overload:Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Deserialize
+  isSpec: "True"
+  fullName: Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Deserialize
+  nameWithType: SpanJsonRedisSerDes.Deserialize
+- uid: Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Deserialize``1(StackExchange.Redis.HashEntry[])
+  name: Deserialize<T>(HashEntry[])
+  href: api/Func.Redis.SerDes.Json.SpanJsonRedisSerDes.html#Func_Redis_SerDes_Json_SpanJsonRedisSerDes_Deserialize__1_StackExchange_Redis_HashEntry___
+  commentId: M:Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Deserialize``1(StackExchange.Redis.HashEntry[])
+  name.vb: Deserialize(Of T)(HashEntry())
+  fullName: Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Deserialize<T>(StackExchange.Redis.HashEntry[])
+  fullName.vb: Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Deserialize(Of T)(StackExchange.Redis.HashEntry())
+  nameWithType: SpanJsonRedisSerDes.Deserialize<T>(HashEntry[])
+  nameWithType.vb: SpanJsonRedisSerDes.Deserialize(Of T)(HashEntry())
+- uid: Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Deserialize``1(StackExchange.Redis.RedisValue)
+  name: Deserialize<T>(RedisValue)
+  href: api/Func.Redis.SerDes.Json.SpanJsonRedisSerDes.html#Func_Redis_SerDes_Json_SpanJsonRedisSerDes_Deserialize__1_StackExchange_Redis_RedisValue_
+  commentId: M:Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Deserialize``1(StackExchange.Redis.RedisValue)
+  name.vb: Deserialize(Of T)(RedisValue)
+  fullName: Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Deserialize<T>(StackExchange.Redis.RedisValue)
+  fullName.vb: Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Deserialize(Of T)(StackExchange.Redis.RedisValue)
+  nameWithType: SpanJsonRedisSerDes.Deserialize<T>(RedisValue)
+  nameWithType.vb: SpanJsonRedisSerDes.Deserialize(Of T)(RedisValue)
+- uid: Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Deserialize``1(StackExchange.Redis.RedisValue[])
+  name: Deserialize<T>(RedisValue[])
+  href: api/Func.Redis.SerDes.Json.SpanJsonRedisSerDes.html#Func_Redis_SerDes_Json_SpanJsonRedisSerDes_Deserialize__1_StackExchange_Redis_RedisValue___
+  commentId: M:Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Deserialize``1(StackExchange.Redis.RedisValue[])
+  name.vb: Deserialize(Of T)(RedisValue())
+  fullName: Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Deserialize<T>(StackExchange.Redis.RedisValue[])
+  fullName.vb: Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Deserialize(Of T)(StackExchange.Redis.RedisValue())
+  nameWithType: SpanJsonRedisSerDes.Deserialize<T>(RedisValue[])
+  nameWithType.vb: SpanJsonRedisSerDes.Deserialize(Of T)(RedisValue())
+- uid: Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Serialize*
+  name: Serialize
+  href: api/Func.Redis.SerDes.Json.SpanJsonRedisSerDes.html#Func_Redis_SerDes_Json_SpanJsonRedisSerDes_Serialize_
+  commentId: Overload:Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Serialize
+  isSpec: "True"
+  fullName: Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Serialize
+  nameWithType: SpanJsonRedisSerDes.Serialize
+- uid: Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Serialize``1(``0)
+  name: Serialize<T>(T)
+  href: api/Func.Redis.SerDes.Json.SpanJsonRedisSerDes.html#Func_Redis_SerDes_Json_SpanJsonRedisSerDes_Serialize__1___0_
+  commentId: M:Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Serialize``1(``0)
+  name.vb: Serialize(Of T)(T)
+  fullName: Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Serialize<T>(T)
+  fullName.vb: Func.Redis.SerDes.Json.SpanJsonRedisSerDes.Serialize(Of T)(T)
+  nameWithType: SpanJsonRedisSerDes.Serialize<T>(T)
+  nameWithType.vb: SpanJsonRedisSerDes.Serialize(Of T)(T)
+- uid: Func.Redis.SerDes.Json.SystemJsonRedisSerDes
+  name: SystemJsonRedisSerDes
+  href: api/Func.Redis.SerDes.Json.SystemJsonRedisSerDes.html
+  commentId: T:Func.Redis.SerDes.Json.SystemJsonRedisSerDes
+  fullName: Func.Redis.SerDes.Json.SystemJsonRedisSerDes
+  nameWithType: SystemJsonRedisSerDes
+- uid: Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Deserialize(StackExchange.Redis.RedisValue,System.Type)
+  name: Deserialize(RedisValue, Type)
+  href: api/Func.Redis.SerDes.Json.SystemJsonRedisSerDes.html#Func_Redis_SerDes_Json_SystemJsonRedisSerDes_Deserialize_StackExchange_Redis_RedisValue_System_Type_
+  commentId: M:Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Deserialize(StackExchange.Redis.RedisValue,System.Type)
+  fullName: Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Deserialize(StackExchange.Redis.RedisValue, System.Type)
+  nameWithType: SystemJsonRedisSerDes.Deserialize(RedisValue, Type)
+- uid: Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Deserialize*
+  name: Deserialize
+  href: api/Func.Redis.SerDes.Json.SystemJsonRedisSerDes.html#Func_Redis_SerDes_Json_SystemJsonRedisSerDes_Deserialize_
+  commentId: Overload:Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Deserialize
+  isSpec: "True"
+  fullName: Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Deserialize
+  nameWithType: SystemJsonRedisSerDes.Deserialize
+- uid: Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Deserialize``1(StackExchange.Redis.HashEntry[])
+  name: Deserialize<T>(HashEntry[])
+  href: api/Func.Redis.SerDes.Json.SystemJsonRedisSerDes.html#Func_Redis_SerDes_Json_SystemJsonRedisSerDes_Deserialize__1_StackExchange_Redis_HashEntry___
+  commentId: M:Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Deserialize``1(StackExchange.Redis.HashEntry[])
+  name.vb: Deserialize(Of T)(HashEntry())
+  fullName: Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Deserialize<T>(StackExchange.Redis.HashEntry[])
+  fullName.vb: Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Deserialize(Of T)(StackExchange.Redis.HashEntry())
+  nameWithType: SystemJsonRedisSerDes.Deserialize<T>(HashEntry[])
+  nameWithType.vb: SystemJsonRedisSerDes.Deserialize(Of T)(HashEntry())
+- uid: Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Deserialize``1(StackExchange.Redis.RedisValue)
+  name: Deserialize<T>(RedisValue)
+  href: api/Func.Redis.SerDes.Json.SystemJsonRedisSerDes.html#Func_Redis_SerDes_Json_SystemJsonRedisSerDes_Deserialize__1_StackExchange_Redis_RedisValue_
+  commentId: M:Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Deserialize``1(StackExchange.Redis.RedisValue)
+  name.vb: Deserialize(Of T)(RedisValue)
+  fullName: Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Deserialize<T>(StackExchange.Redis.RedisValue)
+  fullName.vb: Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Deserialize(Of T)(StackExchange.Redis.RedisValue)
+  nameWithType: SystemJsonRedisSerDes.Deserialize<T>(RedisValue)
+  nameWithType.vb: SystemJsonRedisSerDes.Deserialize(Of T)(RedisValue)
+- uid: Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Deserialize``1(StackExchange.Redis.RedisValue[])
+  name: Deserialize<T>(RedisValue[])
+  href: api/Func.Redis.SerDes.Json.SystemJsonRedisSerDes.html#Func_Redis_SerDes_Json_SystemJsonRedisSerDes_Deserialize__1_StackExchange_Redis_RedisValue___
+  commentId: M:Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Deserialize``1(StackExchange.Redis.RedisValue[])
+  name.vb: Deserialize(Of T)(RedisValue())
+  fullName: Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Deserialize<T>(StackExchange.Redis.RedisValue[])
+  fullName.vb: Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Deserialize(Of T)(StackExchange.Redis.RedisValue())
+  nameWithType: SystemJsonRedisSerDes.Deserialize<T>(RedisValue[])
+  nameWithType.vb: SystemJsonRedisSerDes.Deserialize(Of T)(RedisValue())
+- uid: Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Serialize*
+  name: Serialize
+  href: api/Func.Redis.SerDes.Json.SystemJsonRedisSerDes.html#Func_Redis_SerDes_Json_SystemJsonRedisSerDes_Serialize_
+  commentId: Overload:Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Serialize
+  isSpec: "True"
+  fullName: Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Serialize
+  nameWithType: SystemJsonRedisSerDes.Serialize
+- uid: Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Serialize``1(``0)
+  name: Serialize<T>(T)
+  href: api/Func.Redis.SerDes.Json.SystemJsonRedisSerDes.html#Func_Redis_SerDes_Json_SystemJsonRedisSerDes_Serialize__1___0_
+  commentId: M:Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Serialize``1(``0)
+  name.vb: Serialize(Of T)(T)
+  fullName: Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Serialize<T>(T)
+  fullName.vb: Func.Redis.SerDes.Json.SystemJsonRedisSerDes.Serialize(Of T)(T)
+  nameWithType: SystemJsonRedisSerDes.Serialize<T>(T)
+  nameWithType.vb: SystemJsonRedisSerDes.Serialize(Of T)(T)
+- uid: Func.Redis.Set
+  name: Func.Redis.Set
+  href: api/Func.Redis.Set.html
+  commentId: N:Func.Redis.Set
+  fullName: Func.Redis.Set
+  nameWithType: Func.Redis.Set
+- uid: Func.Redis.Set.IRedisSetService
+  name: IRedisSetService
+  href: api/Func.Redis.Set.IRedisSetService.html
+  commentId: T:Func.Redis.Set.IRedisSetService
+  fullName: Func.Redis.Set.IRedisSetService
+  nameWithType: IRedisSetService
+- uid: Func.Redis.Set.IRedisSetService.Add*
+  name: Add
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_Add_
+  commentId: Overload:Func.Redis.Set.IRedisSetService.Add
+  isSpec: "True"
+  fullName: Func.Redis.Set.IRedisSetService.Add
+  nameWithType: IRedisSetService.Add
+- uid: Func.Redis.Set.IRedisSetService.AddAsync*
+  name: AddAsync
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_AddAsync_
+  commentId: Overload:Func.Redis.Set.IRedisSetService.AddAsync
+  isSpec: "True"
+  fullName: Func.Redis.Set.IRedisSetService.AddAsync
+  nameWithType: IRedisSetService.AddAsync
+- uid: Func.Redis.Set.IRedisSetService.AddAsync``1(System.String,``0)
+  name: AddAsync<T>(string, T)
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_AddAsync__1_System_String___0_
+  commentId: M:Func.Redis.Set.IRedisSetService.AddAsync``1(System.String,``0)
+  name.vb: AddAsync(Of T)(String, T)
+  fullName: Func.Redis.Set.IRedisSetService.AddAsync<T>(string, T)
+  fullName.vb: Func.Redis.Set.IRedisSetService.AddAsync(Of T)(String, T)
+  nameWithType: IRedisSetService.AddAsync<T>(string, T)
+  nameWithType.vb: IRedisSetService.AddAsync(Of T)(String, T)
+- uid: Func.Redis.Set.IRedisSetService.Add``1(System.String,``0)
+  name: Add<T>(string, T)
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_Add__1_System_String___0_
+  commentId: M:Func.Redis.Set.IRedisSetService.Add``1(System.String,``0)
+  name.vb: Add(Of T)(String, T)
+  fullName: Func.Redis.Set.IRedisSetService.Add<T>(string, T)
+  fullName.vb: Func.Redis.Set.IRedisSetService.Add(Of T)(String, T)
+  nameWithType: IRedisSetService.Add<T>(string, T)
+  nameWithType.vb: IRedisSetService.Add(Of T)(String, T)
+- uid: Func.Redis.Set.IRedisSetService.Delete*
+  name: Delete
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_Delete_
+  commentId: Overload:Func.Redis.Set.IRedisSetService.Delete
+  isSpec: "True"
+  fullName: Func.Redis.Set.IRedisSetService.Delete
+  nameWithType: IRedisSetService.Delete
+- uid: Func.Redis.Set.IRedisSetService.DeleteAsync*
+  name: DeleteAsync
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_DeleteAsync_
+  commentId: Overload:Func.Redis.Set.IRedisSetService.DeleteAsync
+  isSpec: "True"
+  fullName: Func.Redis.Set.IRedisSetService.DeleteAsync
+  nameWithType: IRedisSetService.DeleteAsync
+- uid: Func.Redis.Set.IRedisSetService.DeleteAsync``1(System.String,``0)
+  name: DeleteAsync<T>(string, T)
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_DeleteAsync__1_System_String___0_
+  commentId: M:Func.Redis.Set.IRedisSetService.DeleteAsync``1(System.String,``0)
+  name.vb: DeleteAsync(Of T)(String, T)
+  fullName: Func.Redis.Set.IRedisSetService.DeleteAsync<T>(string, T)
+  fullName.vb: Func.Redis.Set.IRedisSetService.DeleteAsync(Of T)(String, T)
+  nameWithType: IRedisSetService.DeleteAsync<T>(string, T)
+  nameWithType.vb: IRedisSetService.DeleteAsync(Of T)(String, T)
+- uid: Func.Redis.Set.IRedisSetService.DeleteAsync``1(System.String,``0[])
+  name: DeleteAsync<T>(string, params T[])
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_DeleteAsync__1_System_String___0___
+  commentId: M:Func.Redis.Set.IRedisSetService.DeleteAsync``1(System.String,``0[])
+  name.vb: DeleteAsync(Of T)(String, ParamArray T())
+  fullName: Func.Redis.Set.IRedisSetService.DeleteAsync<T>(string, params T[])
+  fullName.vb: Func.Redis.Set.IRedisSetService.DeleteAsync(Of T)(String, ParamArray T())
+  nameWithType: IRedisSetService.DeleteAsync<T>(string, params T[])
+  nameWithType.vb: IRedisSetService.DeleteAsync(Of T)(String, ParamArray T())
+- uid: Func.Redis.Set.IRedisSetService.Delete``1(System.String,``0)
+  name: Delete<T>(string, T)
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_Delete__1_System_String___0_
+  commentId: M:Func.Redis.Set.IRedisSetService.Delete``1(System.String,``0)
+  name.vb: Delete(Of T)(String, T)
+  fullName: Func.Redis.Set.IRedisSetService.Delete<T>(string, T)
+  fullName.vb: Func.Redis.Set.IRedisSetService.Delete(Of T)(String, T)
+  nameWithType: IRedisSetService.Delete<T>(string, T)
+  nameWithType.vb: IRedisSetService.Delete(Of T)(String, T)
+- uid: Func.Redis.Set.IRedisSetService.Delete``1(System.String,``0[])
+  name: Delete<T>(string, params T[])
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_Delete__1_System_String___0___
+  commentId: M:Func.Redis.Set.IRedisSetService.Delete``1(System.String,``0[])
+  name.vb: Delete(Of T)(String, ParamArray T())
+  fullName: Func.Redis.Set.IRedisSetService.Delete<T>(string, params T[])
+  fullName.vb: Func.Redis.Set.IRedisSetService.Delete(Of T)(String, ParamArray T())
+  nameWithType: IRedisSetService.Delete<T>(string, params T[])
+  nameWithType.vb: IRedisSetService.Delete(Of T)(String, ParamArray T())
+- uid: Func.Redis.Set.IRedisSetService.Difference*
+  name: Difference
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_Difference_
+  commentId: Overload:Func.Redis.Set.IRedisSetService.Difference
+  isSpec: "True"
+  fullName: Func.Redis.Set.IRedisSetService.Difference
+  nameWithType: IRedisSetService.Difference
+- uid: Func.Redis.Set.IRedisSetService.DifferenceAsync*
+  name: DifferenceAsync
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_DifferenceAsync_
+  commentId: Overload:Func.Redis.Set.IRedisSetService.DifferenceAsync
+  isSpec: "True"
+  fullName: Func.Redis.Set.IRedisSetService.DifferenceAsync
+  nameWithType: IRedisSetService.DifferenceAsync
+- uid: Func.Redis.Set.IRedisSetService.DifferenceAsync``1(System.String,System.String)
+  name: DifferenceAsync<T>(string, string)
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_DifferenceAsync__1_System_String_System_String_
+  commentId: M:Func.Redis.Set.IRedisSetService.DifferenceAsync``1(System.String,System.String)
+  name.vb: DifferenceAsync(Of T)(String, String)
+  fullName: Func.Redis.Set.IRedisSetService.DifferenceAsync<T>(string, string)
+  fullName.vb: Func.Redis.Set.IRedisSetService.DifferenceAsync(Of T)(String, String)
+  nameWithType: IRedisSetService.DifferenceAsync<T>(string, string)
+  nameWithType.vb: IRedisSetService.DifferenceAsync(Of T)(String, String)
+- uid: Func.Redis.Set.IRedisSetService.Difference``1(System.String,System.String)
+  name: Difference<T>(string, string)
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_Difference__1_System_String_System_String_
+  commentId: M:Func.Redis.Set.IRedisSetService.Difference``1(System.String,System.String)
+  name.vb: Difference(Of T)(String, String)
+  fullName: Func.Redis.Set.IRedisSetService.Difference<T>(string, string)
+  fullName.vb: Func.Redis.Set.IRedisSetService.Difference(Of T)(String, String)
+  nameWithType: IRedisSetService.Difference<T>(string, string)
+  nameWithType.vb: IRedisSetService.Difference(Of T)(String, String)
+- uid: Func.Redis.Set.IRedisSetService.GetAll*
+  name: GetAll
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_GetAll_
+  commentId: Overload:Func.Redis.Set.IRedisSetService.GetAll
+  isSpec: "True"
+  fullName: Func.Redis.Set.IRedisSetService.GetAll
+  nameWithType: IRedisSetService.GetAll
+- uid: Func.Redis.Set.IRedisSetService.GetAllAsync*
+  name: GetAllAsync
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_GetAllAsync_
+  commentId: Overload:Func.Redis.Set.IRedisSetService.GetAllAsync
+  isSpec: "True"
+  fullName: Func.Redis.Set.IRedisSetService.GetAllAsync
+  nameWithType: IRedisSetService.GetAllAsync
+- uid: Func.Redis.Set.IRedisSetService.GetAllAsync``1(System.String)
+  name: GetAllAsync<T>(string)
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_GetAllAsync__1_System_String_
+  commentId: M:Func.Redis.Set.IRedisSetService.GetAllAsync``1(System.String)
+  name.vb: GetAllAsync(Of T)(String)
+  fullName: Func.Redis.Set.IRedisSetService.GetAllAsync<T>(string)
+  fullName.vb: Func.Redis.Set.IRedisSetService.GetAllAsync(Of T)(String)
+  nameWithType: IRedisSetService.GetAllAsync<T>(string)
+  nameWithType.vb: IRedisSetService.GetAllAsync(Of T)(String)
+- uid: Func.Redis.Set.IRedisSetService.GetAll``1(System.String)
+  name: GetAll<T>(string)
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_GetAll__1_System_String_
+  commentId: M:Func.Redis.Set.IRedisSetService.GetAll``1(System.String)
+  name.vb: GetAll(Of T)(String)
+  fullName: Func.Redis.Set.IRedisSetService.GetAll<T>(string)
+  fullName.vb: Func.Redis.Set.IRedisSetService.GetAll(Of T)(String)
+  nameWithType: IRedisSetService.GetAll<T>(string)
+  nameWithType.vb: IRedisSetService.GetAll(Of T)(String)
+- uid: Func.Redis.Set.IRedisSetService.Intersect*
+  name: Intersect
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_Intersect_
+  commentId: Overload:Func.Redis.Set.IRedisSetService.Intersect
+  isSpec: "True"
+  fullName: Func.Redis.Set.IRedisSetService.Intersect
+  nameWithType: IRedisSetService.Intersect
+- uid: Func.Redis.Set.IRedisSetService.IntersectAsync*
+  name: IntersectAsync
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_IntersectAsync_
+  commentId: Overload:Func.Redis.Set.IRedisSetService.IntersectAsync
+  isSpec: "True"
+  fullName: Func.Redis.Set.IRedisSetService.IntersectAsync
+  nameWithType: IRedisSetService.IntersectAsync
+- uid: Func.Redis.Set.IRedisSetService.IntersectAsync``1(System.String,System.String)
+  name: IntersectAsync<T>(string, string)
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_IntersectAsync__1_System_String_System_String_
+  commentId: M:Func.Redis.Set.IRedisSetService.IntersectAsync``1(System.String,System.String)
+  name.vb: IntersectAsync(Of T)(String, String)
+  fullName: Func.Redis.Set.IRedisSetService.IntersectAsync<T>(string, string)
+  fullName.vb: Func.Redis.Set.IRedisSetService.IntersectAsync(Of T)(String, String)
+  nameWithType: IRedisSetService.IntersectAsync<T>(string, string)
+  nameWithType.vb: IRedisSetService.IntersectAsync(Of T)(String, String)
+- uid: Func.Redis.Set.IRedisSetService.Intersect``1(System.String,System.String)
+  name: Intersect<T>(string, string)
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_Intersect__1_System_String_System_String_
+  commentId: M:Func.Redis.Set.IRedisSetService.Intersect``1(System.String,System.String)
+  name.vb: Intersect(Of T)(String, String)
+  fullName: Func.Redis.Set.IRedisSetService.Intersect<T>(string, string)
+  fullName.vb: Func.Redis.Set.IRedisSetService.Intersect(Of T)(String, String)
+  nameWithType: IRedisSetService.Intersect<T>(string, string)
+  nameWithType.vb: IRedisSetService.Intersect(Of T)(String, String)
+- uid: Func.Redis.Set.IRedisSetService.Pop*
+  name: Pop
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_Pop_
+  commentId: Overload:Func.Redis.Set.IRedisSetService.Pop
+  isSpec: "True"
+  fullName: Func.Redis.Set.IRedisSetService.Pop
+  nameWithType: IRedisSetService.Pop
+- uid: Func.Redis.Set.IRedisSetService.PopAsync*
+  name: PopAsync
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_PopAsync_
+  commentId: Overload:Func.Redis.Set.IRedisSetService.PopAsync
+  isSpec: "True"
+  fullName: Func.Redis.Set.IRedisSetService.PopAsync
+  nameWithType: IRedisSetService.PopAsync
+- uid: Func.Redis.Set.IRedisSetService.PopAsync``1(System.String)
+  name: PopAsync<T>(string)
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_PopAsync__1_System_String_
+  commentId: M:Func.Redis.Set.IRedisSetService.PopAsync``1(System.String)
+  name.vb: PopAsync(Of T)(String)
+  fullName: Func.Redis.Set.IRedisSetService.PopAsync<T>(string)
+  fullName.vb: Func.Redis.Set.IRedisSetService.PopAsync(Of T)(String)
+  nameWithType: IRedisSetService.PopAsync<T>(string)
+  nameWithType.vb: IRedisSetService.PopAsync(Of T)(String)
+- uid: Func.Redis.Set.IRedisSetService.Pop``1(System.String)
+  name: Pop<T>(string)
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_Pop__1_System_String_
+  commentId: M:Func.Redis.Set.IRedisSetService.Pop``1(System.String)
+  name.vb: Pop(Of T)(String)
+  fullName: Func.Redis.Set.IRedisSetService.Pop<T>(string)
+  fullName.vb: Func.Redis.Set.IRedisSetService.Pop(Of T)(String)
+  nameWithType: IRedisSetService.Pop<T>(string)
+  nameWithType.vb: IRedisSetService.Pop(Of T)(String)
+- uid: Func.Redis.Set.IRedisSetService.Size(System.String)
+  name: Size(string)
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_Size_System_String_
+  commentId: M:Func.Redis.Set.IRedisSetService.Size(System.String)
+  name.vb: Size(String)
+  fullName: Func.Redis.Set.IRedisSetService.Size(string)
+  fullName.vb: Func.Redis.Set.IRedisSetService.Size(String)
+  nameWithType: IRedisSetService.Size(string)
+  nameWithType.vb: IRedisSetService.Size(String)
+- uid: Func.Redis.Set.IRedisSetService.Size*
+  name: Size
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_Size_
+  commentId: Overload:Func.Redis.Set.IRedisSetService.Size
+  isSpec: "True"
+  fullName: Func.Redis.Set.IRedisSetService.Size
+  nameWithType: IRedisSetService.Size
+- uid: Func.Redis.Set.IRedisSetService.SizeAsync(System.String)
+  name: SizeAsync(string)
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_SizeAsync_System_String_
+  commentId: M:Func.Redis.Set.IRedisSetService.SizeAsync(System.String)
+  name.vb: SizeAsync(String)
+  fullName: Func.Redis.Set.IRedisSetService.SizeAsync(string)
+  fullName.vb: Func.Redis.Set.IRedisSetService.SizeAsync(String)
+  nameWithType: IRedisSetService.SizeAsync(string)
+  nameWithType.vb: IRedisSetService.SizeAsync(String)
+- uid: Func.Redis.Set.IRedisSetService.SizeAsync*
+  name: SizeAsync
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_SizeAsync_
+  commentId: Overload:Func.Redis.Set.IRedisSetService.SizeAsync
+  isSpec: "True"
+  fullName: Func.Redis.Set.IRedisSetService.SizeAsync
+  nameWithType: IRedisSetService.SizeAsync
+- uid: Func.Redis.Set.IRedisSetService.Union*
+  name: Union
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_Union_
+  commentId: Overload:Func.Redis.Set.IRedisSetService.Union
+  isSpec: "True"
+  fullName: Func.Redis.Set.IRedisSetService.Union
+  nameWithType: IRedisSetService.Union
+- uid: Func.Redis.Set.IRedisSetService.UnionAsync*
+  name: UnionAsync
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_UnionAsync_
+  commentId: Overload:Func.Redis.Set.IRedisSetService.UnionAsync
+  isSpec: "True"
+  fullName: Func.Redis.Set.IRedisSetService.UnionAsync
+  nameWithType: IRedisSetService.UnionAsync
+- uid: Func.Redis.Set.IRedisSetService.UnionAsync``1(System.String,System.String)
+  name: UnionAsync<T>(string, string)
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_UnionAsync__1_System_String_System_String_
+  commentId: M:Func.Redis.Set.IRedisSetService.UnionAsync``1(System.String,System.String)
+  name.vb: UnionAsync(Of T)(String, String)
+  fullName: Func.Redis.Set.IRedisSetService.UnionAsync<T>(string, string)
+  fullName.vb: Func.Redis.Set.IRedisSetService.UnionAsync(Of T)(String, String)
+  nameWithType: IRedisSetService.UnionAsync<T>(string, string)
+  nameWithType.vb: IRedisSetService.UnionAsync(Of T)(String, String)
+- uid: Func.Redis.Set.IRedisSetService.Union``1(System.String,System.String)
+  name: Union<T>(string, string)
+  href: api/Func.Redis.Set.IRedisSetService.html#Func_Redis_Set_IRedisSetService_Union__1_System_String_System_String_
+  commentId: M:Func.Redis.Set.IRedisSetService.Union``1(System.String,System.String)
+  name.vb: Union(Of T)(String, String)
+  fullName: Func.Redis.Set.IRedisSetService.Union<T>(string, string)
+  fullName.vb: Func.Redis.Set.IRedisSetService.Union(Of T)(String, String)
+  nameWithType: IRedisSetService.Union<T>(string, string)
+  nameWithType.vb: IRedisSetService.Union(Of T)(String, String)
+- uid: Func.Redis.SortedSet
+  name: Func.Redis.SortedSet
+  href: api/Func.Redis.SortedSet.html
+  commentId: N:Func.Redis.SortedSet
+  fullName: Func.Redis.SortedSet
+  nameWithType: Func.Redis.SortedSet
+- uid: Func.Redis.SortedSet.IRedisSortedSetService
+  name: IRedisSortedSetService
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html
+  commentId: T:Func.Redis.SortedSet.IRedisSortedSetService
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService
+  nameWithType: IRedisSortedSetService
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.Add*
+  name: Add
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_Add_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.Add
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.Add
+  nameWithType: IRedisSortedSetService.Add
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.AddAsync*
+  name: AddAsync
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_AddAsync_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.AddAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.AddAsync
+  nameWithType: IRedisSortedSetService.AddAsync
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.AddAsync``1(System.String,System.Collections.Generic.IEnumerable{System.ValueTuple{``0,System.Double}})
+  name: AddAsync<T>(string, IEnumerable<(T Value, double Score)>)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_AddAsync__1_System_String_System_Collections_Generic_IEnumerable_System_ValueTuple___0_System_Double___
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.AddAsync``1(System.String,System.Collections.Generic.IEnumerable{System.ValueTuple{``0,System.Double}})
+  name.vb: AddAsync(Of T)(String, IEnumerable(Of (Value As T, Score As Double)))
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.AddAsync<T>(string, System.Collections.Generic.IEnumerable<(T Value, double Score)>)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.AddAsync(Of T)(String, System.Collections.Generic.IEnumerable(Of (Value As T, Score As Double)))
+  nameWithType: IRedisSortedSetService.AddAsync<T>(string, IEnumerable<(T Value, double Score)>)
+  nameWithType.vb: IRedisSortedSetService.AddAsync(Of T)(String, IEnumerable(Of (Value As T, Score As Double)))
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.AddAsync``1(System.String,``0,System.Double)
+  name: AddAsync<T>(string, T, double)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_AddAsync__1_System_String___0_System_Double_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.AddAsync``1(System.String,``0,System.Double)
+  name.vb: AddAsync(Of T)(String, T, Double)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.AddAsync<T>(string, T, double)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.AddAsync(Of T)(String, T, Double)
+  nameWithType: IRedisSortedSetService.AddAsync<T>(string, T, double)
+  nameWithType.vb: IRedisSortedSetService.AddAsync(Of T)(String, T, Double)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.Add``1(System.String,System.Collections.Generic.IEnumerable{System.ValueTuple{``0,System.Double}})
+  name: Add<T>(string, IEnumerable<(T Value, double Score)>)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_Add__1_System_String_System_Collections_Generic_IEnumerable_System_ValueTuple___0_System_Double___
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.Add``1(System.String,System.Collections.Generic.IEnumerable{System.ValueTuple{``0,System.Double}})
+  name.vb: Add(Of T)(String, IEnumerable(Of (Value As T, Score As Double)))
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.Add<T>(string, System.Collections.Generic.IEnumerable<(T Value, double Score)>)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.Add(Of T)(String, System.Collections.Generic.IEnumerable(Of (Value As T, Score As Double)))
+  nameWithType: IRedisSortedSetService.Add<T>(string, IEnumerable<(T Value, double Score)>)
+  nameWithType.vb: IRedisSortedSetService.Add(Of T)(String, IEnumerable(Of (Value As T, Score As Double)))
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.Add``1(System.String,``0,System.Double)
+  name: Add<T>(string, T, double)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_Add__1_System_String___0_System_Double_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.Add``1(System.String,``0,System.Double)
+  name.vb: Add(Of T)(String, T, Double)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.Add<T>(string, T, double)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.Add(Of T)(String, T, Double)
+  nameWithType: IRedisSortedSetService.Add<T>(string, T, double)
+  nameWithType.vb: IRedisSortedSetService.Add(Of T)(String, T, Double)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.Decrement*
+  name: Decrement
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_Decrement_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.Decrement
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.Decrement
+  nameWithType: IRedisSortedSetService.Decrement
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.DecrementAsync*
+  name: DecrementAsync
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_DecrementAsync_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.DecrementAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.DecrementAsync
+  nameWithType: IRedisSortedSetService.DecrementAsync
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.DecrementAsync``1(System.String,``0,System.Double)
+  name: DecrementAsync<T>(string, T, double)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_DecrementAsync__1_System_String___0_System_Double_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.DecrementAsync``1(System.String,``0,System.Double)
+  name.vb: DecrementAsync(Of T)(String, T, Double)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.DecrementAsync<T>(string, T, double)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.DecrementAsync(Of T)(String, T, Double)
+  nameWithType: IRedisSortedSetService.DecrementAsync<T>(string, T, double)
+  nameWithType.vb: IRedisSortedSetService.DecrementAsync(Of T)(String, T, Double)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.Decrement``1(System.String,``0,System.Double)
+  name: Decrement<T>(string, T, double)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_Decrement__1_System_String___0_System_Double_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.Decrement``1(System.String,``0,System.Double)
+  name.vb: Decrement(Of T)(String, T, Double)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.Decrement<T>(string, T, double)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.Decrement(Of T)(String, T, Double)
+  nameWithType: IRedisSortedSetService.Decrement<T>(string, T, double)
+  nameWithType.vb: IRedisSortedSetService.Decrement(Of T)(String, T, Double)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.Increment*
+  name: Increment
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_Increment_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.Increment
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.Increment
+  nameWithType: IRedisSortedSetService.Increment
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.IncrementAsync*
+  name: IncrementAsync
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_IncrementAsync_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.IncrementAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.IncrementAsync
+  nameWithType: IRedisSortedSetService.IncrementAsync
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.IncrementAsync``1(System.String,``0,System.Double)
+  name: IncrementAsync<T>(string, T, double)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_IncrementAsync__1_System_String___0_System_Double_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.IncrementAsync``1(System.String,``0,System.Double)
+  name.vb: IncrementAsync(Of T)(String, T, Double)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.IncrementAsync<T>(string, T, double)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.IncrementAsync(Of T)(String, T, Double)
+  nameWithType: IRedisSortedSetService.IncrementAsync<T>(string, T, double)
+  nameWithType.vb: IRedisSortedSetService.IncrementAsync(Of T)(String, T, Double)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.Increment``1(System.String,``0,System.Double)
+  name: Increment<T>(string, T, double)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_Increment__1_System_String___0_System_Double_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.Increment``1(System.String,``0,System.Double)
+  name.vb: Increment(Of T)(String, T, Double)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.Increment<T>(string, T, double)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.Increment(Of T)(String, T, Double)
+  nameWithType: IRedisSortedSetService.Increment<T>(string, T, double)
+  nameWithType.vb: IRedisSortedSetService.Increment(Of T)(String, T, Double)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.Intersect*
+  name: Intersect
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_Intersect_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.Intersect
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.Intersect
+  nameWithType: IRedisSortedSetService.Intersect
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.IntersectAsync*
+  name: IntersectAsync
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_IntersectAsync_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.IntersectAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.IntersectAsync
+  nameWithType: IRedisSortedSetService.IntersectAsync
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.IntersectAsync``1(System.String[])
+  name: IntersectAsync<T>(string[])
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_IntersectAsync__1_System_String___
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.IntersectAsync``1(System.String[])
+  name.vb: IntersectAsync(Of T)(String())
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.IntersectAsync<T>(string[])
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.IntersectAsync(Of T)(String())
+  nameWithType: IRedisSortedSetService.IntersectAsync<T>(string[])
+  nameWithType.vb: IRedisSortedSetService.IntersectAsync(Of T)(String())
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.Intersect``1(System.String[])
+  name: Intersect<T>(string[])
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_Intersect__1_System_String___
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.Intersect``1(System.String[])
+  name.vb: Intersect(Of T)(String())
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.Intersect<T>(string[])
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.Intersect(Of T)(String())
+  nameWithType: IRedisSortedSetService.Intersect<T>(string[])
+  nameWithType.vb: IRedisSortedSetService.Intersect(Of T)(String())
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.Length(System.String)
+  name: Length(string)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_Length_System_String_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.Length(System.String)
+  name.vb: Length(String)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.Length(string)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.Length(String)
+  nameWithType: IRedisSortedSetService.Length(string)
+  nameWithType.vb: IRedisSortedSetService.Length(String)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.Length*
+  name: Length
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_Length_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.Length
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.Length
+  nameWithType: IRedisSortedSetService.Length
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.LengthAsync(System.String)
+  name: LengthAsync(string)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_LengthAsync_System_String_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.LengthAsync(System.String)
+  name.vb: LengthAsync(String)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.LengthAsync(string)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.LengthAsync(String)
+  nameWithType: IRedisSortedSetService.LengthAsync(string)
+  nameWithType.vb: IRedisSortedSetService.LengthAsync(String)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.LengthAsync*
+  name: LengthAsync
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_LengthAsync_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.LengthAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.LengthAsync
+  nameWithType: IRedisSortedSetService.LengthAsync
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.LengthByScore(System.String,System.Double,System.Double)
+  name: LengthByScore(string, double, double)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_LengthByScore_System_String_System_Double_System_Double_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.LengthByScore(System.String,System.Double,System.Double)
+  name.vb: LengthByScore(String, Double, Double)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.LengthByScore(string, double, double)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.LengthByScore(String, Double, Double)
+  nameWithType: IRedisSortedSetService.LengthByScore(string, double, double)
+  nameWithType.vb: IRedisSortedSetService.LengthByScore(String, Double, Double)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.LengthByScore*
+  name: LengthByScore
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_LengthByScore_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.LengthByScore
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.LengthByScore
+  nameWithType: IRedisSortedSetService.LengthByScore
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.LengthByScoreAsync(System.String,System.Double,System.Double)
+  name: LengthByScoreAsync(string, double, double)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_LengthByScoreAsync_System_String_System_Double_System_Double_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.LengthByScoreAsync(System.String,System.Double,System.Double)
+  name.vb: LengthByScoreAsync(String, Double, Double)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.LengthByScoreAsync(string, double, double)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.LengthByScoreAsync(String, Double, Double)
+  nameWithType: IRedisSortedSetService.LengthByScoreAsync(string, double, double)
+  nameWithType.vb: IRedisSortedSetService.LengthByScoreAsync(String, Double, Double)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.LengthByScoreAsync*
+  name: LengthByScoreAsync
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_LengthByScoreAsync_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.LengthByScoreAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.LengthByScoreAsync
+  nameWithType: IRedisSortedSetService.LengthByScoreAsync
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.LengthByValue*
+  name: LengthByValue
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_LengthByValue_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.LengthByValue
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.LengthByValue
+  nameWithType: IRedisSortedSetService.LengthByValue
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.LengthByValueAsync*
+  name: LengthByValueAsync
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_LengthByValueAsync_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.LengthByValueAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.LengthByValueAsync
+  nameWithType: IRedisSortedSetService.LengthByValueAsync
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.LengthByValueAsync``1(System.String,``0,``0)
+  name: LengthByValueAsync<T>(string, T, T)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_LengthByValueAsync__1_System_String___0___0_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.LengthByValueAsync``1(System.String,``0,``0)
+  name.vb: LengthByValueAsync(Of T)(String, T, T)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.LengthByValueAsync<T>(string, T, T)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.LengthByValueAsync(Of T)(String, T, T)
+  nameWithType: IRedisSortedSetService.LengthByValueAsync<T>(string, T, T)
+  nameWithType.vb: IRedisSortedSetService.LengthByValueAsync(Of T)(String, T, T)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.LengthByValue``1(System.String,``0,``0)
+  name: LengthByValue<T>(string, T, T)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_LengthByValue__1_System_String___0___0_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.LengthByValue``1(System.String,``0,``0)
+  name.vb: LengthByValue(Of T)(String, T, T)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.LengthByValue<T>(string, T, T)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.LengthByValue(Of T)(String, T, T)
+  nameWithType: IRedisSortedSetService.LengthByValue<T>(string, T, T)
+  nameWithType.vb: IRedisSortedSetService.LengthByValue(Of T)(String, T, T)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.RangeByScore*
+  name: RangeByScore
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_RangeByScore_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.RangeByScore
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.RangeByScore
+  nameWithType: IRedisSortedSetService.RangeByScore
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.RangeByScoreAsync*
+  name: RangeByScoreAsync
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_RangeByScoreAsync_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.RangeByScoreAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.RangeByScoreAsync
+  nameWithType: IRedisSortedSetService.RangeByScoreAsync
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.RangeByScoreAsync``1(System.String,System.Double,System.Double)
+  name: RangeByScoreAsync<T>(string, double, double)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_RangeByScoreAsync__1_System_String_System_Double_System_Double_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.RangeByScoreAsync``1(System.String,System.Double,System.Double)
+  name.vb: RangeByScoreAsync(Of T)(String, Double, Double)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.RangeByScoreAsync<T>(string, double, double)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.RangeByScoreAsync(Of T)(String, Double, Double)
+  nameWithType: IRedisSortedSetService.RangeByScoreAsync<T>(string, double, double)
+  nameWithType.vb: IRedisSortedSetService.RangeByScoreAsync(Of T)(String, Double, Double)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.RangeByScore``1(System.String,System.Double,System.Double)
+  name: RangeByScore<T>(string, double, double)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_RangeByScore__1_System_String_System_Double_System_Double_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.RangeByScore``1(System.String,System.Double,System.Double)
+  name.vb: RangeByScore(Of T)(String, Double, Double)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.RangeByScore<T>(string, double, double)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.RangeByScore(Of T)(String, Double, Double)
+  nameWithType: IRedisSortedSetService.RangeByScore<T>(string, double, double)
+  nameWithType.vb: IRedisSortedSetService.RangeByScore(Of T)(String, Double, Double)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.Rank*
+  name: Rank
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_Rank_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.Rank
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.Rank
+  nameWithType: IRedisSortedSetService.Rank
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.RankAsync*
+  name: RankAsync
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_RankAsync_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.RankAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.RankAsync
+  nameWithType: IRedisSortedSetService.RankAsync
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.RankAsync``1(System.String,``0)
+  name: RankAsync<T>(string, T)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_RankAsync__1_System_String___0_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.RankAsync``1(System.String,``0)
+  name.vb: RankAsync(Of T)(String, T)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.RankAsync<T>(string, T)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.RankAsync(Of T)(String, T)
+  nameWithType: IRedisSortedSetService.RankAsync<T>(string, T)
+  nameWithType.vb: IRedisSortedSetService.RankAsync(Of T)(String, T)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.Rank``1(System.String,``0)
+  name: Rank<T>(string, T)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_Rank__1_System_String___0_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.Rank``1(System.String,``0)
+  name.vb: Rank(Of T)(String, T)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.Rank<T>(string, T)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.Rank(Of T)(String, T)
+  nameWithType: IRedisSortedSetService.Rank<T>(string, T)
+  nameWithType.vb: IRedisSortedSetService.Rank(Of T)(String, T)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.Remove*
+  name: Remove
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_Remove_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.Remove
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.Remove
+  nameWithType: IRedisSortedSetService.Remove
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.RemoveAsync*
+  name: RemoveAsync
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_RemoveAsync_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.RemoveAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.RemoveAsync
+  nameWithType: IRedisSortedSetService.RemoveAsync
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.RemoveAsync``1(System.String,System.Collections.Generic.IEnumerable{``0})
+  name: RemoveAsync<T>(string, IEnumerable<T>)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_RemoveAsync__1_System_String_System_Collections_Generic_IEnumerable___0__
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.RemoveAsync``1(System.String,System.Collections.Generic.IEnumerable{``0})
+  name.vb: RemoveAsync(Of T)(String, IEnumerable(Of T))
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.RemoveAsync<T>(string, System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.RemoveAsync(Of T)(String, System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: IRedisSortedSetService.RemoveAsync<T>(string, IEnumerable<T>)
+  nameWithType.vb: IRedisSortedSetService.RemoveAsync(Of T)(String, IEnumerable(Of T))
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.RemoveAsync``1(System.String,``0)
+  name: RemoveAsync<T>(string, T)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_RemoveAsync__1_System_String___0_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.RemoveAsync``1(System.String,``0)
+  name.vb: RemoveAsync(Of T)(String, T)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.RemoveAsync<T>(string, T)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.RemoveAsync(Of T)(String, T)
+  nameWithType: IRedisSortedSetService.RemoveAsync<T>(string, T)
+  nameWithType.vb: IRedisSortedSetService.RemoveAsync(Of T)(String, T)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByScore(System.String,System.Double,System.Double)
+  name: RemoveRangeByScore(string, double, double)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_RemoveRangeByScore_System_String_System_Double_System_Double_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByScore(System.String,System.Double,System.Double)
+  name.vb: RemoveRangeByScore(String, Double, Double)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByScore(string, double, double)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByScore(String, Double, Double)
+  nameWithType: IRedisSortedSetService.RemoveRangeByScore(string, double, double)
+  nameWithType.vb: IRedisSortedSetService.RemoveRangeByScore(String, Double, Double)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByScore*
+  name: RemoveRangeByScore
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_RemoveRangeByScore_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByScore
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByScore
+  nameWithType: IRedisSortedSetService.RemoveRangeByScore
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByScoreAsync(System.String,System.Double,System.Double)
+  name: RemoveRangeByScoreAsync(string, double, double)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_RemoveRangeByScoreAsync_System_String_System_Double_System_Double_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByScoreAsync(System.String,System.Double,System.Double)
+  name.vb: RemoveRangeByScoreAsync(String, Double, Double)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByScoreAsync(string, double, double)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByScoreAsync(String, Double, Double)
+  nameWithType: IRedisSortedSetService.RemoveRangeByScoreAsync(string, double, double)
+  nameWithType.vb: IRedisSortedSetService.RemoveRangeByScoreAsync(String, Double, Double)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByScoreAsync*
+  name: RemoveRangeByScoreAsync
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_RemoveRangeByScoreAsync_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByScoreAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByScoreAsync
+  nameWithType: IRedisSortedSetService.RemoveRangeByScoreAsync
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByValue*
+  name: RemoveRangeByValue
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_RemoveRangeByValue_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByValue
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByValue
+  nameWithType: IRedisSortedSetService.RemoveRangeByValue
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByValueAsync*
+  name: RemoveRangeByValueAsync
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_RemoveRangeByValueAsync_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByValueAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByValueAsync
+  nameWithType: IRedisSortedSetService.RemoveRangeByValueAsync
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByValueAsync``1(System.String,``0,``0)
+  name: RemoveRangeByValueAsync<T>(string, T, T)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_RemoveRangeByValueAsync__1_System_String___0___0_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByValueAsync``1(System.String,``0,``0)
+  name.vb: RemoveRangeByValueAsync(Of T)(String, T, T)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByValueAsync<T>(string, T, T)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByValueAsync(Of T)(String, T, T)
+  nameWithType: IRedisSortedSetService.RemoveRangeByValueAsync<T>(string, T, T)
+  nameWithType.vb: IRedisSortedSetService.RemoveRangeByValueAsync(Of T)(String, T, T)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByValue``1(System.String,``0,``0)
+  name: RemoveRangeByValue<T>(string, T, T)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_RemoveRangeByValue__1_System_String___0___0_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByValue``1(System.String,``0,``0)
+  name.vb: RemoveRangeByValue(Of T)(String, T, T)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByValue<T>(string, T, T)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.RemoveRangeByValue(Of T)(String, T, T)
+  nameWithType: IRedisSortedSetService.RemoveRangeByValue<T>(string, T, T)
+  nameWithType.vb: IRedisSortedSetService.RemoveRangeByValue(Of T)(String, T, T)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.Remove``1(System.String,System.Collections.Generic.IEnumerable{``0})
+  name: Remove<T>(string, IEnumerable<T>)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_Remove__1_System_String_System_Collections_Generic_IEnumerable___0__
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.Remove``1(System.String,System.Collections.Generic.IEnumerable{``0})
+  name.vb: Remove(Of T)(String, IEnumerable(Of T))
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.Remove<T>(string, System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.Remove(Of T)(String, System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: IRedisSortedSetService.Remove<T>(string, IEnumerable<T>)
+  nameWithType.vb: IRedisSortedSetService.Remove(Of T)(String, IEnumerable(Of T))
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.Remove``1(System.String,``0)
+  name: Remove<T>(string, T)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_Remove__1_System_String___0_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.Remove``1(System.String,``0)
+  name.vb: Remove(Of T)(String, T)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.Remove<T>(string, T)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.Remove(Of T)(String, T)
+  nameWithType: IRedisSortedSetService.Remove<T>(string, T)
+  nameWithType.vb: IRedisSortedSetService.Remove(Of T)(String, T)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.Score*
+  name: Score
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_Score_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.Score
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.Score
+  nameWithType: IRedisSortedSetService.Score
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.ScoreAsync*
+  name: ScoreAsync
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_ScoreAsync_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.ScoreAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.ScoreAsync
+  nameWithType: IRedisSortedSetService.ScoreAsync
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.ScoreAsync``1(System.String,``0)
+  name: ScoreAsync<T>(string, T)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_ScoreAsync__1_System_String___0_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.ScoreAsync``1(System.String,``0)
+  name.vb: ScoreAsync(Of T)(String, T)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.ScoreAsync<T>(string, T)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.ScoreAsync(Of T)(String, T)
+  nameWithType: IRedisSortedSetService.ScoreAsync<T>(string, T)
+  nameWithType.vb: IRedisSortedSetService.ScoreAsync(Of T)(String, T)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.Score``1(System.String,``0)
+  name: Score<T>(string, T)
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_Score__1_System_String___0_
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.Score``1(System.String,``0)
+  name.vb: Score(Of T)(String, T)
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.Score<T>(string, T)
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.Score(Of T)(String, T)
+  nameWithType: IRedisSortedSetService.Score<T>(string, T)
+  nameWithType.vb: IRedisSortedSetService.Score(Of T)(String, T)
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.Union*
+  name: Union
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_Union_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.Union
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.Union
+  nameWithType: IRedisSortedSetService.Union
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.UnionAsync*
+  name: UnionAsync
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_UnionAsync_
+  commentId: Overload:Func.Redis.SortedSet.IRedisSortedSetService.UnionAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.UnionAsync
+  nameWithType: IRedisSortedSetService.UnionAsync
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.UnionAsync``1(System.String[])
+  name: UnionAsync<T>(string[])
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_UnionAsync__1_System_String___
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.UnionAsync``1(System.String[])
+  name.vb: UnionAsync(Of T)(String())
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.UnionAsync<T>(string[])
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.UnionAsync(Of T)(String())
+  nameWithType: IRedisSortedSetService.UnionAsync<T>(string[])
+  nameWithType.vb: IRedisSortedSetService.UnionAsync(Of T)(String())
+- uid: Func.Redis.SortedSet.IRedisSortedSetService.Union``1(System.String[])
+  name: Union<T>(string[])
+  href: api/Func.Redis.SortedSet.IRedisSortedSetService.html#Func_Redis_SortedSet_IRedisSortedSetService_Union__1_System_String___
+  commentId: M:Func.Redis.SortedSet.IRedisSortedSetService.Union``1(System.String[])
+  name.vb: Union(Of T)(String())
+  fullName: Func.Redis.SortedSet.IRedisSortedSetService.Union<T>(string[])
+  fullName.vb: Func.Redis.SortedSet.IRedisSortedSetService.Union(Of T)(String())
+  nameWithType: IRedisSortedSetService.Union<T>(string[])
+  nameWithType.vb: IRedisSortedSetService.Union(Of T)(String())
+- uid: Func.Redis.SortedSet.RedisSortedSetService
+  name: RedisSortedSetService
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html
+  commentId: T:Func.Redis.SortedSet.RedisSortedSetService
+  fullName: Func.Redis.SortedSet.RedisSortedSetService
+  nameWithType: RedisSortedSetService
+- uid: Func.Redis.SortedSet.RedisSortedSetService.#ctor(Func.Redis.ISourcesProvider,Func.Redis.SerDes.IRedisSerDes)
+  name: RedisSortedSetService(ISourcesProvider, IRedisSerDes)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService__ctor_Func_Redis_ISourcesProvider_Func_Redis_SerDes_IRedisSerDes_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.#ctor(Func.Redis.ISourcesProvider,Func.Redis.SerDes.IRedisSerDes)
+  name.vb: New(ISourcesProvider, IRedisSerDes)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.RedisSortedSetService(Func.Redis.ISourcesProvider, Func.Redis.SerDes.IRedisSerDes)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.New(Func.Redis.ISourcesProvider, Func.Redis.SerDes.IRedisSerDes)
+  nameWithType: RedisSortedSetService.RedisSortedSetService(ISourcesProvider, IRedisSerDes)
+  nameWithType.vb: RedisSortedSetService.New(ISourcesProvider, IRedisSerDes)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.#ctor*
+  name: RedisSortedSetService
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService__ctor_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.RedisSortedSetService
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.New
+  nameWithType: RedisSortedSetService.RedisSortedSetService
+  nameWithType.vb: RedisSortedSetService.New
+- uid: Func.Redis.SortedSet.RedisSortedSetService.Add*
+  name: Add
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_Add_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.Add
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.Add
+  nameWithType: RedisSortedSetService.Add
+- uid: Func.Redis.SortedSet.RedisSortedSetService.AddAsync*
+  name: AddAsync
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_AddAsync_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.AddAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.AddAsync
+  nameWithType: RedisSortedSetService.AddAsync
+- uid: Func.Redis.SortedSet.RedisSortedSetService.AddAsync``1(System.String,System.Collections.Generic.IEnumerable{System.ValueTuple{``0,System.Double}})
+  name: AddAsync<T>(string, IEnumerable<(T Value, double Score)>)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_AddAsync__1_System_String_System_Collections_Generic_IEnumerable_System_ValueTuple___0_System_Double___
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.AddAsync``1(System.String,System.Collections.Generic.IEnumerable{System.ValueTuple{``0,System.Double}})
+  name.vb: AddAsync(Of T)(String, IEnumerable(Of (Value As T, Score As Double)))
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.AddAsync<T>(string, System.Collections.Generic.IEnumerable<(T Value, double Score)>)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.AddAsync(Of T)(String, System.Collections.Generic.IEnumerable(Of (Value As T, Score As Double)))
+  nameWithType: RedisSortedSetService.AddAsync<T>(string, IEnumerable<(T Value, double Score)>)
+  nameWithType.vb: RedisSortedSetService.AddAsync(Of T)(String, IEnumerable(Of (Value As T, Score As Double)))
+- uid: Func.Redis.SortedSet.RedisSortedSetService.AddAsync``1(System.String,``0,System.Double)
+  name: AddAsync<T>(string, T, double)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_AddAsync__1_System_String___0_System_Double_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.AddAsync``1(System.String,``0,System.Double)
+  name.vb: AddAsync(Of T)(String, T, Double)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.AddAsync<T>(string, T, double)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.AddAsync(Of T)(String, T, Double)
+  nameWithType: RedisSortedSetService.AddAsync<T>(string, T, double)
+  nameWithType.vb: RedisSortedSetService.AddAsync(Of T)(String, T, Double)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.Add``1(System.String,System.Collections.Generic.IEnumerable{System.ValueTuple{``0,System.Double}})
+  name: Add<T>(string, IEnumerable<(T Value, double Score)>)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_Add__1_System_String_System_Collections_Generic_IEnumerable_System_ValueTuple___0_System_Double___
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.Add``1(System.String,System.Collections.Generic.IEnumerable{System.ValueTuple{``0,System.Double}})
+  name.vb: Add(Of T)(String, IEnumerable(Of (Value As T, Score As Double)))
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.Add<T>(string, System.Collections.Generic.IEnumerable<(T Value, double Score)>)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.Add(Of T)(String, System.Collections.Generic.IEnumerable(Of (Value As T, Score As Double)))
+  nameWithType: RedisSortedSetService.Add<T>(string, IEnumerable<(T Value, double Score)>)
+  nameWithType.vb: RedisSortedSetService.Add(Of T)(String, IEnumerable(Of (Value As T, Score As Double)))
+- uid: Func.Redis.SortedSet.RedisSortedSetService.Add``1(System.String,``0,System.Double)
+  name: Add<T>(string, T, double)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_Add__1_System_String___0_System_Double_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.Add``1(System.String,``0,System.Double)
+  name.vb: Add(Of T)(String, T, Double)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.Add<T>(string, T, double)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.Add(Of T)(String, T, Double)
+  nameWithType: RedisSortedSetService.Add<T>(string, T, double)
+  nameWithType.vb: RedisSortedSetService.Add(Of T)(String, T, Double)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.Decrement*
+  name: Decrement
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_Decrement_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.Decrement
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.Decrement
+  nameWithType: RedisSortedSetService.Decrement
+- uid: Func.Redis.SortedSet.RedisSortedSetService.DecrementAsync*
+  name: DecrementAsync
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_DecrementAsync_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.DecrementAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.DecrementAsync
+  nameWithType: RedisSortedSetService.DecrementAsync
+- uid: Func.Redis.SortedSet.RedisSortedSetService.DecrementAsync``1(System.String,``0,System.Double)
+  name: DecrementAsync<T>(string, T, double)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_DecrementAsync__1_System_String___0_System_Double_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.DecrementAsync``1(System.String,``0,System.Double)
+  name.vb: DecrementAsync(Of T)(String, T, Double)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.DecrementAsync<T>(string, T, double)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.DecrementAsync(Of T)(String, T, Double)
+  nameWithType: RedisSortedSetService.DecrementAsync<T>(string, T, double)
+  nameWithType.vb: RedisSortedSetService.DecrementAsync(Of T)(String, T, Double)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.Decrement``1(System.String,``0,System.Double)
+  name: Decrement<T>(string, T, double)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_Decrement__1_System_String___0_System_Double_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.Decrement``1(System.String,``0,System.Double)
+  name.vb: Decrement(Of T)(String, T, Double)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.Decrement<T>(string, T, double)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.Decrement(Of T)(String, T, Double)
+  nameWithType: RedisSortedSetService.Decrement<T>(string, T, double)
+  nameWithType.vb: RedisSortedSetService.Decrement(Of T)(String, T, Double)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.Increment*
+  name: Increment
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_Increment_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.Increment
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.Increment
+  nameWithType: RedisSortedSetService.Increment
+- uid: Func.Redis.SortedSet.RedisSortedSetService.IncrementAsync*
+  name: IncrementAsync
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_IncrementAsync_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.IncrementAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.IncrementAsync
+  nameWithType: RedisSortedSetService.IncrementAsync
+- uid: Func.Redis.SortedSet.RedisSortedSetService.IncrementAsync``1(System.String,``0,System.Double)
+  name: IncrementAsync<T>(string, T, double)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_IncrementAsync__1_System_String___0_System_Double_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.IncrementAsync``1(System.String,``0,System.Double)
+  name.vb: IncrementAsync(Of T)(String, T, Double)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.IncrementAsync<T>(string, T, double)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.IncrementAsync(Of T)(String, T, Double)
+  nameWithType: RedisSortedSetService.IncrementAsync<T>(string, T, double)
+  nameWithType.vb: RedisSortedSetService.IncrementAsync(Of T)(String, T, Double)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.Increment``1(System.String,``0,System.Double)
+  name: Increment<T>(string, T, double)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_Increment__1_System_String___0_System_Double_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.Increment``1(System.String,``0,System.Double)
+  name.vb: Increment(Of T)(String, T, Double)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.Increment<T>(string, T, double)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.Increment(Of T)(String, T, Double)
+  nameWithType: RedisSortedSetService.Increment<T>(string, T, double)
+  nameWithType.vb: RedisSortedSetService.Increment(Of T)(String, T, Double)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.Intersect*
+  name: Intersect
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_Intersect_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.Intersect
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.Intersect
+  nameWithType: RedisSortedSetService.Intersect
+- uid: Func.Redis.SortedSet.RedisSortedSetService.IntersectAsync*
+  name: IntersectAsync
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_IntersectAsync_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.IntersectAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.IntersectAsync
+  nameWithType: RedisSortedSetService.IntersectAsync
+- uid: Func.Redis.SortedSet.RedisSortedSetService.IntersectAsync``1(System.String[])
+  name: IntersectAsync<T>(string[])
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_IntersectAsync__1_System_String___
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.IntersectAsync``1(System.String[])
+  name.vb: IntersectAsync(Of T)(String())
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.IntersectAsync<T>(string[])
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.IntersectAsync(Of T)(String())
+  nameWithType: RedisSortedSetService.IntersectAsync<T>(string[])
+  nameWithType.vb: RedisSortedSetService.IntersectAsync(Of T)(String())
+- uid: Func.Redis.SortedSet.RedisSortedSetService.Intersect``1(System.String[])
+  name: Intersect<T>(string[])
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_Intersect__1_System_String___
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.Intersect``1(System.String[])
+  name.vb: Intersect(Of T)(String())
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.Intersect<T>(string[])
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.Intersect(Of T)(String())
+  nameWithType: RedisSortedSetService.Intersect<T>(string[])
+  nameWithType.vb: RedisSortedSetService.Intersect(Of T)(String())
+- uid: Func.Redis.SortedSet.RedisSortedSetService.Length(System.String)
+  name: Length(string)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_Length_System_String_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.Length(System.String)
+  name.vb: Length(String)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.Length(string)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.Length(String)
+  nameWithType: RedisSortedSetService.Length(string)
+  nameWithType.vb: RedisSortedSetService.Length(String)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.Length*
+  name: Length
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_Length_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.Length
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.Length
+  nameWithType: RedisSortedSetService.Length
+- uid: Func.Redis.SortedSet.RedisSortedSetService.LengthAsync(System.String)
+  name: LengthAsync(string)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_LengthAsync_System_String_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.LengthAsync(System.String)
+  name.vb: LengthAsync(String)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.LengthAsync(string)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.LengthAsync(String)
+  nameWithType: RedisSortedSetService.LengthAsync(string)
+  nameWithType.vb: RedisSortedSetService.LengthAsync(String)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.LengthAsync*
+  name: LengthAsync
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_LengthAsync_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.LengthAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.LengthAsync
+  nameWithType: RedisSortedSetService.LengthAsync
+- uid: Func.Redis.SortedSet.RedisSortedSetService.LengthByScore(System.String,System.Double,System.Double)
+  name: LengthByScore(string, double, double)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_LengthByScore_System_String_System_Double_System_Double_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.LengthByScore(System.String,System.Double,System.Double)
+  name.vb: LengthByScore(String, Double, Double)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.LengthByScore(string, double, double)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.LengthByScore(String, Double, Double)
+  nameWithType: RedisSortedSetService.LengthByScore(string, double, double)
+  nameWithType.vb: RedisSortedSetService.LengthByScore(String, Double, Double)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.LengthByScore*
+  name: LengthByScore
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_LengthByScore_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.LengthByScore
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.LengthByScore
+  nameWithType: RedisSortedSetService.LengthByScore
+- uid: Func.Redis.SortedSet.RedisSortedSetService.LengthByScoreAsync(System.String,System.Double,System.Double)
+  name: LengthByScoreAsync(string, double, double)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_LengthByScoreAsync_System_String_System_Double_System_Double_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.LengthByScoreAsync(System.String,System.Double,System.Double)
+  name.vb: LengthByScoreAsync(String, Double, Double)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.LengthByScoreAsync(string, double, double)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.LengthByScoreAsync(String, Double, Double)
+  nameWithType: RedisSortedSetService.LengthByScoreAsync(string, double, double)
+  nameWithType.vb: RedisSortedSetService.LengthByScoreAsync(String, Double, Double)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.LengthByScoreAsync*
+  name: LengthByScoreAsync
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_LengthByScoreAsync_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.LengthByScoreAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.LengthByScoreAsync
+  nameWithType: RedisSortedSetService.LengthByScoreAsync
+- uid: Func.Redis.SortedSet.RedisSortedSetService.LengthByValue*
+  name: LengthByValue
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_LengthByValue_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.LengthByValue
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.LengthByValue
+  nameWithType: RedisSortedSetService.LengthByValue
+- uid: Func.Redis.SortedSet.RedisSortedSetService.LengthByValueAsync*
+  name: LengthByValueAsync
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_LengthByValueAsync_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.LengthByValueAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.LengthByValueAsync
+  nameWithType: RedisSortedSetService.LengthByValueAsync
+- uid: Func.Redis.SortedSet.RedisSortedSetService.LengthByValueAsync``1(System.String,``0,``0)
+  name: LengthByValueAsync<T>(string, T, T)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_LengthByValueAsync__1_System_String___0___0_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.LengthByValueAsync``1(System.String,``0,``0)
+  name.vb: LengthByValueAsync(Of T)(String, T, T)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.LengthByValueAsync<T>(string, T, T)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.LengthByValueAsync(Of T)(String, T, T)
+  nameWithType: RedisSortedSetService.LengthByValueAsync<T>(string, T, T)
+  nameWithType.vb: RedisSortedSetService.LengthByValueAsync(Of T)(String, T, T)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.LengthByValue``1(System.String,``0,``0)
+  name: LengthByValue<T>(string, T, T)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_LengthByValue__1_System_String___0___0_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.LengthByValue``1(System.String,``0,``0)
+  name.vb: LengthByValue(Of T)(String, T, T)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.LengthByValue<T>(string, T, T)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.LengthByValue(Of T)(String, T, T)
+  nameWithType: RedisSortedSetService.LengthByValue<T>(string, T, T)
+  nameWithType.vb: RedisSortedSetService.LengthByValue(Of T)(String, T, T)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.RangeByScore*
+  name: RangeByScore
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_RangeByScore_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.RangeByScore
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.RangeByScore
+  nameWithType: RedisSortedSetService.RangeByScore
+- uid: Func.Redis.SortedSet.RedisSortedSetService.RangeByScoreAsync*
+  name: RangeByScoreAsync
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_RangeByScoreAsync_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.RangeByScoreAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.RangeByScoreAsync
+  nameWithType: RedisSortedSetService.RangeByScoreAsync
+- uid: Func.Redis.SortedSet.RedisSortedSetService.RangeByScoreAsync``1(System.String,System.Double,System.Double)
+  name: RangeByScoreAsync<T>(string, double, double)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_RangeByScoreAsync__1_System_String_System_Double_System_Double_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.RangeByScoreAsync``1(System.String,System.Double,System.Double)
+  name.vb: RangeByScoreAsync(Of T)(String, Double, Double)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.RangeByScoreAsync<T>(string, double, double)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.RangeByScoreAsync(Of T)(String, Double, Double)
+  nameWithType: RedisSortedSetService.RangeByScoreAsync<T>(string, double, double)
+  nameWithType.vb: RedisSortedSetService.RangeByScoreAsync(Of T)(String, Double, Double)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.RangeByScore``1(System.String,System.Double,System.Double)
+  name: RangeByScore<T>(string, double, double)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_RangeByScore__1_System_String_System_Double_System_Double_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.RangeByScore``1(System.String,System.Double,System.Double)
+  name.vb: RangeByScore(Of T)(String, Double, Double)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.RangeByScore<T>(string, double, double)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.RangeByScore(Of T)(String, Double, Double)
+  nameWithType: RedisSortedSetService.RangeByScore<T>(string, double, double)
+  nameWithType.vb: RedisSortedSetService.RangeByScore(Of T)(String, Double, Double)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.Rank*
+  name: Rank
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_Rank_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.Rank
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.Rank
+  nameWithType: RedisSortedSetService.Rank
+- uid: Func.Redis.SortedSet.RedisSortedSetService.RankAsync*
+  name: RankAsync
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_RankAsync_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.RankAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.RankAsync
+  nameWithType: RedisSortedSetService.RankAsync
+- uid: Func.Redis.SortedSet.RedisSortedSetService.RankAsync``1(System.String,``0)
+  name: RankAsync<T>(string, T)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_RankAsync__1_System_String___0_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.RankAsync``1(System.String,``0)
+  name.vb: RankAsync(Of T)(String, T)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.RankAsync<T>(string, T)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.RankAsync(Of T)(String, T)
+  nameWithType: RedisSortedSetService.RankAsync<T>(string, T)
+  nameWithType.vb: RedisSortedSetService.RankAsync(Of T)(String, T)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.Rank``1(System.String,``0)
+  name: Rank<T>(string, T)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_Rank__1_System_String___0_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.Rank``1(System.String,``0)
+  name.vb: Rank(Of T)(String, T)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.Rank<T>(string, T)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.Rank(Of T)(String, T)
+  nameWithType: RedisSortedSetService.Rank<T>(string, T)
+  nameWithType.vb: RedisSortedSetService.Rank(Of T)(String, T)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.Remove*
+  name: Remove
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_Remove_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.Remove
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.Remove
+  nameWithType: RedisSortedSetService.Remove
+- uid: Func.Redis.SortedSet.RedisSortedSetService.RemoveAsync*
+  name: RemoveAsync
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_RemoveAsync_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.RemoveAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.RemoveAsync
+  nameWithType: RedisSortedSetService.RemoveAsync
+- uid: Func.Redis.SortedSet.RedisSortedSetService.RemoveAsync``1(System.String,System.Collections.Generic.IEnumerable{``0})
+  name: RemoveAsync<T>(string, IEnumerable<T>)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_RemoveAsync__1_System_String_System_Collections_Generic_IEnumerable___0__
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.RemoveAsync``1(System.String,System.Collections.Generic.IEnumerable{``0})
+  name.vb: RemoveAsync(Of T)(String, IEnumerable(Of T))
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.RemoveAsync<T>(string, System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.RemoveAsync(Of T)(String, System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: RedisSortedSetService.RemoveAsync<T>(string, IEnumerable<T>)
+  nameWithType.vb: RedisSortedSetService.RemoveAsync(Of T)(String, IEnumerable(Of T))
+- uid: Func.Redis.SortedSet.RedisSortedSetService.RemoveAsync``1(System.String,``0)
+  name: RemoveAsync<T>(string, T)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_RemoveAsync__1_System_String___0_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.RemoveAsync``1(System.String,``0)
+  name.vb: RemoveAsync(Of T)(String, T)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.RemoveAsync<T>(string, T)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.RemoveAsync(Of T)(String, T)
+  nameWithType: RedisSortedSetService.RemoveAsync<T>(string, T)
+  nameWithType.vb: RedisSortedSetService.RemoveAsync(Of T)(String, T)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByScore(System.String,System.Double,System.Double)
+  name: RemoveRangeByScore(string, double, double)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_RemoveRangeByScore_System_String_System_Double_System_Double_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByScore(System.String,System.Double,System.Double)
+  name.vb: RemoveRangeByScore(String, Double, Double)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByScore(string, double, double)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByScore(String, Double, Double)
+  nameWithType: RedisSortedSetService.RemoveRangeByScore(string, double, double)
+  nameWithType.vb: RedisSortedSetService.RemoveRangeByScore(String, Double, Double)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByScore*
+  name: RemoveRangeByScore
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_RemoveRangeByScore_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByScore
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByScore
+  nameWithType: RedisSortedSetService.RemoveRangeByScore
+- uid: Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByScoreAsync(System.String,System.Double,System.Double)
+  name: RemoveRangeByScoreAsync(string, double, double)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_RemoveRangeByScoreAsync_System_String_System_Double_System_Double_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByScoreAsync(System.String,System.Double,System.Double)
+  name.vb: RemoveRangeByScoreAsync(String, Double, Double)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByScoreAsync(string, double, double)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByScoreAsync(String, Double, Double)
+  nameWithType: RedisSortedSetService.RemoveRangeByScoreAsync(string, double, double)
+  nameWithType.vb: RedisSortedSetService.RemoveRangeByScoreAsync(String, Double, Double)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByScoreAsync*
+  name: RemoveRangeByScoreAsync
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_RemoveRangeByScoreAsync_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByScoreAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByScoreAsync
+  nameWithType: RedisSortedSetService.RemoveRangeByScoreAsync
+- uid: Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByValue*
+  name: RemoveRangeByValue
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_RemoveRangeByValue_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByValue
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByValue
+  nameWithType: RedisSortedSetService.RemoveRangeByValue
+- uid: Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByValueAsync*
+  name: RemoveRangeByValueAsync
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_RemoveRangeByValueAsync_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByValueAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByValueAsync
+  nameWithType: RedisSortedSetService.RemoveRangeByValueAsync
+- uid: Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByValueAsync``1(System.String,``0,``0)
+  name: RemoveRangeByValueAsync<T>(string, T, T)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_RemoveRangeByValueAsync__1_System_String___0___0_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByValueAsync``1(System.String,``0,``0)
+  name.vb: RemoveRangeByValueAsync(Of T)(String, T, T)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByValueAsync<T>(string, T, T)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByValueAsync(Of T)(String, T, T)
+  nameWithType: RedisSortedSetService.RemoveRangeByValueAsync<T>(string, T, T)
+  nameWithType.vb: RedisSortedSetService.RemoveRangeByValueAsync(Of T)(String, T, T)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByValue``1(System.String,``0,``0)
+  name: RemoveRangeByValue<T>(string, T, T)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_RemoveRangeByValue__1_System_String___0___0_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByValue``1(System.String,``0,``0)
+  name.vb: RemoveRangeByValue(Of T)(String, T, T)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByValue<T>(string, T, T)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.RemoveRangeByValue(Of T)(String, T, T)
+  nameWithType: RedisSortedSetService.RemoveRangeByValue<T>(string, T, T)
+  nameWithType.vb: RedisSortedSetService.RemoveRangeByValue(Of T)(String, T, T)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.Remove``1(System.String,System.Collections.Generic.IEnumerable{``0})
+  name: Remove<T>(string, IEnumerable<T>)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_Remove__1_System_String_System_Collections_Generic_IEnumerable___0__
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.Remove``1(System.String,System.Collections.Generic.IEnumerable{``0})
+  name.vb: Remove(Of T)(String, IEnumerable(Of T))
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.Remove<T>(string, System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.Remove(Of T)(String, System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: RedisSortedSetService.Remove<T>(string, IEnumerable<T>)
+  nameWithType.vb: RedisSortedSetService.Remove(Of T)(String, IEnumerable(Of T))
+- uid: Func.Redis.SortedSet.RedisSortedSetService.Remove``1(System.String,``0)
+  name: Remove<T>(string, T)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_Remove__1_System_String___0_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.Remove``1(System.String,``0)
+  name.vb: Remove(Of T)(String, T)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.Remove<T>(string, T)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.Remove(Of T)(String, T)
+  nameWithType: RedisSortedSetService.Remove<T>(string, T)
+  nameWithType.vb: RedisSortedSetService.Remove(Of T)(String, T)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.Score*
+  name: Score
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_Score_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.Score
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.Score
+  nameWithType: RedisSortedSetService.Score
+- uid: Func.Redis.SortedSet.RedisSortedSetService.ScoreAsync*
+  name: ScoreAsync
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_ScoreAsync_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.ScoreAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.ScoreAsync
+  nameWithType: RedisSortedSetService.ScoreAsync
+- uid: Func.Redis.SortedSet.RedisSortedSetService.ScoreAsync``1(System.String,``0)
+  name: ScoreAsync<T>(string, T)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_ScoreAsync__1_System_String___0_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.ScoreAsync``1(System.String,``0)
+  name.vb: ScoreAsync(Of T)(String, T)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.ScoreAsync<T>(string, T)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.ScoreAsync(Of T)(String, T)
+  nameWithType: RedisSortedSetService.ScoreAsync<T>(string, T)
+  nameWithType.vb: RedisSortedSetService.ScoreAsync(Of T)(String, T)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.Score``1(System.String,``0)
+  name: Score<T>(string, T)
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_Score__1_System_String___0_
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.Score``1(System.String,``0)
+  name.vb: Score(Of T)(String, T)
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.Score<T>(string, T)
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.Score(Of T)(String, T)
+  nameWithType: RedisSortedSetService.Score<T>(string, T)
+  nameWithType.vb: RedisSortedSetService.Score(Of T)(String, T)
+- uid: Func.Redis.SortedSet.RedisSortedSetService.Union*
+  name: Union
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_Union_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.Union
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.Union
+  nameWithType: RedisSortedSetService.Union
+- uid: Func.Redis.SortedSet.RedisSortedSetService.UnionAsync*
+  name: UnionAsync
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_UnionAsync_
+  commentId: Overload:Func.Redis.SortedSet.RedisSortedSetService.UnionAsync
+  isSpec: "True"
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.UnionAsync
+  nameWithType: RedisSortedSetService.UnionAsync
+- uid: Func.Redis.SortedSet.RedisSortedSetService.UnionAsync``1(System.String[])
+  name: UnionAsync<T>(string[])
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_UnionAsync__1_System_String___
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.UnionAsync``1(System.String[])
+  name.vb: UnionAsync(Of T)(String())
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.UnionAsync<T>(string[])
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.UnionAsync(Of T)(String())
+  nameWithType: RedisSortedSetService.UnionAsync<T>(string[])
+  nameWithType.vb: RedisSortedSetService.UnionAsync(Of T)(String())
+- uid: Func.Redis.SortedSet.RedisSortedSetService.Union``1(System.String[])
+  name: Union<T>(string[])
+  href: api/Func.Redis.SortedSet.RedisSortedSetService.html#Func_Redis_SortedSet_RedisSortedSetService_Union__1_System_String___
+  commentId: M:Func.Redis.SortedSet.RedisSortedSetService.Union``1(System.String[])
+  name.vb: Union(Of T)(String())
+  fullName: Func.Redis.SortedSet.RedisSortedSetService.Union<T>(string[])
+  fullName.vb: Func.Redis.SortedSet.RedisSortedSetService.Union(Of T)(String())
+  nameWithType: RedisSortedSetService.Union<T>(string[])
+  nameWithType.vb: RedisSortedSetService.Union(Of T)(String())
+- uid: Func.Redis.Subscriber
+  name: Func.Redis.Subscriber
+  href: api/Func.Redis.Subscriber.html
+  commentId: N:Func.Redis.Subscriber
+  fullName: Func.Redis.Subscriber
+  nameWithType: Func.Redis.Subscriber
+- uid: Func.Redis.Subscriber.IRedisSubscriber
+  name: IRedisSubscriber
+  href: api/Func.Redis.Subscriber.IRedisSubscriber.html
+  commentId: T:Func.Redis.Subscriber.IRedisSubscriber
+  fullName: Func.Redis.Subscriber.IRedisSubscriber
+  nameWithType: IRedisSubscriber
+- uid: Func.Redis.Subscriber.IRedisSubscriber.GetSubscriptionHandler
+  name: GetSubscriptionHandler()
+  href: api/Func.Redis.Subscriber.IRedisSubscriber.html#Func_Redis_Subscriber_IRedisSubscriber_GetSubscriptionHandler
+  commentId: M:Func.Redis.Subscriber.IRedisSubscriber.GetSubscriptionHandler
+  fullName: Func.Redis.Subscriber.IRedisSubscriber.GetSubscriptionHandler()
+  nameWithType: IRedisSubscriber.GetSubscriptionHandler()
+- uid: Func.Redis.Subscriber.IRedisSubscriber.GetSubscriptionHandler*
+  name: GetSubscriptionHandler
+  href: api/Func.Redis.Subscriber.IRedisSubscriber.html#Func_Redis_Subscriber_IRedisSubscriber_GetSubscriptionHandler_
+  commentId: Overload:Func.Redis.Subscriber.IRedisSubscriber.GetSubscriptionHandler
+  isSpec: "True"
+  fullName: Func.Redis.Subscriber.IRedisSubscriber.GetSubscriptionHandler
+  nameWithType: IRedisSubscriber.GetSubscriptionHandler

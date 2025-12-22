@@ -11,7 +11,7 @@ public partial class RedisKeyServiceTests
             .Returns((RedisValue)"serialized");
 
         _mockDb
-            .StringSetAsync("key", "serialized", null, false, When.Always, CommandFlags.None)
+            .StringSetAsync("key", "serialized")
             .Returns(true);
 
         var result = await _sut.SetAsync("key", data);
@@ -38,7 +38,7 @@ public partial class RedisKeyServiceTests
         };
 
         _mockDb
-            .StringSetAsync(Arg.Is<KeyValuePair<RedisKey, RedisValue>[]>(a => a.SequenceEqual(pairs)), When.Always, CommandFlags.None)
+            .StringSetAsync(Arg.Is<KeyValuePair<RedisKey, RedisValue>[]>(a => a.SequenceEqual(pairs)))
             .Returns(true);
 
         var result = await _sut.SetAsync(("key1", data1), ("key2", data2));
@@ -93,7 +93,7 @@ public partial class RedisKeyServiceTests
             .Returns((RedisValue)"serialized");
 
         _mockDb
-            .StringSetAsync("key", "serialized", null, false, When.Always, CommandFlags.None)
+            .StringSetAsync("key", "serialized")
             .Returns<bool>(_ => throw exception);
 
         var result = await _sut.SetAsync("key", data);
@@ -120,7 +120,7 @@ public partial class RedisKeyServiceTests
             {
             new KeyValuePair<RedisKey, RedisValue>((RedisKey)"key1", (RedisValue)@"serialized 1"),
             new KeyValuePair<RedisKey, RedisValue>((RedisKey)"key2", (RedisValue)@"serialized 2")
-            })), When.Always, CommandFlags.None)
+            })))
             .Returns(Task.FromException<bool>(exception));
 
         var result = await _sut.SetAsync(("key1", data1), ("key2", data2));

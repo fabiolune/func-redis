@@ -11,7 +11,7 @@ public partial class RedisKeyServiceTests
             .Returns((RedisValue)"serialized");
 
         _mockDb
-            .StringSet("key", "serialized", null, false, When.Always, CommandFlags.None)
+            .StringSet("key", "serialized")
             .Returns(true);
 
         var result = _sut.Set("key", data);
@@ -37,7 +37,7 @@ public partial class RedisKeyServiceTests
             new((RedisKey)"key2", (RedisValue)"serialized 2")
             };
         _mockDb
-            .StringSet(Arg.Is<KeyValuePair<RedisKey, RedisValue>[]>(v => v.SequenceEqual(values)), When.Always, CommandFlags.None)
+            .StringSet(Arg.Is<KeyValuePair<RedisKey, RedisValue>[]>(v => v.SequenceEqual(values)))
             .Returns(true);
 
         var result = _sut.Set(("key1", data1), ("key2", data2));
@@ -89,7 +89,7 @@ public partial class RedisKeyServiceTests
             .Returns((RedisValue)"serialized");
 
         _mockDb
-            .StringSet("key", "serialized", null, false, When.Always, CommandFlags.None)
+            .StringSet("key", "serialized")
             .Returns(_ => throw exception);
 
         var result = _sut.Set("key", data);
@@ -117,7 +117,7 @@ public partial class RedisKeyServiceTests
             new((RedisKey)"key2", (RedisValue)"serialized 2")
             };
         _mockDb
-            .StringSet(Arg.Is<KeyValuePair<RedisKey, RedisValue>[]>(v => v.SequenceEqual(values)), When.Always, CommandFlags.None)
+            .StringSet(Arg.Is<KeyValuePair<RedisKey, RedisValue>[]>(v => v.SequenceEqual(values)))
             .Returns(_ => throw exception);
 
         var result = _sut.Set(("key1", data1), ("key2", data2));

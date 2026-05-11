@@ -21,7 +21,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.5" />
     <PackageReference Include="SpanJson" Version="4.2.1" />
     <PackageReference Include="StackExchange.Redis" Version="2.12.14" />
-    <PackageReference Include="System.Interactive.Async" Version="7.0.0" />
+    <PackageReference Include="System.Interactive.Async" Version="7.0.1" />
     <PackageReference Include="tiny-fp" Version="2.1.1" />
   </ItemGroup>
 
